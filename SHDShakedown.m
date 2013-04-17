@@ -10,6 +10,7 @@
 #import "SHDConstants.h"
 #import "UIWindow+SHDShakeListener.h"
 #import "SHDReporterViewController.h"
+#import "SHDBugReport.h"
 
 @interface SHDShakedown ()
 
@@ -66,6 +67,11 @@
 #pragma mark - Reporting
 
 - (void)_showReporter {
+    SHDBugReport *newBug = [[SHDBugReport alloc] init];
+    SHDReporterViewController *viewController = [[SHDReporterViewController alloc] init];
+    UIViewController *root = [[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController];
+    [root presentViewController:viewController animated:YES completion:nil];
+    NSLog(@"%@ %@", newBug, viewController);
 }
 
 
