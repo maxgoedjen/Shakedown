@@ -19,7 +19,7 @@
         _textView = [[UITextView alloc] initWithFrame:rect];
         _textView.backgroundColor = [UIColor clearColor];
         _textView.font = [UIFont systemFontOfSize:15];
-        _textView.contentInset = UIEdgeInsetsMake(10, 0, 7, 0);
+        _textView.contentInset = UIEdgeInsetsMake(8, 0, 0, 0);
         [self addSubview:_textView];
     }
     return self;
