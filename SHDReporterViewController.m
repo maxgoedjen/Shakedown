@@ -16,7 +16,7 @@
 @implementation SHDReporterViewController
 
 - (void)loadView {
-    self.view = [[SHDReporterView alloc] initWithFrame:CGRectZero];
+    self.view = [[SHDReporterView alloc] initWithFrame:[UIScreen mainScreen].bounds];
 }
 
 - (void)viewDidLoad
