@@ -14,7 +14,7 @@
 @property (nonatomic) NSString *generalDescription;
 @property (nonatomic) NSArray *steps;
 @property (nonatomic) NSString *reproducability;
-@property (nonatomic) NSArray *screenshots;
+@property (nonatomic) NSMutableArray *screenshots;
 @property (nonatomic, readonly) UIDevice *device;
 
 @end

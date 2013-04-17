@@ -7,6 +7,11 @@
 //
 
 #import "SHDTextFieldCell.h"
+#import "SHDConstants.h"
+
+@interface SHDTextFieldCell () <UITextFieldDelegate>
+
+@end
 
 @implementation SHDTextFieldCell
 
@@ -17,6 +22,8 @@
         _textField = [[UITextField alloc] initWithFrame:CGRectInset(self.bounds, 18, 16)];
         _textField.backgroundColor = [UIColor clearColor];
         _textField.font = [UIFont systemFontOfSize:15];
+        _textField.textColor = kSHDTextNormalColor;
+        _textField.delegate = self;
         [self addSubview:_textField];
     }
     return self;

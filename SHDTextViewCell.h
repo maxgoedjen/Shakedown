@@ -10,6 +10,7 @@
 
 @interface SHDTextViewCell : UIView
 
+@property (nonatomic) NSString *placeholder;
 @property (nonatomic) UITextView *textView;
 
 @end

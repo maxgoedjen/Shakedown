@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SHDScreenshotsCell;
+
 @interface SHDReporterView : UIView
+
+@property (nonatomic) SHDScreenshotsCell *screenshotsCell;
 
 @end

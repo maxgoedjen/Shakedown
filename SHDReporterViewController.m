@@ -8,27 +8,31 @@
 
 #import "SHDReporterViewController.h"
 #import "SHDReporterView.h"
+#import "SHDScreenshotsCell.h"
+#import "SHDBugReport.h"
 
 @interface SHDReporterViewController ()
+
+@property (nonatomic) SHDBugReport *bugReport;
 
 @end
 
 @implementation SHDReporterViewController
 
+- (id)initWithBugReport:(SHDBugReport *)bugReport {
+    self = [super init];
+    if (self) {
+        _bugReport = bugReport;
+    }
+    return self;
+}
+
 - (void)loadView {
     self.view = [[SHDReporterView alloc] initWithFrame:[UIScreen mainScreen].bounds];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+- (void)viewDidAppear:(BOOL)animated {
+    SHDReporterView *view = (SHDReporterView *)self.view;
+    view.screenshotsCell.screenshots = self.bugReport.screenshots;
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end

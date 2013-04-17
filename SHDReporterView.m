@@ -7,9 +7,11 @@
 //
 
 #import "SHDReporterView.h"
+#import "SHDBugReport.h"
 #import "SHDConstants.h"
 #import "SHDTextViewCell.h"
 #import "SHDTextFieldCell.h"
+#import "SHDScreenshotsCell.h"
 
 @implementation SHDReporterView
 
@@ -29,14 +31,25 @@
     
     SHDTextFieldCell *titleCell = [[SHDTextFieldCell alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
     [self addSubview:titleCell];
-    titleCell.textField.placeholder = @"General description";
-    
+    titleCell.textField.placeholder = @"This bug is titled...";    
     offset += titleCell.frame.size.height;
 
-    SHDTextViewCell *descriptionCell = [[SHDTextViewCell alloc] initWithFrame:CGRectMake(0, offset, width, 50)];
+    SHDTextViewCell *descriptionCell = [[SHDTextViewCell alloc] initWithFrame:CGRectMake(0, offset, width, 120)];
     [self addSubview:descriptionCell];
-    descriptionCell.textView.text = @"General description";
+    descriptionCell.placeholder = @"I was doing this and then something happened...";
     descriptionCell.backgroundColor = kSHDBackgroundAlternateColor;
+    offset += descriptionCell.frame.size.height;
+    
+    SHDTextFieldCell *reproducabilityCell = [[SHDTextFieldCell alloc] initWithFrame:CGRectMake(0, offset, width, 50)];
+    [self addSubview:reproducabilityCell];
+    reproducabilityCell.textField.placeholder = @"This happens every time";
+    offset += reproducabilityCell.frame.size.height;
+
+    self.screenshotsCell = [[SHDScreenshotsCell alloc] initWithFrame:CGRectMake(0, offset, width, 100)];
+    [self addSubview:self.screenshotsCell];
+    self.screenshotsCell.backgroundColor = kSHDBackgroundAlternateColor;
+    offset += self.screenshotsCell.frame.size.height;
+
 }
 
 @end

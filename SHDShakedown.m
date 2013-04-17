@@ -68,7 +68,7 @@
 
 - (void)_showReporter {
     SHDBugReport *newBug = [[SHDBugReport alloc] init];
-    SHDReporterViewController *viewController = [[SHDReporterViewController alloc] init];
+    SHDReporterViewController *viewController = [[SHDReporterViewController alloc] initWithBugReport:newBug];
     UIViewController *root = [[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController];
     [root presentViewController:viewController animated:YES completion:nil];
     NSLog(@"%@ %@", newBug, viewController);

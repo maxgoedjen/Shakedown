@@ -11,8 +11,6 @@
 
 @interface SHDBugReport ()
 
-@property (nonatomic) NSMutableArray *internalScreenshots;
-
 @end
 
 @implementation SHDBugReport
@@ -21,16 +19,12 @@
     self = [super init];
     if (self) {
         _device = [UIDevice currentDevice];
-        _internalScreenshots = [NSMutableArray arrayWithObject:[self _screenshot]];
+        _screenshots = [NSMutableArray arrayWithObject:[self _screenshot]];
     }
     return self;
 }
 
 #pragma mark - Screenshots
-
-- (NSArray *)screenshots {
-    return [NSArray arrayWithArray:self.internalScreenshots];
-}
 
 - (UIImage *)_screenshot {
     UIWindow *window = [[[UIApplication sharedApplication] windows] objectAtIndex:0];

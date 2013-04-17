@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SHDBugReport;
+
 @interface SHDReporterViewController : UIViewController
+
+- (id)initWithBugReport:(SHDBugReport *)bugReport;
 
 @end
