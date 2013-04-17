@@ -9,8 +9,11 @@
 #import "SHDShakedown.h"
 #import "SHDConstants.h"
 #import "UIWindow+SHDShakeListener.h"
+#import "SHDReporterViewController.h"
 
 @interface SHDShakedown ()
+
+@property (nonatomic, strong) UIButton *reportButton;
 
 @end
 
@@ -20,6 +23,7 @@
     self = [super init];
     if (self) {
         [self resumeListeningForShakes];
+        [self displayButton];
     }
     return self;
 }
@@ -48,26 +52,20 @@
 #pragma mark - Status Bar Button
 
 - (void)displayButton {
-    
 }
 
 - (void)hideButton {
-    
 }
 
 #pragma mark - Programmatic Reporting
 
 - (void)displayReporter {
-    
+    [self _showReporter];
 }
 
 #pragma mark - Reporting
 
 - (void)_showReporter {
-}
-
-- (UIImage *)_screenshot {
-    return nil;
 }
 
 
