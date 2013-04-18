@@ -15,7 +15,15 @@
 
 @end
 
+@protocol SHDMultipleSelectorDelegate <NSObject>
+
+- (void)selectedItemAtIndex:(NSInteger)index;
+
+@end
+
 @interface SHDMultipleSelectionOptionsView : UIView
+
+@property (nonatomic, weak) id <SHDMultipleSelectorDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame sourceButton:(UIButton *)sourceButton options:(NSArray *)options;
 

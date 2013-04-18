@@ -11,7 +11,7 @@
 #import "SHDButton.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface SHDMultipleSelectionCell ()
+@interface SHDMultipleSelectionCell () <SHDMultipleSelectorDelegate>
 
 @property (nonatomic) UILabel *label;
 @property (nonatomic) SHDButton *displayButton;
@@ -58,7 +58,13 @@
 - (void)_showOptions {
     UIView *superView = self.superview;
     SHDMultipleSelectionOptionsView *view = [[SHDMultipleSelectionOptionsView alloc] initWithFrame:superView.bounds sourceButton:self.displayButton options:self.options];
+    view.delegate = self;
     [superView addSubview:view];
+}
+
+- (void)selectedItemAtIndex:(NSInteger)index {
+    [self.displayButton setTitle:[self.options objectAtIndex:index] forState:UIControlStateNormal];
+    [self.displayButton sizeToFit];
 }
 
 @end
@@ -66,56 +72,34 @@
 @interface SHDMultipleSelectionOptionsView ()
 
 @property (nonatomic) UIButton *sourceButton;
+@property (nonatomic) CGRect sourceFrame;
 @property (nonatomic) NSArray *options;
+@property (nonatomic) NSArray *optionButtons;
 
 @end
 
 @implementation SHDMultipleSelectionOptionsView
 
-typedef CGFloat (^EasingFunction)(CGFloat, CGFloat, CGFloat, CGFloat);
-
-static EasingFunction easeOutElastic = ^CGFloat(CGFloat t, CGFloat b, CGFloat c, CGFloat d) {
-    CGFloat amplitude = 5;
-    CGFloat period = 0.3;
-    CGFloat s = 0;
-    if (t == 0) {
-        return b;
-    }
-    else if ((t /= d) == 1) {
-        return b + c;
-    }
-    
-    if (!period) {
-        period = d * .3;
-    }
-    
-    if (amplitude < abs(c)) {
-        amplitude = c;
-        s = period / 4;
-    }
-    else {
-        s = period / (2 * M_PI) * sin(c / amplitude);
-    }
-    
-    return (amplitude * pow(2, -10 * t) * sin((t * d - s) * (2 * M_PI) / period) + c + b);
-};
 
 - (id)initWithFrame:(CGRect)frame sourceButton:(UIButton *)sourceButton options:(NSArray *)options {
     self = [super initWithFrame:frame];
     if (self) {
         _sourceButton = sourceButton;
         _options = options;
+        self.userInteractionEnabled = YES;
     }
     return self;
 }
 
 - (void)didMoveToSuperview {
     self.alpha = 0;
-    self.backgroundColor = [UIColor colorWithWhite:0 alpha:.5];
+    self.backgroundColor = [UIColor colorWithWhite:0 alpha:.85];
     
-    CGRect sourceFrame = [self convertRect:self.sourceButton.frame fromView:self.sourceButton.superview];
+    self.sourceFrame = [self convertRect:self.sourceButton.frame fromView:self.sourceButton.superview];
     
     __block CGFloat runningOffset = 20;
+    
+    NSMutableArray *optionButtons = [NSMutableArray array];
     
     [UIView animateWithDuration:.5 animations:^{
         self.alpha = 1.0;
@@ -124,12 +108,15 @@ static EasingFunction easeOutElastic = ^CGFloat(CGFloat t, CGFloat b, CGFloat c,
         for (NSString *option in self.options) {
             
             SHDButton *outline = [SHDButton buttonWithSHDType:SHDButtonTypeOutline];
-            outline.frame = sourceFrame;
+            outline.tag = count;
+            [outline addTarget:self action:@selector(selectedButton:) forControlEvents:UIControlEventTouchUpInside];
+            outline.frame = self.sourceFrame;
             [self addSubview:outline];
+            [optionButtons addObject:outline];
             [outline setTitle:option forState:UIControlStateNormal];
             [outline sizeToFit];
             CGRect centered = outline.frame;
-            centered.origin.x -= (centered.size.width - sourceFrame.size.width) / 2;
+            centered.origin.x -= (centered.size.width - self.sourceFrame.size.width) / 2;
             outline.frame = centered;
             
             __block CGRect dest = outline.frame;
@@ -167,6 +154,23 @@ static EasingFunction easeOutElastic = ^CGFloat(CGFloat t, CGFloat b, CGFloat c,
         }
         
     }];
+    self.optionButtons = optionButtons;
+}
+
+- (void)selectedButton:(UIButton *)sender {
+    [UIView animateWithDuration:.2 animations:^{
+        for (UIButton *button in self.optionButtons) {
+            button.frame = self.sourceFrame;
+            button.alpha = 0.0;
+        }
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:.5 animations:^{
+            self.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            [self removeFromSuperview];
+        }];
+    }];
+    [self.delegate selectedItemAtIndex:sender.tag];
 }
 
 @end
