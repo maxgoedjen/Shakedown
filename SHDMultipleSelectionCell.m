@@ -49,6 +49,10 @@
     [self.displayButton sizeToFit];
 }
 
+- (NSString *)text {
+    return self.displayButton.titleLabel.text;
+}
+
 - (void)setOptions:(NSArray *)options {
     _options = options;
     [self.displayButton setTitle:[self.options objectAtIndex:0] forState:UIControlStateNormal];

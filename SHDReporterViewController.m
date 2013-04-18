@@ -12,6 +12,10 @@
 #import "SHDBugReport.h"
 #import "SHDConstants.h"
 #import "SHDButton.h"
+#import "SHDTextViewCell.h"
+#import "SHDTextFieldCell.h"
+#import "SHDMultipleSelectionCell.h"
+#import "SHDScreenshotsCell.h"
 
 @interface SHDReporterViewController ()
 
@@ -66,6 +70,10 @@
 }
 
 - (void)_save:(id)sender {
+    SHDReporterView *view = (SHDReporterView *)self.view;
+    self.bugReport.title = view.titleCell.textField.text;
+    self.bugReport.generalDescription = view.descriptionCell.textView.text;
+    self.bugReport.reproducability = view.reproducabilityCell.text;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
