@@ -25,8 +25,7 @@
     }
     [self.composer setMessageBody:[NSString stringWithFormat:@"%@\nHappens %@\n%@\n%@", bugReport.generalDescription, bugReport.reproducability, bugReport.deviceDictionary, bugReport.userInformation] isHTML:NO];
     self.composer.mailComposeDelegate = self;
-    UIViewController *root = [[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController];
-    [root.presentedViewController presentViewController:self.composer animated:YES completion:nil];
+    [self.topViewController presentViewController:self.composer animated:YES completion:nil];
 }
 
 #pragma mark - Mail Delegate

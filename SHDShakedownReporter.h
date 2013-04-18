@@ -18,8 +18,9 @@
 
 @interface SHDShakedownReporter : NSObject
 
-- (void)reportBug:(SHDBugReport *)bugReport;
-
 @property (nonatomic, weak) id <SHDShakedownReporterDelegate> delegate;
+@property (nonatomic, readonly) UIViewController *topViewController;
+
+- (void)reportBug:(SHDBugReport *)bugReport;
 
 @end

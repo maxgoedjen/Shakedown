@@ -14,4 +14,13 @@
     
 }
 
+- (UIViewController *)topViewController {
+    UIViewController *root = [[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController];
+    UIViewController *presented = root;
+    while (presented.presentedViewController) {
+        presented = presented.presentedViewController;
+    }
+    return presented;
+}
+
 @end

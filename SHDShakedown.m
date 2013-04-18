@@ -78,9 +78,13 @@
     newBug.userInformation = @{@"Username" : @"Test"};
     SHDReporterViewController *viewController = [[SHDReporterViewController alloc] initWithNibName:nil bundle:nil bugReport:newBug];
     UIViewController *root = [[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController];
+    UIViewController *presented = root;
+    while (presented.presentedViewController) {
+        presented = presented.presentedViewController;
+    }
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    [root presentViewController:navController animated:YES completion:nil];
+    [presented presentViewController:navController animated:YES completion:nil];
 }
 
 
