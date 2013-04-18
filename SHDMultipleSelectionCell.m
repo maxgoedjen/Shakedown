@@ -35,7 +35,7 @@
     self.label.textColor = kSHDTextNormalColor;
     self.label.backgroundColor = [UIColor clearColor];
     [self addSubview:self.label];
-    self.displayButton = [SHDButton buttonWithSHDType:SHDButtonTypeSolid];
+    self.displayButton = [SHDButton buttonWithSHDType:SHDButtonTypeOutline];
     self.displayButton.frame = CGRectZero;
     [self.displayButton addTarget:self action:@selector(_showOptions) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.displayButton];
@@ -165,13 +165,13 @@
             button.alpha = 0.0;
         }
     } completion:^(BOOL finished) {
+        [self.delegate selectedItemAtIndex:sender.tag];
         [UIView animateWithDuration:.5 animations:^{
             self.alpha = 0.0;
         } completion:^(BOOL finished) {
             [self removeFromSuperview];
         }];
     }];
-    [self.delegate selectedItemAtIndex:sender.tag];
 }
 
 @end
