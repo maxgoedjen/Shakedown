@@ -68,7 +68,7 @@
 
 - (void)_showReporter {
     SHDBugReport *newBug = [[SHDBugReport alloc] init];
-    SHDReporterViewController *viewController = [[SHDReporterViewController alloc] initWithBugReport:newBug];
+    SHDReporterViewController *viewController = [[SHDReporterViewController alloc] initWithNibName:nil bundle:nil bugReport:newBug];
     UIViewController *root = [[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];

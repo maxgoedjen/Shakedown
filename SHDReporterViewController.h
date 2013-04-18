@@ -12,6 +12,6 @@
 
 @interface SHDReporterViewController : UIViewController
 
-- (id)initWithBugReport:(SHDBugReport *)bugReport;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bugReport:(SHDBugReport *)bugReport;
 
 @end

@@ -21,8 +21,8 @@
 
 @implementation SHDReporterViewController
 
-- (id)initWithBugReport:(SHDBugReport *)bugReport {
-    self = [super init];
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil bugReport:(SHDBugReport *)bugReport {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _bugReport = bugReport;
     }

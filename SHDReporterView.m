@@ -37,7 +37,7 @@
 
     SHDTextViewCell *descriptionCell = [[SHDTextViewCell alloc] initWithFrame:CGRectMake(0, offset, width, 120)];
     [self addSubview:descriptionCell];
-    descriptionCell.placeholder = @"I was doing this and then something happened...";
+    descriptionCell.placeholder = @"I was doing this and then this happened...";
     descriptionCell.backgroundColor = kSHDBackgroundAlternateColor;
     offset += descriptionCell.frame.size.height;
     
