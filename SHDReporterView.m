@@ -11,6 +11,7 @@
 #import "SHDConstants.h"
 #import "SHDTextViewCell.h"
 #import "SHDTextFieldCell.h"
+#import "SHDMultipleSelectionCell.h"
 #import "SHDScreenshotsCell.h"
 
 @implementation SHDReporterView
@@ -40,9 +41,10 @@
     descriptionCell.backgroundColor = kSHDBackgroundAlternateColor;
     offset += descriptionCell.frame.size.height;
     
-    SHDTextFieldCell *reproducabilityCell = [[SHDTextFieldCell alloc] initWithFrame:CGRectMake(0, offset, width, 50)];
+    SHDMultipleSelectionCell *reproducabilityCell = [[SHDMultipleSelectionCell alloc] initWithFrame:CGRectMake(0, offset, width, 50)];
     [self addSubview:reproducabilityCell];
-    reproducabilityCell.textField.placeholder = @"This happens every time";
+    reproducabilityCell.text = @"This happens";
+    reproducabilityCell.options = @[@"every time", @"sometimes", @"infrequently"];
     offset += reproducabilityCell.frame.size.height;
 
     self.screenshotsCell = [[SHDScreenshotsCell alloc] initWithFrame:CGRectMake(0, offset, width, 100)];
