@@ -14,13 +14,11 @@
 @implementation SHDShakedown (Private)
 
 - (void)submitReport:(SHDBugReport *)bugReport {
-    if (self.reporter) {
-        [self.reporter reportBug:bugReport];
-    } else {
-        SHDShakedownEmailReporter *emailReporter = [[SHDShakedownEmailReporter alloc] init];
+    if (self.reporter == nil) {
+        self.reporter = [[SHDShakedownEmailReporter alloc] init];
         NSLog(@"SHAKEDOWN WARNING: NO REPORTER SPECIFIED, FALLING BACK TO EMAIL");
-        [emailReporter reportBug:bugReport];
     }
+    [self.reporter reportBug:bugReport];
 }
 
 @end
