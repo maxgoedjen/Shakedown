@@ -16,10 +16,10 @@
 
 @interface SHDReporterView : UIView
 
-@property (nonatomic) SHDTextFieldCell *titleCell;
-@property (nonatomic) SHDTextViewCell *descriptionCell;
-@property (nonatomic) SHDMultipleSelectionCell *reproducabilityCell;
-@property (nonatomic) SHDScreenshotsCell *screenshotsCell;
-@property (nonatomic) SHDDescriptiveInfoCell *deviceInfoCell;
+@property (nonatomic, strong) SHDTextFieldCell *titleCell;
+@property (nonatomic, strong) SHDTextViewCell *descriptionCell;
+@property (nonatomic, strong) SHDMultipleSelectionCell *reproducabilityCell;
+@property (nonatomic, strong) SHDScreenshotsCell *screenshotsCell;
+@property (nonatomic, strong) SHDDescriptiveInfoCell *deviceInfoCell;
 
 @end

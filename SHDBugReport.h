@@ -10,11 +10,11 @@
 
 @interface SHDBugReport : NSObject
 
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *generalDescription;
-@property (nonatomic) NSString *reproducability;
-@property (nonatomic) NSMutableArray *screenshots;
-@property (nonatomic) NSDictionary *userInformation;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *generalDescription;
+@property (nonatomic, strong) NSString *reproducability;
+@property (nonatomic, strong) NSMutableArray *screenshots;
+@property (nonatomic, strong) NSDictionary *userInformation;
 @property (nonatomic, readonly) NSDictionary *deviceDictionary;
 
 @end

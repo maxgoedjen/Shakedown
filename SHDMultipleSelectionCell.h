@@ -10,8 +10,8 @@
 
 @interface SHDMultipleSelectionCell : UIView
 
-@property (nonatomic) NSString *text;
-@property (nonatomic) NSArray *options;
+@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSArray *options;
 
 @end
 

@@ -11,7 +11,7 @@
 
 @interface SHDShakedownEmailReporter () <MFMailComposeViewControllerDelegate>
 
-@property (nonatomic) MFMailComposeViewController *composer;
+@property (nonatomic, strong) MFMailComposeViewController *composer;
 
 @end
 

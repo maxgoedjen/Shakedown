@@ -10,7 +10,7 @@
 
 @interface SHDScreenshotsCell : UIView
 
-@property (nonatomic) NSArray *screenshots;
-@property (nonatomic) UIScrollView *scrollView;
+@property (nonatomic, strong) NSArray *screenshots;
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end

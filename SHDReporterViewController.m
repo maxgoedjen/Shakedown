@@ -23,7 +23,7 @@
 
 @interface SHDReporterViewController () <SHDShakedownReporterDelegate>
 
-@property (nonatomic) SHDBugReport *bugReport;
+@property (nonatomic, strong) SHDBugReport *bugReport;
 
 @end
 

@@ -12,7 +12,7 @@
 
 @interface SHDShakedown : NSObject
 
-@property (nonatomic) SHDShakedownReporter *reporter;
+@property (nonatomic, strong) SHDShakedownReporter *reporter;
 
 + (SHDShakedown *)sharedShakedown;
 

@@ -11,8 +11,8 @@
 
 @interface SHDDescriptiveInfoCellTableViewCell : UITableViewCell
 
-@property (nonatomic) UILabel *keyLabel;
-@property (nonatomic) UILabel *valueLabel;
+@property (nonatomic, strong) UILabel *keyLabel;
+@property (nonatomic, strong) UILabel *valueLabel;
 
 @end
 
@@ -45,7 +45,7 @@
 
 @interface SHDDescriptiveInfoCell () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic) UITableView *tableView;
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 

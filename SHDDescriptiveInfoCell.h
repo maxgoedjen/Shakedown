@@ -10,6 +10,6 @@
 
 @interface SHDDescriptiveInfoCell : UIView
 
-@property (nonatomic) NSDictionary *dictionary;
+@property (nonatomic, strong) NSDictionary *dictionary;
 
 @end

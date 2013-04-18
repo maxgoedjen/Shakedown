@@ -10,6 +10,6 @@
 
 @interface SHDShakedownEmailReporter : SHDShakedownReporter
 
-@property (nonatomic) NSString *recipient;
+@property (nonatomic, strong) NSString *recipient;
 
 @end

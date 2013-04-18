@@ -10,6 +10,6 @@
 
 @interface SHDTextFieldCell : UIView
 
-@property (nonatomic) UITextField *textField;
+@property (nonatomic, strong) UITextField *textField;
 
 @end

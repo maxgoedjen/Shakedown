@@ -11,7 +11,7 @@
 
 @interface SHDBugReport ()
 
-@property (nonatomic) UIDevice *device;
+@property (nonatomic, strong) UIDevice *device;
 
 @end
 

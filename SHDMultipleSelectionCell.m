@@ -13,8 +13,8 @@
 
 @interface SHDMultipleSelectionCell () <SHDMultipleSelectorDelegate>
 
-@property (nonatomic) UILabel *label;
-@property (nonatomic) SHDButton *displayButton;
+@property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) SHDButton *displayButton;
 
 @end
 
@@ -76,10 +76,10 @@
 
 @interface SHDMultipleSelectionOptionsView ()
 
-@property (nonatomic) UIButton *sourceButton;
+@property (nonatomic, strong) UIButton *sourceButton;
 @property (nonatomic) CGRect sourceFrame;
-@property (nonatomic) NSArray *options;
-@property (nonatomic) NSArray *optionButtons;
+@property (nonatomic, strong) NSArray *options;
+@property (nonatomic, strong) NSArray *optionButtons;
 
 @end
 

@@ -10,7 +10,7 @@
 
 @interface SHDScreenshotsCell ()
 
-@property (nonatomic) NSArray *screenshotViews;
+@property (nonatomic, strong) NSArray *screenshotViews;
 
 @end
 
