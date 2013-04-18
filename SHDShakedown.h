@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class SHDShakedownReporter;
+
 @interface SHDShakedown : NSObject
+
+@property (nonatomic) SHDShakedownReporter *reporter;
 
 + (SHDShakedown *)sharedShakedown;
 

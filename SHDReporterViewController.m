@@ -17,8 +17,11 @@
 #import "SHDMultipleSelectionCell.h"
 #import "SHDScreenshotsCell.h"
 #import "SHDDescriptiveInfoCell.h"
+#import "SHDShakedown.h"
+#import "SHDShakedownReporter.h"
+#import "SHDShakedown+Private.h"
 
-@interface SHDReporterViewController ()
+@interface SHDReporterViewController () <SHDShakedownReporterDelegate>
 
 @property (nonatomic) SHDBugReport *bugReport;
 
@@ -80,11 +83,23 @@
 }
 
 - (void)_save:(id)sender {
+    [[[SHDShakedown sharedShakedown] reporter] setDelegate:self];
     SHDReporterView *view = (SHDReporterView *)self.view;
     self.bugReport.title = view.titleCell.textField.text;
     self.bugReport.generalDescription = view.descriptionCell.textView.text;
     self.bugReport.reproducability = view.reproducabilityCell.text;
+    [[SHDShakedown sharedShakedown] submitReport:self.bugReport];
+}
+
+#pragma mark - Reporter Delegate
+
+- (void)failedToUploadBug {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)uploadedBugSuccessfullyWithLink:(NSURL *)url {
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 @end
