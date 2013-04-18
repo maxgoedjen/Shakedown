@@ -74,18 +74,13 @@
 #pragma mark - Reporting
 
 - (void)_showReporter {
-    
-    UIWindow *alertWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    alertWindow.windowLevel = UIWindowLevelStatusBar;
-    alertWindow.rootViewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-    [alertWindow makeKeyAndVisible];
-    
     SHDBugReport *newBug = [[SHDBugReport alloc] init];
     newBug.userInformation = @{@"Username" : @"Test"};
     SHDReporterViewController *viewController = [[SHDReporterViewController alloc] initWithNibName:nil bundle:nil bugReport:newBug];
+    UIViewController *root = [[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    [alertWindow.rootViewController presentViewController:navController animated:YES completion:nil];
+    [root presentViewController:navController animated:YES completion:nil];
 }
 
 
