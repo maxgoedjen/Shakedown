@@ -12,6 +12,7 @@
 @class SHDTextViewCell;
 @class SHDMultipleSelectionCell;
 @class SHDScreenshotsCell;
+@class SHDDescriptiveInfoCell;
 
 @interface SHDReporterView : UIView
 
@@ -19,5 +20,6 @@
 @property (nonatomic) SHDTextViewCell *descriptionCell;
 @property (nonatomic) SHDMultipleSelectionCell *reproducabilityCell;
 @property (nonatomic) SHDScreenshotsCell *screenshotsCell;
+@property (nonatomic) SHDDescriptiveInfoCell *deviceInfoCell;
 
 @end

@@ -38,6 +38,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
     SHDButton *cancel = [SHDButton buttonWithSHDType:SHDButtonTypeTextOnly];
     [cancel setTitle:@"CANCEL" forState:UIControlStateNormal];
@@ -60,6 +61,11 @@
                                                                     UITextAttributeTextShadowColor: [UIColor clearColor]
                                                                     };
     SHDReporterView *view = (SHDReporterView *)self.view;
+    
+    view.titleCell.textField.placeholder = @"This bug is titled...";
+    view.descriptionCell.placeholder = @"I was doing this and then this happened...";
+    view.reproducabilityCell.text = @"This happens";
+    view.reproducabilityCell.options = @[@"every time", @"sometimes", @"infrequently"];
     view.screenshotsCell.screenshots = self.bugReport.screenshots;
 }
 

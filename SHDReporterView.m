@@ -13,6 +13,7 @@
 #import "SHDTextFieldCell.h"
 #import "SHDMultipleSelectionCell.h"
 #import "SHDScreenshotsCell.h"
+#import "SHDDescriptiveInfoCell.h"
 
 @implementation SHDReporterView
 
@@ -33,25 +34,24 @@
     
     self.titleCell = [[SHDTextFieldCell alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
     [self addSubview:self.titleCell];
-    self.titleCell.textField.placeholder = @"This bug is titled...";    
     offset += self.titleCell.frame.size.height;
     
     self.descriptionCell = [[SHDTextViewCell alloc] initWithFrame:CGRectMake(0, offset, width, 120)];
     [self addSubview:self.descriptionCell];
-    self.descriptionCell.placeholder = @"I was doing this and then this happened...";
     self.descriptionCell.backgroundColor = kSHDBackgroundAlternateColor;
     offset += self.descriptionCell.frame.size.height;
     
     self.reproducabilityCell = [[SHDMultipleSelectionCell alloc] initWithFrame:CGRectMake(0, offset, width, 50)];
     [self addSubview:self.reproducabilityCell];
-    self.reproducabilityCell.text = @"This happens";
-    self.reproducabilityCell.options = @[@"every time", @"sometimes", @"infrequently"];
     offset += self.reproducabilityCell.frame.size.height;
 
     self.screenshotsCell = [[SHDScreenshotsCell alloc] initWithFrame:CGRectMake(0, offset, width, 100)];
     [self addSubview:self.screenshotsCell];
     self.screenshotsCell.backgroundColor = kSHDBackgroundAlternateColor;
     offset += self.screenshotsCell.frame.size.height;
+    
+    self.deviceInfoCell = [[SHDDescriptiveInfoCell alloc] initWithFrame:CGRectMake(0, offset, width, 100)];
+    [self addSubview:self.deviceInfoCell];
 
 }
 
