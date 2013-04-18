@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class SHDTextFieldCell;
+@class SHDTextViewCell;
+@class SHDMultipleSelectionCell;
 @class SHDScreenshotsCell;
 
 @interface SHDReporterView : UIView
 
+@property (nonatomic) SHDTextFieldCell *titleCell;
+@property (nonatomic) SHDTextViewCell *descriptionCell;
+@property (nonatomic) SHDMultipleSelectionCell *reproducabilityCell;
 @property (nonatomic) SHDScreenshotsCell *screenshotsCell;
 
 @end

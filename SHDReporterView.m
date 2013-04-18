@@ -26,26 +26,27 @@
 }
 
 - (void)_setup {
+    
     self.backgroundColor = kSHDBackgroundColor;
     CGFloat width = self.frame.size.width;
     CGFloat offset = 0;
     
-    SHDTextFieldCell *titleCell = [[SHDTextFieldCell alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
-    [self addSubview:titleCell];
-    titleCell.textField.placeholder = @"This bug is titled...";    
-    offset += titleCell.frame.size.height;
+    self.titleCell = [[SHDTextFieldCell alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
+    [self addSubview:self.titleCell];
+    self.titleCell.textField.placeholder = @"This bug is titled...";    
+    offset += self.titleCell.frame.size.height;
 
-    SHDTextViewCell *descriptionCell = [[SHDTextViewCell alloc] initWithFrame:CGRectMake(0, offset, width, 120)];
-    [self addSubview:descriptionCell];
-    descriptionCell.placeholder = @"I was doing this and then this happened...";
-    descriptionCell.backgroundColor = kSHDBackgroundAlternateColor;
-    offset += descriptionCell.frame.size.height;
+    self.descriptionCell = [[SHDTextViewCell alloc] initWithFrame:CGRectMake(0, offset, width, 120)];
+    [self addSubview:self.descriptionCell];
+    self.descriptionCell.placeholder = @"I was doing this and then this happened...";
+    self.descriptionCell.backgroundColor = kSHDBackgroundAlternateColor;
+    offset += self.descriptionCell.frame.size.height;
     
-    SHDMultipleSelectionCell *reproducabilityCell = [[SHDMultipleSelectionCell alloc] initWithFrame:CGRectMake(0, offset, width, 50)];
-    [self addSubview:reproducabilityCell];
-    reproducabilityCell.text = @"This happens";
-    reproducabilityCell.options = @[@"every time", @"sometimes", @"infrequently"];
-    offset += reproducabilityCell.frame.size.height;
+    self.reproducabilityCell = [[SHDMultipleSelectionCell alloc] initWithFrame:CGRectMake(0, offset, width, 50)];
+    [self addSubview:self.reproducabilityCell];
+    self.reproducabilityCell.text = @"This happens";
+    self.reproducabilityCell.options = @[@"every time", @"sometimes", @"infrequently"];
+    offset += self.reproducabilityCell.frame.size.height;
 
     self.screenshotsCell = [[SHDScreenshotsCell alloc] initWithFrame:CGRectMake(0, offset, width, 100)];
     [self addSubview:self.screenshotsCell];
