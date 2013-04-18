@@ -12,6 +12,8 @@
 
 + (SHDShakedown *)sharedShakedown;
 
+- (void)attachUserInformation:(NSDictionary *)info;
+
 - (void)stopListeningForShakes;
 - (void)resumeListeningForShakes;
 

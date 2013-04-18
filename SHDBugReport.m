@@ -11,6 +11,8 @@
 
 @interface SHDBugReport ()
 
+@property (nonatomic) UIDevice *device;
+
 @end
 
 @implementation SHDBugReport
@@ -22,6 +24,18 @@
         _screenshots = [NSMutableArray arrayWithObject:[self _screenshot]];
     }
     return self;
+}
+
+- (NSDictionary *)deviceDictionary {
+    NSDictionary *dictionary = @{
+                                 @"Name": self.device.name,
+                                 @"System Name": self.device.systemName,
+                                 @"iOS Version": self.device.systemVersion,
+                                 @"model": self.device.model,
+                                 @"UI Idiom": self.device.userInterfaceIdiom == UIUserInterfaceIdiomPhone ? @"UIUserInterfaceIdiomPhone" : @"UIUserInterfaceIdiomPad",
+                                 @"IDFV": [self.device.identifierForVendor UUIDString]
+                                 };
+    return dictionary;
 }
 
 #pragma mark - Screenshots

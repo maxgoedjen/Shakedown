@@ -14,7 +14,8 @@
 
 @interface SHDShakedown ()
 
-@property (nonatomic, strong) UIButton *reportButton;
+@property (nonatomic) UIButton *reportButton;
+@property (nonatomic) NSDictionary *userInfo;
 
 @end
 
@@ -36,6 +37,12 @@
         instance = [[SHDShakedown alloc] init];
     });
     return instance;
+}
+
+#pragma mark - User info
+
+- (void)attachUserInformation:(NSDictionary *)info {
+    self.userInfo = info;
 }
 
 #pragma mark - Shake
@@ -68,6 +75,7 @@
 
 - (void)_showReporter {
     SHDBugReport *newBug = [[SHDBugReport alloc] init];
+    newBug.userInformation = @{@"Username" : @"Test"};
     SHDReporterViewController *viewController = [[SHDReporterViewController alloc] initWithNibName:nil bundle:nil bugReport:newBug];
     UIViewController *root = [[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController];
     

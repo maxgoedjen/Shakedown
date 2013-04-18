@@ -16,6 +16,7 @@
 #import "SHDTextFieldCell.h"
 #import "SHDMultipleSelectionCell.h"
 #import "SHDScreenshotsCell.h"
+#import "SHDDescriptiveInfoCell.h"
 
 @interface SHDReporterViewController ()
 
@@ -67,6 +68,9 @@
     view.reproducabilityCell.text = @"This happens";
     view.reproducabilityCell.options = @[@"every time", @"sometimes", @"infrequently"];
     view.screenshotsCell.screenshots = self.bugReport.screenshots;
+    NSMutableDictionary *device = [NSMutableDictionary dictionaryWithDictionary:self.bugReport.deviceDictionary];
+    [device addEntriesFromDictionary:self.bugReport.userInformation];
+    view.deviceInfoCell.dictionary = device;
 }
 
 #pragma mark - Buttons

@@ -9,56 +9,102 @@
 #import "SHDDescriptiveInfoCell.h"
 #import "SHDConstants.h"
 
-@interface SHDDescriptiveInfoCell ()
+@interface SHDDescriptiveInfoCellTableViewCell : UITableViewCell
 
-@property (nonatomic) UILabel *titleLabel;
+@property (nonatomic) UILabel *keyLabel;
 @property (nonatomic) UILabel *valueLabel;
+
+@end
+
+@implementation SHDDescriptiveInfoCellTableViewCell
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        _keyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, 100, 15)];
+        _keyLabel.font = [UIFont boldSystemFontOfSize:12];
+        _keyLabel.textColor = kSHDTextNormalColor;
+        _keyLabel.textAlignment = UITextAlignmentRight;
+        _keyLabel.backgroundColor = kSHDBackgroundColor;
+        [self.contentView addSubview:_keyLabel];
+        
+        _valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 3, 190, 15)];
+        _valueLabel.font = [UIFont boldSystemFontOfSize:12];
+        _valueLabel.textColor = kSHDTextHighlightColor;
+        _valueLabel.backgroundColor = kSHDBackgroundColor;
+        [self addSubview:_valueLabel];
+        
+        self.backgroundColor = kSHDBackgroundColor;
+
+    }
+    return self;
+}
+
+@end
+
+@interface SHDDescriptiveInfoCell () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic) UITableView *tableView;
 
 @end
 
 @implementation SHDDescriptiveInfoCell
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self _setup];
+        _tableView = [[UITableView alloc] initWithFrame:self.bounds style:UITableViewStylePlain];
+        [self addSubview:_tableView];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+        _tableView.backgroundColor = kSHDBackgroundColor;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return self;
 }
 
-- (void)_setup {
-    CGRect insetBounds = CGRectInset(self.bounds, 18, 16);
-    CGRect titleBounds = insetBounds;
-    titleBounds.size.width = 140;
-    self.titleLabel = [[UILabel alloc] initWithFrame:titleBounds];
-    self.titleLabel.font = [UIFont systemFontOfSize:15];
-    self.titleLabel.textColor = kSHDTextNormalColor;
-    self.titleLabel.backgroundColor = [UIColor clearColor];
-    self.titleLabel.numberOfLines = 0;
-    self.titleLabel.textAlignment = UITextAlignmentRight;
-    [self addSubview:self.titleLabel];
-
-    CGRect valueBounds = insetBounds;
-    valueBounds.origin.x = 160;
-    valueBounds.size.width = 140;
-    self.valueLabel = [[UILabel alloc] initWithFrame:titleBounds];
-    self.valueLabel.font = [UIFont systemFontOfSize:15];
-    self.valueLabel.textColor = kSHDTextNormalColor;
-    self.valueLabel.backgroundColor = [UIColor clearColor];
-    self.valueLabel.numberOfLines = 0;
-    [self addSubview:self.valueLabel];
+- (void)setDictionary:(NSDictionary *)dictionary {
+    _dictionary = dictionary;
+    [self.tableView reloadData];
 }
 
-- (void)setDictionary:(NSDictionary *)dictionary {
-    NSMutableString *titleString = [NSMutableString string];
-    NSMutableString *valueString = [NSMutableString string];
-    for (NSString *key in dictionary) {
-        [titleString appendFormat:@"%@\n", key];
-        [valueString appendFormat:@"%@\n", [dictionary objectForKey:key]];
+
+#pragma mark - Table View
+
+- (NSString *)_keyForRow:(NSInteger)row {
+    NSArray *keys = [[self.dictionary allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [[obj1 uppercaseString] compare:[obj2 uppercaseString]];
+    }];
+    
+    return [keys objectAtIndex:row];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.dictionary count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 16.0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identifier = @"Cell";
+    SHDDescriptiveInfoCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[SHDDescriptiveInfoCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.keyLabel.text =  [[self _keyForRow:indexPath.row] uppercaseString];
+        cell.valueLabel.text = [[self.dictionary objectForKey:[self _keyForRow:indexPath.row]] uppercaseString];
     }
-    self.titleLabel.text = titleString;
-    self.valueLabel.text = valueString;
+    return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
 }
 
 @end
