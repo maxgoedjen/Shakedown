@@ -38,12 +38,14 @@
     SHDButton *cancel = [SHDButton buttonWithSHDType:SHDButtonTypeTextOnly];
     [cancel setTitle:@"CANCEL" forState:UIControlStateNormal];
     [cancel sizeToFit];
+    [cancel addTarget:self action:@selector(_cancel:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *cancelBarButton = [[UIBarButtonItem alloc] initWithCustomView:cancel];
     self.navigationItem.leftBarButtonItem = cancelBarButton;
     
     SHDButton *save = [SHDButton buttonWithSHDType:SHDButtonTypeSolid];
     [save setTitle:@"SUBMIT" forState:UIControlStateNormal];
     [save sizeToFit];
+    [save addTarget:self action:@selector(_save:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc] initWithCustomView:save];
     self.navigationItem.rightBarButtonItem = saveBarButton;
@@ -60,4 +62,15 @@
     SHDReporterView *view = (SHDReporterView *)self.view;
     view.screenshotsCell.screenshots = self.bugReport.screenshots;
 }
+
+#pragma mark - Buttons
+
+- (void)_cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)_save:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end
