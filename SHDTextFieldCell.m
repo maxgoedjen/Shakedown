@@ -24,6 +24,7 @@
         _textField.font = [UIFont systemFontOfSize:15];
         _textField.textColor = kSHDTextNormalColor;
         _textField.delegate = self;
+        _textField.returnKeyType = UIReturnKeyNext;
         [self addSubview:_textField];
     }
     return self;

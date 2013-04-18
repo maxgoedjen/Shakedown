@@ -35,7 +35,7 @@
     [self addSubview:self.titleCell];
     self.titleCell.textField.placeholder = @"This bug is titled...";    
     offset += self.titleCell.frame.size.height;
-
+    
     self.descriptionCell = [[SHDTextViewCell alloc] initWithFrame:CGRectMake(0, offset, width, 120)];
     [self addSubview:self.descriptionCell];
     self.descriptionCell.placeholder = @"I was doing this and then this happened...";
