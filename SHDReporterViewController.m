@@ -10,6 +10,8 @@
 #import "SHDReporterView.h"
 #import "SHDScreenshotsCell.h"
 #import "SHDBugReport.h"
+#import "SHDConstants.h"
+#import "SHDButton.h"
 
 @interface SHDReporterViewController ()
 
@@ -31,7 +33,30 @@
     self.view = [[SHDReporterView alloc] initWithFrame:[UIScreen mainScreen].bounds];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    SHDButton *cancel = [SHDButton buttonWithSHDType:SHDButtonTypeTextOnly];
+    [cancel setTitle:@"CANCEL" forState:UIControlStateNormal];
+    [cancel sizeToFit];
+    UIBarButtonItem *cancelBarButton = [[UIBarButtonItem alloc] initWithCustomView:cancel];
+    self.navigationItem.leftBarButtonItem = cancelBarButton;
+    
+    SHDButton *save = [SHDButton buttonWithSHDType:SHDButtonTypeSolid];
+    [save setTitle:@"SUBMIT" forState:UIControlStateNormal];
+    [save sizeToFit];
+    
+    UIBarButtonItem *saveBarButton = [[UIBarButtonItem alloc] initWithCustomView:save];
+    self.navigationItem.rightBarButtonItem = saveBarButton;
+    self.navigationItem.title = @"Report Issue";
+    self.navigationController.navigationBar.tintColor = kSHDBackgroundColor;
+    self.navigationController.navigationBar.titleTextAttributes = @{
+                                                                    UITextAttributeTextColor: kSHDTextNormalColor,
+                                                                    UITextAttributeTextShadowColor: [UIColor clearColor]
+                                                                    };
+}
+
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     SHDReporterView *view = (SHDReporterView *)self.view;
     view.screenshotsCell.screenshots = self.bugReport.screenshots;
 }

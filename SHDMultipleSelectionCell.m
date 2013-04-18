@@ -57,6 +57,7 @@
 
 - (void)_showOptions {
     UIView *superView = self.superview;
+    [superView endEditing:YES];
     SHDMultipleSelectionOptionsView *view = [[SHDMultipleSelectionOptionsView alloc] initWithFrame:superView.bounds sourceButton:self.displayButton options:self.options];
     view.delegate = self;
     [superView addSubview:view];
