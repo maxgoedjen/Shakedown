@@ -55,10 +55,6 @@
                                                                     UITextAttributeTextColor: kSHDTextNormalColor,
                                                                     UITextAttributeTextShadowColor: [UIColor clearColor]
                                                                     };
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     SHDReporterView *view = (SHDReporterView *)self.view;
     view.screenshotsCell.screenshots = self.bugReport.screenshots;
 }
