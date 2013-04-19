@@ -46,9 +46,9 @@
     [self addSubview:self.reproducabilityCell];
     offset += self.reproducabilityCell.frame.size.height;
 
-    self.stepsCell = [[SHDListCell alloc] initWithFrame:CGRectMake(0, offset, width, 150)];
+    self.stepsCell = [[SHDListCell alloc] initWithFrame:CGRectMake(0, offset, width, 50)];
     [self addSubview:self.stepsCell];
-    self.screenshotsCell.backgroundColor = kSHDBackgroundAlternateColor;
+    self.stepsCell.backgroundColor = kSHDBackgroundAlternateColor;
     offset += self.stepsCell.frame.size.height;
 
     self.screenshotsCell = [[SHDScreenshotsCell alloc] initWithFrame:CGRectMake(0, offset, width, 100)];
@@ -56,7 +56,7 @@
     offset += self.screenshotsCell.frame.size.height;
     
     self.deviceInfoCell = [[SHDDescriptiveInfoCell alloc] initWithFrame:CGRectMake(0, offset, width, 200)];
-    self.screenshotsCell.backgroundColor = kSHDBackgroundAlternateColor;
+    self.deviceInfoCell.backgroundColor = kSHDBackgroundAlternateColor;
     [self addSubview:self.deviceInfoCell];
 
 }

@@ -98,7 +98,7 @@
 
 - (void)didMoveToSuperview {
     self.alpha = 0;
-    self.backgroundColor = [UIColor colorWithWhite:0 alpha:.85];
+    self.backgroundColor = kSHDOverlayBackgroundColor;
     
     self.sourceFrame = [self convertRect:self.sourceButton.frame fromView:self.sourceButton.superview];
     
