@@ -26,16 +26,16 @@
         _keyLabel.font = [UIFont boldSystemFontOfSize:12];
         _keyLabel.textColor = kSHDTextNormalColor;
         _keyLabel.textAlignment = UITextAlignmentRight;
-        _keyLabel.backgroundColor = kSHDBackgroundColor;
+        _keyLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:_keyLabel];
         
         _valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 3, 190, 15)];
         _valueLabel.font = [UIFont boldSystemFontOfSize:12];
         _valueLabel.textColor = kSHDTextHighlightColor;
-        _valueLabel.backgroundColor = kSHDBackgroundColor;
+        _valueLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:_valueLabel];
         
-        self.backgroundColor = kSHDBackgroundColor;
+        self.backgroundColor = [UIColor clearColor];
 
     }
     return self;
@@ -58,7 +58,7 @@
         [self addSubview:_tableView];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        _tableView.backgroundColor = kSHDBackgroundColor;
+        _tableView.backgroundColor = [UIColor clearColor];;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return self;
