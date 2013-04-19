@@ -136,8 +136,44 @@
 }
 
 - (void)didMoveToSuperview {
-    SHDListTableViewCell *cell = (SHDListTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [cell.textField becomeFirstResponder];
+    self.alpha = 0;
+    self.backgroundColor = kSHDOverlayBackgroundColor;
+    [self.tableView reloadData];
+
+    CGFloat originalY = self.tableView.frame.origin.y;
+    __block CGRect dest = self.tableView.frame;
+    dest.origin.y = self.frame.size.height;
+    self.tableView.frame = dest;
+    [UIView animateWithDuration:.5 animations:^{
+        self.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:.2 animations:^{
+            [UIView animateWithDuration:.2 animations:^{
+                dest.origin.y = originalY - 4;
+                self.tableView.frame = dest;
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:.1 animations:^{
+                    dest.origin.y = originalY + 1;
+                    self.tableView.frame = dest;
+                } completion:^(BOOL finished) {
+                    [UIView animateWithDuration:.1 animations:^{
+                        dest.origin.y = originalY - 1;
+                        self.tableView.frame = dest;
+                    } completion:^(BOOL finished) {
+                        [UIView animateWithDuration:.2 animations:^{
+                            dest.origin.y = originalY;
+                            self.tableView.frame = dest;
+                        }];
+                    }];
+                }];
+            }];
+            
+        }];
+
+        SHDListTableViewCell *cell = (SHDListTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [cell.textField becomeFirstResponder];
+    }];
+    
 }
 
 #pragma mark - Table View
