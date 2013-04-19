@@ -31,13 +31,14 @@
     
     self.backgroundColor = kSHDBackgroundColor;
     CGFloat width = self.frame.size.width;
+    BOOL tall = [[UIScreen mainScreen] bounds].size.height == 568;
     CGFloat offset = 0;
         
     self.titleCell = [[SHDTextFieldCell alloc] initWithFrame:CGRectMake(0, offset, width, 50)];
     [self addSubview:self.titleCell];
     offset += self.titleCell.frame.size.height;
     
-    self.descriptionCell = [[SHDTextViewCell alloc] initWithFrame:CGRectMake(0, offset, width, 120)];
+    self.descriptionCell = [[SHDTextViewCell alloc] initWithFrame:CGRectMake(0, offset, width, (tall ? 120 : 70))];
     [self addSubview:self.descriptionCell];
     self.descriptionCell.backgroundColor = kSHDBackgroundAlternateColor;
     offset += self.descriptionCell.frame.size.height;
@@ -55,7 +56,7 @@
     [self addSubview:self.screenshotsCell];
     offset += self.screenshotsCell.frame.size.height;
     
-    self.deviceInfoCell = [[SHDDescriptiveInfoCell alloc] initWithFrame:CGRectMake(0, offset, width, 200)];
+    self.deviceInfoCell = [[SHDDescriptiveInfoCell alloc] initWithFrame:CGRectMake(0, offset, width, (tall ? 135 : 95))];
     self.deviceInfoCell.backgroundColor = kSHDBackgroundAlternateColor;
     [self addSubview:self.deviceInfoCell];
 
