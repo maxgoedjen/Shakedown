@@ -83,8 +83,12 @@
         presented = presented.presentedViewController;
     }
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    [presented presentViewController:navController animated:YES completion:nil];
+    if ([presented isMemberOfClass:[SHDReporterViewController class]]) {        
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+        [presented presentViewController:navController animated:YES completion:nil];
+
+    }
+    
 }
 
 
