@@ -14,12 +14,18 @@
 
 @end
 
+@protocol SHDListCellEditorDelegate <NSObject>
+
+- (void)editorModifiedItems:(NSArray *)items;
+
+@end
+
 @interface SHDListCellEditor : UIView <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
-@property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIButton *sourceButton;
+@property (nonatomic, weak) id <SHDListCellEditorDelegate> delegate;
 
-- (id)initWithFrame:(CGRect)frame sourceButton:(UIButton *)sourceButton items:(NSMutableArray *)items;
+- (id)initWithFrame:(CGRect)frame sourceButton:(UIButton *)sourceButton items:(NSArray *)items;
 
 @end

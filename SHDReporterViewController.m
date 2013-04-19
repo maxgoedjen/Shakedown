@@ -17,6 +17,7 @@
 #import "SHDMultipleSelectionCell.h"
 #import "SHDScreenshotsCell.h"
 #import "SHDDescriptiveInfoCell.h"
+#import "SHDListCell.h"
 #import "SHDShakedown.h"
 #import "SHDShakedownReporter.h"
 #import "SHDShakedown+Private.h"
@@ -85,9 +86,11 @@
 - (void)_save:(id)sender {
     [[[SHDShakedown sharedShakedown] reporter] setDelegate:self];
     SHDReporterView *view = (SHDReporterView *)self.view;
+    [view endEditing:YES];
     self.bugReport.title = view.titleCell.textField.text;
     self.bugReport.generalDescription = view.descriptionCell.textView.text;
     self.bugReport.reproducability = view.reproducabilityCell.text;
+    self.bugReport.steps = view.stepsCell.items;
     [[SHDShakedown sharedShakedown] submitReport:self.bugReport];
 }
 

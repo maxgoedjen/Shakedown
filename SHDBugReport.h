@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *generalDescription;
 @property (nonatomic, strong) NSString *reproducability;
+@property (nonatomic, strong) NSArray *steps;
 @property (nonatomic, strong) NSMutableArray *screenshots;
 @property (nonatomic, strong) NSDictionary *userInformation;
 @property (nonatomic, readonly) NSDictionary *deviceDictionary;

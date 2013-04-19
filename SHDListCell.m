@@ -10,7 +10,7 @@
 #import "SHDConstants.h"
 #import "SHDButton.h"
 
-@interface SHDListCell ()
+@interface SHDListCell () <SHDListCellEditorDelegate>
 
 @property (nonatomic, strong) NSMutableArray *internalItems;
 @property (nonatomic, strong) UILabel *label;
@@ -46,7 +46,7 @@
 - (void)_updateLabels {
     self.label.text = @"to reproduce";
     if ([self.internalItems count]) {
-        [self.displayButton setTitle:[NSString stringWithFormat:@"%i steps", [self.internalItems count]] forState:UIControlStateNormal];
+        [self.displayButton setTitle:[NSString stringWithFormat:@"%i step%@", [self.internalItems count], ([self.internalItems count] == 1 ? @"" : @"s")] forState:UIControlStateNormal];
     } else {
         [self.displayButton setTitle:@"No documented steps" forState:UIControlStateNormal];
     }
@@ -63,13 +63,18 @@
     UIView *superView = self.superview;
     [superView endEditing:YES];
     SHDListCellEditor *view = [[SHDListCellEditor alloc] initWithFrame:superView.bounds sourceButton:self.displayButton items:self.internalItems];
+    view.delegate = self;
     [superView addSubview:view];
+}
+
+- (void)editorModifiedItems:(NSArray *)items {
+    self.items = items;
 }
 
 #pragma mark - Items
 
 - (NSArray *)items {
-    return [NSArray arrayWithArray:self.items];
+    return [NSArray arrayWithArray:self.internalItems];
 }
 
 - (void)setItems:(NSArray *)items {
@@ -111,17 +116,23 @@
 
 @end
 
+@interface SHDListCellEditor ()
+
+@property (nonatomic, strong) NSMutableArray *items;
+
+@end
+
 @implementation SHDListCellEditor
 
-- (id)initWithFrame:(CGRect)frame sourceButton:(UIButton *)sourceButton items:(NSMutableArray *)items {
+- (id)initWithFrame:(CGRect)frame sourceButton:(UIButton *)sourceButton items:(NSArray *)items {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = kSHDOverlayBackgroundColor;
 
         _sourceButton = sourceButton;
-        _items = items;
+        _items = [NSMutableArray arrayWithArray:items];
         CGRect tableRect = self.bounds;
-        tableRect.size.height -= 216;
+        tableRect.size.height -= 266;
         _tableView = [[UITableView alloc] initWithFrame:tableRect style:UITableViewStylePlain];
         [self addSubview:_tableView];
         _tableView.dataSource = self;
@@ -164,16 +175,55 @@
                             dest.origin.y = originalY;
                             self.tableView.frame = dest;
                         }];
+                        NSIndexPath *last = [NSIndexPath indexPathForRow:[self.tableView numberOfRowsInSection:0] - 1 inSection:0];
+                        [self.tableView scrollToRowAtIndexPath:last atScrollPosition:UITableViewScrollPositionNone animated:YES];
+                        SHDListTableViewCell *cell = (SHDListTableViewCell *)[self.tableView cellForRowAtIndexPath:last];
+                        [cell.textField becomeFirstResponder];
+                        
+                        __block CGRect doneFrame = self.bounds;
+                        doneFrame.size.height = 50;
+                        doneFrame.origin.y = self.bounds.size.height;
+                        UIView *doneBar = [[UIView alloc] initWithFrame:doneFrame];
+                        UIButton *doneButton = [SHDButton buttonWithSHDType:SHDButtonTypeOutline];
+                        [doneButton addTarget:self action:@selector(_done:) forControlEvents:UIControlEventTouchUpInside];
+                        [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+                        [doneBar addSubview:doneButton];
+                        doneButton.frame = CGRectMake(10, 10, 0, 0);
+                        [doneButton sizeToFit];
+                        doneBar.backgroundColor = kSHDOverlayBackgroundColor;
+                        [self addSubview:doneBar];
+                        [UIView animateWithDuration:.2 delay:.5 options:0 animations:^{
+                            doneFrame.origin.y = self.bounds.size.height - 266;
+                            doneBar.frame = doneFrame;
+                        } completion:nil];
+
                     }];
                 }];
             }];
             
         }];
 
-        SHDListTableViewCell *cell = (SHDListTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        [cell.textField becomeFirstResponder];
     }];
     
+}
+
+- (void)_done:(id)sender {
+    [self endEditing:YES];
+    [UIView animateWithDuration:.2 animations:^{
+        CGRect frame = self.tableView.frame;
+        frame.origin.y = frame.size.height;
+        [UIView animateWithDuration:.2 animations:^{
+            self.tableView.frame = frame;
+            self.tableView.alpha = 0;
+        }];
+    } completion:^(BOOL finished) {
+        [self.delegate editorModifiedItems:self.items];
+        [UIView animateWithDuration:.5 animations:^{
+            self.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            [self removeFromSuperview];
+        }];
+    }];
 }
 
 #pragma mark - Table View
@@ -230,9 +280,11 @@
         }
         [self.tableView reloadData];
         NSIndexPath *next = [NSIndexPath indexPathForRow:textField.tag + 1 inSection:0];
-        [self.tableView scrollToRowAtIndexPath:next atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-        SHDListTableViewCell *cell = (SHDListTableViewCell *)[self.tableView cellForRowAtIndexPath:next];
-        [cell.textField becomeFirstResponder];
+        if ([self tableView:self.tableView numberOfRowsInSection:0] < next.row) {
+            [self.tableView scrollToRowAtIndexPath:next atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            SHDListTableViewCell *cell = (SHDListTableViewCell *)[self.tableView cellForRowAtIndexPath:next];
+            [cell.textField becomeFirstResponder];
+        }
     }
 }
 @end
