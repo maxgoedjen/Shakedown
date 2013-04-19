@@ -45,13 +45,17 @@
 
 - (void)_updateLabels {
     self.label.text = @"to reproduce";
-    [self.displayButton setTitle:[NSString stringWithFormat:@"%i steps", [self.internalItems count]] forState:UIControlStateNormal];
+    if ([self.internalItems count]) {
+        [self.displayButton setTitle:[NSString stringWithFormat:@"%i steps", [self.internalItems count]] forState:UIControlStateNormal];
+    } else {
+        [self.displayButton setTitle:@"No documented steps" forState:UIControlStateNormal];
+    }
     [self.displayButton sizeToFit];
     CGRect displayFrame = self.displayButton.frame;
     [self.label sizeToFit];
     CGRect labelFrame = displayFrame;
     labelFrame.origin.x = displayFrame.size.width + displayFrame.origin.x + 10;
-    labelFrame.size.width = self.frame.size.width - (labelFrame.origin.x + labelFrame.size.width + 10);
+    labelFrame.size.width = self.frame.size.width - (CGRectGetMaxX(displayFrame) + 20);
     self.label.frame = labelFrame;
 }
 
