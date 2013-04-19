@@ -2,6 +2,8 @@
 
 Simple, in-app bug reporting for human beings.
 
+![](http://f.cl.ly/items/1V173r391F0I3b2n3M0Y/Screen%20Shot%202013-04-18%20at%2011.28.48%20PM.png)
+
 ## Setup
 
 To get going, just clone drag the contents of your repository into your project, and call `[SHDShakedown sharedShakedown]` at launch. Shakedown will begin listening for shake events automatically.
