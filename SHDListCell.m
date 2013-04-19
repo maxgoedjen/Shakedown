@@ -118,6 +118,7 @@
 
 @interface SHDListCellEditor ()
 
+@property (nonatomic, strong) UIView *doneBar;
 @property (nonatomic, strong) NSMutableArray *items;
 
 @end
@@ -183,18 +184,18 @@
                         __block CGRect doneFrame = self.bounds;
                         doneFrame.size.height = 50;
                         doneFrame.origin.y = self.bounds.size.height;
-                        UIView *doneBar = [[UIView alloc] initWithFrame:doneFrame];
+                        self.doneBar = [[UIView alloc] initWithFrame:doneFrame];
                         UIButton *doneButton = [SHDButton buttonWithSHDType:SHDButtonTypeOutline];
                         [doneButton addTarget:self action:@selector(_done:) forControlEvents:UIControlEventTouchUpInside];
                         [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-                        [doneBar addSubview:doneButton];
+                        [self.doneBar addSubview:doneButton];
                         doneButton.frame = CGRectMake(10, 10, 0, 0);
                         [doneButton sizeToFit];
-                        doneBar.backgroundColor = kSHDOverlayBackgroundColor;
-                        [self addSubview:doneBar];
+                        self.doneBar.backgroundColor = kSHDOverlayBackgroundColor;
+                        [self addSubview:self.doneBar];
                         [UIView animateWithDuration:.2 delay:.5 options:0 animations:^{
                             doneFrame.origin.y = self.bounds.size.height - 266;
-                            doneBar.frame = doneFrame;
+                            self.doneBar.frame = doneFrame;
                         } completion:nil];
 
                     }];
@@ -211,8 +212,11 @@
     [self endEditing:YES];
     [UIView animateWithDuration:.2 animations:^{
         CGRect frame = self.tableView.frame;
-        frame.origin.y = frame.size.height;
+        frame.origin.y = self.frame.size.height;
+        CGRect doneFrame = self.doneBar.frame;
+        doneFrame.origin.y = self.frame.size.height;
         [UIView animateWithDuration:.2 animations:^{
+            self.doneBar.frame = doneFrame;
             self.tableView.frame = frame;
             self.tableView.alpha = 0;
         }];
