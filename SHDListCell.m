@@ -286,9 +286,9 @@
         NSIndexPath *next = [NSIndexPath indexPathForRow:textField.tag + 1 inSection:0];
         if ([self tableView:self.tableView numberOfRowsInSection:0] < next.row) {
             [self.tableView scrollToRowAtIndexPath:next atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-            SHDListTableViewCell *cell = (SHDListTableViewCell *)[self.tableView cellForRowAtIndexPath:next];
-            [cell.textField becomeFirstResponder];
         }
+        SHDListTableViewCell *cell = (SHDListTableViewCell *)[self.tableView cellForRowAtIndexPath:next];
+        [cell.textField becomeFirstResponder];
     }
 }
 @end
