@@ -14,6 +14,7 @@
 #import "SHDMultipleSelectionCell.h"
 #import "SHDScreenshotsCell.h"
 #import "SHDDescriptiveInfoCell.h"
+#import "SHDListCell.h"
 
 @implementation SHDReporterView
 
@@ -31,8 +32,8 @@
     self.backgroundColor = kSHDBackgroundColor;
     CGFloat width = self.frame.size.width;
     CGFloat offset = 0;
-    
-    self.titleCell = [[SHDTextFieldCell alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
+        
+    self.titleCell = [[SHDTextFieldCell alloc] initWithFrame:CGRectMake(0, offset, width, 50)];
     [self addSubview:self.titleCell];
     offset += self.titleCell.frame.size.height;
     
@@ -45,12 +46,17 @@
     [self addSubview:self.reproducabilityCell];
     offset += self.reproducabilityCell.frame.size.height;
 
+    self.stepsCell = [[SHDListCell alloc] initWithFrame:CGRectMake(0, offset, width, 150)];
+    [self addSubview:self.stepsCell];
+    self.screenshotsCell.backgroundColor = kSHDBackgroundAlternateColor;
+    offset += self.stepsCell.frame.size.height;
+
     self.screenshotsCell = [[SHDScreenshotsCell alloc] initWithFrame:CGRectMake(0, offset, width, 100)];
     [self addSubview:self.screenshotsCell];
-    self.screenshotsCell.backgroundColor = kSHDBackgroundAlternateColor;
     offset += self.screenshotsCell.frame.size.height;
     
     self.deviceInfoCell = [[SHDDescriptiveInfoCell alloc] initWithFrame:CGRectMake(0, offset, width, 200)];
+    self.screenshotsCell.backgroundColor = kSHDBackgroundAlternateColor;
     [self addSubview:self.deviceInfoCell];
 
 }

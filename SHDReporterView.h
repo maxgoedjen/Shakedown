@@ -13,12 +13,14 @@
 @class SHDMultipleSelectionCell;
 @class SHDScreenshotsCell;
 @class SHDDescriptiveInfoCell;
+@class SHDListCell;
 
 @interface SHDReporterView : UIView
 
 @property (nonatomic, strong) SHDTextFieldCell *titleCell;
 @property (nonatomic, strong) SHDTextViewCell *descriptionCell;
 @property (nonatomic, strong) SHDMultipleSelectionCell *reproducabilityCell;
+@property (nonatomic, strong) SHDListCell *stepsCell;
 @property (nonatomic, strong) SHDScreenshotsCell *screenshotsCell;
 @property (nonatomic, strong) SHDDescriptiveInfoCell *deviceInfoCell;
 
