@@ -151,6 +151,19 @@
     self.alpha = 0;
     self.backgroundColor = kSHDOverlayBackgroundColor;
     [self.tableView reloadData];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardDidShowNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        CGRect keyboardSize = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        CGRect translated = [self convertRect:keyboardSize fromView:self.window];
+        CGRect doneFrame = self.doneBar.frame;
+        doneFrame.origin.y = translated.origin.y - doneFrame.size.height;
+        CGRect tableFrame = self.tableView.frame;
+        tableFrame.size.height = self.frame.size.height - (doneFrame.size.height + doneFrame.origin.y);
+        [UIView animateWithDuration:.2 delay:.5 options:0 animations:^{
+            self.doneBar.frame = doneFrame;
+            self.tableView.frame = tableFrame;
+        } completion:nil];
+    }];
 
     CGFloat originalY = self.tableView.frame.origin.y;
     __block CGRect dest = self.tableView.frame;
@@ -193,10 +206,6 @@
                         [doneButton sizeToFit];
                         self.doneBar.backgroundColor = kSHDOverlayBackgroundColor;
                         [self addSubview:self.doneBar];
-                        [UIView animateWithDuration:.2 delay:.5 options:0 animations:^{
-                            doneFrame.origin.y = self.bounds.size.height - 266;
-                            self.doneBar.frame = doneFrame;
-                        } completion:nil];
 
                     }];
                 }];

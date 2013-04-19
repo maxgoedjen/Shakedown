@@ -39,7 +39,8 @@
 }
 
 - (void)loadView {
-    self.view = [[SHDReporterView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIViewController *parent = self.parentViewController;
+    self.view = [[SHDReporterView alloc] initWithFrame:parent.view.bounds];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

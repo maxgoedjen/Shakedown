@@ -21,7 +21,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectInset(self.bounds, 0, 10)];
-        _scrollView.contentInset = UIEdgeInsetsMake(-3, 140, 0, 0);
+        _scrollView.contentInset = UIEdgeInsetsMake(-3, (self.frame.size.width/2) - 20, 0, 0);
         [self addSubview:_scrollView];
     }
     return self;

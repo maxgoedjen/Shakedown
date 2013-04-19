@@ -56,7 +56,7 @@
     [self addSubview:self.screenshotsCell];
     offset += self.screenshotsCell.frame.size.height;
     
-    self.deviceInfoCell = [[SHDDescriptiveInfoCell alloc] initWithFrame:CGRectMake(0, offset, width, (tall ? 135 : 95))];
+    self.deviceInfoCell = [[SHDDescriptiveInfoCell alloc] initWithFrame:CGRectMake(0, offset, width, self.frame.size.height - offset)];
     self.deviceInfoCell.backgroundColor = kSHDBackgroundAlternateColor;
     [self addSubview:self.deviceInfoCell];
 
