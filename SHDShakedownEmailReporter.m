@@ -24,6 +24,9 @@
         [self.composer addAttachmentData:UIImagePNGRepresentation(screenshot) mimeType:@"img/png" fileName:@"screenshot.png"];
     }
     [self.composer setMessageBody:[NSString stringWithFormat:@"%@\nHappens %@\nRepro Steps: %@\n%@\n%@", bugReport.generalDescription, bugReport.reproducability, bugReport.steps, bugReport.deviceDictionary, bugReport.userInformation] isHTML:NO];
+    if (self.recipient) {
+        [self.composer setToRecipients:@[self.recipient]];
+    }
     self.composer.mailComposeDelegate = self;
     [self.topViewController presentViewController:self.composer animated:YES completion:nil];
 }
