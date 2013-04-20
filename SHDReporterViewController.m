@@ -88,8 +88,12 @@
     [[[SHDShakedown sharedShakedown] reporter] setDelegate:self];
     SHDReporterView *view = (SHDReporterView *)self.view;
     [view endEditing:YES];
-    self.bugReport.title = view.titleCell.textField.text;
-    self.bugReport.generalDescription = view.descriptionCell.textView.text;
+    if (view.titleCell.textField.text) {
+        self.bugReport.title = view.titleCell.textField.text;
+    }
+    if (view.descriptionCell.textView.text) {
+        self.bugReport.generalDescription = view.descriptionCell.textView.text;
+    }
     self.bugReport.reproducability = view.reproducabilityCell.text;
     self.bugReport.steps = view.stepsCell.items;
     [[SHDShakedown sharedShakedown] submitReport:self.bugReport];

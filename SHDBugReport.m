@@ -22,6 +22,11 @@
     if (self) {
         _device = [UIDevice currentDevice];
         _screenshots = [NSMutableArray arrayWithObject:[self _screenshot]];
+        _title = @"";
+        _generalDescription = @"";
+        _reproducability = @"";
+        _steps = [NSMutableArray array];
+        _userInformation = @{};
     }
     return self;
 }

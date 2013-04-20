@@ -23,4 +23,6 @@
 
 - (void)reportBug:(SHDBugReport *)bugReport;
 
+- (NSData *)httpBodyDataForDictionary:(NSDictionary *)dictionary boundary:(NSString *)boundary;
+
 @end

@@ -26,35 +26,63 @@
     [loginRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     [loginRequest setHTTPMethod:@"POST"];
     [NSURLConnection sendAsynchronousRequest:loginRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        NSString *strung = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//        NSLog(@"%@", strung);
-//        
-//        NSString *description = [NSString stringWithFormat:@"%@ \nHappens %@\n Steps to reproduce:\n %@\nDevice Info:\n%@\nCustom Info:\n%@", bugReport.description, bugReport.reproducability, bugReport.steps, bugReport.deviceDictionary, bugReport.userInformation];
-//        
-//        NSMutableData *body = [NSMutableData data];
-//        
-//        NSDictionary *arguments = @{
-//                                    @"project": self.project,
-//                                    @"summary": bugReport.title,
-//                                    @"description": description};
-//        for (NSString *argument in arguments) {
-//            [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-//            [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", argument] dataUsingEncoding:NSUTF8StringEncoding]];
-//            [body appendData:[[NSString stringWithFormat:@"%@\r\n", [arguments objectForKey:argument]] dataUsingEncoding:NSUTF8StringEncoding]];
-//        }
-//        
-//        // add image data
-//        NSData *imageData = UIImagePNGRepresentation(bugReport.screenshots[0]);
-//        if (imageData) {
-//            [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-//            [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"image.jpg\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-//            [body appendData:[:@"Content-Type: image/png\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding];
-//            [body appendData:imageData];
-//            [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-//        }
-//        
-//        [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-//
+        NSString *cookie = @"";
+        int statusCode = 500;
+        if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+            NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
+            cookie = [[resp allHeaderFields] objectForKey:@"Set-Cookie"];
+            statusCode = resp.statusCode;
+        }
+        
+        if (statusCode == 200) {
+        
+            NSMutableString *report = [NSMutableString string];
+            
+            [report appendFormat:@"Reproducability: Happens %@", bugReport.reproducability];
+            [report appendFormat:@"\n\nSteps to reproduce: \n"];
+            int i = 1;
+            for (NSString *step in bugReport.steps) {
+                [report appendFormat:@"%i: %@", i, step];
+            }
+            [report appendFormat:@"\n\nDevice Information:\n"];
+            for (NSString *key in bugReport.deviceDictionary) {
+                [report appendFormat:@"%@: %@\n", key, bugReport.deviceDictionary[key]];
+            }
+            [report appendFormat:@"\n\nUser Information:\n"];
+            for (NSString *key in bugReport.userInformation) {
+                [report appendFormat:@"%@: %@\n", key, bugReport.userInformation[key]];
+            }
+            
+            NSDictionary *arguments = @{
+                                        @"project": self.project,
+                                        @"summary": bugReport.title,
+                                        @"description": report,
+                                        @"attachment": bugReport.screenshots[0]};
+            
+            NSString *boundary = @"0xKhTmLbOuNdArY";
+            NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+            
+            NSURL *postURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/issue", self.apiURL]];
+            NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:postURL];
+            [postRequest setHTTPBody:[self httpBodyDataForDictionary:arguments boundary:boundary]];
+            [postRequest setValue:contentType forHTTPHeaderField:@"Content-Type"];
+            [postRequest setValue:cookie forHTTPHeaderField:@"Cookie"];
+            [postRequest setHTTPMethod:@"POST"];
+            [NSURLConnection sendAsynchronousRequest:postRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+                    NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
+                    if (resp.statusCode == 200) {
+                        [self.delegate uploadedBugSuccessfullyWithLink:nil];
+                    } else {
+                        [self.delegate failedToUploadBug];
+                    }
+                }
+            }];
+            
+        } else {
+            [self.delegate failedToUploadBug];
+        }
+
     }];
 }
 
