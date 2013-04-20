@@ -62,10 +62,9 @@
 }
 
 - (void)shakedownFailedToFileBug:(NSString *)message {
-    [self.reportViewController dismissViewControllerAnimated:YES completion:nil];
-
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to submit bug." message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     [alert show];
+    [self.reportViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)shakedownFiledBugSuccessfullyWithLink:(NSURL *)url {

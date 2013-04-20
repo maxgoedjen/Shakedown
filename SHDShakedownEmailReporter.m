@@ -34,12 +34,14 @@
 #pragma mark - Mail Delegate
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0) {
-    [self.composer dismissViewControllerAnimated:YES completion:nil];
-    if (result != MFMailComposeResultSent) {
-        [self.delegate shakedownFailedToFileBug:@"Unable to send message"];
-    } else {
-        [self.delegate shakedownFiledBugSuccessfullyWithLink:nil];
-    }
+    [self.composer dismissViewControllerAnimated:YES completion:^{
+        if (result == MFMailComposeResultSent) {
+            [self.delegate shakedownFiledBugSuccessfullyWithLink:nil];
+        } else if ((result == MFMailComposeResultCancelled || MFMailComposeResultSaved) == NO) {
+            [self.delegate shakedownFailedToFileBug:@"Unable to send message"];
+        }
+    }];
+    
 }
 
 @end
