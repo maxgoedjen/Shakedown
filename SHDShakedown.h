@@ -13,6 +13,7 @@
 @interface SHDShakedown : NSObject
 
 @property (nonatomic, strong) SHDShakedownReporter *reporter;
+@property (nonatomic, readonly) UIViewController *reportViewController;
 
 + (SHDShakedown *)sharedShakedown;
 

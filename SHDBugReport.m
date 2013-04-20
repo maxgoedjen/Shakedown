@@ -45,14 +45,9 @@
 
 #pragma mark - Screenshots
 
+CGImageRef UIGetScreenImage(void);
 - (UIImage *)_screenshot {
-    UIWindow *window = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
-    UIGraphicsBeginImageContext(window.bounds.size);
-    [window.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    NSData *data = UIImagePNGRepresentation(image);
-    return [[UIImage alloc] initWithData:data];
+    return [UIImage imageWithCGImage:UIGetScreenImage()];
 }
 
 @end

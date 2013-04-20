@@ -18,7 +18,17 @@
         self.reporter = [[SHDShakedownEmailReporter alloc] init];
         NSLog(@"SHAKEDOWN WARNING: NO REPORTER SPECIFIED, FALLING BACK TO EMAIL");
     }
+    self.reporter.delegate = self;
     [self.reporter reportBug:bugReport];
+}
+
+- (void)failedToUploadBug {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to submit bug." message:@"There was an error submitting this bug." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)uploadedBugSuccessfullyWithLink:(NSURL *)url {
+    [self.reportViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

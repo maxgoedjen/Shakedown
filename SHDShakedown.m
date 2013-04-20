@@ -85,6 +85,7 @@
     
     if ([presented isMemberOfClass:[SHDReporterViewController class]] == NO) {
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+        _reportViewController = navController;
         navController.modalPresentationStyle = UIModalPresentationFormSheet;
         [presented presentViewController:navController animated:YES completion:nil];
 
