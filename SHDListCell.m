@@ -191,7 +191,7 @@
                         self.doneBar = [[UIView alloc] initWithFrame:doneFrame];
                         UIButton *doneButton = [SHDButton buttonWithSHDType:SHDButtonTypeOutline];
                         [doneButton addTarget:self action:@selector(_done:) forControlEvents:UIControlEventTouchUpInside];
-                        [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+                        [doneButton setTitle:@"DONE" forState:UIControlStateNormal];
                         [self.doneBar addSubview:doneButton];
                         doneButton.frame = CGRectMake(10, 10, 0, 0);
                         [doneButton sizeToFit];
