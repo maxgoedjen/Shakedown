@@ -7,11 +7,10 @@
 //
 
 #import "SHDShakedown.h"
-#import "SHDShakedownReporter.h"
 
 @class SHDBugReport;
 
-@interface SHDShakedown (Private) <SHDShakedownReporterDelegate>
+@interface SHDShakedown (Private)
 
 - (void)submitReport:(SHDBugReport *)bugReport;
 

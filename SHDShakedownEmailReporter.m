@@ -37,7 +37,9 @@
     [self.composer dismissViewControllerAnimated:YES completion:^{
         if (result == MFMailComposeResultSent) {
             [self.delegate shakedownFiledBugSuccessfullyWithLink:nil];
-        } else if ((result == MFMailComposeResultCancelled || MFMailComposeResultSaved) == NO) {
+        } else if (result == MFMailComposeResultCancelled || MFMailComposeResultSaved) {
+            [self.delegate shakedownCancelledReportingBug];
+        } else {
             [self.delegate shakedownFailedToFileBug:@"Unable to send message"];
         }
     }];

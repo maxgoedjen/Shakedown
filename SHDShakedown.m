@@ -11,6 +11,7 @@
 #import "UIWindow+SHDShakeListener.h"
 #import "SHDReporterViewController.h"
 #import "SHDBugReport.h"
+#import "SHDShakedownEmailReporter.h"
 
 @interface SHDShakedown ()
 
@@ -26,6 +27,7 @@
     if (self) {
         [self resumeListeningForShakes];
         [self displayButton];
+        _reporter = [[SHDShakedownEmailReporter alloc] init];
     }
     return self;
 }
@@ -85,7 +87,6 @@
     
     if ([presented isMemberOfClass:[SHDReporterViewController class]] == NO) {
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-        _reportViewController = navController;
         navController.modalPresentationStyle = UIModalPresentationFormSheet;
         [presented presentViewController:navController animated:YES completion:nil];
 

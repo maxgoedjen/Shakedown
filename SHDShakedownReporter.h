@@ -12,6 +12,7 @@
 @protocol  SHDShakedownReporterDelegate <NSObject>
 
 - (void)shakedownFailedToFileBug:(NSString *)message;
+- (void)shakedownCancelledReportingBug;
 - (void)shakedownFiledBugSuccessfullyWithLink:(NSURL *)url;
 
 @end

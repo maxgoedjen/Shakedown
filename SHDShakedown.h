@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @class SHDShakedownReporter;
+@class SHDReporterViewController;
 
 @interface SHDShakedown : NSObject
 
 @property (nonatomic, strong) SHDShakedownReporter *reporter;
-@property (nonatomic, readonly) UIViewController *reportViewController;
 
 + (SHDShakedown *)sharedShakedown;
 

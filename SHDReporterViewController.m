@@ -21,10 +21,44 @@
 #import "SHDShakedown.h"
 #import "SHDShakedownReporter.h"
 #import "SHDShakedown+Private.h"
+#import <QuartzCore/QuartzCore.h>
+
+@interface SHDLoadingView : UIView
+
+@end
+
+@implementation SHDLoadingView
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = kSHDOverlayBackgroundColor;
+        UIView *iPhone = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 72, 149)];
+        iPhone.backgroundColor = [UIColor whiteColor];
+        iPhone.layer.cornerRadius = 6.0;
+        [self addSubview:iPhone];
+        iPhone.center = self.center;
+        UIView *screen = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 64, 112)];
+        [iPhone addSubview:screen];
+        screen.backgroundColor = kSHDTextHighlightColor;
+        screen.center = [iPhone convertPoint:iPhone.center fromView:self];
+        [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
+            CGAffineTransform rotateTransform = CGAffineTransformMakeRotation(60);
+            [iPhone.layer setAffineTransform:rotateTransform];
+            rotateTransform = CGAffineTransformMakeRotation(-60);
+            [iPhone.layer setAffineTransform:rotateTransform];
+        } completion:nil];
+        
+    }
+    return self;
+}
+
+@end
 
 @interface SHDReporterViewController () <SHDShakedownReporterDelegate>
 
 @property (nonatomic, strong) SHDBugReport *bugReport;
+@property (nonatomic, strong) SHDLoadingView *loadingView;
 
 @end
 
@@ -86,7 +120,11 @@
 }
 
 - (void)_save:(id)sender {
-    [[[SHDShakedown sharedShakedown] reporter] setDelegate:self];
+    
+    self.loadingView = [[SHDLoadingView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.loadingView];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+
     SHDReporterView *view = (SHDReporterView *)self.view;
     [view endEditing:YES];
     if (view.titleCell.textField.text) {
@@ -97,18 +135,25 @@
     }
     self.bugReport.reproducability = view.reproducabilityCell.text;
     self.bugReport.steps = view.stepsCell.items;
+    [[[SHDShakedown sharedShakedown] reporter] setDelegate:self];
     [[SHDShakedown sharedShakedown] submitReport:self.bugReport];
 }
 
 #pragma mark - Reporter Delegate
 
+
 - (void)shakedownFailedToFileBug:(NSString *)message {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.loadingView removeFromSuperview];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to submit bug." message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)shakedownCancelledReportingBug {
+    [self.loadingView removeFromSuperview];
 }
 
 - (void)shakedownFiledBugSuccessfullyWithLink:(NSURL *)url {
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 @end
