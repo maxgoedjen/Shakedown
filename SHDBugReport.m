@@ -43,6 +43,29 @@
     return dictionary;
 }
 
+- (NSString *)formattedReport {
+    NSMutableString *report = [NSMutableString string];
+    
+    [report appendFormat:@"%@", self.generalDescription];
+    [report appendFormat:@"\n\nReproducability: Happens %@", self.reproducability];
+    [report appendFormat:@"\n\nSteps to reproduce: \n"];
+    int i = 1;
+    for (NSString *step in self.steps) {
+        [report appendFormat:@"%i: %@\n", i, step];
+        i++;
+    }
+    [report appendFormat:@"\n\nDevice Information:\n"];
+    for (NSString *key in self.deviceDictionary) {
+        [report appendFormat:@"%@: %@\n", key, self.deviceDictionary[key]];
+    }
+    [report appendFormat:@"\n\nUser Information:\n"];
+    for (NSString *key in self.userInformation) {
+        [report appendFormat:@"%@: %@\n", key, self.userInformation[key]];
+    }
+    
+    return report;
+}
+
 CGImageRef UIGetScreenImage(void);
 
 @end

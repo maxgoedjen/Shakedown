@@ -18,4 +18,6 @@
 @property (nonatomic, strong) NSDictionary *userInformation;
 @property (nonatomic, readonly) NSDictionary *deviceDictionary;
 
+@property (nonatomic, readonly) NSString *formattedReport;
+
 @end

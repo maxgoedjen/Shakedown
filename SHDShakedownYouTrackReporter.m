@@ -36,29 +36,10 @@
         
         if (statusCode == 200) {
         
-            NSMutableString *report = [NSMutableString string];
-            
-            [report appendFormat:@"%@", bugReport.generalDescription];
-            [report appendFormat:@"\n\nReproducability: Happens %@", bugReport.reproducability];
-            [report appendFormat:@"\n\nSteps to reproduce: \n"];
-            int i = 1;
-            for (NSString *step in bugReport.steps) {
-                [report appendFormat:@"%i: %@\n", i, step];
-                i++;
-            }
-            [report appendFormat:@"\n\nDevice Information:\n"];
-            for (NSString *key in bugReport.deviceDictionary) {
-                [report appendFormat:@"%@: %@\n", key, bugReport.deviceDictionary[key]];
-            }
-            [report appendFormat:@"\n\nUser Information:\n"];
-            for (NSString *key in bugReport.userInformation) {
-                [report appendFormat:@"%@: %@\n", key, bugReport.userInformation[key]];
-            }
-            
             NSDictionary *arguments = @{
                                         @"project": self.project,
                                         @"summary": bugReport.title,
-                                        @"description": report,
+                                        @"description": bugReport.formattedReport,
                                         @"attachment": bugReport.screenshots[0]};
             
             NSString *boundary = @"0xKhTmLbOuNdArY";

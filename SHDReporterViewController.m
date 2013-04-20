@@ -102,11 +102,11 @@
 
 #pragma mark - Reporter Delegate
 
-- (void)failedToUploadBug {
+- (void)shakedownFailedToFileBug:(NSString *)message {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)uploadedBugSuccessfullyWithLink:(NSURL *)url {
+- (void)shakedownFiledBugSuccessfullyWithLink:(NSURL *)url {
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
