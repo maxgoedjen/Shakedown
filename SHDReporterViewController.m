@@ -46,6 +46,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+    
     SHDButton *cancel = [SHDButton buttonWithSHDType:SHDButtonTypeTextOnly];
     [cancel setTitle:@"CANCEL" forState:UIControlStateNormal];
     [cancel sizeToFit];
@@ -107,7 +108,7 @@
 
 - (void)uploadedBugSuccessfullyWithLink:(NSURL *)url {
     [self dismissViewControllerAnimated:YES completion:nil];
-
+    
 }
 
 @end
