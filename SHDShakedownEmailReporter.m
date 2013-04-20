@@ -36,9 +36,9 @@
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_0) {
     [self.composer dismissViewControllerAnimated:YES completion:nil];
     if (result != MFMailComposeResultSent) {
-        [self.delegate failedToUploadBug];
+        [self.delegate shakedownFailedToFileBug:@"Unable to send message"];
     } else {
-        [self.delegate uploadedBugSuccessfullyWithLink:nil];
+        [self.delegate shakedownFiledBugSuccessfullyWithLink:nil];
     }
 }
 

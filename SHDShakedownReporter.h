@@ -11,8 +11,8 @@
 
 @protocol  SHDShakedownReporterDelegate <NSObject>
 
-- (void)uploadedBugSuccessfullyWithLink:(NSURL *)url;
-- (void)failedToUploadBug;
+- (void)shakedownFailedToFileBug:(NSString *)message;
+- (void)shakedownFiledBugSuccessfullyWithLink:(NSURL *)url;
 
 @end
 

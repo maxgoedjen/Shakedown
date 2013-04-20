@@ -74,15 +74,16 @@
                 if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
                     NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
                     if (resp.statusCode == 200) {
-                        [self.delegate uploadedBugSuccessfullyWithLink:nil];
+                        [self.delegate shakedownFiledBugSuccessfullyWithLink:nil];
                     } else {
-                        [self.delegate failedToUploadBug];
+                        NSString *errorString = [NSString stringWithFormat:@"%@\n%@", [error localizedDescription], [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+                        [self.delegate shakedownFailedToFileBug:errorString];
                     }
                 }
             }];
             
         } else {
-            [self.delegate failedToUploadBug];
+            [self.delegate shakedownFailedToFileBug:[NSString stringWithFormat:@"Failed to log in to YouTrack: %@", [error localizedDescription]]];
         }
 
     }];

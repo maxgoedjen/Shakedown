@@ -61,14 +61,14 @@
     [self.reporter reportBug:bugReport];
 }
 
-- (void)failedToUploadBug {
+- (void)shakedownFailedToFileBug:(NSString *)message {
     [self.reportViewController dismissViewControllerAnimated:YES completion:nil];
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to submit bug." message:@"There was an error submitting this bug." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to submit bug." message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     [alert show];
 }
 
-- (void)uploadedBugSuccessfullyWithLink:(NSURL *)url {
+- (void)shakedownFiledBugSuccessfullyWithLink:(NSURL *)url {
     [self.reportViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
