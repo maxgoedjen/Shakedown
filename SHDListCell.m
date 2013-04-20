@@ -142,6 +142,7 @@
         _tableView.backgroundView = nil;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.separatorColor = kSHDTextHighlightColor;
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 40, 0);
         self.userInteractionEnabled = YES;
     }
     return self;
@@ -297,8 +298,9 @@
         }
         [self.tableView reloadData];
         NSIndexPath *next = [NSIndexPath indexPathForRow:textField.tag + 1 inSection:0];
-        if ([self tableView:self.tableView numberOfRowsInSection:0] < next.row) {
-            [self.tableView scrollToRowAtIndexPath:next atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        if (self.tableView.contentSize.height > self.tableView.frame.size.height) {
+            CGPoint offset = CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height + 40);
+            [self.tableView setContentOffset:offset animated:YES];
         }
         SHDListTableViewCell *cell = (SHDListTableViewCell *)[self.tableView cellForRowAtIndexPath:next];
         
