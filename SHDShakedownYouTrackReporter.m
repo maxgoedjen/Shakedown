@@ -38,7 +38,8 @@
         
             NSMutableString *report = [NSMutableString string];
             
-            [report appendFormat:@"Reproducability: Happens %@", bugReport.reproducability];
+            [report appendFormat:@"%@", bugReport.generalDescription];
+            [report appendFormat:@"\n\nReproducability: Happens %@", bugReport.reproducability];
             [report appendFormat:@"\n\nSteps to reproduce: \n"];
             int i = 1;
             for (NSString *step in bugReport.steps) {
