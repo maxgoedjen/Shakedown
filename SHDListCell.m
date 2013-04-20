@@ -151,19 +151,9 @@
     self.alpha = 0;
     self.backgroundColor = kSHDOverlayBackgroundColor;
     [self.tableView reloadData];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardDidShowNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        CGRect keyboardSize = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-        CGRect translated = [self convertRect:keyboardSize fromView:self.window];
-        CGRect doneFrame = self.doneBar.frame;
-        doneFrame.origin.y = translated.origin.y - doneFrame.size.height;
-        CGRect tableFrame = self.tableView.frame;
-        tableFrame.size.height = self.frame.size.height - (doneFrame.size.height + doneFrame.origin.y);
-        [UIView animateWithDuration:.2 delay:.5 options:0 animations:^{
-            self.doneBar.frame = doneFrame;
-            self.tableView.frame = tableFrame;
-        } completion:nil];
-    }];
+        
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChanged:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChanged:) name:UIKeyboardDidHideNotification object:nil];
 
     CGFloat originalY = self.tableView.frame.origin.y;
     __block CGRect dest = self.tableView.frame;
@@ -239,6 +229,20 @@
     }];
 }
 
+- (void)keyboardFrameChanged:(NSNotification *)note {
+    CGRect keyboardFrame = [[[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect translated = [self convertRect:keyboardFrame fromView:self.window];
+    CGRect doneFrame = self.doneBar.frame;
+    doneFrame.origin.y = translated.origin.y - doneFrame.size.height;
+    CGRect tableFrame = self.tableView.frame;
+    tableFrame.origin.y = 0;
+    tableFrame.size.height = self.frame.size.height - (doneFrame.size.height + (self.frame.size.height - translated.origin.y));
+    [UIView animateWithDuration:.2 delay:0 options:0 animations:^{
+        self.doneBar.frame = doneFrame;
+        self.tableView.frame = tableFrame;
+    } completion:nil];
+}
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -297,7 +301,16 @@
             [self.tableView scrollToRowAtIndexPath:next atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         }
         SHDListTableViewCell *cell = (SHDListTableViewCell *)[self.tableView cellForRowAtIndexPath:next];
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
         [cell.textField becomeFirstResponder];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChanged:) name:UIKeyboardDidHideNotification object:nil];
+
     }
 }
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 @end
