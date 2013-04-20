@@ -21,7 +21,7 @@
     self = [super init];
     if (self) {
         _device = [UIDevice currentDevice];
-        _screenshots = [NSMutableArray arrayWithObject:[self _screenshot]];
+        _screenshots = [NSMutableArray arrayWithObject:[UIImage imageWithCGImage:UIGetScreenImage()]];
         _title = @"";
         _generalDescription = @"";
         _reproducability = @"";
@@ -43,11 +43,6 @@
     return dictionary;
 }
 
-#pragma mark - Screenshots
-
 CGImageRef UIGetScreenImage(void);
-- (UIImage *)_screenshot {
-    return [UIImage imageWithCGImage:UIGetScreenImage()];
-}
 
 @end

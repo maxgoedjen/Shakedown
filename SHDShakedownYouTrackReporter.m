@@ -42,7 +42,8 @@
             [report appendFormat:@"\n\nSteps to reproduce: \n"];
             int i = 1;
             for (NSString *step in bugReport.steps) {
-                [report appendFormat:@"%i: %@", i, step];
+                [report appendFormat:@"%i: %@\n", i, step];
+                i++;
             }
             [report appendFormat:@"\n\nDevice Information:\n"];
             for (NSString *key in bugReport.deviceDictionary) {
