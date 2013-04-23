@@ -6,7 +6,7 @@ Simple, in-app bug reporting for human beings.
 
 ## Setup
 
-To get going, just clone the repo and drag the contents of your repository into your project, and call `[SHDShakedown sharedShakedown]` at launch. Shakedown will begin listening for shake events automatically.
+To get going, just clone the repo and drag the contents of your repository into your project, and call `[SHDShakedown sharedShakedown]` at launch. Shakedown will begin listening for shake events automatically on debug builds.
 
 ### Reporting Method
 
@@ -30,6 +30,6 @@ Shakdown works on iOS 5.0 and up.
 
 Shakedown uses ARC. To get things working in a non-ARC project, set the `-fobjc-arc` compiler flag on all the files prefixed with `SHD`.
 
-### Private API Usage
+### Private API Usage & Preprocessor Flags
 
-Shakedown uses the private API `UIGetScreenImage()`. This allows us to capture whatever's on the screen (including some fancier OpenGL stuff), but is not permitted by Apple in the App Store. The relevant calls are wrapped in an `#ifdef DEBUG` call, so it will be compiled out in App Store builds, but please be aware of it.
+Shakedown uses the private API `UIGetScreenImage()`. This allows us to capture whatever's on the screen (including some fancier OpenGL stuff), but is not permitted by Apple in the App Store. The relevant calls are wrapped in an `#ifdef DEBUG` call, so it will be compiled out in App Store builds, but please be aware of it. Shakedown will only initialize on `DEBUG` builds.
