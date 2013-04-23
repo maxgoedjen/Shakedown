@@ -77,7 +77,6 @@
 
 - (void)_showReporter {
     SHDBugReport *newBug = [[SHDBugReport alloc] init];
-    newBug.userInformation = @{@"Username" : @"Test"};
     SHDReporterViewController *viewController = [[SHDReporterViewController alloc] initWithNibName:nil bundle:nil bugReport:newBug];
     UIViewController *root = [[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController];
     UIViewController *presented = root;
