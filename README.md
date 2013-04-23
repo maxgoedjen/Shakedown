@@ -2,7 +2,7 @@
 
 Simple, in-app bug reporting for human beings.
 
-![](http://f.cl.ly/items/1V173r391F0I3b2n3M0Y/Screen%20Shot%202013-04-18%20at%2011.28.48%20PM.png)
+![](http://f.cl.ly/items/0j2h3j380R3I3W213R3O/Screen%20Shot%202013-04-23%20at%202.42.28%20AM.png) ![](http://f.cl.ly/items/1o3D1s1y3P060L2p1P3D/Screen%20Shot%202013-04-23%20at%202.43.08%20AM.png) ![](http://f.cl.ly/items/1n0s22163r2V0C3I452h/Screen%20Shot%202013-04-23%20at%202.43.46%20AM.png)
 
 ## Setup
 
