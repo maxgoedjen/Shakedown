@@ -34,9 +34,11 @@
 
 + (SHDShakedown *)sharedShakedown {
     static dispatch_once_t onceToken;
-    static SHDShakedown *instance;
+    static SHDShakedown *instance = nil;
     dispatch_once(&onceToken, ^{
+#ifdef DEBUG
         instance = [[SHDShakedown alloc] init];
+#endif
     });
     return instance;
 }
