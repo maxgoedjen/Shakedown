@@ -21,7 +21,7 @@
     self = [super init];
     if (self) {
         _device = [UIDevice currentDevice];
-#ifdef DEBUG
+#if defined(DEBUG) || defined(SHAKEDOWN)
         _screenshots = [NSMutableArray arrayWithObject:[UIImage imageWithCGImage:UIGetScreenImage()]];
 #endif
         _title = @"";
@@ -68,7 +68,7 @@
     return report;
 }
 
-#ifdef DEBUG
+#if defined(DEBUG) || defined(SHAKEDOWN)
 CGImageRef UIGetScreenImage(void);
 #endif
 
