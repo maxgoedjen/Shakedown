@@ -36,7 +36,7 @@
     static dispatch_once_t onceToken;
     static SHDShakedown *instance = nil;
     dispatch_once(&onceToken, ^{
-#if defined(DEBUG) || defined(SHAKEDOWN)
+#if defined(DEBUG) || defined(ADHOC)
         instance = [[SHDShakedown alloc] init];
 #endif
     });
