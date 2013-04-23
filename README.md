@@ -6,7 +6,7 @@ Simple, in-app bug reporting for human beings.
 
 ## Setup
 
-To get going, just clone drag the contents of your repository into your project, and call `[SHDShakedown sharedShakedown]` at launch. Shakedown will begin listening for shake events automatically.
+To get going, just clone the repo and drag the contents of your repository into your project, and call `[SHDShakedown sharedShakedown]` at launch. Shakedown will begin listening for shake events automatically.
 
 ### WARNING
 
