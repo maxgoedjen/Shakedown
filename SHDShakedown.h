@@ -19,6 +19,8 @@
 
 - (void)attachUserInformation:(NSDictionary *)info;
 
+- (void)log:(NSString *)log;
+
 - (void)stopListeningForShakes;
 - (void)resumeListeningForShakes;
 

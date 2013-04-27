@@ -24,6 +24,6 @@
 
 - (void)reportBug:(SHDBugReport *)bugReport;
 
-- (NSData *)httpBodyDataForDictionary:(NSDictionary *)dictionary boundary:(NSString *)boundary;
+- (NSData *)httpBodyDataForDictionary:(NSDictionary *)dictionary attachments:(NSDictionary *)attachments boundary:(NSString *)boundary;
 
 @end

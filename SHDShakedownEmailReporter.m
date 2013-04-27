@@ -23,6 +23,7 @@
     for (UIImage *screenshot in bugReport.screenshots) {
         [self.composer addAttachmentData:UIImagePNGRepresentation(screenshot) mimeType:@"img/png" fileName:@"screenshot.png"];
     }
+    [self.composer addAttachmentData:[bugReport.log dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"text/plain" fileName:@"log.txt"];
     [self.composer setMessageBody:bugReport.formattedReport isHTML:NO];
     if (self.recipient) {
         [self.composer setToRecipients:@[self.recipient]];

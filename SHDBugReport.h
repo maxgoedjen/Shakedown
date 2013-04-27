@@ -15,8 +15,11 @@
 @property (nonatomic, strong) NSString *reproducability;
 @property (nonatomic, strong) NSArray *steps;
 @property (nonatomic, strong) NSMutableArray *screenshots;
+
 @property (nonatomic, strong) NSDictionary *userInformation;
 @property (nonatomic, readonly) NSDictionary *deviceDictionary;
+
+@property (nonatomic, strong) NSString *log;
 
 @property (nonatomic, readonly) NSString *formattedReport;
 
