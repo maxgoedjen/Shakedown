@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) UIButton *reportButton;
 @property (nonatomic, strong) NSDictionary *userInfo;
+@property (nonatomic, strong) NSMutableString *internalLog;
 
 @end
 
@@ -28,6 +29,7 @@
         [self resumeListeningForShakes];
         [self displayButton];
         _reporter = [[SHDShakedownEmailReporter alloc] init];
+        _internalLog = [[NSMutableString alloc] init];
     }
     return self;
 }
@@ -47,6 +49,16 @@
 
 - (void)attachUserInformation:(NSDictionary *)info {
     self.userInfo = info;
+}
+
+#pragma mark - Log data
+
+- (NSString *)log {
+    return [NSString stringWithString:self.internalLog];
+}
+
+- (void)log:(NSString *)log {
+    [self.internalLog appendFormat:@"%@ - %@\n", [NSDate date], log];
 }
 
 #pragma mark - Shake
@@ -80,6 +92,7 @@
 - (void)_showReporter {
     SHDBugReport *newBug = [[SHDBugReport alloc] init];
     newBug.userInformation = self.userInfo;
+    newBug.log = [NSString stringWithString:self.internalLog];
     SHDReporterViewController *viewController = [[SHDReporterViewController alloc] initWithNibName:nil bundle:nil bugReport:newBug];
     UIViewController *root = [[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController];
     UIViewController *presented = root;

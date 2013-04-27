@@ -39,15 +39,17 @@
             NSDictionary *arguments = @{
                                         @"project": self.project,
                                         @"summary": bugReport.title,
-                                        @"description": bugReport.formattedReport,
-                                        @"attachment": bugReport.screenshots[0]};
+                                        @"description": bugReport.formattedReport
+                                        };
+            NSDictionary *attachments = @{@"screenshot": bugReport.screenshots[0],
+                                          @"log": bugReport.log};
             
             NSString *boundary = @"0xKhTmLbOuNdArY";
             NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
             
             NSURL *postURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/issue", self.apiURL]];
             NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:postURL];
-            [postRequest setHTTPBody:[self httpBodyDataForDictionary:arguments boundary:boundary]];
+            [postRequest setHTTPBody:[self httpBodyDataForDictionary:arguments attachments:attachments boundary:boundary]];
             [postRequest setValue:contentType forHTTPHeaderField:@"Content-Type"];
             [postRequest setValue:cookie forHTTPHeaderField:@"Cookie"];
             [postRequest setHTTPMethod:@"POST"];
