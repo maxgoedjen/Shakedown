@@ -24,7 +24,7 @@ static NSString * SHDPercentEscapedQueryStringFromStringWithEncoding(NSString *s
 - (id)init {
     self = [super init];
     if (self) {
-        self.apiURL = @"http://www.pivotaltracker.com/services/v3";
+        self.apiURL = @"https://www.pivotaltracker.com/services/v3";
     }
     return self;
 }
