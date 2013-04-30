@@ -118,5 +118,5 @@
 
 @end
 
-extern NSString * const kSHDXMLReaderAttributesNodeKey = @"attributes";
-extern NSString * const kSHDXMLReaderTextNodeKey = @"text";
+extern NSString * const kSHDXMLReaderAttributesNodeKey;
+extern NSString * const kSHDXMLReaderTextNodeKey;
