@@ -27,8 +27,8 @@
     
     NSMutableData *body = [NSMutableData data];
     
-    NSData *initialBoundary = [NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *encapsulationBoundary = [NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *initialBoundary = [[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *encapsulationBoundary = [[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding];
     
     for (NSString *key in dictionary) {
         id value = dictionary[key];
