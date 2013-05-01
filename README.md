@@ -24,9 +24,9 @@ Various reporters will have different things to configure. For example, one that
 
 ##### Included Reporters
 
-JIRA
-YouTrack
-Pivotal - (@jeanregisser)
+- JIRA
+- YouTrack
+- Pivotal - (@jeanregisser)
 
 ### Supported iOS Versions
 
