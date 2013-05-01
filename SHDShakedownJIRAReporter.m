@@ -51,9 +51,28 @@
         NSError *parseError;
         NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parseError];
         if (parseError != nil) {
-            [self.delegate shakedownFailedToFileBug:@"Unable to log in"];
+            [self.delegate shakedownFailedToFileBug:@"Unable to create issue"];
         } else {
             NSLog(@"%@", jsonResponse);
+            
+            NSURL *attachURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/issue/%@/attachments", self.apiURL, jsonResponse[@"key"]]];
+            NSString *boundary = @"f9b71567c22f23";
+            NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+
+            NSMutableURLRequest *attach = [NSMutableURLRequest requestWithURL:attachURL];
+            [attach setValue:basic forHTTPHeaderField:@"Authorization"];            
+            [attach setValue:contentType forHTTPHeaderField:@"Content-Type"];
+            [attach setValue:@"nocheck" forHTTPHeaderField:@"X-Atlassian-Token"];
+            [attach setHTTPMethod:@"POST"];
+            NSDictionary *attachments = @{@"screenshot": bugReport.screenshots[0],
+                                          @"log": bugReport.log};
+            [attach setHTTPBody:[self httpBodyDataForDictionary:@{} attachments:attachments boundary:boundary]];
+            [NSURLConnection sendAsynchronousRequest:attach queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                NSLog(@"A");
+                
+            }];
+
         }
     }];
 }
