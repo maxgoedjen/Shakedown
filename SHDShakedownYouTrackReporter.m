@@ -13,8 +13,8 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.login = @"";
-        self.password = @"";
+        _login = @"";
+        _password = @"";
     }
     return self;
 }

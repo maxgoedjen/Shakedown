@@ -24,6 +24,9 @@
 
 - (void)reportBug:(SHDBugReport *)bugReport;
 
+- (NSString *)base64StringFromString:(NSString *)string;
+- (NSString *)base64StringFromData:(NSData *)data;
+
 - (NSData *)httpBodyDataForDictionary:(NSDictionary *)dictionary attachments:(NSDictionary *)attachments boundary:(NSString *)boundary;
 
 @end
