@@ -10,7 +10,7 @@ To get going, just clone the repo and drag the contents of your repository into 
 
 ### Reporting Method
 
-It is highly recommended to configure a reporter to suit your specific needs. Shakedown currently ships with two reporters: email and YouTrack. 
+It is highly recommended to configure a reporter to suit your specific needs.
 
 #### Configuring the Reporter
 
@@ -21,6 +21,12 @@ For example, you can configure the email reporter like so:
     [SHDShakedown sharedShakedown].reporter = reporter;
 
 Various reporters will have different things to configure. For example, one that posts to on online service may need an API key or login credentials, or what project to pust bugs to.
+
+##### Included Reporters
+
+JIRA
+YouTrack
+Pivotal - (@jeanregisser)
 
 ### Supported iOS Versions
 
