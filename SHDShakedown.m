@@ -78,7 +78,9 @@
 #pragma mark - Status Bar Button
 
 - (void)displayButton {
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    bounds.size.height = 20;
+    UIWindow *window = [[UIWindow alloc] initWithFrame:bounds];
     window.rootViewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
     window.rootViewController.view.backgroundColor = [UIColor clearColor];
     window.windowLevel = UIWindowLevelStatusBar;
