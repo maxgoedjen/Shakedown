@@ -16,7 +16,7 @@
 @interface SHDShakedown ()
 
 @property (nonatomic, strong) UIButton *reportButton;
-@property (nonatomic, strong) NSDictionary *userInfo;
+@property (nonatomic, strong) NSMutableDictionary *userInfo;
 @property (nonatomic, strong) NSMutableString *internalLog;
 
 @end
@@ -30,6 +30,7 @@
         [self displayButton];
         _reporter = [[SHDShakedownEmailReporter alloc] init];
         _internalLog = [[NSMutableString alloc] init];
+        _userInfo = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -48,7 +49,7 @@
 #pragma mark - User info
 
 - (void)attachUserInformation:(NSDictionary *)info {
-    self.userInfo = info;
+    [self.userInfo addEntriesFromDictionary:info];
 }
 
 #pragma mark - Log data
