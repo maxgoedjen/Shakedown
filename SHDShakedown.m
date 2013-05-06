@@ -83,14 +83,17 @@
     window.rootViewController.view.backgroundColor = [UIColor clearColor];
     window.windowLevel = UIWindowLevelStatusBar;
     SHDButton *button = [SHDButton buttonWithSHDType:SHDButtonTypeStatusBar];
-    button.frame = CGRectMake(80, 0, 20, 20);
+    button.frame = CGRectMake(80, 0, 17, 17);
     [button setTitle:@"!" forState:UIControlStateNormal];
     [window addSubview:button];
     [window makeKeyAndVisible];
     self.buttonWindow = window;
+    [button addTarget:self action:@selector(displayReporter) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)hideButton {
+    [self.buttonWindow removeFromSuperview];
+    self.buttonWindow = nil;
 }
 
 #pragma mark - Programmatic Reporting

@@ -14,7 +14,9 @@
 
 + (SHDButton *)buttonWithSHDType:(SHDButtonType)buttonType {
     SHDButton *button = [SHDButton buttonWithType:UIButtonTypeCustom];
-    
+    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:12.0]];
+    button.titleEdgeInsets = UIEdgeInsetsMake(4, 10, 4, 10);
+
     switch (buttonType) {
         case SHDButtonTypeSolid:
             button.backgroundColor = kSHDTextHighlightColor;
@@ -32,17 +34,16 @@
             button.backgroundColor = [UIColor clearColor];
             button.layer.borderColor = [kSHDTextHighlightColor CGColor];
             button.layer.borderWidth = 2.0;
-            button.layer.cornerRadius = 6.0;
-            button.titleLabel.font = [UIFont boldSystemFontOfSize:3.0];
+            button.layer.cornerRadius = 9.0;
+            [button setTitleColor:kSHDTextHighlightColor forState:UIControlStateNormal];
+            button.titleEdgeInsets = UIEdgeInsetsMake(1, 2, 0, 0);
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:12.0]];
             break;
         default:
             [button setTitleColor:kSHDTextNormalColor forState:UIControlStateNormal];
             break;
     }
     
-    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:12.0]];
-    button.titleEdgeInsets = UIEdgeInsetsMake(4, 10, 4, 10);
-
     return button;
 }
 
