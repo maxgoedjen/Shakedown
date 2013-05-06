@@ -28,6 +28,13 @@
             button.layer.cornerRadius = 15.0;
             [button setTitleColor:kSHDTextHighlightColor forState:UIControlStateNormal];
             break;
+        case SHDButtonTypeStatusBar:
+            button.backgroundColor = [UIColor clearColor];
+            button.layer.borderColor = [kSHDTextHighlightColor CGColor];
+            button.layer.borderWidth = 2.0;
+            button.layer.cornerRadius = 6.0;
+            button.titleLabel.font = [UIFont boldSystemFontOfSize:3.0];
+            break;
         default:
             [button setTitleColor:kSHDTextNormalColor forState:UIControlStateNormal];
             break;

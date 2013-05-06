@@ -12,12 +12,14 @@
 #import "SHDReporterViewController.h"
 #import "SHDBugReport.h"
 #import "SHDShakedownEmailReporter.h"
+#import "SHDButton.h"
 
 @interface SHDShakedown ()
 
 @property (nonatomic, strong) UIButton *reportButton;
 @property (nonatomic, strong) NSMutableDictionary *userInfo;
 @property (nonatomic, strong) NSMutableString *internalLog;
+@property (nonatomic, strong) UIWindow *buttonWindow;
 
 @end
 
@@ -27,7 +29,6 @@
     self = [super init];
     if (self) {
         [self resumeListeningForShakes];
-        [self displayButton];
         _reporter = [[SHDShakedownEmailReporter alloc] init];
         _internalLog = [[NSMutableString alloc] init];
         _userInfo = [[NSMutableDictionary alloc] init];
@@ -77,6 +78,16 @@
 #pragma mark - Status Bar Button
 
 - (void)displayButton {
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    window.rootViewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+    window.rootViewController.view.backgroundColor = [UIColor clearColor];
+    window.windowLevel = UIWindowLevelStatusBar;
+    SHDButton *button = [SHDButton buttonWithSHDType:SHDButtonTypeStatusBar];
+    button.frame = CGRectMake(80, 0, 20, 20);
+    [button setTitle:@"!" forState:UIControlStateNormal];
+    [window addSubview:button];
+    [window makeKeyAndVisible];
+    self.buttonWindow = window;
 }
 
 - (void)hideButton {

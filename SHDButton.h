@@ -11,7 +11,8 @@
 typedef enum {
     SHDButtonTypeSolid,
     SHDButtonTypeOutline,
-    SHDButtonTypeTextOnly
+    SHDButtonTypeTextOnly,
+    SHDButtonTypeStatusBar
 } SHDButtonType;
 
 @interface SHDButton : UIButton
