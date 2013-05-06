@@ -6,7 +6,11 @@ Simple, in-app bug reporting for human beings.
 
 ## Setup
 
-To get going, just clone the repo and drag the contents of your repository into your project, and call `[SHDShakedown sharedShakedown]` at launch. Shakedown will begin listening for shake events automatically on debug builds.
+To get going, just clone the repo and drag the contents of your repository into your project, and call `[SHDShakedown sharedShakedown]` at launch. 
+
+## Triggers
+
+By default, Shakedown will begin listening for shake events automatically on debug builds. You can also call `showButton` on SHDShakedown, which will display a button in the status bar of the application (if it has one).
 
 ### Reporting Method
 

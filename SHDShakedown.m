@@ -78,19 +78,21 @@
 #pragma mark - Status Bar Button
 
 - (void)displayButton {
-    CGRect bounds = [[UIScreen mainScreen] bounds];
-    bounds.size.height = 20;
-    UIWindow *window = [[UIWindow alloc] initWithFrame:bounds];
-    window.rootViewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-    window.rootViewController.view.backgroundColor = [UIColor clearColor];
-    window.windowLevel = UIWindowLevelStatusBar;
-    SHDButton *button = [SHDButton buttonWithSHDType:SHDButtonTypeStatusBar];
-    button.frame = CGRectMake(80, 0, 17, 17);
-    [button setTitle:@"!" forState:UIControlStateNormal];
-    [window addSubview:button];
-    [window makeKeyAndVisible];
-    self.buttonWindow = window;
-    [button addTarget:self action:@selector(displayReporter) forControlEvents:UIControlEventTouchUpInside];
+    if ([[UIApplication sharedApplication] isStatusBarHidden] == NO) {
+        CGRect bounds = [[UIScreen mainScreen] bounds];
+        bounds.size.height = [[UIApplication sharedApplication] statusBarFrame].size.height;
+        UIWindow *window = [[UIWindow alloc] initWithFrame:bounds];
+        window.rootViewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+        window.rootViewController.view.backgroundColor = [UIColor clearColor];
+        window.windowLevel = UIWindowLevelStatusBar;
+        SHDButton *button = [SHDButton buttonWithSHDType:SHDButtonTypeStatusBar];
+        button.frame = CGRectMake(80, 0, 17, 17);
+        [button setTitle:@"!" forState:UIControlStateNormal];
+        [window addSubview:button];
+        [window makeKeyAndVisible];
+        self.buttonWindow = window;
+        [button addTarget:self action:@selector(displayReporter) forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 - (void)hideButton {
