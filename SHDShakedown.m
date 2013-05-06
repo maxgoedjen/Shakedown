@@ -96,7 +96,6 @@
 }
 
 - (void)hideButton {
-    [self.buttonWindow removeFromSuperview];
     self.buttonWindow = nil;
 }
 
