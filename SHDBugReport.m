@@ -36,18 +36,20 @@
         default:
             break;
     }
-
+    
     UIImage *image = [UIImage imageWithCGImage:UIGetScreenImage() scale:[UIScreen mainScreen].scale orientation:imageOrientation];
     
-    // Now draw this image in a new context so that
-    // the correct orientation is kept once the image is displayed on 3rd party services
-    // that don't respect the orientation metadata
-    UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
-    [image drawInRect:(CGRect){0, 0, image.size}];
-    UIImage *normalizedImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    if (image.imageOrientation != UIImageOrientationUp) {
+        // Now draw this image in a new context so that
+        // the correct orientation is kept once the image is displayed on 3rd party services
+        // that don't respect the orientation metadata
+        UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+        [image drawInRect:(CGRect){0, 0, image.size}];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
     
-    return normalizedImage;
+    return image;
 }
 #endif
 
