@@ -17,12 +17,47 @@
 
 @implementation SHDBugReport
 
+#if defined(DEBUG) || defined(ADHOC)
++ (UIImage *)takeScreenshot {
+    // Take the interface orientation into account
+    UIImageOrientation *imageOrientation = UIImageOrientationUp;
+    switch ([UIApplication sharedApplication].statusBarOrientation) {
+        case UIInterfaceOrientationLandscapeLeft:
+            // yes interface landscape left IS image orientation right!
+            imageOrientation = UIImageOrientationRight;
+            break;
+        case UIInterfaceOrientationLandscapeRight:
+            // yes interface landscape right IS image orientation left!
+            imageOrientation = UIImageOrientationLeft;
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            imageOrientation = UIImageOrientationDown;
+            break;
+        default:
+            break;
+    }
+
+    UIImage *image = [UIImage imageWithCGImage:UIGetScreenImage() scale:[UIScreen mainScreen].scale orientation:imageOrientation];
+    
+    // Now draw this image in a new context so that
+    // the correct orientation is kept once the image is displayed on 3rd party services
+    // that don't respect the orientation metadata
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+    [image drawInRect:(CGRect){0, 0, image.size}];
+    UIImage *normalizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return normalizedImage;
+}
+#endif
+
 - (id)init {
     self = [super init];
     if (self) {
         _device = [UIDevice currentDevice];
+        _screenshots = [NSMutableArray array];
 #if defined(DEBUG) || defined(ADHOC)
-        _screenshots = [NSMutableArray arrayWithObject:[UIImage imageWithCGImage:UIGetScreenImage()]];
+        [_screenshots addObject:[[self class] takeScreenshot]];
 #endif
         _title = @"";
         _generalDescription = @"";
