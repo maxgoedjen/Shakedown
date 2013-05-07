@@ -41,8 +41,7 @@
                                         @"summary": bugReport.title,
                                         @"description": bugReport.formattedReport
                                         };
-            NSDictionary *attachments = @{@"screenshot": bugReport.screenshots[0],
-                                          @"log": bugReport.log};
+            NSArray *attachments = [self allAttachmentsForBugReport:bugReport];
             
             NSString *boundary = @"0xKhTmLbOuNdArY";
             NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];

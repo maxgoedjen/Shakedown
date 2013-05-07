@@ -7,6 +7,7 @@
 //
 
 #import "SHDShakedownJIRAReporter.h"
+#import "SHDAttachment.h"
 
 @implementation SHDShakedownJIRAReporter
 
@@ -17,6 +18,15 @@
         _password = @"";
     }
     return self;
+}
+
+- (NSArray *)allAttachmentsForBugReport:(SHDBugReport *)bugReport {
+    NSArray* allAttachments = [super allAttachmentsForBugReport:bugReport];
+    // JIRA API requires all file attachments to be named "file"
+    for (SHDAttachment* attachment in allAttachments) {
+        attachment.name = @"file";
+    }
+    return allAttachments;
 }
 
 - (void)reportBug:(SHDBugReport *)bugReport {
@@ -64,8 +74,7 @@
             [attach setValue:contentType forHTTPHeaderField:@"Content-Type"];
             [attach setValue:@"nocheck" forHTTPHeaderField:@"X-Atlassian-Token"];
             [attach setHTTPMethod:@"POST"];
-            NSDictionary *attachments = @{@"screenshot": bugReport.screenshots[0],
-                                          @"log": bugReport.log};
+            NSArray *attachments = [self allAttachmentsForBugReport:bugReport];
             [attach setHTTPBody:[self httpBodyDataForDictionary:@{} attachments:attachments boundary:boundary]];
             [NSURLConnection sendAsynchronousRequest:attach queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                 NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
