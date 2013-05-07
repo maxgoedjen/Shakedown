@@ -23,4 +23,6 @@
 
 @property (nonatomic, readonly) NSString *formattedReport;
 
+@property (nonatomic, strong) NSMutableArray *attachments; // Array of SHDAttachment
+
 @end
