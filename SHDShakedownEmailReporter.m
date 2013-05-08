@@ -8,6 +8,7 @@
 
 #import "SHDShakedownEmailReporter.h"
 #import <MessageUI/MessageUI.h>
+#import "SHDAttachment.h"
 
 @interface SHDShakedownEmailReporter () <MFMailComposeViewControllerDelegate>
 
@@ -20,10 +21,9 @@
 - (void)reportBug:(SHDBugReport *)bugReport {
     self.composer = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
     [self.composer setSubject:bugReport.title];
-    for (UIImage *screenshot in bugReport.screenshots) {
-        [self.composer addAttachmentData:UIImagePNGRepresentation(screenshot) mimeType:@"img/png" fileName:@"screenshot.png"];
+    for (SHDAttachment *attachment in [self allAttachmentsForBugReport:bugReport]) {
+        [self.composer addAttachmentData:attachment.data mimeType:attachment.mimeType fileName:attachment.fileName];
     }
-    [self.composer addAttachmentData:[bugReport.log dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"text/plain" fileName:@"log.txt"];
     [self.composer setMessageBody:bugReport.formattedReport isHTML:NO];
     if (self.recipient) {
         [self.composer setToRecipients:@[self.recipient]];

@@ -17,6 +17,8 @@
 
 @end
 
+@class SHDAttachment;
+
 @interface SHDShakedownReporter : NSObject
 
 @property (nonatomic, weak) id <SHDShakedownReporterDelegate> delegate;
@@ -24,9 +26,13 @@
 
 - (void)reportBug:(SHDBugReport *)bugReport;
 
+- (NSArray *)attachmentsForScreenshots:(NSArray *)screenshots; /** Create array of SHDAttachment with PNG data from the array of UIImage */
+- (SHDAttachment *)attachmentForLog:(NSString *)log; /** Create a SHDAttachment from the log */
+- (NSArray *)allAttachmentsForBugReport:(SHDBugReport*)bugReport; /** Create an array of SHDAttachment from the screenshot, log and attachment for the SHDBugReport */
+
 - (NSString *)base64StringFromString:(NSString *)string;
 - (NSString *)base64StringFromData:(NSData *)data;
 
-- (NSData *)httpBodyDataForDictionary:(NSDictionary *)dictionary attachments:(NSDictionary *)attachments boundary:(NSString *)boundary;
+- (NSData *)httpBodyDataForDictionary:(NSDictionary *)dictionary attachments:(NSArray *)attachments boundary:(NSString *)boundary;
 
 @end

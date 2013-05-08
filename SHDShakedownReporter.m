@@ -7,6 +7,7 @@
 //
 
 #import "SHDShakedownReporter.h"
+#import "SHDAttachment.h"
 
 @implementation SHDShakedownReporter
 
@@ -23,6 +24,46 @@
     return presented;
 }
 
+#pragma mark - Attachments processing
+
+- (NSArray *)attachmentsForScreenshots:(NSArray *)screenshots {
+    NSMutableArray* attachments = [NSMutableArray arrayWithCapacity:screenshots.count];
+    NSUInteger count = 1;
+    for (UIImage *screenshot in screenshots) {
+        [attachments addObject:[SHDAttachment attachmentWithName:@"screenshot" fileName:[NSString stringWithFormat:@"Screenshot_%d.png", count]
+                                                        mimeType:@"image/png" data:UIImagePNGRepresentation(screenshot)]];
+        count++;
+    }
+    
+    return [NSArray arrayWithArray:attachments];
+}
+
+- (SHDAttachment *)attachmentForLog:(NSString *)log {
+    if (!log.length) {
+        return nil;
+    }
+    
+    return [SHDAttachment attachmentWithName:@"log" fileName:@"Log.txt"
+                                    mimeType:@"text/plain" data:[log dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
+- (NSArray *)allAttachmentsForBugReport:(SHDBugReport*)bugReport {
+    NSMutableArray* attachments = [NSMutableArray array];
+    
+    // Screenshots
+    [attachments addObjectsFromArray:[self attachmentsForScreenshots:bugReport.screenshots]];
+    
+    // Log
+    SHDAttachment* logAttachment = [self attachmentForLog:bugReport.log];
+    if (logAttachment) {
+        [attachments addObject:logAttachment];
+    }
+    
+    // Other attachments
+    [attachments addObjectsFromArray:bugReport.attachments];
+    
+    return [NSArray arrayWithArray:attachments];
+}
 
 #pragma mark - Base 64
 
@@ -98,7 +139,7 @@
 
 #pragma mark - HTTP multipart encoding
 
-- (NSData *)httpBodyDataForDictionary:(NSDictionary *)dictionary attachments:(NSDictionary *)attachments boundary:(NSString *)boundary {
+- (NSData *)httpBodyDataForDictionary:(NSDictionary *)dictionary attachments:(NSArray *)attachments boundary:(NSString *)boundary {
     
     NSMutableData *body = [NSMutableData data];
     
@@ -118,23 +159,16 @@
         }
     }
     
-    for (NSString *key in attachments) {
-        id value = attachments[key];
-        if ([value isKindOfClass:[NSString class]]) {
-            NSString *stringValue = (NSString *)value;
+    for (id obj in attachments) {
+        if ([obj isKindOfClass:[SHDAttachment class]]) {
+            SHDAttachment *attachment = (SHDAttachment *)obj;
             [body appendData:initialBoundary ?: encapsulationBoundary];
             initialBoundary = nil;
-            [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@.txt\"\r\n", @"file", key] dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:[@"Content-Type: text/plain\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:[[NSString stringWithFormat:@"%@", stringValue] dataUsingEncoding:NSUTF8StringEncoding]];
-        } else if ([value isKindOfClass:[UIImage class]]) {
-            [body appendData:initialBoundary ?: encapsulationBoundary];
-            initialBoundary = nil;
-            [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@.png\"\r\n", @"file", key] dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:[@"Content-Type: image/png\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:UIImagePNGRepresentation(value)];
+            [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", attachment.name, attachment.fileName] dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", attachment.mimeType] dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:attachment.data];
         } else {
-            NSLog(@"SHDShakedownRepoter: cannot post attachment type %@ (value for key %@", [value class], key);
+            NSLog(@"SHDShakedownRepoter: cannot post attachment type %@", obj);
         }
     }
     
