@@ -219,7 +219,6 @@
 		5037CEE91753748F00487A30 = {
 			isa = PBXGroup;
 			children = (
-				501D16F21753751D0055831D /* MessageUI.framework */,
 				5037CEFB1753748F00487A30 /* ShakedownExample */,
 				5037CEF41753748F00487A30 /* Frameworks */,
 				5037CEF31753748F00487A30 /* Products */,
@@ -237,6 +236,7 @@
 		5037CEF41753748F00487A30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				501D16F21753751D0055831D /* MessageUI.framework */,
 				5037CEF51753748F00487A30 /* UIKit.framework */,
 				5037CEF71753748F00487A30 /* Foundation.framework */,
 				5037CEF91753748F00487A30 /* CoreGraphics.framework */,
