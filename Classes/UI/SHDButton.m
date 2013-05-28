@@ -19,28 +19,28 @@
 
     switch (buttonType) {
         case SHDButtonTypeSolid:
-            button.backgroundColor = kSHDTextHighlightColor;
+            button.backgroundColor = kSHDHighlightColor;
             button.layer.cornerRadius = 15.0;
             [button setTitleColor:kSHDBackgroundColor forState:UIControlStateNormal];
             break;
         case SHDButtonTypeOutline:
             button.backgroundColor = [UIColor clearColor];
-            button.layer.borderColor = [kSHDTextHighlightColor CGColor];
+            button.layer.borderColor = [kSHDHighlightColor CGColor];
             button.layer.borderWidth = 2.0;
             button.layer.cornerRadius = 15.0;
-            [button setTitleColor:kSHDTextHighlightColor forState:UIControlStateNormal];
+            [button setTitleColor:kSHDHighlightColor forState:UIControlStateNormal];
             break;
         case SHDButtonTypeStatusBar:
             button.backgroundColor = [UIColor clearColor];
-            button.layer.borderColor = [kSHDTextHighlightColor CGColor];
+            button.layer.borderColor = [kSHDHighlightColor CGColor];
             button.layer.borderWidth = 2.0;
             button.layer.cornerRadius = 9.0;
-            [button setTitleColor:kSHDTextHighlightColor forState:UIControlStateNormal];
+            [button setTitleColor:kSHDHighlightColor forState:UIControlStateNormal];
             button.titleEdgeInsets = UIEdgeInsetsMake(1, 2, 0, 0);
             [button.titleLabel setFont:[UIFont boldSystemFontOfSize:12.0]];
             break;
         default:
-            [button setTitleColor:kSHDTextNormalColor forState:UIControlStateNormal];
+            [button setTitleColor:kSHDNormalColor forState:UIControlStateNormal];
             break;
     }
     

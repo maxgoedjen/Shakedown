@@ -32,7 +32,7 @@
 - (void)_setup {
     self.label = [[UILabel alloc] initWithFrame:CGRectInset(self.bounds, 18, 16)];
     self.label.font = [UIFont systemFontOfSize:15];
-    self.label.textColor = kSHDTextNormalColor;
+    self.label.textColor = kSHDNormalColor;
     self.label.backgroundColor = [UIColor clearColor];
     [self addSubview:self.label];
     self.displayButton = [SHDButton buttonWithSHDType:SHDButtonTypeOutline];

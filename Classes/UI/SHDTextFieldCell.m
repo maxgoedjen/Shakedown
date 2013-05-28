@@ -22,7 +22,7 @@
         _textField = [[UITextField alloc] initWithFrame:CGRectInset(self.bounds, 18, 16)];
         _textField.backgroundColor = [UIColor clearColor];
         _textField.font = [UIFont systemFontOfSize:15];
-        _textField.textColor = kSHDTextNormalColor;
+        _textField.textColor = kSHDNormalColor;
         _textField.delegate = self;
         _textField.returnKeyType = UIReturnKeyNext;
         [self addSubview:_textField];

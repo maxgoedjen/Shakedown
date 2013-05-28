@@ -33,7 +33,7 @@
 - (void)_setup {
     self.label = [[UILabel alloc] initWithFrame:CGRectInset(self.bounds, 18, 16)];
     self.label.font = [UIFont systemFontOfSize:15];
-    self.label.textColor = kSHDTextNormalColor;
+    self.label.textColor = kSHDNormalColor;
     self.label.backgroundColor = [UIColor clearColor];
     [self addSubview:self.label];
     self.displayButton = [SHDButton buttonWithSHDType:SHDButtonTypeOutline];
@@ -100,13 +100,13 @@
         self.backgroundColor = [UIColor clearColor];
         _numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 3, 30, 30)];
         _numberLabel.backgroundColor = [UIColor clearColor];
-        _numberLabel.textColor = kSHDTextHighlightColor;
+        _numberLabel.textColor = kSHDHighlightColor;
         _numberLabel.font = [UIFont boldSystemFontOfSize:14.0];
         _numberLabel.textAlignment = UITextAlignmentRight;
         
         _textField = [[UITextField alloc] initWithFrame:CGRectMake(40, 9, 260, 30)];
         _textField.font = [UIFont systemFontOfSize:14.0];
-        _textField.textColor = kSHDTextHighlightColor;
+        _textField.textColor = kSHDHighlightColor;
         [self addSubview:_textField];
         
         [self addSubview:_numberLabel];
@@ -141,7 +141,7 @@
         _tableView.backgroundColor = [UIColor clearColor];
         _tableView.backgroundView = nil;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.separatorColor = kSHDTextHighlightColor;
+        _tableView.separatorColor = kSHDHighlightColor;
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, 40, 0);
         self.userInteractionEnabled = YES;
     }

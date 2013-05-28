@@ -46,10 +46,10 @@
 
 - (void)_checkPlaceholder {
     if ([self.textView hasText] == NO) {
-        self.textView.textColor = kSHDTextFadedColor;
+        self.textView.textColor = kSHDFadedColor;
         self.textView.text = self.placeholder;
     } else if ([self.textView.text isEqualToString:self.placeholder]) {
-        self.textView.textColor = kSHDTextNormalColor;
+        self.textView.textColor = kSHDNormalColor;
         self.textView.text = @"";
     }
 }

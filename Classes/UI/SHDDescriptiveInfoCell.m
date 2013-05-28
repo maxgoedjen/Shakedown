@@ -24,14 +24,14 @@
         
         _keyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, 100, 15)];
         _keyLabel.font = [UIFont boldSystemFontOfSize:12];
-        _keyLabel.textColor = kSHDTextNormalColor;
+        _keyLabel.textColor = kSHDNormalColor;
         _keyLabel.textAlignment = UITextAlignmentRight;
         _keyLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:_keyLabel];
         
         _valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 3, 190, 15)];
         _valueLabel.font = [UIFont boldSystemFontOfSize:12];
-        _valueLabel.textColor = kSHDTextHighlightColor;
+        _valueLabel.textColor = kSHDHighlightColor;
         _valueLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:_valueLabel];
         

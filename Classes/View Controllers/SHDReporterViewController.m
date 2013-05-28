@@ -40,7 +40,7 @@
         iPhone.center = self.center;
         UIView *screen = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 64, 112)];
         [iPhone addSubview:screen];
-        screen.backgroundColor = kSHDTextHighlightColor;
+        screen.backgroundColor = kSHDHighlightColor;
         screen.center = [iPhone convertPoint:iPhone.center fromView:self];
         [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
             CGAffineTransform rotateTransform = CGAffineTransformMakeRotation(60);
@@ -98,7 +98,7 @@
     self.navigationItem.title = @"Report Issue";
     self.navigationController.navigationBar.tintColor = kSHDBackgroundColor;
     self.navigationController.navigationBar.titleTextAttributes = @{
-                                                                    UITextAttributeTextColor: kSHDTextNormalColor,
+                                                                    UITextAttributeTextColor: kSHDNormalColor,
                                                                     UITextAttributeTextShadowColor: [UIColor clearColor]
                                                                     };
     SHDReporterView *view = (SHDReporterView *)self.view;
