@@ -119,7 +119,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		501D16AE175374F60055831D /* Classes */ = {
+		501D16AE175374F60055831D /* Shakedown */ = {
 			isa = PBXGroup;
 			children = (
 				501D16AF175374F60055831D /* Categories */,
@@ -129,7 +129,7 @@
 				501D16CA175374F60055831D /* UI */,
 				501D16DB175374F60055831D /* View Controllers */,
 			);
-			name = Classes;
+			name = Shakedown;
 			path = ../../Classes;
 			sourceTree = "<group>";
 		};
@@ -247,7 +247,7 @@
 		5037CEFB1753748F00487A30 /* ShakedownExample */ = {
 			isa = PBXGroup;
 			children = (
-				501D16AE175374F60055831D /* Classes */,
+				501D16AE175374F60055831D /* Shakedown */,
 				5037CF041753748F00487A30 /* AppDelegate.h */,
 				5037CF051753748F00487A30 /* AppDelegate.m */,
 				5037CF0D1753748F00487A30 /* ViewController.h */,
