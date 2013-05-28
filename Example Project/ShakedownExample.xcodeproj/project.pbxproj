@@ -7,27 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		501D16DE175374F60055831D /* SHDShakedown+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16B1175374F60055831D /* SHDShakedown+Private.m */; };
-		501D16DF175374F60055831D /* UIWindow+SHDShakeListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16B3175374F60055831D /* UIWindow+SHDShakeListener.m */; };
-		501D16E0175374F60055831D /* SHDAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16B6175374F60055831D /* SHDAttachment.m */; };
-		501D16E1175374F60055831D /* SHDBugReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16B8175374F60055831D /* SHDBugReport.m */; };
-		501D16E2175374F60055831D /* SHDShakedown.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16BA175374F60055831D /* SHDShakedown.m */; };
-		501D16E3175374F60055831D /* SHDXMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16BE175374F60055831D /* SHDXMLReader.m */; };
-		501D16E4175374F60055831D /* SHDShakedownEmailReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16C0175374F60055831D /* SHDShakedownEmailReporter.m */; };
-		501D16E5175374F60055831D /* SHDShakedownJIRAReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16C2175374F60055831D /* SHDShakedownJIRAReporter.m */; };
-		501D16E6175374F60055831D /* SHDShakedownPivotalTrackerReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16C4175374F60055831D /* SHDShakedownPivotalTrackerReporter.m */; };
-		501D16E7175374F60055831D /* SHDShakedownReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16C6175374F60055831D /* SHDShakedownReporter.m */; };
-		501D16E8175374F60055831D /* SHDShakedownYouTrackReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16C8175374F60055831D /* SHDShakedownYouTrackReporter.m */; };
-		501D16E9175374F60055831D /* SHDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16CC175374F60055831D /* SHDButton.m */; };
-		501D16EA175374F60055831D /* SHDDescriptiveInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16CE175374F60055831D /* SHDDescriptiveInfoCell.m */; };
-		501D16EB175374F60055831D /* SHDListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16D0175374F60055831D /* SHDListCell.m */; };
-		501D16EC175374F60055831D /* SHDMultipleSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16D2175374F60055831D /* SHDMultipleSelectionCell.m */; };
-		501D16ED175374F60055831D /* SHDReporterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16D4175374F60055831D /* SHDReporterView.m */; };
-		501D16EE175374F60055831D /* SHDScreenshotsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16D6175374F60055831D /* SHDScreenshotsCell.m */; };
-		501D16EF175374F60055831D /* SHDTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16D8175374F60055831D /* SHDTextFieldCell.m */; };
-		501D16F0175374F60055831D /* SHDTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16DA175374F60055831D /* SHDTextViewCell.m */; };
-		501D16F1175374F60055831D /* SHDReporterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 501D16DD175374F60055831D /* SHDReporterViewController.m */; };
-		501D16F31753751D0055831D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501D16F21753751D0055831D /* MessageUI.framework */; };
 		5037CEF61753748F00487A30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5037CEF51753748F00487A30 /* UIKit.framework */; };
 		5037CEF81753748F00487A30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5037CEF71753748F00487A30 /* Foundation.framework */; };
 		5037CEFA1753748F00487A30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5037CEF91753748F00487A30 /* CoreGraphics.framework */; };
@@ -40,51 +19,11 @@
 		5037CF0F1753748F00487A30 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5037CF0E1753748F00487A30 /* ViewController.m */; };
 		5037CF121753748F00487A30 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5037CF101753748F00487A30 /* ViewController_iPhone.xib */; };
 		5037CF151753748F00487A30 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5037CF131753748F00487A30 /* ViewController_iPad.xib */; };
+		F4797E244504423ABA484579 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 097EF8F1B0AC4A68954D5826 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		501D16B0175374F60055831D /* SHDShakedown+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SHDShakedown+Private.h"; sourceTree = "<group>"; };
-		501D16B1175374F60055831D /* SHDShakedown+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SHDShakedown+Private.m"; sourceTree = "<group>"; };
-		501D16B2175374F60055831D /* UIWindow+SHDShakeListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+SHDShakeListener.h"; sourceTree = "<group>"; };
-		501D16B3175374F60055831D /* UIWindow+SHDShakeListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+SHDShakeListener.m"; sourceTree = "<group>"; };
-		501D16B5175374F60055831D /* SHDAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDAttachment.h; sourceTree = "<group>"; };
-		501D16B6175374F60055831D /* SHDAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDAttachment.m; sourceTree = "<group>"; };
-		501D16B7175374F60055831D /* SHDBugReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDBugReport.h; sourceTree = "<group>"; };
-		501D16B8175374F60055831D /* SHDBugReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDBugReport.m; sourceTree = "<group>"; };
-		501D16B9175374F60055831D /* SHDShakedown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDShakedown.h; sourceTree = "<group>"; };
-		501D16BA175374F60055831D /* SHDShakedown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDShakedown.m; sourceTree = "<group>"; };
-		501D16BD175374F60055831D /* SHDXMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDXMLReader.h; sourceTree = "<group>"; };
-		501D16BE175374F60055831D /* SHDXMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDXMLReader.m; sourceTree = "<group>"; };
-		501D16BF175374F60055831D /* SHDShakedownEmailReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDShakedownEmailReporter.h; sourceTree = "<group>"; };
-		501D16C0175374F60055831D /* SHDShakedownEmailReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDShakedownEmailReporter.m; sourceTree = "<group>"; };
-		501D16C1175374F60055831D /* SHDShakedownJIRAReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDShakedownJIRAReporter.h; sourceTree = "<group>"; };
-		501D16C2175374F60055831D /* SHDShakedownJIRAReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDShakedownJIRAReporter.m; sourceTree = "<group>"; };
-		501D16C3175374F60055831D /* SHDShakedownPivotalTrackerReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDShakedownPivotalTrackerReporter.h; sourceTree = "<group>"; };
-		501D16C4175374F60055831D /* SHDShakedownPivotalTrackerReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDShakedownPivotalTrackerReporter.m; sourceTree = "<group>"; };
-		501D16C5175374F60055831D /* SHDShakedownReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDShakedownReporter.h; sourceTree = "<group>"; };
-		501D16C6175374F60055831D /* SHDShakedownReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDShakedownReporter.m; sourceTree = "<group>"; };
-		501D16C7175374F60055831D /* SHDShakedownYouTrackReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDShakedownYouTrackReporter.h; sourceTree = "<group>"; };
-		501D16C8175374F60055831D /* SHDShakedownYouTrackReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDShakedownYouTrackReporter.m; sourceTree = "<group>"; };
-		501D16C9175374F60055831D /* SHDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDConstants.h; sourceTree = "<group>"; };
-		501D16CB175374F60055831D /* SHDButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDButton.h; sourceTree = "<group>"; };
-		501D16CC175374F60055831D /* SHDButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDButton.m; sourceTree = "<group>"; };
-		501D16CD175374F60055831D /* SHDDescriptiveInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDDescriptiveInfoCell.h; sourceTree = "<group>"; };
-		501D16CE175374F60055831D /* SHDDescriptiveInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDDescriptiveInfoCell.m; sourceTree = "<group>"; };
-		501D16CF175374F60055831D /* SHDListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDListCell.h; sourceTree = "<group>"; };
-		501D16D0175374F60055831D /* SHDListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDListCell.m; sourceTree = "<group>"; };
-		501D16D1175374F60055831D /* SHDMultipleSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDMultipleSelectionCell.h; sourceTree = "<group>"; };
-		501D16D2175374F60055831D /* SHDMultipleSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDMultipleSelectionCell.m; sourceTree = "<group>"; };
-		501D16D3175374F60055831D /* SHDReporterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDReporterView.h; sourceTree = "<group>"; };
-		501D16D4175374F60055831D /* SHDReporterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDReporterView.m; sourceTree = "<group>"; };
-		501D16D5175374F60055831D /* SHDScreenshotsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDScreenshotsCell.h; sourceTree = "<group>"; };
-		501D16D6175374F60055831D /* SHDScreenshotsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDScreenshotsCell.m; sourceTree = "<group>"; };
-		501D16D7175374F60055831D /* SHDTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDTextFieldCell.h; sourceTree = "<group>"; };
-		501D16D8175374F60055831D /* SHDTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDTextFieldCell.m; sourceTree = "<group>"; };
-		501D16D9175374F60055831D /* SHDTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDTextViewCell.h; sourceTree = "<group>"; };
-		501D16DA175374F60055831D /* SHDTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDTextViewCell.m; sourceTree = "<group>"; };
-		501D16DC175374F60055831D /* SHDReporterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDReporterViewController.h; sourceTree = "<group>"; };
-		501D16DD175374F60055831D /* SHDReporterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDReporterViewController.m; sourceTree = "<group>"; };
-		501D16F21753751D0055831D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		097EF8F1B0AC4A68954D5826 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5037CEF21753748F00487A30 /* ShakedownExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakedownExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5037CEF51753748F00487A30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5037CEF71753748F00487A30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,6 +41,7 @@
 		5037CF0E1753748F00487A30 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5037CF111753748F00487A30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		5037CF141753748F00487A30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		D03CCF4B9AC14F6C89C3C790 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,119 +49,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				501D16F31753751D0055831D /* MessageUI.framework in Frameworks */,
 				5037CEF61753748F00487A30 /* UIKit.framework in Frameworks */,
 				5037CEF81753748F00487A30 /* Foundation.framework in Frameworks */,
 				5037CEFA1753748F00487A30 /* CoreGraphics.framework in Frameworks */,
+				F4797E244504423ABA484579 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		501D16AE175374F60055831D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				501D16AF175374F60055831D /* Categories */,
-				501D16B4175374F60055831D /* Models */,
-				501D16BB175374F60055831D /* Reporters */,
-				501D16C9175374F60055831D /* SHDConstants.h */,
-				501D16CA175374F60055831D /* UI */,
-				501D16DB175374F60055831D /* View Controllers */,
-			);
-			name = Classes;
-			path = ../../Classes;
-			sourceTree = "<group>";
-		};
-		501D16AF175374F60055831D /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				501D16B0175374F60055831D /* SHDShakedown+Private.h */,
-				501D16B1175374F60055831D /* SHDShakedown+Private.m */,
-				501D16B2175374F60055831D /* UIWindow+SHDShakeListener.h */,
-				501D16B3175374F60055831D /* UIWindow+SHDShakeListener.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		501D16B4175374F60055831D /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				501D16B5175374F60055831D /* SHDAttachment.h */,
-				501D16B6175374F60055831D /* SHDAttachment.m */,
-				501D16B7175374F60055831D /* SHDBugReport.h */,
-				501D16B8175374F60055831D /* SHDBugReport.m */,
-				501D16B9175374F60055831D /* SHDShakedown.h */,
-				501D16BA175374F60055831D /* SHDShakedown.m */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		501D16BB175374F60055831D /* Reporters */ = {
-			isa = PBXGroup;
-			children = (
-				501D16BC175374F60055831D /* Dependencies */,
-				501D16BF175374F60055831D /* SHDShakedownEmailReporter.h */,
-				501D16C0175374F60055831D /* SHDShakedownEmailReporter.m */,
-				501D16C1175374F60055831D /* SHDShakedownJIRAReporter.h */,
-				501D16C2175374F60055831D /* SHDShakedownJIRAReporter.m */,
-				501D16C3175374F60055831D /* SHDShakedownPivotalTrackerReporter.h */,
-				501D16C4175374F60055831D /* SHDShakedownPivotalTrackerReporter.m */,
-				501D16C5175374F60055831D /* SHDShakedownReporter.h */,
-				501D16C6175374F60055831D /* SHDShakedownReporter.m */,
-				501D16C7175374F60055831D /* SHDShakedownYouTrackReporter.h */,
-				501D16C8175374F60055831D /* SHDShakedownYouTrackReporter.m */,
-			);
-			path = Reporters;
-			sourceTree = "<group>";
-		};
-		501D16BC175374F60055831D /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				501D16BD175374F60055831D /* SHDXMLReader.h */,
-				501D16BE175374F60055831D /* SHDXMLReader.m */,
-			);
-			path = Dependencies;
-			sourceTree = "<group>";
-		};
-		501D16CA175374F60055831D /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				501D16CB175374F60055831D /* SHDButton.h */,
-				501D16CC175374F60055831D /* SHDButton.m */,
-				501D16CD175374F60055831D /* SHDDescriptiveInfoCell.h */,
-				501D16CE175374F60055831D /* SHDDescriptiveInfoCell.m */,
-				501D16CF175374F60055831D /* SHDListCell.h */,
-				501D16D0175374F60055831D /* SHDListCell.m */,
-				501D16D1175374F60055831D /* SHDMultipleSelectionCell.h */,
-				501D16D2175374F60055831D /* SHDMultipleSelectionCell.m */,
-				501D16D3175374F60055831D /* SHDReporterView.h */,
-				501D16D4175374F60055831D /* SHDReporterView.m */,
-				501D16D5175374F60055831D /* SHDScreenshotsCell.h */,
-				501D16D6175374F60055831D /* SHDScreenshotsCell.m */,
-				501D16D7175374F60055831D /* SHDTextFieldCell.h */,
-				501D16D8175374F60055831D /* SHDTextFieldCell.m */,
-				501D16D9175374F60055831D /* SHDTextViewCell.h */,
-				501D16DA175374F60055831D /* SHDTextViewCell.m */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		501D16DB175374F60055831D /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				501D16DC175374F60055831D /* SHDReporterViewController.h */,
-				501D16DD175374F60055831D /* SHDReporterViewController.m */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
 		5037CEE91753748F00487A30 = {
 			isa = PBXGroup;
 			children = (
 				5037CEFB1753748F00487A30 /* ShakedownExample */,
 				5037CEF41753748F00487A30 /* Frameworks */,
 				5037CEF31753748F00487A30 /* Products */,
+				D03CCF4B9AC14F6C89C3C790 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -236,10 +80,10 @@
 		5037CEF41753748F00487A30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				501D16F21753751D0055831D /* MessageUI.framework */,
 				5037CEF51753748F00487A30 /* UIKit.framework */,
 				5037CEF71753748F00487A30 /* Foundation.framework */,
 				5037CEF91753748F00487A30 /* CoreGraphics.framework */,
+				097EF8F1B0AC4A68954D5826 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,7 +91,6 @@
 		5037CEFB1753748F00487A30 /* ShakedownExample */ = {
 			isa = PBXGroup;
 			children = (
-				501D16AE175374F60055831D /* Classes */,
 				5037CF041753748F00487A30 /* AppDelegate.h */,
 				5037CF051753748F00487A30 /* AppDelegate.m */,
 				5037CF0D1753748F00487A30 /* ViewController.h */,
@@ -280,9 +123,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5037CF181753748F00487A30 /* Build configuration list for PBXNativeTarget "ShakedownExample" */;
 			buildPhases = (
+				889D2A8A8C3E43F6A46F621E /* Check Pods Manifest.lock */,
 				5037CEEE1753748F00487A30 /* Sources */,
 				5037CEEF1753748F00487A30 /* Frameworks */,
 				5037CEF01753748F00487A30 /* Resources */,
+				9E1B82C1264E4D61B2F76A72 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,6 +180,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		889D2A8A8C3E43F6A46F621E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		9E1B82C1264E4D61B2F76A72 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5037CEEE1753748F00487A30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -343,26 +219,6 @@
 				5037CF021753748F00487A30 /* main.m in Sources */,
 				5037CF061753748F00487A30 /* AppDelegate.m in Sources */,
 				5037CF0F1753748F00487A30 /* ViewController.m in Sources */,
-				501D16DE175374F60055831D /* SHDShakedown+Private.m in Sources */,
-				501D16DF175374F60055831D /* UIWindow+SHDShakeListener.m in Sources */,
-				501D16E0175374F60055831D /* SHDAttachment.m in Sources */,
-				501D16E1175374F60055831D /* SHDBugReport.m in Sources */,
-				501D16E2175374F60055831D /* SHDShakedown.m in Sources */,
-				501D16E3175374F60055831D /* SHDXMLReader.m in Sources */,
-				501D16E4175374F60055831D /* SHDShakedownEmailReporter.m in Sources */,
-				501D16E5175374F60055831D /* SHDShakedownJIRAReporter.m in Sources */,
-				501D16E6175374F60055831D /* SHDShakedownPivotalTrackerReporter.m in Sources */,
-				501D16E7175374F60055831D /* SHDShakedownReporter.m in Sources */,
-				501D16E8175374F60055831D /* SHDShakedownYouTrackReporter.m in Sources */,
-				501D16E9175374F60055831D /* SHDButton.m in Sources */,
-				501D16EA175374F60055831D /* SHDDescriptiveInfoCell.m in Sources */,
-				501D16EB175374F60055831D /* SHDListCell.m in Sources */,
-				501D16EC175374F60055831D /* SHDMultipleSelectionCell.m in Sources */,
-				501D16ED175374F60055831D /* SHDReporterView.m in Sources */,
-				501D16EE175374F60055831D /* SHDScreenshotsCell.m in Sources */,
-				501D16EF175374F60055831D /* SHDTextFieldCell.m in Sources */,
-				501D16F0175374F60055831D /* SHDTextViewCell.m in Sources */,
-				501D16F1175374F60055831D /* SHDReporterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +312,7 @@
 		};
 		5037CF191753748F00487A30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D03CCF4B9AC14F6C89C3C790 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShakedownExample/ShakedownExample-Prefix.pch";
@@ -467,6 +324,7 @@
 		};
 		5037CF1A1753748F00487A30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D03CCF4B9AC14F6C89C3C790 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShakedownExample/ShakedownExample-Prefix.pch";

@@ -1,0 +1,10 @@
+PODS:
+  - Shakedown (0.6.0)
+
+DEPENDENCIES:
+  - Shakedown (~> 0.6.0)
+
+SPEC CHECKSUMS:
+  Shakedown: b458ababa21e66fbe12a994f88b623689b9d62e4
+
+COCOAPODS: 0.20.2
