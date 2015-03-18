@@ -37,7 +37,6 @@ struct GithubIssuesReporter: Reporter {
             "title" : report.title,
             "body" : description,
         ]
-        println("https://api.github.com/repos/\(projectPath)/issues")
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.github.com/repos/\(projectPath)/issues")!)
         let bodyData = NSJSONSerialization.dataWithJSONObject(body, options: nil, error: nil)
@@ -46,7 +45,6 @@ struct GithubIssuesReporter: Reporter {
         request.allHTTPHeaderFields = ["Authorization" : "token \(authenticationToken)"]
         session.dataTaskWithRequest(request) { data, _, error in
             let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
-            println(data)
             let urlString = data?["html_url"] as? String ?? ""
             completion(completionText: urlString, error: error)
             }.resume()
