@@ -10,7 +10,14 @@ import UIKit
 
 class ShakedownViewController: UIViewController {
 
-    var report = BugReport(title: "", description: "", reproducability: "", reproductionSteps: [], screenshot: UIImage(), deviceConfiguration: [:], deviceLog: "")
+    var report = BugReport(
+        title: "",
+        description: "",
+        reproducability: "",
+        reproductionSteps: [],
+        screenshot: currentScreenImage,
+        deviceConfiguration: ShakedownViewController.deviceConfiguration,
+        deviceLog: "")
     
     @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
@@ -24,7 +31,6 @@ class ShakedownViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Shakedown", bundle: NSBundle(forClass: ShakedownViewController.self))
         let navController = storyboard.instantiateInitialViewController() as UINavigationController
         let shakedownViewController = navController.visibleViewController as ShakedownViewController
-        shakedownViewController.report = BugReport(title: "", description: "", reproducability: "", reproductionSteps: [], screenshot: currentScreenImage, deviceConfiguration: [:], deviceLog: "")
         viewController.presentViewController(navController, animated: true, completion: nil)
     }
     
@@ -49,7 +55,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .ReproductionSteps:
             return report.reproductionSteps.count + 1
         case .DeviceInformation:
-            return deviceConfiguration.count
+            return report.deviceConfiguration.count
         default:
             return 1
         }
@@ -65,11 +71,11 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
 
 extension ShakedownViewController {
     
-    @IBAction func cancel(sender: UIButton) {
+    @IBAction func cancel(sender: UIBarButtonItem) {
         
     }
     
-    @IBAction func submitReport(sender: UIButton) {
+    @IBAction func submitReport(sender: UIBarButtonItem) {
         
     }
     
@@ -79,7 +85,7 @@ extension ShakedownViewController {
 
 extension ShakedownViewController {
     
-    var deviceConfiguration: [String : String] {
+    class var deviceConfiguration: [String : String] {
         let device = UIDevice.currentDevice()
         return [
             "Identifier For Vendor" : device.identifierForVendor.UUIDString,
@@ -89,12 +95,6 @@ extension ShakedownViewController {
             "System Name": device.systemName
         ]
     }
-    
-}
-
-// PRAGMA MARK - Image Capture
-
-extension ShakedownViewController {
     
     class var currentScreenImage: UIImage {
         UIGraphicsBeginImageContextWithOptions(UIScreen.mainScreen().bounds.size, true, 0)
