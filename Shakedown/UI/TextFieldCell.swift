@@ -14,14 +14,15 @@ class TextFieldCell: ShakedownCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        textField.delegate = self
+        textField.addTarget(self, action: "valueChanged:", forControlEvents: .EditingChanged)
     }
     
 }
 
-extension TextFieldCell: UITextFieldDelegate {
+extension TextFieldCell {
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func valueChanged(textField: UITextField) {
+        println(textField.text)
         delegate?.valueChanged(self, newValue: textField.text)
     }
     
