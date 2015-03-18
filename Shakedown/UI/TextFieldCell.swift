@@ -22,8 +22,7 @@ class TextFieldCell: ShakedownCell {
 extension TextFieldCell {
     
     func valueChanged(textField: UITextField) {
-        println(textField.text)
-        delegate?.valueChanged(self, newValue: textField.text)
+        delegate?.cell(self, valueChanged: textField.text)
     }
     
 }

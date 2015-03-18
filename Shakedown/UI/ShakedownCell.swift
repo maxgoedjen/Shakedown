@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ShakedownCellDelegate {
-    func valueChanged(cell: ShakedownCell, newValue: String)
+    func cell(cell: ShakedownCell, valueChanged newValue: String)
 }
 
 class ShakedownCell : UICollectionViewCell {

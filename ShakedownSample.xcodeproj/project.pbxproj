@@ -85,8 +85,8 @@
 			children = (
 				5004FB8E1AB93C530053A47A /* ShakedownViewController.swift */,
 				5004FB981AB952FC0053A47A /* TextFieldCell.swift */,
-				5004FB921AB9485E0053A47A /* Shakedown.storyboard */,
 				5004FB9A1AB95A4E0053A47A /* ShakedownCell.swift */,
+				5004FB921AB9485E0053A47A /* Shakedown.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";

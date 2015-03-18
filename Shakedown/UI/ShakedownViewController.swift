@@ -41,24 +41,25 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let typed = Sections(rawValue: indexPath.section)!
-        var cell: UICollectionViewCell!
+        var cell: ShakedownCell!
         switch typed {
         case .Title:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
         case .Description:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
         case .Reproducability:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
         case .ReproductionSteps:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
         case .Screenshot:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
         case .DeviceConfiguration:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
         case .DeviceLogs:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
         }
         cell?.backgroundColor = indexPath.section % 2 == 0 ? UIColor.grayColor() : UIColor.lightGrayColor()
+        cell.delegate = self
         return cell!
     }
     
@@ -81,6 +82,35 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .DeviceLogs:
             return CGSize(width: width, height: 100)
         }
+    }
+    
+}
+
+// Mark: Cell Delegate
+
+extension ShakedownViewController: ShakedownCellDelegate {
+    
+    func cell(cell: ShakedownCell, valueChanged newValue: String) {
+        if let indexPath = collectionView.indexPathForCell(cell) {
+            let typed = Sections(rawValue: indexPath.section)!
+            switch typed {
+            case .Title:
+                report.title = newValue
+            case .Description:
+                report.description = newValue
+            case .Reproducability:
+                break
+            case .ReproductionSteps:
+                break
+            case .Screenshot:
+                break
+            case .DeviceConfiguration:
+                break
+            case .DeviceLogs:
+                break
+            }
+        }
+        println(report)
     }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc class BugReport {
+@objc class BugReport: DebugPrintable {
     
     var title = ""
     var description = ""
@@ -21,6 +21,10 @@ import UIKit
     init(screenshot: UIImage, deviceConfiguration: [String : String]) {
         self.screenshot = screenshot
         self.deviceConfiguration = deviceConfiguration
+    }
+    
+    var debugDescription: String {
+        return "\(title) \(description)"
     }
     
 }
