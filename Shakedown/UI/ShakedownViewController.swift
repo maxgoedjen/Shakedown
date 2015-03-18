@@ -85,6 +85,24 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         }
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let typed = Sections(rawValue: indexPath.section)!
+        switch typed {
+        case .Reproducability:
+            break
+        case .ReproductionSteps:
+            break
+        case .Screenshot:
+            break
+        case .DeviceConfiguration:
+            break
+        case .DeviceLogs:
+            break
+        default:
+            break
+        }
+    }
+    
 }
 
 // Mark: Cell Delegate
