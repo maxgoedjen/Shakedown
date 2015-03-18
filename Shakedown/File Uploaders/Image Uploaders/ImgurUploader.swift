@@ -10,7 +10,7 @@ import UIKit
 
 struct ImgurUploader: ImageUploader {
     
-    let clientID: String
+    let clientID: String = "bda77c3163be215"
     
     func uploadImage(image: UIImage, completion: ImageUploadCompletion) {
         let session = NSURLSession.sharedSession()

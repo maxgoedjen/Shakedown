@@ -10,7 +10,7 @@ import Foundation
 
 struct GistUploader: LogUploader {
     
-    let authenticationToken: String?
+    let authenticationToken: String? = nil
     
     func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion) {
         let session = NSURLSession.sharedSession()

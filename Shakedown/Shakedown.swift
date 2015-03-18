@@ -25,7 +25,7 @@ extension Shakedown {
 
     struct Configuration {
         static var ReporterInstance: Reporter?
-        static var ImageUploaderInstance: ImageUploader = ImgurUploader(clientID: "bda77c3163be215")
+        static var ImageUploaderInstance: ImageUploader = ImgurUploader()
         static var LogUploaderInstance: LogUploader = GistUploader()
         static var AdditionalMetadata: [String : String] = [:]
         static var Log: String = ""
