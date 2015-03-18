@@ -26,14 +26,6 @@ class ShakedownViewController: UIViewController {
         case Title, Description, Reproducability, ReproductionSteps, Screenshot, DeviceInformation
     }
     
-    class func displayFromViewController(viewController: UIViewController) {
-        // Explicitly specify bundle for CocoaPods 0.35/0.36 packaging differences
-        let storyboard = UIStoryboard(name: "Shakedown", bundle: NSBundle(forClass: ShakedownViewController.self))
-        let navController = storyboard.instantiateInitialViewController() as UINavigationController
-        let shakedownViewController = navController.visibleViewController as ShakedownViewController
-        viewController.presentViewController(navController, animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundImageView.image = report.screenshot
@@ -72,7 +64,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
 extension ShakedownViewController {
     
     @IBAction func cancel(sender: UIBarButtonItem) {
-        
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func submitReport(sender: UIBarButtonItem) {
