@@ -28,6 +28,7 @@ extension Shakedown {
         static var ImageUploaderInstance: ImageUploader = ImgurUploader(clientID: "bda77c3163be215")
         static var LogUploaderInstance: LogUploader = GistUploader()
         static var AdditionalMetadata: [String : String] = [:]
+        static var Log: String = ""
     }
 
     class var reporter: Reporter? {
@@ -63,6 +64,15 @@ extension Shakedown {
         }
         set {
             Configuration.AdditionalMetadata = newValue
+        }
+    }
+
+    class var log: String {
+        get {
+        return Configuration.Log
+        }
+        set {
+            Configuration.Log = newValue
         }
     }
 

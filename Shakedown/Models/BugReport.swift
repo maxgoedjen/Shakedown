@@ -14,13 +14,14 @@ import UIKit
     var description = ""
     var reproducability = ""
     var reproductionSteps: [String] = []
-    var deviceLog = ""
+    var deviceLog: String
     var screenshot: UIImage
     var deviceConfiguration: [String : String]
     
-    init(screenshot: UIImage, deviceConfiguration: [String : String]) {
+    init(screenshot: UIImage, deviceConfiguration: [String : String], deviceLog: String?) {
         self.screenshot = screenshot
         self.deviceConfiguration = deviceConfiguration
+        self.deviceLog = deviceLog ?? ""
     }
     
     var debugDescription: String {
