@@ -10,27 +10,27 @@ import UIKit
 
 class ShakedownViewController: UIViewController {
 
-    var report: BugReport
+    var report = BugReport(title: "", description: "", reproducability: "", reproductionSteps: [], screenshot: UIImage(), deviceConfiguration: [:], deviceLog: "")
     
     @IBOutlet var backgroundImageView: UIImageView!
+    @IBOutlet var collectionView: UICollectionView!
     
     enum Sections: Int {
         case Title, Description, Reproducability, ReproductionSteps, Screenshot, DeviceInformation
     }
-
-    init(screenshot: UIImage) {
-        report = BugReport(title: "", description: "", reproducability: "", reproductionSteps: [], screenshot: screenshot, deviceConfiguration: [:], deviceLog: "")
+    
+    class func displayFromViewController(viewController: UIViewController) {
         // Explicitly specify bundle for CocoaPods 0.35/0.36 packaging differences
-        super.init(nibName: "ShakedownViewController", bundle: NSBundle(forClass: ShakedownViewController.self))
+        let storyboard = UIStoryboard(name: "Shakedown", bundle: NSBundle(forClass: ShakedownViewController.self))
+        let navController = storyboard.instantiateInitialViewController() as UINavigationController
+        let shakedownViewController = navController.visibleViewController as ShakedownViewController
+        shakedownViewController.report = BugReport(title: "", description: "", reproducability: "", reproductionSteps: [], screenshot: currentScreenImage, deviceConfiguration: [:], deviceLog: "")
+        viewController.presentViewController(navController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundImageView.image = report.screenshot
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("Please initialize from init(screenshot:)")
     }
     
 }
@@ -88,6 +88,20 @@ extension ShakedownViewController {
             "Name": device.name,
             "System Name": device.systemName
         ]
+    }
+    
+}
+
+// PRAGMA MARK - Image Capture
+
+extension ShakedownViewController {
+    
+    class var currentScreenImage: UIImage {
+        UIGraphicsBeginImageContextWithOptions(UIScreen.mainScreen().bounds.size, true, 0)
+        UIApplication.sharedApplication().keyWindow?.drawViewHierarchyInRect(UIScreen.mainScreen().bounds, afterScreenUpdates: true)
+        let captured = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return captured
     }
     
 }
