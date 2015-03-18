@@ -10,15 +10,7 @@ import UIKit
 
 class ShakedownViewController: UIViewController {
 
-    var report = BugReport(
-        title: "",
-        description: "",
-        reproducability: "",
-        reproductionSteps: [],
-        screenshot: currentScreenImage,
-        deviceConfiguration: ShakedownViewController.deviceConfiguration,
-        deviceLog: "")
-    
+    var report = BugReport(screenshot: currentScreenImage, deviceConfiguration: ShakedownViewController.deviceConfiguration)
     @IBOutlet var collectionView: UICollectionView!
     
     enum Sections: Int {
