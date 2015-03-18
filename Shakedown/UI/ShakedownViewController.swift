@@ -19,26 +19,20 @@ class ShakedownViewController: UIViewController {
         deviceConfiguration: ShakedownViewController.deviceConfiguration,
         deviceLog: "")
     
-    @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
     
     enum Sections: Int {
-        case Title, Description, Reproducability, ReproductionSteps, Screenshot, DeviceInformation
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        backgroundImageView.image = report.screenshot
+        case Title, Description, Reproducability, ReproductionSteps, Screenshot, DeviceConfiguration, DeviceLogs
     }
     
 }
 
 // MARK: Collection View
 
-extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 6
+        return 7
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -46,7 +40,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         switch typed {
         case .ReproductionSteps:
             return report.reproductionSteps.count + 1
-        case .DeviceInformation:
+        case .DeviceConfiguration:
             return report.deviceConfiguration.count
         default:
             return 1
@@ -54,7 +48,27 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let typed = Sections(rawValue: indexPath.section)!
+        switch typed {
+        case .Title:
+            return collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+        case .Description:
+            return collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+        case .Reproducability:
+            return collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+        case .ReproductionSteps:
+            return collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+        case .Screenshot:
+            return collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+        case .DeviceConfiguration:
+            return collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+        case .DeviceLogs:
+            return collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as UICollectionViewCell
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width, height: 100)
     }
     
 }
@@ -68,7 +82,9 @@ extension ShakedownViewController {
     }
     
     @IBAction func submitReport(sender: UIBarButtonItem) {
-        
+        Shakedown.Configuration.ReporterInstance?.fileBugReport(report, imageUploader: Shakedown.Configuration.ImageUploaderInstance, logUploader: Shakedown.Configuration.LogUploaderInstance) { message in
+            println(message)
+        }
     }
     
 }
