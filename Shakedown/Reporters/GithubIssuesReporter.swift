@@ -8,4 +8,13 @@
 
 import Foundation
 
-struct GithubIssuesReporter: 
+struct GithubIssuesReporter: Reporter {
+    
+    let authenticationToken: String
+    let projectName: String
+    
+    func fileBugReport(report: BugReport, completion: ReportCompletion) {
+        
+    }
+    
+}
