@@ -8,14 +8,19 @@
 
 import UIKit
 
-struct BugReport {
+@objc class BugReport {
     
-    let title: String
-    let description: String
-    let reproducability: String
-    let reproductionSteps: [String]
-    let screenshot: UIImage
-    let deviceConfiguration: [String : String]
-    let deviceLog: String
+    var title = ""
+    var description = ""
+    var reproducability = ""
+    var reproductionSteps: [String] = []
+    var deviceLog = ""
+    var screenshot: UIImage
+    var deviceConfiguration: [String : String]
+    
+    init(screenshot: UIImage, deviceConfiguration: [String : String]) {
+        self.screenshot = screenshot
+        self.deviceConfiguration = deviceConfiguration
+    }
     
 }
