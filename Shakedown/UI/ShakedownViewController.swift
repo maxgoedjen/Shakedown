@@ -33,7 +33,7 @@ class ShakedownViewController: UIViewController {
     
 }
 
-// PRAGMA MARK: Collection View
+// MARK: Collection View
 
 extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -59,7 +59,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
     
 }
 
-// PRAGMA MARK: Buttons
+// MARK: Buttons
 
 extension ShakedownViewController {
     
@@ -73,7 +73,7 @@ extension ShakedownViewController {
     
 }
 
-// PRAGMA MARK: Configuration
+// MARK: Configuration
 
 extension ShakedownViewController {
     
