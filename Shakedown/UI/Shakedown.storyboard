@@ -20,7 +20,7 @@
             </objects>
             <point key="canvasLocation" x="-116" y="664"/>
         </scene>
-        <!--Shakedown View Controller-->
+        <!--Report Issue-->
         <scene sceneID="e62-ZJ-Ioi">
             <objects>
                 <viewController id="4wC-4A-NzZ" customClass="ShakedownViewController" customModule="ShakedownSample" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,7 +68,18 @@
                             <constraint firstItem="RtV-1a-9DI" firstAttribute="top" secondItem="iwq-Dc-mJP" secondAttribute="bottom" id="dEM-K2-UH4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1Ax-yI-50C"/>
+                    <navigationItem key="navigationItem" title="Report Issue" id="1Ax-yI-50C">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="YWC-zy-5Ps">
+                            <connections>
+                                <action selector="cancel:" destination="4wC-4A-NzZ" id="vYo-Em-bdT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" style="done" id="5vn-mq-iO8">
+                            <connections>
+                                <action selector="submitReport:" destination="4wC-4A-NzZ" id="rU4-my-b8k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundImageView" destination="iwq-Dc-mJP" id="nZc-gg-TUL"/>
                         <outlet property="collectionView" destination="iyL-q0-buQ" id="Fjm-oG-dRa"/>
