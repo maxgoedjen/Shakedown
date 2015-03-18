@@ -8,7 +8,7 @@
 
 import UIKit
 
-private struct BugReport {
+struct BugReport {
     
     let title: String
     let description: String
