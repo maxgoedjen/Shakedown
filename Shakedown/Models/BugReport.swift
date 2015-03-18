@@ -15,8 +15,7 @@ struct BugReport {
     let reproducability: String
     let reproductionSteps: [String]
     let screenshot: UIImage
-    let deviceInformation: [String : String]
+    let deviceConfiguration: [String : String]
     let deviceLog: String
-    let additionalInformation: [String : String]?
     
 }

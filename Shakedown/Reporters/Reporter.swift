@@ -8,8 +8,8 @@
 
 import Foundation
 
-typealias ReportCompletion = ((completionText: String?, error: String?) -> Void)
+typealias ReportCompletion = ((completionText: String?, error: NSError?) -> Void)
 
 protocol Reporter {
-    func fileBugReport(report: BugReport, completion: ReportCompletion)
+    func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion)
 }
