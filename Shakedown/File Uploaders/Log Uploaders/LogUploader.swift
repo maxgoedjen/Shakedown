@@ -11,5 +11,5 @@ import Foundation
 typealias LogUploadCompletion = (url: NSURL?, error: NSError?) -> Void
 
 protocol LogUploader {
-    func uploadLog(log: String, completion: LogUploadCompletion)
+    func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion)
 }
