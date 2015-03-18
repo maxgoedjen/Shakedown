@@ -11,5 +11,7 @@ import Foundation
 typealias ReportCompletion = ((completionText: String?, error: NSError?) -> Void)
 
 protocol Reporter {
+    
     func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion)
+    
 }
