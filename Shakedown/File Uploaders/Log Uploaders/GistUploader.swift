@@ -10,6 +10,8 @@ import Foundation
 
 struct GistUploader: LogUploader {
     
+    let authenticationToken: String?
+    
     func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion) {
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.github.com/gists")!)
@@ -20,6 +22,9 @@ struct GistUploader: LogUploader {
         let logData = NSJSONSerialization.dataWithJSONObject(requestBody, options: nil, error: nil)
         request.HTTPBody = logData
         request.HTTPMethod = "POST"
+        if let token = authenticationToken {
+            request.allHTTPHeaderFields = ["Authorization" : "token \(authenticationToken)"]
+        }
         session.dataTaskWithRequest(request) { data, _, error in
             let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
             let urlString = data?["html_url"] as? String ?? ""
