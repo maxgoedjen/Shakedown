@@ -11,7 +11,7 @@ import UIKit
 struct ImgurUploader: ImageUploader {
     
     let clientID: String
-        
+    
     func uploadImage(image: UIImage, completion: ImageUploadCompletion) {
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.imgur.com/3/image")!)
