@@ -10,7 +10,15 @@ import UIKit
 
 struct ImgurUploader: ImageUploader {
     
+    // Client ID for your Imgur Application
+    // Get this from https://api.imgur.com/oauth2/addclient
+    // Choose "OAuth2 authorization without a callback URL" and paste in the Client ID you get
     let clientID: String
+    
+    init(clientID: String?) {
+        assert(clientID != nil, "Please configure an Imgur client ID. For information on how to do this, please view ImgurUploader.swift")
+        self.clientID = clientID!
+    }
     
     func uploadImage(image: UIImage, completion: ImageUploadCompletion) {
         let session = NSURLSession.sharedSession()
