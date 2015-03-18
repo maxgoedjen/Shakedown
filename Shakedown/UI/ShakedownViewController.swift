@@ -99,14 +99,15 @@ extension ShakedownViewController: ShakedownCellDelegate {
             case .Description:
                 report.description = newValue
             case .Reproducability:
-                break
+                report.reproducability = newValue
             case .ReproductionSteps:
-                break
-            case .Screenshot:
-                break
-            case .DeviceConfiguration:
-                break
-            case .DeviceLogs:
+                if indexPath.item >= report.reproductionSteps.count {
+                    report.reproductionSteps.append(newValue)
+                } else {
+                    report.reproductionSteps[indexPath.item] = newValue
+                }
+            default:
+                // No-op for logs, device config, screenshot
                 break
             }
         }
