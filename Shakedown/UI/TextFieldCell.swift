@@ -8,6 +8,21 @@
 
 import UIKit
 
-class TextFieldCell : UICollectionViewCell {
+class TextFieldCell: ShakedownCell {
+    
     @IBOutlet var textField: UITextField!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        textField.delegate = self
+    }
+    
+}
+
+extension TextFieldCell: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        delegate?.valueChanged(self, newValue: textField.text)
+    }
+    
 }
