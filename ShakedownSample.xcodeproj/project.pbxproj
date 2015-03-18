@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5004FB901AB93C530053A47A /* ShakedownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5004FB8E1AB93C530053A47A /* ShakedownViewController.swift */; };
+		5004FB911AB93C530053A47A /* ShakedownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5004FB8F1AB93C530053A47A /* ShakedownViewController.xib */; };
 		50302A8C1AB926E1006A2C1E /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50302A881AB926E1006A2C1E /* ImageUploader.swift */; };
 		50302A8D1AB926E1006A2C1E /* ImgurUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50302A891AB926E1006A2C1E /* ImgurUploader.swift */; };
 		50302A8E1AB926E1006A2C1E /* LogUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50302A8B1AB926E1006A2C1E /* LogUploader.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5004FB8E1AB93C530053A47A /* ShakedownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakedownViewController.swift; sourceTree = "<group>"; };
+		5004FB8F1AB93C530053A47A /* ShakedownViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShakedownViewController.xib; sourceTree = "<group>"; };
 		50302A881AB926E1006A2C1E /* ImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		50302A891AB926E1006A2C1E /* ImgurUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurUploader.swift; sourceTree = "<group>"; };
 		50302A8B1AB926E1006A2C1E /* LogUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogUploader.swift; sourceTree = "<group>"; };
@@ -70,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5004FB8D1AB93C4B0053A47A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5004FB8E1AB93C530053A47A /* ShakedownViewController.swift */,
+				5004FB8F1AB93C530053A47A /* ShakedownViewController.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		50302A871AB926E1006A2C1E /* Image Uploaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +164,7 @@
 				503756501AB91E9A00F3419B /* File Uploaders */,
 				503756541AB91E9A00F3419B /* Models */,
 				503756561AB91E9A00F3419B /* Reporters */,
-				503756571AB91E9A00F3419B /* UI */,
+				5004FB8D1AB93C4B0053A47A /* UI */,
 			);
 			path = Shakedown;
 			sourceTree = "<group>";
@@ -180,13 +193,6 @@
 				50302A931AB92C94006A2C1E /* Reporter.swift */,
 			);
 			path = Reporters;
-			sourceTree = "<group>";
-		};
-		503756571AB91E9A00F3419B /* UI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +278,7 @@
 				5037562B1AB91B1900F3419B /* Main.storyboard in Resources */,
 				503756301AB91B1900F3419B /* LaunchScreen.xib in Resources */,
 				5037562D1AB91B1900F3419B /* Images.xcassets in Resources */,
+				5004FB911AB93C530053A47A /* ShakedownViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +305,7 @@
 				50302A901AB926F2006A2C1E /* GistUploader.swift in Sources */,
 				50302A941AB92C94006A2C1E /* Reporter.swift in Sources */,
 				50302A921AB92C77006A2C1E /* GithubIssuesReporter.swift in Sources */,
+				5004FB901AB93C530053A47A /* ShakedownViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
