@@ -18,4 +18,8 @@ struct BugReport {
     let deviceConfiguration: [String : String]
     let deviceLog: String
     
+    static func emptyReportWithScreenshot(screenshot: UIImage) -> BugReport {
+        return BugReport(title: "", description: "", reproducability: "", reproductionSteps: [], screenshot: UIImage(), deviceConfiguration: <#[String : String]#>, deviceLog: <#String#>)
+    }
+    
 }
