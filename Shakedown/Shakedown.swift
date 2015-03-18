@@ -22,11 +22,12 @@ import UIKit
 // MARK: Configuration
 
 extension Shakedown {
-    
+
     struct Configuration {
         static var ReporterInstance: Reporter?
         static var ImageUploaderInstance: ImageUploader = ImgurUploader(clientID: nil)
         static var LogUploaderInstance: LogUploader = GistUploader()
+        static var AdditionalMetadata: [String : String] = [:]
     }
 
     class var reporter: Reporter? {
@@ -53,6 +54,15 @@ extension Shakedown {
         }
         set {
             Configuration.LogUploaderInstance = newValue
+        }
+    }
+
+    class var additionalMetadata: [String : String] {
+        get {
+        return Configuration.AdditionalMetadata
+        }
+        set {
+            Configuration.AdditionalMetadata = newValue
         }
     }
 

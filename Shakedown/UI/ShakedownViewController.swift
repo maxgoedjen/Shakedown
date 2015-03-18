@@ -82,7 +82,7 @@ extension ShakedownViewController {
     }
     
     @IBAction func submitReport(sender: UIBarButtonItem) {
-        Shakedown.Configuration.ReporterInstance?.fileBugReport(report, imageUploader: Shakedown.Configuration.ImageUploaderInstance, logUploader: Shakedown.Configuration.LogUploaderInstance) { message in
+        Shakedown.reporter?.fileBugReport(report, imageUploader: Shakedown.imageUploader, logUploader: Shakedown.logUploader) { message in
             println(message)
         }
     }
@@ -95,13 +95,17 @@ extension ShakedownViewController {
     
     class var deviceConfiguration: [String : String] {
         let device = UIDevice.currentDevice()
-        return [
+        var full = [
             "Identifier For Vendor" : device.identifierForVendor.UUIDString,
             "iOS Version": device.systemVersion,
             "Model": device.model,
             "Name": device.name,
             "System Name": device.systemName
         ]
+        for (key, value) in Shakedown.additionalMetadata {
+            full[key] = value
+        }
+        return full
     }
     
     class var currentScreenImage: UIImage {
