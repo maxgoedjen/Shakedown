@@ -48,18 +48,54 @@
                                             <rect key="frame" x="0.0" y="0.0" width="599.5" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXj-NE-PLl">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXj-NE-PLl">
                                                     <rect key="frame" x="0.0" y="0.0" width="599.5" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="valueChanged:" destination="aN4-Y9-qXD" eventType="editingChanged" id="BH5-Il-gR2"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="FXj-NE-PLl" firstAttribute="leading" secondItem="aN4-Y9-qXD" secondAttribute="leading" id="aCr-8a-gTD"/>
+                                            <constraint firstAttribute="trailing" secondItem="FXj-NE-PLl" secondAttribute="trailing" id="s7m-vB-Xex"/>
+                                            <constraint firstItem="FXj-NE-PLl" firstAttribute="top" secondItem="aN4-Y9-qXD" secondAttribute="top" id="yDU-BY-Z5d"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="textField" destination="FXj-NE-PLl" id="pW7-iV-TCp"/>
                                         </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TextViewCell" id="Boe-f8-vD5" customClass="TextViewCell" customModule="ShakedownSample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="599.5" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5Q-lt-foM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="599.5" height="100"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="Boe-f8-vD5" id="eLp-yf-W8U"/>
+                                                    </connections>
+                                                </textView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="A5Q-lt-foM" secondAttribute="trailing" id="Ar6-Gs-cVn"/>
+                                            <constraint firstAttribute="bottom" secondItem="A5Q-lt-foM" secondAttribute="bottom" id="aEc-Xf-PaO"/>
+                                            <constraint firstItem="A5Q-lt-foM" firstAttribute="top" secondItem="Boe-f8-vD5" secondAttribute="top" id="eEd-89-rVt"/>
+                                            <constraint firstItem="A5Q-lt-foM" firstAttribute="leading" secondItem="Boe-f8-vD5" secondAttribute="leading" id="qJH-TD-FV9"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

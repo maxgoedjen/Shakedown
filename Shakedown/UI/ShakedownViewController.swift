@@ -41,26 +41,27 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let typed = Sections(rawValue: indexPath.section)!
-        var cell: ShakedownCell!
+        var identifier: String!
         switch typed {
         case .Title:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
+            identifier = TextFieldCell.identifier
         case .Description:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
+            identifier = TextViewCell.identifier
         case .Reproducability:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
+            identifier = TextFieldCell.identifier
         case .ReproductionSteps:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
+            identifier = TextFieldCell.identifier
         case .Screenshot:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
+            identifier = TextFieldCell.identifier
         case .DeviceConfiguration:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
+            identifier = TextFieldCell.identifier
         case .DeviceLogs:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("TextFieldCell", forIndexPath: indexPath) as ShakedownCell
+            identifier = TextFieldCell.identifier
         }
-        cell?.backgroundColor = indexPath.section % 2 == 0 ? UIColor.grayColor() : UIColor.lightGrayColor()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as ShakedownCell
+        cell.backgroundColor = indexPath.section % 2 == 0 ? UIColor.grayColor() : UIColor.lightGrayColor()
         cell.delegate = self
-        return cell!
+        return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

@@ -14,4 +14,7 @@ protocol ShakedownCellDelegate {
 
 class ShakedownCell : UICollectionViewCell {
     var delegate: ShakedownCellDelegate?
+    class var identifier: String {
+        return ""
+    }
 }

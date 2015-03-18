@@ -12,16 +12,15 @@ class TextFieldCell: ShakedownCell {
     
     @IBOutlet var textField: UITextField!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        textField.addTarget(self, action: "valueChanged:", forControlEvents: .EditingChanged)
+    override class var identifier: String {
+        return "TextFieldCell"
     }
     
 }
 
 extension TextFieldCell {
     
-    func valueChanged(textField: UITextField) {
+    @IBAction func valueChanged(textField: UITextField) {
         delegate?.cell(self, valueChanged: textField.text)
     }
     
