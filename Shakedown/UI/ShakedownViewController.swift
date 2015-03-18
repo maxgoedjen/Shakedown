@@ -71,7 +71,24 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: 100)
+        let typed = Sections(rawValue: indexPath.section)!
+        let width = collectionView.frame.size.width
+        switch typed {
+        case .Title:
+            return CGSize(width: width, height: 30)
+        case .Description:
+            return CGSize(width: width, height: 100)
+        case .Reproducability:
+            return CGSize(width: width, height: 30)
+        case .ReproductionSteps:
+            return CGSize(width: width, height: 30)
+        case .Screenshot:
+            return CGSize(width: width, height: 150)
+        case .DeviceConfiguration:
+            return CGSize(width: width, height: 10)
+        case .DeviceLogs:
+            return CGSize(width: width, height: 100)
+        }
     }
     
 }
