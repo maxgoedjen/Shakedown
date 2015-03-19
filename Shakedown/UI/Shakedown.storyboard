@@ -76,7 +76,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQg-4T-Hva">
-                                                    <rect key="frame" x="63" y="39.5" width="43.5" height="20.5"/>
+                                                    <rect key="frame" x="58" y="39" width="43.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.11223650723695755" green="0.51751148700714111" blue="0.89125305414199829" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -85,10 +85,11 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="centerY" secondItem="A22-Rl-uHs" secondAttribute="centerY" constant="0.5" id="0dT-z8-lW1"/>
+                                            <constraint firstAttribute="centerY" secondItem="A22-Rl-uHs" secondAttribute="centerY" id="0dT-z8-lW1"/>
                                             <constraint firstItem="A22-Rl-uHs" firstAttribute="leading" secondItem="0wr-wz-qbQ" secondAttribute="leadingMargin" id="GXi-Xb-aoT"/>
                                             <constraint firstAttribute="centerY" secondItem="hQg-4T-Hva" secondAttribute="centerY" constant="0.5" id="Nmr-oM-f8x"/>
-                                            <constraint firstItem="hQg-4T-Hva" firstAttribute="leading" secondItem="A22-Rl-uHs" secondAttribute="trailing" constant="13" id="ijJ-zB-6L8"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hQg-4T-Hva" secondAttribute="trailing" constant="8" id="dMb-is-kVK"/>
+                                            <constraint firstItem="hQg-4T-Hva" firstAttribute="leading" secondItem="A22-Rl-uHs" secondAttribute="trailing" constant="8" id="ijJ-zB-6L8"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="titleLabel" destination="A22-Rl-uHs" id="zJ1-B2-GnO"/>
