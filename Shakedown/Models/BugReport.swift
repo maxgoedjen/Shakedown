@@ -12,7 +12,7 @@ import UIKit
     
     var title = ""
     var description = ""
-    var reproducability = ""
+    var reproducibility = ""
     var reproductionSteps: [String] = []
     var deviceLog: String
     var screenshot: UIImage
@@ -22,7 +22,7 @@ import UIKit
         self.screenshot = screenshot
         self.deviceConfiguration = deviceConfiguration
         self.deviceLog = deviceLog ?? ""
-        self.reproducability = Shakedown.reproducabilityOptions.first!
+        self.reproducibility = Shakedown.reproducibilityOptions.first!
     }
     
 }

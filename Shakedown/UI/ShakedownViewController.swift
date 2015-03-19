@@ -14,7 +14,7 @@ class ShakedownViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     enum Sections: Int {
-        case Title, Description, Reproducability, ReproductionSteps, Screenshot, DeviceConfiguration, DeviceLogs
+        case Title, Description, Reproducibility, ReproductionSteps, Screenshot, DeviceConfiguration, DeviceLogs
     }
     
 }
@@ -53,9 +53,10 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             cell.textView.text = report.description
             cell.textView.userInteractionEnabled = true
             configuredCell = cell
-        case .Reproducability:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
-            cell.textField.text = report.reproducability
+        case .Reproducibility:
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCell.identifier, forIndexPath: indexPath) as LabelCell
+            cell.titleLabel.text = NSLocalizedString("This Happens", comment: "Reproducibility Prefix")
+            cell.valueLabel.text = report.reproducibility
             configuredCell = cell
         case .ReproductionSteps:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
@@ -94,7 +95,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             return CGSize(width: width, height: 30)
         case .Description:
             return CGSize(width: width, height: 100)
-        case .Reproducability:
+        case .Reproducibility:
             return CGSize(width: width, height: 30)
         case .ReproductionSteps:
             return CGSize(width: width, height: 30)
@@ -110,7 +111,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let typed = Sections(rawValue: indexPath.section)!
         switch typed {
-        case .Reproducability:
+        case .Reproducibility:
             break
         case .ReproductionSteps:
             break
@@ -139,8 +140,8 @@ extension ShakedownViewController: ShakedownCellDelegate {
                 report.title = newValue
             case .Description:
                 report.description = newValue
-            case .Reproducability:
-                report.reproducability = newValue
+            case .Reproducibility:
+                report.reproducibility = newValue
             case .ReproductionSteps:
                 if indexPath.item >= report.reproductionSteps.count {
                     report.reproductionSteps.append(newValue)

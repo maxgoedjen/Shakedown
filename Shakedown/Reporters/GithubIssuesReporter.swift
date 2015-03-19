@@ -55,7 +55,7 @@ struct GithubIssuesReporter: Reporter {
     
     func issueBody(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?) -> String {
         var strung = "\n\n\(report.description)\n\n"
-        strung += "### Reproducability\n\n\(report.reproducability)\n\n"
+        strung += "### reproducibility\n\n\(report.reproducibility)\n\n"
         strung += "### Steps to Reproduce\n\n"
         for (index, step) in enumerate(report.reproductionSteps) {
             strung += "\(index). \(step)\n\n"
