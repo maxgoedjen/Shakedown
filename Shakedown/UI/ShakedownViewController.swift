@@ -41,27 +41,47 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let typed = Sections(rawValue: indexPath.section)!
+        var configuredCell: ShakedownCell!
         var identifier: String!
         switch typed {
         case .Title:
-            identifier = TextFieldCell.identifier
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
+            cell.textField.text = report.title
+            configuredCell = cell
         case .Description:
-            identifier = TextViewCell.identifier
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
+            cell.textView.text = description
+            configuredCell = cell
         case .Reproducability:
-            identifier = TextFieldCell.identifier
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
+            cell.textField.text = report.reproducability
+            configuredCell = cell
         case .ReproductionSteps:
-            identifier = TextFieldCell.identifier
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
+            if indexPath.row >= report.reproductionSteps.count {
+                cell.textField.text = nil
+            } else {
+                cell.textField.text = report.reproductionSteps[indexPath.item]
+            }
+            configuredCell = cell
         case .Screenshot:
-            identifier = ScreenshotCell.identifier
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ScreenshotCell.identifier, forIndexPath: indexPath) as ScreenshotCell
+            cell.imageView.image = report.screenshot
+            configuredCell = cell
         case .DeviceConfiguration:
-            identifier = LabelCell.identifier
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCell.identifier, forIndexPath: indexPath) as LabelCell
+            let title = sorted(report.deviceConfiguration.keys)[indexPath.item]
+            cell.titleLabel.text = title
+            cell.valueLabel.text = report.deviceConfiguration[title]
+            configuredCell = cell
         case .DeviceLogs:
-            identifier = TextViewCell.identifier
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
+            cell.textView.text = report.deviceLog
+            configuredCell = cell
         }
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as ShakedownCell
-        cell.backgroundColor = indexPath.section % 2 == 0 ? UIColor.grayColor() : UIColor.lightGrayColor()
-        cell.delegate = self
-        return cell
+        configuredCell.backgroundColor = indexPath.section % 2 == 0 ? UIColor.grayColor() : UIColor.lightGrayColor()
+        configuredCell.delegate = self
+        return configuredCell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -79,7 +99,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .Screenshot:
             return CGSize(width: width, height: 150)
         case .DeviceConfiguration:
-            return CGSize(width: width, height: 10)
+            return CGSize(width: width, height: 20)
         case .DeviceLogs:
             return CGSize(width: width, height: 100)
         }
