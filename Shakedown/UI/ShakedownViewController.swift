@@ -96,7 +96,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .Description:
             return CGSize(width: width, height: 100)
         case .Reproducibility:
-            return CGSize(width: width, height: 30)
+            return CGSize(width: width, height: 44)
         case .ReproductionSteps:
             return CGSize(width: width, height: 30)
         case .Screenshot:
