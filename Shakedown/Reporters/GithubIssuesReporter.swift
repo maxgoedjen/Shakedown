@@ -12,6 +12,8 @@ struct GithubIssuesReporter: Reporter {
     
     // Generate this token at https://github.com/settings/tokens/new (repo or public_repo scope required)
     // Issues will show as being created by the creator of the token, so you may wish to create an "API User" account to generate the token
+    // If you submit a build to the App Store with this token included, people may be able to extract it, so _MAKE SURE_ the account is limited
+    // People stealing your GitHub token and getting access to your repos is no fun. 🔥
     let authenticationToken: String
     // Path to project, in the form of "owner/reponame". This project's path would be "maxgoedjen/shakedown"
     let projectPath: String
