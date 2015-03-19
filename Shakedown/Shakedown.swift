@@ -23,7 +23,7 @@ import UIKit
 
 extension Shakedown {
 
-    struct Configuration {
+    private struct Configuration {
         static var ReporterInstance: Reporter?
         static var ImageUploaderInstance: ImageUploader = ImgurUploader()
         static var LogUploaderInstance: LogUploader = GistUploader()
