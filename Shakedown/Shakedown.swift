@@ -27,6 +27,7 @@ extension Shakedown {
         static var ReporterInstance: Reporter?
         static var ImageUploaderInstance: ImageUploader = ImgurUploader()
         static var LogUploaderInstance: LogUploader = GistUploader()
+        static var ReproducabilityOptions = ["Every Time", "Sometimes", "Rarely"]
         static var AdditionalMetadata: [String : String] = [:]
         static var Log: String = ""
     }
@@ -55,6 +56,15 @@ extension Shakedown {
         }
         set {
             Configuration.LogUploaderInstance = newValue
+        }
+    }
+
+    class var reproducabilityOptions: [String] {
+        get {
+        return Configuration.ReproducabilityOptions
+        }
+        set {
+            Configuration.ReproducabilityOptions = newValue
         }
     }
 
