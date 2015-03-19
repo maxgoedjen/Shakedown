@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3vr-Py-6l6">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -47,8 +48,20 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="599.5" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="599.5" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="5iJ-cp-6y9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="599.5" height="100"/>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="centerX" secondItem="5iJ-cp-6y9" secondAttribute="centerX" id="MRo-WH-59V"/>
+                                            <constraint firstAttribute="centerY" secondItem="5iJ-cp-6y9" secondAttribute="centerY" id="wQv-zc-LWi"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="5iJ-cp-6y9" id="ofK-Gq-hRq"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LabelCell" id="0wr-wz-qbQ" customClass="LabelCell" customModule="ShakedownSample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -56,8 +69,31 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="599.5" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A22-Rl-uHs">
+                                                    <rect key="frame" x="8" y="39" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.11223650723695755" green="0.51751148700714111" blue="0.89125305414199829" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQg-4T-Hva">
+                                                    <rect key="frame" x="63" y="39" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="centerY" secondItem="A22-Rl-uHs" secondAttribute="centerY" constant="0.5" id="0dT-z8-lW1"/>
+                                            <constraint firstItem="A22-Rl-uHs" firstAttribute="leading" secondItem="0wr-wz-qbQ" secondAttribute="leadingMargin" id="GXi-Xb-aoT"/>
+                                            <constraint firstAttribute="centerY" secondItem="hQg-4T-Hva" secondAttribute="centerY" constant="0.5" id="Nmr-oM-f8x"/>
+                                            <constraint firstItem="hQg-4T-Hva" firstAttribute="leading" secondItem="A22-Rl-uHs" secondAttribute="trailing" constant="13" id="ijJ-zB-6L8"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="A22-Rl-uHs" id="zJ1-B2-GnO"/>
+                                            <outlet property="valueLabel" destination="hQg-4T-Hva" id="gSg-xc-dhY"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TextFieldCell" id="aN4-Y9-qXD" customClass="TextFieldCell" customModule="ShakedownSample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -114,6 +150,9 @@
                                             <constraint firstItem="A5Q-lt-foM" firstAttribute="top" secondItem="Boe-f8-vD5" secondAttribute="top" id="eEd-89-rVt"/>
                                             <constraint firstItem="A5Q-lt-foM" firstAttribute="leading" secondItem="Boe-f8-vD5" secondAttribute="leading" id="qJH-TD-FV9"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="textView" destination="A5Q-lt-foM" id="BZl-LY-Q4e"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

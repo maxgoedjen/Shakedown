@@ -10,6 +10,9 @@ import UIKit
 
 class LabelCell: ShakedownCell {
     
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var valueLabel: UILabel!
+    
     override class var identifier: String {
         return "LabelCell"
     }

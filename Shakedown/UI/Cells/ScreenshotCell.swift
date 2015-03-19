@@ -10,6 +10,8 @@ import UIKit
 
 class ScreenshotCell: ShakedownCell {
     
+    @IBOutlet var imageView: UIImageView!
+    
     override class var identifier: String {
         return "ScreenshotCell"
     }
