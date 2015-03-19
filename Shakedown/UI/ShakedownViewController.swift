@@ -108,6 +108,28 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         }
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let typed = Sections(rawValue: section)!
+        switch typed {
+        case .ReproductionSteps:
+            return CGSize(width: collectionView.frame.size.width, height: 20)
+        default:
+            return CGSizeZero
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        let typed = Sections(rawValue: indexPath.section)!
+        let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: HeaderView.identifier, forIndexPath: indexPath) as HeaderView
+        switch typed {
+        case .ReproductionSteps:
+            header.label.text = NSLocalizedString("Steps to Reproduce", comment: "Steps to Reproduce Section Header")
+        default:
+            break
+        }
+        return header
+    }
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let typed = Sections(rawValue: indexPath.section)!
         switch typed {
