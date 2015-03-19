@@ -11,7 +11,7 @@ import UIKit
 class ScreenshotCell: ShakedownCell {
     
     override class var identifier: String {
-        return "Screenshot"
+        return "ScreenshotCell"
     }
 
 }
