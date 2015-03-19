@@ -181,7 +181,6 @@ extension ShakedownViewController: ShakedownCellDelegate {
                 break
             }
         }
-        println(report)
     }
     
 }
