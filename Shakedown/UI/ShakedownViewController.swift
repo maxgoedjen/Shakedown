@@ -51,6 +51,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .Description:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
             cell.textView.text = report.description
+            cell.textView.userInteractionEnabled = true
             configuredCell = cell
         case .Reproducability:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
@@ -77,6 +78,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .DeviceLogs:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
             cell.textView.text = report.deviceLog
+            cell.textView.userInteractionEnabled = false
             configuredCell = cell
         }
         configuredCell.backgroundColor = indexPath.section % 2 == 0 ? UIColor.grayColor() : UIColor.lightGrayColor()
