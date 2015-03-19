@@ -9,12 +9,16 @@
 import UIKit
 
 protocol ShakedownCellDelegate {
+    
     func cell(cell: ShakedownCell, valueChanged newValue: String)
+    
 }
 
 class ShakedownCell : UICollectionViewCell {
+    
     var delegate: ShakedownCellDelegate?
     class var identifier: String {
         return ""
     }
+    
 }

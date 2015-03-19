@@ -52,11 +52,11 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .ReproductionSteps:
             identifier = TextFieldCell.identifier
         case .Screenshot:
-            identifier = TextFieldCell.identifier
+            identifier = ScreenshotCell.identifier
         case .DeviceConfiguration:
-            identifier = TextFieldCell.identifier
+            identifier = LabelCell.identifier
         case .DeviceLogs:
-            identifier = TextFieldCell.identifier
+            identifier = TextViewCell.identifier
         }
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as ShakedownCell
         cell.backgroundColor = indexPath.section % 2 == 0 ? UIColor.grayColor() : UIColor.lightGrayColor()
