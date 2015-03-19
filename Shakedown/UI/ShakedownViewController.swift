@@ -50,7 +50,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             configuredCell = cell
         case .Description:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
-            cell.textView.text = description
+            cell.textView.text = report.description
             configuredCell = cell
         case .Reproducability:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
