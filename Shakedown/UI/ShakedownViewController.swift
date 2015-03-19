@@ -122,8 +122,14 @@ extension ShakedownViewController: ShakedownCellDelegate {
             case .ReproductionSteps:
                 if indexPath.item >= report.reproductionSteps.count {
                     report.reproductionSteps.append(newValue)
+                    collectionView.insertItemsAtIndexPaths([NSIndexPath(forItem: report.reproductionSteps.count, inSection: typed.rawValue)])
                 } else {
-                    report.reproductionSteps[indexPath.item] = newValue
+                    if !newValue.isEmpty {
+                        report.reproductionSteps[indexPath.item] = newValue
+                    } else {
+                        report.reproductionSteps.removeAtIndex(indexPath.item)
+                        collectionView.deleteItemsAtIndexPaths([NSIndexPath(forItem: report.reproductionSteps.count, inSection: typed.rawValue)])
+                    }
                 }
             default:
                 // No-op for logs, device config, screenshot
