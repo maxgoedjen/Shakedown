@@ -18,17 +18,18 @@ class GithubIssuesReporter: Reporter {
     // Path to project, in the form of "owner/reponame". This project's path would be "maxgoedjen/shakedown"
     let projectPath: String
     
-    func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
-        imageUploader.uploadImage(report.screenshot) {
-            screenshotURL, screenshotError in
-            logUploader.uploadLog(report.deviceLog, deviceConfiguration: report.deviceConfiguration) {
-                logURL, logError in
-                if let error = screenshotError ?? logError {
-                    completion(completionText: nil, error: error)
-                } else {
-                    self.uploadReport(report, screenshotURL: screenshotURL, logURL: logURL, completion: completion)
-                }
-                
+    init(authenticationToken: String, projectPath: String) {
+        self.authenticationToken = authenticationToken
+        self.projectPath = projectPath
+        super.init()
+    }
+    
+    override func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
+        uploadImagesAndLogs(report, imageUploader: imageUploader, logUploader: logUploader) { screenshotURL, logURL, error in
+            if error ==  nil {
+                self.uploadReport(report, screenshotURL: screenshotURL, logURL: logURL, completion: completion)
+            } else {
+                completion(completionText: nil, error: error)
             }
         }
     }
