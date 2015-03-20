@@ -47,14 +47,17 @@ class JIRAReporter: Reporter {
     
     func uploadReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
-        let body = [
-            "fields": [
-                "project" : ["key" : projectKey],
-                "summary": report.title,
-                "description": issueBody(report, screenshotURL: screenshotURL, logURL: logURL),
-                "issuetype": ["name" : issueType]
-            ]
+        var fields: [String : AnyObject] = [ // This is being cast to NSDictionary without explicit type annotation
+            "project" : ["key" : self.projectKey],
+            "summary": report.title,
+            "description": self.issueBody(report, screenshotURL: screenshotURL, logURL: logURL),
+            "issuetype": ["name" : self.issueType]
         ]
+        if let reproField = self.reproducibilityField {
+            fields[reproField] = ["value": report.reproducibility]
+        }
+        let body = ["fields": fields]
+        
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "\(instanceURL)/rest/api/2/issue/")!)
         let bodyData = NSJSONSerialization.dataWithJSONObject(body, options: nil, error: nil)
