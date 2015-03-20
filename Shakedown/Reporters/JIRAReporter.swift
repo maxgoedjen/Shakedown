@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct JIRAReporter: Reporter {
+class JIRAReporter: Reporter {
 
     // Generate this token at
     // Issues will show as being created by the creator of the token, so you may wish to create an "API User" account to generate the token
@@ -17,7 +17,7 @@ struct JIRAReporter: Reporter {
     // JIRA Project key. This is the prefix before the ticket number, i.e. if had ticket MG-300, your project key would be MG
     let projectKey: String
 
-    func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
+    override func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
         
     }
 

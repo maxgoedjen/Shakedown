@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GithubIssuesReporter: Reporter {
+class GithubIssuesReporter: Reporter {
     
     // Generate this token at https://github.com/settings/tokens/new (repo or public_repo scope required)
     // Issues will show as being created by the creator of the token, so you may wish to create an "API User" account to generate the token
