@@ -47,6 +47,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .Title:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
             cell.textField.text = report.title
+            cell.textField.placeholder = NSLocalizedString("Report Title", comment: "Report Title Placeholder")
             configuredCell = cell
         case .Description:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
