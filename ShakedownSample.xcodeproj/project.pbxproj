@@ -29,6 +29,7 @@
 		509461EA1ABA6CD900D0E897 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E51ABA6CD900D0E897 /* TextFieldCell.swift */; };
 		509461EB1ABA6CD900D0E897 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E61ABA6CD900D0E897 /* TextViewCell.swift */; };
 		509461ED1ABAE01800D0E897 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461EC1ABAE01800D0E897 /* HeaderView.swift */; };
+		50FD43E81ABC1355008B6E71 /* JIRAReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		509461E51ABA6CD900D0E897 /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		509461E61ABA6CD900D0E897 /* TextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
 		509461EC1ABAE01800D0E897 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JIRAReporter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				50302A911AB92C77006A2C1E /* GithubIssuesReporter.swift */,
+				50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */,
 				50302A931AB92C94006A2C1E /* Reporter.swift */,
 			);
 			path = Reporters;
@@ -339,6 +342,7 @@
 				50302A941AB92C94006A2C1E /* Reporter.swift in Sources */,
 				50302A921AB92C77006A2C1E /* GithubIssuesReporter.swift in Sources */,
 				509461E81ABA6CD900D0E897 /* ScreenshotCell.swift in Sources */,
+				50FD43E81ABC1355008B6E71 /* JIRAReporter.swift in Sources */,
 				5004FB901AB93C530053A47A /* ShakedownViewController.swift in Sources */,
 				509461E71ABA6CD900D0E897 /* LabelCell.swift in Sources */,
 				509461EA1ABA6CD900D0E897 /* TextFieldCell.swift in Sources */,
