@@ -56,16 +56,18 @@ class GithubIssuesReporter: Reporter {
     
     func issueBody(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?) -> String {
         var strung = "\n\n\(report.description)\n\n"
-        strung += "### reproducibility\n\n\(report.reproducibility)\n\n"
-        strung += "### Steps to Reproduce\n\n"
-        for (index, step) in enumerate(report.reproductionSteps) {
-            strung += "\(index). \(step)\n\n"
+        strung += "#### Reproducibility\n\n\(report.reproducibility)\n\n"
+        if report.reproductionSteps.count > 0 {
+            strung += "#### Steps to Reproduce\n\n"
+            for (index, step) in enumerate(report.reproductionSteps) {
+                strung += "\(index). \(step)\n\n"
+            }
         }
         if let screenshotURLString = screenshotURL?.absoluteString {
-            strung += "### Screenshot\n\n![](\(screenshotURLString))\n\n"
+            strung += "#### Screenshot\n\n![](\(screenshotURLString))\n\n"
         }
         if let logURLString = logURL?.absoluteString {
-            strung += "### Logs\n\n\(logURLString)\n\n"
+            strung += "#### Logs\n\n\(logURLString)\n\n"
         }
         return strung
     }
