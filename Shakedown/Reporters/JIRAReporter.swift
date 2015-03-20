@@ -10,21 +10,24 @@ import Foundation
 
 class JIRAReporter: Reporter {
 
-    // JIRA instance URL. This will be something like https://yourcompany.atlassian.net
     let instanceURL: String
-    // JIRA username/password
-    // Issues will show as being created by this user, so you may wish to create an "API User" account to use
-    // If you submit a build to the App Store with this token included, people may be able to extract it, so _MAKE SURE_ the account is limited
-    let username, password: String
-    // JIRA Project key. This is the prefix before the ticket number, i.e. if had ticket MG-300, your project key would be MG
+    let username: String
+    let password: String
     let projectKey: String
-    // Issue type to create. If you don't track bugs as "Bug," (like, if everything is a "Task" or something dumb like that) you probably want to change this
     let issueType: String
-    // If your project has a specific field for reproducibility, specify it here, otherwise reproducibility will be appended to the description in JIRA
-    // If you set this field, it's _suuuuuuuper_ important you make sure Shakedown.reproducibilityOptions is accurate, because if it's not, JIRA will
-    // reject tickets with invalid reproducibility values
     let reproducibilityField: String?
     
+    /**
+    
+    :param: instanceURL          JIRA instance URL. This will be something like https://yourcompany.atlassian.net
+    :param: username             JIRA Username. Issues will show as being created by this user, so you may wish to create an "API User" account to use
+    :param: password             JIRA Password. If you submit a build to the App Store with this token included, people may be able to extract it, so _MAKE SURE_ the account is limited
+    :param: projectKey           JIRA Project key. This is the prefix before the ticket number, i.e. if had ticket MG-300, your project key would be MG
+    :param: issueType            Issue type to create. If you don't track bugs as "Bug," (like, if everything is a "Task" or something dumb like that) you probably want to change this
+    :param: reproducibilityField If your project has a specific field for reproducibility, specify it here, otherwise reproducibility will be appended to the description in JIRA
+    
+    :returns: JIRA Reporter
+    */
     init(instanceURL: String, username: String, password: String, projectKey: String, issueType: String = "Bug", reproducibilityField: String? = nil) {
         self.instanceURL = instanceURL
         self.username = username

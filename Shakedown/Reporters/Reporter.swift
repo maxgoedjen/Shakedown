@@ -13,6 +13,14 @@ typealias ReportCompletion = ((completionText: String?, error: NSError?) -> Void
 
 class Reporter {
     
+    /**
+    Convenience function to allow subclasses to upload images and logs in one shot
+    
+    :param: report        Report to upload images/logs from
+    :param: imageUploader ImageUploader subclass
+    :param: logUploader   LogUploader subclass
+    :param: completion    Completion handler. If either logs or screenshot upload fails, error will be non-nil
+    */
     func uploadImagesAndLogs(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ImageAndLogCompletion) {
         imageUploader.uploadImage(report.screenshot) {
             screenshotURL, screenshotError in
@@ -28,6 +36,14 @@ class Reporter {
         }
     }
     
+    /**
+    File the bug report with the tracker
+    
+    :param: report        Report to file
+    :param: imageUploader ImageUploader subclass, which will be provided as configured in Shakedown.swift
+    :param: logUploader   LogUploader subclass, which will be provided as configured in Shakedown.swift
+    :param: completion    Completion handler to call when finished. Call with completion text (ticket ID, etc)
+    */
     func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
         
     }
