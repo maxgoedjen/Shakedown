@@ -17,6 +17,22 @@ import UIKit
         viewController.presentViewController(navController, animated: true, completion: nil)
     }
     
+    class func beginListeningForShakes() {
+        let vc = ShakeTriggerViewController(nibName: nil, bundle: nil) {
+            self.displayFromFrontViewController()
+        }
+        let root = UIApplication.sharedApplication().keyWindow?.rootViewController
+        root?.addChildViewController(vc)
+        root?.view.addSubview(vc.view)
+    }
+    
+    class func beginListeningForFiveFingerHold() {
+        let root = UIApplication.sharedApplication().keyWindow?.rootViewController
+        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: "fiveFingerHold:")
+        gestureRecognizer.numberOfTouchesRequired = 5
+        root?.view.addGestureRecognizer(gestureRecognizer)
+    }
+    
 }
 
 // MARK: Configuration
@@ -86,4 +102,29 @@ extension Shakedown {
         }
     }
 
+}
+
+// MARK: Triggers
+
+extension Shakedown {
+    
+    class func fiveFingerHold(recognizer: UILongPressGestureRecognizer) {
+        if recognizer.state == .Began {
+            displayFromFrontViewController()
+        }
+    }
+    
+    class func displayFromFrontViewController() {
+        displayFromViewController(frontViewController)
+    }
+    
+    class var frontViewController: UIViewController {
+        let root = UIApplication.sharedApplication().keyWindow!.rootViewController!
+        var foremost = root
+        while let next = foremost.presentedViewController {
+            foremost = next
+        }
+        return foremost
+    }
+        
 }

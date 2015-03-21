@@ -11,6 +11,7 @@
 		5004FB931AB9485E0053A47A /* Shakedown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5004FB921AB9485E0053A47A /* Shakedown.storyboard */; };
 		5004FB971AB94E9B0053A47A /* Shakedown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5004FB961AB94E9B0053A47A /* Shakedown.swift */; };
 		50114B001ABD72F60077AA92 /* PivotalReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114AFF1ABD72F60077AA92 /* PivotalReporter.swift */; };
+		50114B051ABD7E460077AA92 /* ShakeTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114B041ABD7E460077AA92 /* ShakeTriggerViewController.swift */; };
 		50302A8C1AB926E1006A2C1E /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50302A881AB926E1006A2C1E /* ImageUploader.swift */; };
 		50302A8D1AB926E1006A2C1E /* ImgurUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50302A891AB926E1006A2C1E /* ImgurUploader.swift */; };
 		50302A8E1AB926E1006A2C1E /* LogUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50302A8B1AB926E1006A2C1E /* LogUploader.swift */; };
@@ -48,6 +49,7 @@
 		5004FB921AB9485E0053A47A /* Shakedown.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Shakedown.storyboard; sourceTree = "<group>"; };
 		5004FB961AB94E9B0053A47A /* Shakedown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shakedown.swift; sourceTree = "<group>"; };
 		50114AFF1ABD72F60077AA92 /* PivotalReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PivotalReporter.swift; sourceTree = "<group>"; };
+		50114B041ABD7E460077AA92 /* ShakeTriggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeTriggerViewController.swift; sourceTree = "<group>"; };
 		50302A881AB926E1006A2C1E /* ImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		50302A891AB926E1006A2C1E /* ImgurUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurUploader.swift; sourceTree = "<group>"; };
 		50302A8B1AB926E1006A2C1E /* LogUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogUploader.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				5004FB8E1AB93C530053A47A /* ShakedownViewController.swift */,
 				509461E11ABA6CD900D0E897 /* Cells */,
 				5004FB921AB9485E0053A47A /* Shakedown.storyboard */,
+				50114B041ABD7E460077AA92 /* ShakeTriggerViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				50302A921AB92C77006A2C1E /* GithubIssuesReporter.swift in Sources */,
 				509461E81ABA6CD900D0E897 /* ScreenshotCell.swift in Sources */,
 				50FD43E81ABC1355008B6E71 /* JIRAReporter.swift in Sources */,
+				50114B051ABD7E460077AA92 /* ShakeTriggerViewController.swift in Sources */,
 				5004FB901AB93C530053A47A /* ShakedownViewController.swift in Sources */,
 				509461E71ABA6CD900D0E897 /* LabelCell.swift in Sources */,
 				509461EA1ABA6CD900D0E897 /* TextFieldCell.swift in Sources */,
