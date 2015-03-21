@@ -62,7 +62,7 @@ class GithubIssuesReporter: Reporter {
         if report.reproductionSteps.count > 0 {
             strung += "#### Steps to Reproduce\n\n"
             for (index, step) in enumerate(report.reproductionSteps) {
-                strung += "\(index). \(step)\n\n"
+                strung += "\(index+1). \(step)\n\n"
             }
         }
         if let screenshotURLString = screenshotURL?.absoluteString {
