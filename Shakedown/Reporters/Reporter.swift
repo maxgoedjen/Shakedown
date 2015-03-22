@@ -8,10 +8,10 @@
 
 import Foundation
 
-typealias ImageAndLogCompletion = ((imageURL: NSURL?, logURL: NSURL?, error: NSError?) -> Void)
-typealias ReportCompletion = ((completionText: String?, error: NSError?) -> Void)
+public typealias ImageAndLogCompletion = ((imageURL: NSURL?, logURL: NSURL?, error: NSError?) -> Void)
+public typealias ReportCompletion = ((completionText: String?, error: NSError?) -> Void)
 
-class Reporter {
+public class Reporter {
     
     /**
     Convenience function to allow subclasses to upload images and logs in one shot
@@ -44,7 +44,7 @@ class Reporter {
     :param: logUploader   LogUploader subclass, which will be provided as configured in Shakedown.swift
     :param: completion    Completion handler to call when finished. Call with completion text (ticket ID, etc)
     */
-    func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
+    public func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
         
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GithubIssuesReporter: Reporter {
+public class GithubIssuesReporter: Reporter {
 
     let authenticationToken: String
     let projectPath: String
@@ -20,13 +20,13 @@ class GithubIssuesReporter: Reporter {
     
     :returns: Github Issues Reporter
     */
-    init(authenticationToken: String, projectPath: String) {
+    public init(authenticationToken: String, projectPath: String) {
         self.authenticationToken = authenticationToken
         self.projectPath = projectPath
         super.init()
     }
     
-    override func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
+    override public func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
         uploadImagesAndLogs(report, imageUploader: imageUploader, logUploader: logUploader) { screenshotURL, logURL, error in
             if error ==  nil {
                 self.uploadReport(report, screenshotURL: screenshotURL, logURL: logURL, completion: completion)
@@ -36,7 +36,7 @@ class GithubIssuesReporter: Reporter {
         }
     }
     
-    func uploadReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
+    private func uploadReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
         let body = [
             "title" : report.title,
@@ -56,7 +56,7 @@ class GithubIssuesReporter: Reporter {
 
     }
     
-    func issueBody(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?) -> String {
+    private func issueBody(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?) -> String {
         var strung = "\n\n\(report.description)\n\n"
         strung += "#### Reproducibility\n\n\(report.reproducibility)\n\n"
         if report.reproductionSteps.count > 0 {

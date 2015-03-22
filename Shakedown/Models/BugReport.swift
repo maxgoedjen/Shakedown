@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc class BugReport {
+@objc public class BugReport {
     
     var title = ""
     var description = ""

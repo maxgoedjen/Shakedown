@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PivotalReporter: Reporter {
+public class PivotalReporter: Reporter {
     
     let authenticationToken: String
     let projectID: String
@@ -20,13 +20,13 @@ class PivotalReporter: Reporter {
     
     :returns: Pivotal Reporter
     */
-    init(authenticationToken: String, projectID: String) {
+    public init(authenticationToken: String, projectID: String) {
         self.authenticationToken = authenticationToken
         self.projectID = projectID
         super.init()
     }
     
-    override func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
+    override public func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
         uploadImagesAndLogs(report, imageUploader: imageUploader, logUploader: logUploader) { screenshotURL, logURL, error in
             if error ==  nil {
                 self.uploadReport(report, screenshotURL: screenshotURL, logURL: logURL, completion: completion)
@@ -36,7 +36,7 @@ class PivotalReporter: Reporter {
         }
     }
     
-    func uploadReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
+    private func uploadReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
         var fields = [
             "story_type": "bug",
@@ -63,7 +63,7 @@ class PivotalReporter: Reporter {
         
     }
     
-    func issueBody(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?) -> String {
+    private func issueBody(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?) -> String {
         var strung = "\(report.description)\n\n"
         strung += "**Reproducibility**:\n \(report.reproducibility)\n\n"
         if report.reproductionSteps.count > 0 {

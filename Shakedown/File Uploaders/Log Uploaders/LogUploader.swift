@@ -8,8 +8,8 @@
 
 import Foundation
 
-typealias LogUploadCompletion = (url: NSURL?, error: NSError?) -> Void
+public typealias LogUploadCompletion = (url: NSURL?, error: NSError?) -> Void
 
-protocol LogUploader {
+public protocol LogUploader {
     func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion)
 }

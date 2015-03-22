@@ -8,13 +8,14 @@
 
 import Foundation
 
-@objc class Configuration {
+@objc public class Configuration {
     
-    var reporter: Reporter?
-    var imageUploader: ImageUploader = ImgurUploader()
-    var logUploader: LogUploader = GistUploader()
-    var reproducibilityOptions = ["Every Time", "Sometimes", "Rarely"]
-    var additionalMetadata: [String : String] = [:]
+    public var reporter: Reporter?
+    public var imageUploader: ImageUploader = ImgurUploader()
+    public var logUploader: LogUploader = GistUploader()
+    public var reproducibilityOptions = ["Every Time", "Sometimes", "Rarely"]
+    public var additionalMetadata: [String : String] = [:]
+    
     var log: String = ""
     
     init() {

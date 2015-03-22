@@ -11,8 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
-        Shakedown.configuration.reporter = nil
+//        Shakedown.configuration.reporter = nil
         Shakedown.logMessage("Test")
+        Shakedown.configuration.additionalMetadata = ["A" : "B"]
         Shakedown.displayFrom(viewController: self)
     }
 

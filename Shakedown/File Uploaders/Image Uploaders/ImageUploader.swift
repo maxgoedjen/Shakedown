@@ -8,10 +8,10 @@
 
 import UIKit
 
-typealias ImageUploadCompletion = (url: NSURL?, error: NSError?) -> Void
+public typealias ImageUploadCompletion = (url: NSURL?, error: NSError?) -> Void
 
-protocol ImageUploader {
+public protocol ImageUploader {
     
-    func uploadImage(image: UIImage, completion: ImageUploadCompletion)
+     func uploadImage(image: UIImage, completion: ImageUploadCompletion)
     
 }

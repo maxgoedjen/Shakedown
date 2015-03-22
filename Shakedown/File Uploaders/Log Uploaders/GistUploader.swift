@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct GistUploader: LogUploader {
+public struct GistUploader: LogUploader {
     
     let authenticationToken: String? = nil
     
-    func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion) {
+    public func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion) {
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.github.com/gists")!)
         let requestBody = ["files": [
@@ -32,7 +32,7 @@ struct GistUploader: LogUploader {
             }.resume()
     }
     
-    func formattedConfiguration(configuration: [String : String]) -> String {
+    private func formattedConfiguration(configuration: [String : String]) -> String {
         var strung = ""
         for (key, value) in configuration {
             strung += "`\(key)` : `\(value)`\n\n"

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JIRAReporter: Reporter {
+public class JIRAReporter: Reporter {
 
     let instanceURL: String
     let username: String
@@ -28,7 +28,7 @@ class JIRAReporter: Reporter {
     
     :returns: JIRA Reporter
     */
-    init(instanceURL: String, username: String, password: String, projectKey: String, issueType: String = "Bug", reproducibilityField: String? = nil) {
+    public init(instanceURL: String, username: String, password: String, projectKey: String, issueType: String = "Bug", reproducibilityField: String? = nil) {
         self.instanceURL = instanceURL
         self.username = username
         self.password = password
@@ -38,7 +38,7 @@ class JIRAReporter: Reporter {
         super.init()
     }
 
-    override func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
+    override public func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
         uploadImagesAndLogs(report, imageUploader: imageUploader, logUploader: logUploader) { screenshotURL, logURL, error in
             if error ==  nil {
                 self.uploadReport(report, screenshotURL: screenshotURL, logURL: logURL, completion: completion)
@@ -48,7 +48,7 @@ class JIRAReporter: Reporter {
         }
     }
     
-    func uploadReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
+    private func uploadReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
         var fields: [String : AnyObject] = [ // This is being cast to NSDictionary without explicit type annotation
             "project" : ["key" : self.projectKey],
@@ -80,7 +80,7 @@ class JIRAReporter: Reporter {
         
     }
 
-    func issueBody(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?) -> String {
+    private func issueBody(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?) -> String {
         var strung = "\(report.description)\n\n"
         if reproducibilityField == nil {
             strung += "h4. Reproducibility\n \(report.reproducibility)\n\n"
