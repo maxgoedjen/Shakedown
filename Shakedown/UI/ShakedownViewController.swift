@@ -10,7 +10,7 @@ import UIKit
 
 class ShakedownViewController: UIViewController {
 
-    var report = BugReport(screenshot: currentScreenImage, deviceConfiguration: ShakedownViewController.deviceConfiguration, deviceLog: Shakedown.log)
+    var report = BugReport(screenshot: currentScreenImage, deviceConfiguration: ShakedownViewController.deviceConfiguration, deviceLog: Shakedown.configuration.log)
     @IBOutlet var collectionView: UICollectionView!
     
     enum Sections: Int {
@@ -195,7 +195,7 @@ extension ShakedownViewController {
     }
     
     @IBAction func submitReport(sender: UIBarButtonItem) {
-        Shakedown.reporter?.fileBugReport(report, imageUploader: Shakedown.imageUploader, logUploader: Shakedown.logUploader) { message in
+        Shakedown.configuration.reporter?.fileBugReport(report, imageUploader: Shakedown.configuration.imageUploader, logUploader: Shakedown.configuration.logUploader) { message in
             println(message)
         }
     }
@@ -215,7 +215,7 @@ extension ShakedownViewController {
             "Name": device.name,
             "System Name": device.systemName
         ]
-        for (key, value) in Shakedown.additionalMetadata {
+        for (key, value) in Shakedown.configuration.additionalMetadata {
             full[key] = value
         }
         return full

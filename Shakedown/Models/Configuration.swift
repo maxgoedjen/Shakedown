@@ -10,9 +10,9 @@ import Foundation
 
 @objc class Configuration {
     
-    var reporterInstance: Reporter?
-    var imageUploaderInstance: ImageUploader = ImgurUploader()
-    var logUploaderInstance: LogUploader = GistUploader()
+    var reporter: Reporter?
+    var imageUploader: ImageUploader = ImgurUploader()
+    var logUploader: LogUploader = GistUploader()
     var reproducibilityOptions = ["Every Time", "Sometimes", "Rarely"]
     var additionalMetadata: [String : String] = [:]
     var log: String = ""

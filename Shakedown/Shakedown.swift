@@ -57,12 +57,7 @@ extension Shakedown {
     }
 
     class var configuration: Configuration {
-        get {
         return ConfigurationStorage.ConfigurationInstance
-        }
-        set {
-            ConfigurationStorage.ConfigurationInstance = newValue
-        }
     }
 
 }

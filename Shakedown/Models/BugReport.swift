@@ -22,7 +22,7 @@ import UIKit
         self.screenshot = screenshot
         self.deviceConfiguration = deviceConfiguration
         self.deviceLog = deviceLog ?? ""
-        self.reproducibility = Shakedown.reproducibilityOptions.first!
+        self.reproducibility = Shakedown.configuration.reproducibilityOptions.first!
     }
     
 }

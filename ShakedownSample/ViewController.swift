@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
-        Shakedown.reporter = nil
+        Shakedown.configuration.reporter = nil
         Shakedown.displayFromViewController(self)
     }
 
