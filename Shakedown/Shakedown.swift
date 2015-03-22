@@ -8,6 +8,10 @@
 
 import UIKit
 
+func ShakedownLog(msg: String) {
+    Shakedown.configuration.log += ("\n" + msg)
+}
+
 @objc class Shakedown {
     
     /**
