@@ -17,13 +17,14 @@ func ShakedownLog(msg: String) {
     /**
     Show Shakedown programatically from a specific view controller
     
-    :param: viewController View controller to present from
+    :param: viewController View controller to present from. If nil, Shakedown shows from front-most view controller.
     */
-    class func displayFromViewController(viewController: UIViewController) {
+    class func displayFromViewController(viewController: UIViewController? = nil) {
         // Explicitly specify bundle for CocoaPods 0.35/0.36 packaging differences
         let storyboard = UIStoryboard(name: "Shakedown", bundle: NSBundle(forClass: ShakedownViewController.self))
         let navController = storyboard.instantiateInitialViewController() as UINavigationController
-        viewController.presentViewController(navController, animated: true, completion: nil)
+        let presenter = viewController ?? frontViewController
+        presenter.presentViewController(navController, animated: true, completion: nil)
     }
     
     /**
@@ -77,7 +78,7 @@ extension Shakedown {
     }
     
     class func displayFromFrontViewController() {
-        displayFromViewController(frontViewController)
+        displayFromViewController(viewController: frontViewController)
     }
     
     class var frontViewController: UIViewController {

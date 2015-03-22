@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
         Shakedown.configuration.reporter = nil
-        Shakedown.displayFromViewController(self)
+        Shakedown.displayFromViewController(viewController: self)
     }
 
 }
