@@ -52,66 +52,16 @@ import UIKit
 
 extension Shakedown {
 
-    private struct Configuration {
-        static var ReporterInstance: Reporter?
-        static var ImageUploaderInstance: ImageUploader = ImgurUploader()
-        static var LogUploaderInstance: LogUploader = GistUploader()
-        static var ReproducibilityOptions = ["Every Time", "Sometimes", "Rarely"]
-        static var AdditionalMetadata: [String : String] = [:]
-        static var Log: String = ""
+    private struct ConfigurationStorage {
+        static let ConfigurationInstance = Configuration()
     }
 
-    class var reporter: Reporter? {
+    class var configuration: Configuration {
         get {
-        return Configuration.ReporterInstance
+        return ConfigurationStorage.ConfigurationInstance
         }
         set {
-            Configuration.ReporterInstance = newValue
-        }
-    }
-    
-    class var imageUploader: ImageUploader {
-        get {
-        return Configuration.ImageUploaderInstance
-        }
-        set {
-            Configuration.ImageUploaderInstance = newValue
-        }
-    }
-    
-    class var logUploader: LogUploader {
-        get {
-        return Configuration.LogUploaderInstance
-        }
-        set {
-            Configuration.LogUploaderInstance = newValue
-        }
-    }
-
-    class var reproducibilityOptions: [String] {
-        get {
-        return Configuration.ReproducibilityOptions
-        }
-        set {
-            Configuration.ReproducibilityOptions = newValue
-        }
-    }
-
-    class var additionalMetadata: [String : String] {
-        get {
-        return Configuration.AdditionalMetadata
-        }
-        set {
-            Configuration.AdditionalMetadata = newValue
-        }
-    }
-
-    class var log: String {
-        get {
-        return Configuration.Log
-        }
-        set {
-            Configuration.Log = newValue
+            ConfigurationStorage.ConfigurationInstance = newValue
         }
     }
 
