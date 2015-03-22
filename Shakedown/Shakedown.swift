@@ -8,10 +8,6 @@
 
 import UIKit
 
-func ShakedownLog(msg: String) {
-    Shakedown.configuration.log += ("\n" + msg)
-}
-
 @objc class Shakedown {
     
     /**
@@ -19,7 +15,7 @@ func ShakedownLog(msg: String) {
     
     :param: viewController View controller to present from. If nil, Shakedown shows from front-most view controller.
     */
-    class func displayFromViewController(viewController: UIViewController? = nil) {
+    class func displayFrom(viewController: UIViewController? = nil) {
         // Explicitly specify bundle for CocoaPods 0.35/0.36 packaging differences
         let storyboard = UIStoryboard(name: "Shakedown", bundle: NSBundle(forClass: ShakedownViewController.self))
         let navController = storyboard.instantiateInitialViewController() as UINavigationController
@@ -51,6 +47,10 @@ func ShakedownLog(msg: String) {
         root?.view.addGestureRecognizer(gestureRecognizer)
     }
     
+    class func logMessage(message: String) {
+        configuration.log += (message + "\n")
+    }
+    
 }
 
 // MARK: Configuration
@@ -78,7 +78,7 @@ extension Shakedown {
     }
     
     class func displayFromFrontViewController() {
-        displayFromViewController(viewController: frontViewController)
+        displayFrom(viewController: frontViewController)
     }
     
     class var frontViewController: UIViewController {

@@ -32,6 +32,7 @@
 		509461EA1ABA6CD900D0E897 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E51ABA6CD900D0E897 /* TextFieldCell.swift */; };
 		509461EB1ABA6CD900D0E897 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E61ABA6CD900D0E897 /* TextViewCell.swift */; };
 		509461ED1ABAE01800D0E897 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461EC1ABAE01800D0E897 /* HeaderView.swift */; };
+		50B2A2741ABECC6700C7A075 /* ObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B2A2731ABECC6700C7A075 /* ObjCViewController.m */; };
 		50FD43E81ABC1355008B6E71 /* JIRAReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		50114AFF1ABD72F60077AA92 /* PivotalReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PivotalReporter.swift; sourceTree = "<group>"; };
 		50114B041ABD7E460077AA92 /* ShakeTriggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeTriggerViewController.swift; sourceTree = "<group>"; };
 		50114B061ABE7FB30077AA92 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		50114B081ABECB950077AA92 /* ShakedownSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShakedownSample-Bridging-Header.h"; sourceTree = "<group>"; };
 		50302A881AB926E1006A2C1E /* ImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		50302A891AB926E1006A2C1E /* ImgurUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurUploader.swift; sourceTree = "<group>"; };
 		50302A8B1AB926E1006A2C1E /* LogUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogUploader.swift; sourceTree = "<group>"; };
@@ -75,6 +77,8 @@
 		509461E51ABA6CD900D0E897 /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		509461E61ABA6CD900D0E897 /* TextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
 		509461EC1ABAE01800D0E897 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		50B2A2721ABECC6700C7A075 /* ObjCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCViewController.h; sourceTree = "<group>"; };
+		50B2A2731ABECC6700C7A075 /* ObjCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCViewController.m; sourceTree = "<group>"; };
 		50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JIRAReporter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,10 +153,13 @@
 			children = (
 				503756251AB91B1900F3419B /* AppDelegate.swift */,
 				503756271AB91B1900F3419B /* ViewController.swift */,
+				50B2A2721ABECC6700C7A075 /* ObjCViewController.h */,
+				50B2A2731ABECC6700C7A075 /* ObjCViewController.m */,
 				503756291AB91B1900F3419B /* Main.storyboard */,
 				5037562C1AB91B1900F3419B /* Images.xcassets */,
 				5037562E1AB91B1900F3419B /* LaunchScreen.xib */,
 				503756231AB91B1900F3419B /* Supporting Files */,
+				50114B081ABECB950077AA92 /* ShakedownSample-Bridging-Header.h */,
 			);
 			path = ShakedownSample;
 			sourceTree = "<group>";
@@ -351,6 +358,7 @@
 				503756261AB91B1900F3419B /* AppDelegate.swift in Sources */,
 				50302A901AB926F2006A2C1E /* GistUploader.swift in Sources */,
 				50302A941AB92C94006A2C1E /* Reporter.swift in Sources */,
+				50B2A2741ABECC6700C7A075 /* ObjCViewController.m in Sources */,
 				50302A921AB92C77006A2C1E /* GithubIssuesReporter.swift in Sources */,
 				509461E81ABA6CD900D0E897 /* ScreenshotCell.swift in Sources */,
 				50FD43E81ABC1355008B6E71 /* JIRAReporter.swift in Sources */,
@@ -482,9 +490,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ShakedownSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShakedownSample/ShakedownSample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -492,9 +503,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ShakedownSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShakedownSample/ShakedownSample-Bridging-Header.h";
 			};
 			name = Release;
 		};
