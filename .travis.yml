@@ -2,7 +2,7 @@ sudo: false
 language: objective-c
 xcode_workspace: ShakedownSample.xcworkspace
 xcode_scheme: ShakedownSample
-xcode_sdk: iphonesimulator
+xcode_sdk: iphonesimulator8.1
 cache:
 - cocoapods
 before_install:
