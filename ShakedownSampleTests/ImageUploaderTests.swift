@@ -1,8 +1,8 @@
 //
-//  ImgurUploaderTests.swift
+//  ImageUploaderTests.swift
 //  ShakedownSample
 //
-//  Created by Max Goedjen on 3/23/15.
+//  Created by Max Goedjen on 3/24/15.
 //  Copyright (c) 2015 Max Goedjen. All rights reserved.
 //
 
@@ -12,21 +12,25 @@ import Quick
 import Nimble
 import ShakedownSample
 
-class ImgurUploaderTests: QuickSpec {
+class ImageUploaderTests: QuickSpec {
     
     override func spec() {
-        describe("Imgur uploader") {
-            let imgur = ImgurUploader()
+        // Noop for super class, subclasses do not receive
+        if self.isMemberOfClass(ImageUploaderTests) {
+            return
+        }
+        describe("instance uploader") {
+            let instance = self.uploader
             it("is initialized properly") {
-                expect(imgur).toNot(beNil())
+                expect(instance).toNot(beNil())
             }
             var url: NSURL?
             let sourceImage = self.screenshot
             it("should upload successfully") {
                 var error: NSError?
-                imgur.uploadImage(sourceImage) { (url, error) = ($0, $1) }
-                expect(url).toEventuallyNot(beNil(), timeout: 10)
-                expect(error).toEventually(beNil(), timeout: 10)
+                instance.uploadImage(sourceImage) { (url, error) = ($0, $1) }
+                expect(url).toEventuallyNot(beNil(), timeout: 3)
+                expect(error).toEventually(beNil(), timeout: 3)
             }
             it("should have uploaded a valid image") {
                 var data: NSData?
@@ -49,6 +53,17 @@ class ImgurUploaderTests: QuickSpec {
         let image =  UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
+    }
+    
+    var uploader: ImageUploader {
+        return NoOpImageUploader()
+    }
+    
+}
+
+class NoOpImageUploader: ImageUploader {
+    
+    func uploadImage(image: UIImage, completion: ImageUploadCompletion) {
     }
     
 }
