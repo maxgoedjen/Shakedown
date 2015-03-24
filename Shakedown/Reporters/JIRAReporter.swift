@@ -37,18 +37,8 @@ public class JIRAReporter: Reporter {
         self.reproducibilityField = reproducibilityField
         super.init()
     }
-
-    override public func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
-        uploadImagesAndLogs(report, imageUploader: imageUploader, logUploader: logUploader) { screenshotURL, logURL, error in
-            if error ==  nil {
-                self.uploadReport(report, screenshotURL: screenshotURL, logURL: logURL, completion: completion)
-            } else {
-                completion(completionText: nil, error: error)
-            }
-        }
-    }
     
-    private func uploadReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
+    override internal func fileBugReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
         var fields: [String : AnyObject] = [ // This is being cast to NSDictionary without explicit type annotation
             "project" : ["key" : self.projectKey],
