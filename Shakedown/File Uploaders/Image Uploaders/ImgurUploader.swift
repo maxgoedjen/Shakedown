@@ -25,7 +25,6 @@ public struct ImgurUploader: ImageUploader {
         request.HTTPMethod = "POST"
         let imageData = UIImagePNGRepresentation(image)
         session.uploadTaskWithRequest(request, fromData: imageData) { data, response, error in
-            println(response)
             let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
             let imgurData = data?["data"] as? [String : AnyObject]
             let urlString = imgurData?["link"] as? String ?? ""

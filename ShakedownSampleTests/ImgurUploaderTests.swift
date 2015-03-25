@@ -20,8 +20,10 @@ class ImgurUploaderTests: ImageUploaderTests {
     }
     
     override func stubAndVerifyRequest(request: NSURLRequest) -> Response {
+//        expect(request.allHTTPHeaderFields["Authorization"]) == "bda77c3163be215"
+        expect(request.HTTPMethod) == "POST"
         let response = NSHTTPURLResponse(URL: request.URL, statusCode: 200, HTTPVersion: nil, headerFields: nil)!
-        return .Success(response, nil)
+        return .Success(response, json("Imgur"))
     }
     
 }
