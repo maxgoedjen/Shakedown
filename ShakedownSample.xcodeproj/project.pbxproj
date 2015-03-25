@@ -36,6 +36,7 @@
 		50B2A2741ABECC6700C7A075 /* ObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B2A2731ABECC6700C7A075 /* ObjCViewController.m */; };
 		50B2A2781AC11A9A00C7A075 /* ImgurUploaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2A2771AC11A9A00C7A075 /* ImgurUploaderTests.swift */; };
 		50F14E1A1AC28B8D007A2676 /* Imgur.json in Resources */ = {isa = PBXBuildFile; fileRef = 50F14E191AC28B8D007A2676 /* Imgur.json */; };
+		50F14E211AC2957D007A2676 /* NSURLResponse+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F14E1F1AC29577007A2676 /* NSURLResponse+Error.swift */; };
 		50FD43E81ABC1355008B6E71 /* JIRAReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */; };
 		74FBF69B2EE504865794A130 /* Pods_ShakedownSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB555E2A7BDBBFB1B2C21C4 /* Pods_ShakedownSampleTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		50B2A2731ABECC6700C7A075 /* ObjCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCViewController.m; sourceTree = "<group>"; };
 		50B2A2771AC11A9A00C7A075 /* ImgurUploaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurUploaderTests.swift; sourceTree = "<group>"; };
 		50F14E191AC28B8D007A2676 /* Imgur.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Imgur.json; sourceTree = "<group>"; };
+		50F14E1F1AC29577007A2676 /* NSURLResponse+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLResponse+Error.swift"; sourceTree = "<group>"; };
 		50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JIRAReporter.swift; sourceTree = "<group>"; };
 		7DB555E2A7BDBBFB1B2C21C4 /* Pods_ShakedownSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShakedownSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AA48FEA7020C322D210F6D /* Pods-ShakedownSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakedownSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShakedownSampleTests/Pods-ShakedownSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,10 +218,11 @@
 		5037564F1AB91E9A00F3419B /* Shakedown */ = {
 			isa = PBXGroup;
 			children = (
-				5004FB961AB94E9B0053A47A /* Shakedown.swift */,
+				50F14E1E1AC29577007A2676 /* Extensions */,
 				503756501AB91E9A00F3419B /* File Uploaders */,
 				503756541AB91E9A00F3419B /* Models */,
 				503756561AB91E9A00F3419B /* Reporters */,
+				5004FB961AB94E9B0053A47A /* Shakedown.swift */,
 				5004FB8D1AB93C4B0053A47A /* UI */,
 			);
 			path = Shakedown;
@@ -273,6 +276,14 @@
 				50F14E191AC28B8D007A2676 /* Imgur.json */,
 			);
 			path = "Stub Responses";
+			sourceTree = "<group>";
+		};
+		50F14E1E1AC29577007A2676 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				50F14E1F1AC29577007A2676 /* NSURLResponse+Error.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		818079BAD8B4B9FCCA9F6A70 /* Pods */ = {
@@ -459,6 +470,7 @@
 				5004FB901AB93C530053A47A /* ShakedownViewController.swift in Sources */,
 				509461E71ABA6CD900D0E897 /* LabelCell.swift in Sources */,
 				509461EA1ABA6CD900D0E897 /* TextFieldCell.swift in Sources */,
+				50F14E211AC2957D007A2676 /* NSURLResponse+Error.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

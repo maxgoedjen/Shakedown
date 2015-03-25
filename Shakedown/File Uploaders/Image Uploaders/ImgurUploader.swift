@@ -28,7 +28,7 @@ public struct ImgurUploader: ImageUploader {
             let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
             let imgurData = data?["data"] as? [String : AnyObject]
             let urlString = imgurData?["link"] as? String ?? ""
-            completion(url: NSURL(string: urlString), error: error)
+            completion(url: NSURL(string: urlString), error: error ?? response.httpError)
         }.resume()
     }
 
