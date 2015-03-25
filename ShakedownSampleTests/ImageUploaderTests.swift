@@ -32,7 +32,7 @@ class ImageUploaderTests: QuickSpec {
                 var error: NSError?
                 self.stub(everything, self.stubAndVerifyRequest)
                 instance.uploadImage(sourceImage) { (url, error) = ($0, $1) }
-                expect(url).toEventuallyNot(beNil(), timeout: 3)
+                expect(url).toEventually(equal(self.expectedURL), timeout: 3)
                 expect(error).toEventually(beNil(), timeout: 3)
             }
             it("should report an error if server returns a 500") {
@@ -49,6 +49,10 @@ class ImageUploaderTests: QuickSpec {
     func stubAndVerifyRequest(request: NSURLRequest) -> Response {
         let response = NSHTTPURLResponse(URL: request.URL, statusCode: 500, HTTPVersion: nil, headerFields: nil)!
         return .Success(response, nil)
+    }
+    
+    var expectedURL: NSURL {
+        return NSURL()
     }
     
     func json(name: String) -> NSData {

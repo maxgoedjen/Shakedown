@@ -16,11 +16,15 @@ import ShakedownSample
 class ImgurUploaderTests: ImageUploaderTests {
 
     override var uploader: ImageUploader {
-        return ImgurUploader()
+        return ImgurUploader(clientID: "TestClientID")
+    }
+    
+    override var expectedURL: NSURL {
+        return NSURL(string: "http://i.imgur.com/HV2zEeU.png")!
     }
     
     override func stubAndVerifyRequest(request: NSURLRequest) -> Response {
-//        expect(request.allHTTPHeaderFields["Authorization"]) == "bda77c3163be215"
+        expect(request.valueForHTTPHeaderField("Authorization")) == "Client-ID TestClientID"
         expect(request.HTTPMethod) == "POST"
         let response = NSHTTPURLResponse(URL: request.URL, statusCode: 200, HTTPVersion: nil, headerFields: nil)!
         return .Success(response, json("Imgur"))
