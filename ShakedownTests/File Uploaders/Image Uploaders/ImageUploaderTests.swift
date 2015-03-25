@@ -21,7 +21,7 @@ class ImageUploaderTests: QuickSpec {
             return
         }
 
-        describe("instance uploader") {
+        describe("uploader") {
             let instance = self.uploader
             it("is initialized properly") {
                 expect(instance).toNot(beNil())
