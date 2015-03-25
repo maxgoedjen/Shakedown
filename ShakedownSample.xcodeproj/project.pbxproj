@@ -25,8 +25,9 @@
 		5037562D1AB91B1900F3419B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5037562C1AB91B1900F3419B /* Images.xcassets */; };
 		503756301AB91B1900F3419B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5037562E1AB91B1900F3419B /* LaunchScreen.xib */; };
 		5037565B1AB91E9A00F3419B /* BugReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503756551AB91E9A00F3419B /* BugReport.swift */; };
-		5060F48F1AC141EC00719DF5 /* GistUploaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F48E1AC141EC00719DF5 /* GistUploaderTests.swift */; };
-		5060F4911AC156B300719DF5 /* ImageUploaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F4901AC156B300719DF5 /* ImageUploaderTests.swift */; };
+		5060F4981AC2A9CC00719DF5 /* ImageUploaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F4941AC2A9CC00719DF5 /* ImageUploaderTests.swift */; };
+		5060F4991AC2A9CC00719DF5 /* ImgurUploaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F4951AC2A9CC00719DF5 /* ImgurUploaderTests.swift */; };
+		5060F49A1AC2A9CC00719DF5 /* GistUploaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F4971AC2A9CC00719DF5 /* GistUploaderTests.swift */; };
 		509461E71ABA6CD900D0E897 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E21ABA6CD900D0E897 /* LabelCell.swift */; };
 		509461E81ABA6CD900D0E897 /* ScreenshotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E31ABA6CD900D0E897 /* ScreenshotCell.swift */; };
 		509461E91ABA6CD900D0E897 /* ShakedownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E41ABA6CD900D0E897 /* ShakedownCell.swift */; };
@@ -34,7 +35,6 @@
 		509461EB1ABA6CD900D0E897 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E61ABA6CD900D0E897 /* TextViewCell.swift */; };
 		509461ED1ABAE01800D0E897 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461EC1ABAE01800D0E897 /* HeaderView.swift */; };
 		50B2A2741ABECC6700C7A075 /* ObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B2A2731ABECC6700C7A075 /* ObjCViewController.m */; };
-		50B2A2781AC11A9A00C7A075 /* ImgurUploaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2A2771AC11A9A00C7A075 /* ImgurUploaderTests.swift */; };
 		50FD43E81ABC1355008B6E71 /* JIRAReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */; };
 		74FBF69B2EE504865794A130 /* Pods_ShakedownSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB555E2A7BDBBFB1B2C21C4 /* Pods_ShakedownSampleTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -73,8 +73,9 @@
 		503756351AB91B1900F3419B /* ShakedownSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShakedownSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5037563A1AB91B1900F3419B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503756551AB91E9A00F3419B /* BugReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BugReport.swift; sourceTree = "<group>"; };
-		5060F48E1AC141EC00719DF5 /* GistUploaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GistUploaderTests.swift; sourceTree = "<group>"; };
-		5060F4901AC156B300719DF5 /* ImageUploaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploaderTests.swift; sourceTree = "<group>"; };
+		5060F4941AC2A9CC00719DF5 /* ImageUploaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploaderTests.swift; sourceTree = "<group>"; };
+		5060F4951AC2A9CC00719DF5 /* ImgurUploaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurUploaderTests.swift; sourceTree = "<group>"; };
+		5060F4971AC2A9CC00719DF5 /* GistUploaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GistUploaderTests.swift; sourceTree = "<group>"; };
 		509461E21ABA6CD900D0E897 /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		509461E31ABA6CD900D0E897 /* ScreenshotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotCell.swift; sourceTree = "<group>"; };
 		509461E41ABA6CD900D0E897 /* ShakedownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakedownCell.swift; sourceTree = "<group>"; };
@@ -83,7 +84,6 @@
 		509461EC1ABAE01800D0E897 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		50B2A2721ABECC6700C7A075 /* ObjCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCViewController.h; sourceTree = "<group>"; };
 		50B2A2731ABECC6700C7A075 /* ObjCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCViewController.m; sourceTree = "<group>"; };
-		50B2A2771AC11A9A00C7A075 /* ImgurUploaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurUploaderTests.swift; sourceTree = "<group>"; };
 		50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JIRAReporter.swift; sourceTree = "<group>"; };
 		7DB555E2A7BDBBFB1B2C21C4 /* Pods_ShakedownSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShakedownSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AA48FEA7020C322D210F6D /* Pods-ShakedownSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakedownSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShakedownSampleTests/Pods-ShakedownSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -194,9 +194,7 @@
 		503756381AB91B1900F3419B /* ShakedownSampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				5060F4901AC156B300719DF5 /* ImageUploaderTests.swift */,
-				50B2A2771AC11A9A00C7A075 /* ImgurUploaderTests.swift */,
-				5060F48E1AC141EC00719DF5 /* GistUploaderTests.swift */,
+				5060F4921AC2A9CC00719DF5 /* Uploaders */,
 				503756391AB91B1900F3419B /* Supporting Files */,
 			);
 			path = ShakedownSampleTests;
@@ -249,6 +247,32 @@
 				50114AFF1ABD72F60077AA92 /* PivotalReporter.swift */,
 			);
 			path = Reporters;
+			sourceTree = "<group>";
+		};
+		5060F4921AC2A9CC00719DF5 /* Uploaders */ = {
+			isa = PBXGroup;
+			children = (
+				5060F4931AC2A9CC00719DF5 /* Image Uploaders */,
+				5060F4961AC2A9CC00719DF5 /* Log Uploaders */,
+			);
+			path = Uploaders;
+			sourceTree = "<group>";
+		};
+		5060F4931AC2A9CC00719DF5 /* Image Uploaders */ = {
+			isa = PBXGroup;
+			children = (
+				5060F4941AC2A9CC00719DF5 /* ImageUploaderTests.swift */,
+				5060F4951AC2A9CC00719DF5 /* ImgurUploaderTests.swift */,
+			);
+			path = "Image Uploaders";
+			sourceTree = "<group>";
+		};
+		5060F4961AC2A9CC00719DF5 /* Log Uploaders */ = {
+			isa = PBXGroup;
+			children = (
+				5060F4971AC2A9CC00719DF5 /* GistUploaderTests.swift */,
+			);
+			path = "Log Uploaders";
 			sourceTree = "<group>";
 		};
 		509461E11ABA6CD900D0E897 /* Cells */ = {
@@ -454,9 +478,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5060F48F1AC141EC00719DF5 /* GistUploaderTests.swift in Sources */,
-				5060F4911AC156B300719DF5 /* ImageUploaderTests.swift in Sources */,
-				50B2A2781AC11A9A00C7A075 /* ImgurUploaderTests.swift in Sources */,
+				5060F49A1AC2A9CC00719DF5 /* GistUploaderTests.swift in Sources */,
+				5060F4991AC2A9CC00719DF5 /* ImgurUploaderTests.swift in Sources */,
+				5060F4981AC2A9CC00719DF5 /* ImageUploaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
