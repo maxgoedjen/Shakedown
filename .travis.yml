@@ -1,1 +1,9 @@
+sudo: false
 language: objective-c
+xcode_workspace: ShakedownSample.xcworkspace
+xcode_scheme: ShakedownSample
+xcode_sdk: iphonesimulator
+cache:
+- cocoapods
+before_install:
+- gem install cocoapods --prerelease
