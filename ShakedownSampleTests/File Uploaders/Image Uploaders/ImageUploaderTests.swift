@@ -10,6 +10,7 @@ import XCTest
 import CoreGraphics
 import Quick
 import Nimble
+import Mockingjay
 import ShakedownSample
 
 class ImageUploaderTests: QuickSpec {
@@ -19,32 +20,57 @@ class ImageUploaderTests: QuickSpec {
         if self.isMemberOfClass(ImageUploaderTests) {
             return
         }
+
         describe("instance uploader") {
             let instance = self.uploader
             it("is initialized properly") {
                 expect(instance).toNot(beNil())
             }
-            var url: NSURL?
             let sourceImage = self.screenshot
             it("should upload successfully") {
+                var url: NSURL?
                 var error: NSError?
+                self.stub(everything, self.stubAndVerifyRequest)
                 instance.uploadImage(sourceImage) { (url, error) = ($0, $1) }
-                expect(url).toEventuallyNot(beNil(), timeout: 3)
+                expect(url).toEventually(equal(self.expectedURL), timeout: 3)
                 expect(error).toEventually(beNil(), timeout: 3)
             }
-            it("should have uploaded a valid image") {
-                var data: NSData?
+            it("should report an error if server returns an error") {
+                var url: NSURL?
                 var error: NSError?
-                NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, _, error) = ($0, $1, $2) }.resume()
-                expect(data).toEventuallyNot(beNil(), timeout: 3)
-                expect(error).toEventually(beNil(), timeout: 3)
-                let image = UIImage(data: data!)
-                expect(UIImagePNGRepresentation(image)) == UIImagePNGRepresentation(sourceImage)
+                self.stub(everything, builder: http(status: 500))
+                instance.uploadImage(sourceImage) { (url, error) = ($0, $1) }
+                expect(url).toEventually(beNil(), timeout: 3)
+                expect(error).toEventuallyNot(beNil(), timeout: 3)
             }
         }
     }
     
-    var screenshot: UIImage {
+    func stubAndVerifyRequest(request: NSURLRequest) -> Response {
+        let response = NSHTTPURLResponse(URL: request.URL, statusCode: 500, HTTPVersion: nil, headerFields: nil)!
+        return .Success(response, nil)
+    }
+    
+    var expectedURL: NSURL {
+        return NSURL()
+    }
+    
+    func json(name: String) -> NSData {
+        let path = NSBundle(forClass: ImageUploaderTests.self).URLForResource(name, withExtension: "json")
+        return NSData(contentsOfURL: path!)!
+    }
+    
+    var uploader: ImageUploader {
+        return NoOpImageUploader()
+    }
+    
+}
+
+// MARK: Private
+
+extension ImageUploaderTests {
+    
+    private var screenshot: UIImage {
         UIGraphicsBeginImageContext(CGSize(width: 300, height: 300))
         let path = UIBezierPath()
         path.moveToPoint(CGPointZero)
@@ -54,11 +80,7 @@ class ImageUploaderTests: QuickSpec {
         UIGraphicsEndImageContext()
         return image
     }
-    
-    var uploader: ImageUploader {
-        return NoOpImageUploader()
-    }
-    
+
 }
 
 class NoOpImageUploader: ImageUploader {

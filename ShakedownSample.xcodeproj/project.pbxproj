@@ -479,6 +479,7 @@
 				<string>5004FB901AB93C530053A47A</string>
 				<string>509461E71ABA6CD900D0E897</string>
 				<string>509461EA1ABA6CD900D0E897</string>
+				<string>5060F49D1AC2AA8600719DF5</string>
 			</array>
 			<key>isa</key>
 			<string>PBXSourcesBuildPhase</string>
@@ -593,8 +594,6 @@
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
 			<key>path</key>
 			<string>Supporting Files</string>
 			<key>sourceTree</key>
@@ -764,7 +763,9 @@
 			<key>buildActionMask</key>
 			<string>2147483647</string>
 			<key>files</key>
-			<array/>
+			<array>
+				<string>5060F4A01AC2AA9B00719DF5</string>
+			</array>
 			<key>isa</key>
 			<string>PBXResourcesBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
@@ -853,12 +854,11 @@
 		<dict>
 			<key>children</key>
 			<array>
+				<string>5060F49E1AC2AA9B00719DF5</string>
 				<string>5037563A1AB91B1900F3419B</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
 			<key>path</key>
 			<string>Supporting Files</string>
 			<key>sourceTree</key>
@@ -1167,10 +1167,11 @@
 		<dict>
 			<key>children</key>
 			<array>
-				<string>5004FB961AB94E9B0053A47A</string>
+				<string>5060F49B1AC2AA8600719DF5</string>
 				<string>503756501AB91E9A00F3419B</string>
 				<string>503756541AB91E9A00F3419B</string>
 				<string>503756561AB91E9A00F3419B</string>
+				<string>5004FB961AB94E9B0053A47A</string>
 				<string>5004FB8D1AB93C4B0053A47A</string>
 			</array>
 			<key>isa</key>
@@ -1253,8 +1254,10 @@
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
+			<key>name</key>
+			<string>File Uploaders</string>
 			<key>path</key>
-			<string>Uploaders</string>
+			<string>File Uploaders</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1342,6 +1345,74 @@
 		<dict>
 			<key>fileRef</key>
 			<string>5060F4971AC2A9CC00719DF5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5060F49B1AC2AA8600719DF5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5060F49C1AC2AA8600719DF5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Extensions</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5060F49C1AC2AA8600719DF5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>NSURLResponse+Error.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5060F49D1AC2AA8600719DF5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5060F49C1AC2AA8600719DF5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5060F49E1AC2AA9B00719DF5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5060F49F1AC2AA9B00719DF5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Stub Responses</string>
+			<key>path</key>
+			<string>Stub Responses</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5060F49F1AC2AA9B00719DF5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.json</string>
+			<key>path</key>
+			<string>Imgur.json</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5060F4A01AC2AA9B00719DF5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5060F49F1AC2AA9B00719DF5</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
