@@ -35,7 +35,7 @@ class ImageUploaderTests: QuickSpec {
                 expect(url).toEventually(equal(self.expectedURL), timeout: 3)
                 expect(error).toEventually(beNil(), timeout: 3)
             }
-            it("should report an error if server returns a 500") {
+            it("should report an error if server returns an error") {
                 var url: NSURL?
                 var error: NSError?
                 self.stub(everything, builder: http(status: 500))
