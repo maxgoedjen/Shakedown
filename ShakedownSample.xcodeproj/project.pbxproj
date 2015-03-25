@@ -845,8 +845,10 @@
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
+			<key>name</key>
+			<string>ShakedownTests</string>
 			<key>path</key>
-			<string>ShakedownSampleTests</string>
+			<string>ShakedownTests</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1123,7 +1125,7 @@
 					<string>$(inherited)</string>
 				</array>
 				<key>INFOPLIST_FILE</key>
-				<string>ShakedownSampleTests/Supporting Files/Info.plist</string>
+				<string>ShakedownTests/Supporting Files/Info.plist</string>
 				<key>LD_RUNPATH_SEARCH_PATHS</key>
 				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
 				<key>PRODUCT_NAME</key>
@@ -1150,7 +1152,7 @@
 					<string>$(inherited)</string>
 				</array>
 				<key>INFOPLIST_FILE</key>
-				<string>ShakedownSampleTests/Supporting Files/Info.plist</string>
+				<string>ShakedownTests/Supporting Files/Info.plist</string>
 				<key>LD_RUNPATH_SEARCH_PATHS</key>
 				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
 				<key>PRODUCT_NAME</key>
@@ -1254,8 +1256,6 @@
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>File Uploaders</string>
 			<key>path</key>
 			<string>File Uploaders</string>
 			<key>sourceTree</key>
@@ -1389,8 +1389,6 @@
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Stub Responses</string>
 			<key>path</key>
 			<string>Stub Responses</string>
 			<key>sourceTree</key>
