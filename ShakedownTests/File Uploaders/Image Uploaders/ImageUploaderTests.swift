@@ -55,6 +55,11 @@ class ImageUploaderTests: QuickSpec {
         return NSURL()
     }
     
+    var screenshot: UIImage {
+        let path = NSBundle(forClass: ImageUploaderTests.self).pathForResource("TestImage", ofType: "png")
+        return UIImage(contentsOfFile: path!)!
+    }
+
     func json(name: String) -> NSData {
         let path = NSBundle(forClass: ImageUploaderTests.self).URLForResource(name, withExtension: "json")
         return NSData(contentsOfURL: path!)!
@@ -64,23 +69,6 @@ class ImageUploaderTests: QuickSpec {
         return NoOpImageUploader()
     }
     
-}
-
-// MARK: Private
-
-extension ImageUploaderTests {
-    
-    private var screenshot: UIImage {
-        UIGraphicsBeginImageContext(CGSize(width: 300, height: 300))
-        let path = UIBezierPath()
-        path.moveToPoint(CGPointZero)
-        path.addLineToPoint(CGPointMake(300, 300))
-        path.stroke()
-        let image =  UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
-
 }
 
 class NoOpImageUploader: ImageUploader {
