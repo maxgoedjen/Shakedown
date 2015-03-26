@@ -15,7 +15,7 @@ import ShakedownSample
 class GistUploaderTests: LogUploaderTests {
     
     override var expectedURL: NSURL {
-        return NSURL(string: "http://i.imgur.com/HV2zEeU.png")!
+        return NSURL(string: "https://gist.github.com/250756d267ea0646eb74")!
     }
     
     override func stubAndVerifyRequest(request: NSURLRequest) -> Response {
