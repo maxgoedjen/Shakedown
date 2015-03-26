@@ -27,7 +27,7 @@ public struct GistUploader: LogUploader {
         request.HTTPBody = logData
         request.HTTPMethod = "POST"
         if let token = authenticationToken {
-            request.allHTTPHeaderFields = ["Authorization" : "token \(authenticationToken)"]
+            request.allHTTPHeaderFields = ["Authorization" : "token \(token)"]
         }
         session.dataTaskWithRequest(request) { data, response, error in
             let json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
