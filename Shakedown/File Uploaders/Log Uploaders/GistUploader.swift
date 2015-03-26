@@ -12,6 +12,10 @@ public struct GistUploader: LogUploader {
     
     let authenticationToken: String? = nil
     
+    public init(authenticationToken: String? = nil) {
+        self.authenticationToken = authenticationToken
+    }
+    
     public func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion) {
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.github.com/gists")!)
