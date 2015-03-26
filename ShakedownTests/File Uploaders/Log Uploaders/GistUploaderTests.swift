@@ -13,11 +13,6 @@ import ShakedownSample
 
 class GistUploaderTests: LogUploaderTests {
     
-    override func spec() {
-        describe("Gist uploader") {
-        }
-    }
-    
     override var uploader: LogUploader {
         return GistUploader(authenticationToken: "TestToken")
     }
