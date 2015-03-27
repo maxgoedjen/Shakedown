@@ -26,7 +26,7 @@ class LogUploaderSpec: QuickSpec, UploaderSpec {
             it("is initialized properly") {
                 expect(instance).toNot(beNil())
             }
-            let (log, metadata) = self.logData
+            let (log, metadata) = (TestData.log, TestData.deviceInfo)
             it("should upload successfully") {
                 var url: NSURL?
                 var error: NSError?
@@ -54,21 +54,13 @@ class LogUploaderSpec: QuickSpec, UploaderSpec {
         return NSURL()
     }
     
-    var logData: (String, [String : String]) {
-        let log = "Something happened\nSomething else happened\nA final thing happened"
-        let deviceInfo = ["Device": "iPhone 6", "Device Name": "Max's iPhone"]
-        return (log, deviceInfo)
-    }
-    
     var uploader: LogUploader {
+        class NoOpLogUploader: LogUploader {
+            func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion) {
+            }
+        }
         return NoOpLogUploader()
     }
     
 }
 
-class NoOpLogUploader: LogUploader {
-    
-    func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion) {
-    }
-    
-}

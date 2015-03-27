@@ -25,7 +25,7 @@ class ImageUploaderSpec: QuickSpec, UploaderSpec {
             it("is initialized properly") {
                 expect(instance).toNot(beNil())
             }
-            let sourceImage = self.screenshot
+            let sourceImage = TestData.image
             it("should upload successfully") {
                 var url: NSURL?
                 var error: NSError?
@@ -53,20 +53,12 @@ class ImageUploaderSpec: QuickSpec, UploaderSpec {
         return NSURL()
     }
     
-    var screenshot: UIImage {
-        let path = NSBundle(forClass: ImageUploaderSpec.self).pathForResource("TestImage", ofType: "png")
-        return UIImage(contentsOfFile: path!)!
-    }
-    
     var uploader: ImageUploader {
+        class NoOpImageUploader: ImageUploader {
+            func uploadImage(image: UIImage, completion: ImageUploadCompletion) {
+            }
+        }
         return NoOpImageUploader()
-    }
-    
-}
-
-class NoOpImageUploader: ImageUploader {
-    
-    func uploadImage(image: UIImage, completion: ImageUploadCompletion) {
     }
     
 }
