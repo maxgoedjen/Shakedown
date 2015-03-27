@@ -11,7 +11,7 @@ import ShakedownSample
 
 class NoOpSuccessLogUploader: LogUploader {
     func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion) {
-        completion(url: NSURL(string: "http://imgur.com/asdf"), error: nil)
+        completion(url: NSURL(string: "http://gist.github.com/anonymous/asdf"), error: nil)
     }
 }
 
