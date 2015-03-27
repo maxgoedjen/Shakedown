@@ -44,6 +44,7 @@
 		5060F4BB1AC524F900719DF5 /* GithubIssuesReporterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F4BA1AC524F900719DF5 /* GithubIssuesReporterSpec.swift */; };
 		5060F4BD1AC5276000719DF5 /* GithubIssuesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5060F4BC1AC5276000719DF5 /* GithubIssuesResponse.json */; };
 		5060F4BF1AC5317200719DF5 /* GithubIssuesRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5060F4BE1AC5317200719DF5 /* GithubIssuesRequest.json */; };
+		5060F4C11AC5339D00719DF5 /* JIRAReporterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F4C01AC5339D00719DF5 /* JIRAReporterSpec.swift */; };
 		509461E71ABA6CD900D0E897 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E21ABA6CD900D0E897 /* LabelCell.swift */; };
 		509461E81ABA6CD900D0E897 /* ScreenshotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E31ABA6CD900D0E897 /* ScreenshotCell.swift */; };
 		509461E91ABA6CD900D0E897 /* ShakedownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E41ABA6CD900D0E897 /* ShakedownCell.swift */; };
@@ -108,6 +109,7 @@
 		5060F4BA1AC524F900719DF5 /* GithubIssuesReporterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssuesReporterSpec.swift; sourceTree = "<group>"; };
 		5060F4BC1AC5276000719DF5 /* GithubIssuesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GithubIssuesResponse.json; sourceTree = "<group>"; };
 		5060F4BE1AC5317200719DF5 /* GithubIssuesRequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GithubIssuesRequest.json; sourceTree = "<group>"; };
+		5060F4C01AC5339D00719DF5 /* JIRAReporterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JIRAReporterSpec.swift; sourceTree = "<group>"; };
 		509461E21ABA6CD900D0E897 /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		509461E31ABA6CD900D0E897 /* ScreenshotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotCell.swift; sourceTree = "<group>"; };
 		509461E41ABA6CD900D0E897 /* ShakedownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakedownCell.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 			children = (
 				5060F4B21AC4FD0C00719DF5 /* ReporterSpec.swift */,
 				5060F4BA1AC524F900719DF5 /* GithubIssuesReporterSpec.swift */,
+				5060F4C01AC5339D00719DF5 /* JIRAReporterSpec.swift */,
 			);
 			path = Reporters;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5060F4C11AC5339D00719DF5 /* JIRAReporterSpec.swift in Sources */,
 				5060F4B51AC51C8B00719DF5 /* TestData.swift in Sources */,
 				5060F4B71AC5227700719DF5 /* NoOpImageUploader.swift in Sources */,
 				5060F49A1AC2A9CC00719DF5 /* GistUploaderSpec.swift in Sources */,
