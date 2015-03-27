@@ -21,9 +21,15 @@ class GistUploaderTests: LogUploaderTests {
     override func stubAndVerifyRequest(request: NSURLRequest) -> Response {
         expect(request.URL.absoluteString) == "https://api.github.com/gists"
         expect(request.valueForHTTPHeaderField("Authorization")) == "token TestToken"
+        let data = request.HTTPBody ?? request.HTTPBodyStream?.synchronouslyRead()
+        var error: NSError?
+        let parsedJSON: AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: &error)
+//        expect(parsedJSON) == jsonObject("GistRequest")
+        println(NSString(data: data!, encoding: NSUTF8StringEncoding)!)
+        println(error)
         expect(request.HTTPMethod) == "POST"
         let response = NSHTTPURLResponse(URL: request.URL, statusCode: 201, HTTPVersion: nil, headerFields: nil)!
-        return .Success(response, json("Gist"))
+        return .Success(response, jsonData("Gist"))
     }
 
     override var uploader: LogUploader {

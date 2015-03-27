@@ -30,7 +30,7 @@ class ImgurUploaderTests: ImageUploaderTests {
         expect(request.valueForHTTPHeaderField("Authorization")) == "Client-ID TestClientID"
         expect(request.HTTPMethod) == "POST"
         let response = NSHTTPURLResponse(URL: request.URL, statusCode: 200, HTTPVersion: nil, headerFields: nil)!
-        return .Success(response, json("Imgur"))
+        return .Success(response, jsonData("Imgur"))
     }
     
 }
