@@ -26,7 +26,7 @@ class GistUploaderSpec: LogUploaderSpec {
         expect(parsedJSON.description) == jsonObject("GistRequest").description
         expect(request.HTTPMethod) == "POST"
         let response = NSHTTPURLResponse(URL: request.URL, statusCode: 201, HTTPVersion: nil, headerFields: nil)!
-        return .Success(response, jsonData("Gist"))
+        return .Success(response, jsonData("GistResponse"))
     }
 
     override var uploader: LogUploader {
