@@ -44,11 +44,11 @@ public class PivotalReporter: Reporter {
             "X-TrackerToken" : authenticationToken,
             "Content-Type": "application/json"
         ]
-        session.dataTaskWithRequest(request) { data, _, error in
+        session.dataTaskWithRequest(request) { data, response, error in
             let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
             let id = data?["id"] as? Int
             let idString = id?.description ?? ""
-            completion(completionText: idString, error: error)
+            completion(completionText: idString, error: error ?? response.httpError)
             }.resume()
         
     }
