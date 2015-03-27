@@ -43,6 +43,7 @@
 		5060F4B91AC522CB00719DF5 /* NoOpLogUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F4B81AC522CB00719DF5 /* NoOpLogUploader.swift */; };
 		5060F4BB1AC524F900719DF5 /* GithubIssuesReporterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F4BA1AC524F900719DF5 /* GithubIssuesReporterSpec.swift */; };
 		5060F4BD1AC5276000719DF5 /* GithubIssuesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5060F4BC1AC5276000719DF5 /* GithubIssuesResponse.json */; };
+		5060F4BF1AC5317200719DF5 /* GithubIssuesRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5060F4BE1AC5317200719DF5 /* GithubIssuesRequest.json */; };
 		509461E71ABA6CD900D0E897 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E21ABA6CD900D0E897 /* LabelCell.swift */; };
 		509461E81ABA6CD900D0E897 /* ScreenshotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E31ABA6CD900D0E897 /* ScreenshotCell.swift */; };
 		509461E91ABA6CD900D0E897 /* ShakedownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E41ABA6CD900D0E897 /* ShakedownCell.swift */; };
@@ -106,6 +107,7 @@
 		5060F4B81AC522CB00719DF5 /* NoOpLogUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoOpLogUploader.swift; sourceTree = "<group>"; };
 		5060F4BA1AC524F900719DF5 /* GithubIssuesReporterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubIssuesReporterSpec.swift; sourceTree = "<group>"; };
 		5060F4BC1AC5276000719DF5 /* GithubIssuesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GithubIssuesResponse.json; sourceTree = "<group>"; };
+		5060F4BE1AC5317200719DF5 /* GithubIssuesRequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GithubIssuesRequest.json; sourceTree = "<group>"; };
 		509461E21ABA6CD900D0E897 /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		509461E31ABA6CD900D0E897 /* ScreenshotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotCell.swift; sourceTree = "<group>"; };
 		509461E41ABA6CD900D0E897 /* ShakedownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakedownCell.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 		5060F49E1AC2AA9B00719DF5 /* Stub Responses */ = {
 			isa = PBXGroup;
 			children = (
+				5060F4BE1AC5317200719DF5 /* GithubIssuesRequest.json */,
 				5060F4BC1AC5276000719DF5 /* GithubIssuesResponse.json */,
 				5060F4AD1AC3F52200719DF5 /* GistResponse.json */,
 				5060F4AF1AC3F76200719DF5 /* GistRequest.json */,
@@ -472,6 +475,7 @@
 				5060F4B01AC3F76200719DF5 /* GistRequest.json in Resources */,
 				5060F4A61AC3EB1C00719DF5 /* TestImage.png in Resources */,
 				5060F4BD1AC5276000719DF5 /* GithubIssuesResponse.json in Resources */,
+				5060F4BF1AC5317200719DF5 /* GithubIssuesRequest.json in Resources */,
 				5060F4AE1AC3F52200719DF5 /* GistResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
