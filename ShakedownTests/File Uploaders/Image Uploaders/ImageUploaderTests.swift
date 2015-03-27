@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import CoreGraphics
 import Quick
 import Nimble
 import Mockingjay
