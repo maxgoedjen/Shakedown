@@ -14,7 +14,7 @@ import Mockingjay
 class PivotalReporterSpec: ReporterSpec {
     
     override var reporter: Reporter {
-        return PivotalReporter(authenticationToken: "Test", projectID: "Test")
+        return PivotalReporter(authenticationToken: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", projectID: "1234567")
     }
     
     override var expectedMessage: String {
@@ -22,8 +22,8 @@ class PivotalReporterSpec: ReporterSpec {
     }
     
     override func stubAndVerifyRequest(request: NSURLRequest) -> Response {
-        expect(request.URL.absoluteString) == "https://maxgoedjen-shakedown.atlassian.net/rest/api/2/issue/"
-        expect(request.valueForHTTPHeaderField("Authorization")) == "Basic bWF4OnBhc3N3b3Jk"
+        expect(request.URL.absoluteString) == "https://www.pivotaltracker.com/services/v5/projects/1234567/stories"
+        expect(request.valueForHTTPHeaderField("X-TrackerToken")) == "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         expect(request.valueForHTTPHeaderField("Content-Type")) == "application/json"
         let data = request.HTTPBody ?? request.HTTPBodyStream?.synchronouslyRead()
         let parsedJSON: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil)!
