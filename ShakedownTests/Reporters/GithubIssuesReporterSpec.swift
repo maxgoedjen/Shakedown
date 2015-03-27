@@ -17,12 +17,12 @@ class GithubIssuesReporterSpec: ReporterSpec {
     }
     
     override var expectedMessage: String {
-        return "#42"
+        return "#9"
     }
     
     override func stubAndVerifyRequest(request: NSURLRequest) -> Response {
         let response = NSHTTPURLResponse(URL: request.URL, statusCode: 200, HTTPVersion: nil, headerFields: nil)!
-        return .Success(response, jsonData("Imgur"))
+        return .Success(response, jsonData("GithubIssuesResponse"))
     }
 
 }
