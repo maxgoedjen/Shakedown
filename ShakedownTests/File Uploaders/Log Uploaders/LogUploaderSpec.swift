@@ -55,11 +55,7 @@ class LogUploaderSpec: QuickSpec, UploaderSpec {
     }
     
     var uploader: LogUploader {
-        class NoOpLogUploader: LogUploader {
-            func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion) {
-            }
-        }
-        return NoOpLogUploader()
+        return NoOpFailureLogUploader()
     }
     
 }

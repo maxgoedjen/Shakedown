@@ -54,11 +54,7 @@ class ImageUploaderSpec: QuickSpec, UploaderSpec {
     }
     
     var uploader: ImageUploader {
-        class NoOpImageUploader: ImageUploader {
-            func uploadImage(image: UIImage, completion: ImageUploadCompletion) {
-            }
-        }
-        return NoOpImageUploader()
+        return NoOpFailureImageUploader()
     }
     
 }
