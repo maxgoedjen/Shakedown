@@ -29,7 +29,7 @@ class PivotalReporterSpec: ReporterSpec {
         let parsedJSON: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil)!
         expect(parsedJSON.description) == jsonObject("PivotalRequest").description
         expect(request.HTTPMethod) == "POST"
-        let response = NSHTTPURLResponse(URL: request.URL, statusCode: 201, HTTPVersion: nil, headerFields: nil)!
+        let response = NSHTTPURLResponse(URL: request.URL, statusCode: 200, HTTPVersion: nil, headerFields: nil)!
         return .Success(response, jsonData("PivotalResponse"))
     }
     
