@@ -16,7 +16,7 @@ public class PivotalReporter: Reporter {
     /**
     
     :param: authenticationToken Issues will show as being created by the creator of the token, so you may wish to create an "API User" account to generate the token. If you submit a build to the App Store with this token included, people may be able to extract it, so _MAKE SURE_ the account is limited.
-    :param: projectID           Pivotal project ID.
+    :param: projectID           Pivotal project ID (get from the URL of your project, not the project's name).
     
     :returns: Pivotal Reporter
     */
