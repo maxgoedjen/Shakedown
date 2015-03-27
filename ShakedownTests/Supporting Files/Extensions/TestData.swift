@@ -28,7 +28,9 @@ struct TestData {
     static var report: BugReport {
         let report = BugReport(screenshot: image, deviceConfiguration: deviceInfo, deviceLog: log)
         report.title = "Some Test Issue"
-        report.description 
+        report.description = "This is a decently long description. It spans multiple lines, it also has some \nnewlines dropped in there."
+        report.reproducibility = "Always"
+        report.reproductionSteps = ["First step", "Second step", "Third step"]
         return report
     }
     
