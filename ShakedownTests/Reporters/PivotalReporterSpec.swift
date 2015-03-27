@@ -18,7 +18,7 @@ class PivotalReporterSpec: ReporterSpec {
     }
     
     override var expectedMessage: String {
-        return "ST-19"
+        return "91252164"
     }
     
     override func stubAndVerifyRequest(request: NSURLRequest) -> Response {
