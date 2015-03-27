@@ -1,36 +1,37 @@
 //
-//  ImageUploaderTests.swift
+//  LogUploaderTest.swift
 //  ShakedownSample
 //
-//  Created by Max Goedjen on 3/24/15.
+//  Created by Max Goedjen on 3/26/15.
 //  Copyright (c) 2015 Max Goedjen. All rights reserved.
 //
 
 import XCTest
+import CoreGraphics
 import Quick
 import Nimble
 import Mockingjay
 import ShakedownSample
 
-class ImageUploaderTests: QuickSpec, UploaderTest {
+class LogUploaderSpec: QuickSpec, UploaderSpec {
     
     override func spec() {
         // Noop for super class, subclasses do not receive
-        if self.isMemberOfClass(ImageUploaderTests) {
+        if self.isMemberOfClass(LogUploaderSpec) {
             return
         }
-
+        
         describe("uploader") {
             let instance = self.uploader
             it("is initialized properly") {
                 expect(instance).toNot(beNil())
             }
-            let sourceImage = self.screenshot
+            let (log, metadata) = self.logData
             it("should upload successfully") {
                 var url: NSURL?
                 var error: NSError?
                 self.stub(everything, self.stubAndVerifyRequest)
-                instance.uploadImage(sourceImage) { (url, error) = ($0, $1) }
+                instance.uploadLog(log, deviceConfiguration: metadata) { (url, error) = ($0, $1) }
                 expect(url).toEventually(equal(self.expectedURL), timeout: 3)
                 expect(error).toEventually(beNil(), timeout: 3)
             }
@@ -38,7 +39,7 @@ class ImageUploaderTests: QuickSpec, UploaderTest {
                 var url: NSURL?
                 var error: NSError?
                 self.stub(everything, builder: http(status: 500))
-                instance.uploadImage(sourceImage) { (url, error) = ($0, $1) }
+                instance.uploadLog(log, deviceConfiguration: metadata) { (url, error) = ($0, $1) }
                 expect(url).toEventually(beNil(), timeout: 3)
                 expect(error).toEventuallyNot(beNil(), timeout: 3)
             }
@@ -54,20 +55,21 @@ class ImageUploaderTests: QuickSpec, UploaderTest {
         return NSURL()
     }
     
-    var screenshot: UIImage {
-        let path = NSBundle(forClass: ImageUploaderTests.self).pathForResource("TestImage", ofType: "png")
-        return UIImage(contentsOfFile: path!)!
+    var logData: (String, [String : String]) {
+        let log = "Something happened\nSomething else happened\nA final thing happened"
+        let deviceInfo = ["Device": "iPhone 6", "Device Name": "Max's iPhone"]
+        return (log, deviceInfo)
     }
     
-    var uploader: ImageUploader {
-        return NoOpImageUploader()
+    var uploader: LogUploader {
+        return NoOpLogUploader()
     }
     
 }
 
-class NoOpImageUploader: ImageUploader {
+class NoOpLogUploader: LogUploader {
     
-    func uploadImage(image: UIImage, completion: ImageUploadCompletion) {
+    func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion) {
     }
     
 }

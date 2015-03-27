@@ -1,5 +1,5 @@
 //
-//  FileUploaderTests.swift
+//  FileUploaderSpec.swift
 //  ShakedownSample
 //
 //  Created by Max Goedjen on 3/26/15.
@@ -9,7 +9,7 @@
 import Foundation
 import Mockingjay
 
-protocol UploaderTest {
+protocol UploaderSpec {
     var expectedURL: NSURL { get }
     func stubAndVerifyRequest(request: NSURLRequest) -> Response
 }

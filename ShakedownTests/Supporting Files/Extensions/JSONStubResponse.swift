@@ -13,6 +13,6 @@ func jsonObject(name: String) -> AnyObject {
 }
 
 func jsonData(name: String) -> NSData {
-    let path = NSBundle(forClass: ImageUploaderTests.self).URLForResource(name, withExtension: "json")
+    let path = NSBundle(forClass: ImageUploaderSpec.self).URLForResource(name, withExtension: "json")
     return NSData(contentsOfURL: path!)!
 }

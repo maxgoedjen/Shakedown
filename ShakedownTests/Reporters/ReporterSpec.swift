@@ -1,5 +1,5 @@
 //
-//  ReporterTests.swift
+//  ReporterSpec.swift
 //  ShakedownSample
 //
 //  Created by Max Goedjen on 3/26/15.
@@ -12,7 +12,7 @@ import Nimble
 import Mockingjay
 import ShakedownSample
 
-class ReporterTests: QuickSpec {
+class ReporterSpec: QuickSpec {
     
     override func spec() {
 

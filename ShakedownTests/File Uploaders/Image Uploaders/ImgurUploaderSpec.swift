@@ -1,5 +1,5 @@
 //
-//  ImgurUploaderTests.swift
+//  ImgurUploaderSpec.swift
 //  ShakedownSample
 //
 //  Created by Max Goedjen on 3/23/15.
@@ -13,7 +13,7 @@ import Nimble
 import Mockingjay
 import ShakedownSample
 
-class ImgurUploaderTests: ImageUploaderTests {
+class ImgurUploaderSpec: ImageUploaderSpec {
 
     override var uploader: ImageUploader {
         return ImgurUploader(clientID: "TestClientID")

@@ -1,5 +1,5 @@
 //
-//  GistUploaderTests.swift
+//  GistUploaderSpec.swift
 //  ShakedownSample
 //
 //  Created by Max Goedjen on 3/23/15.
@@ -12,7 +12,7 @@ import Nimble
 import Mockingjay
 import ShakedownSample
 
-class GistUploaderTests: LogUploaderTests {
+class GistUploaderSpec: LogUploaderSpec {
     
     override var expectedURL: NSURL {
         return NSURL(string: "https://gist.github.com/250756d267ea0646eb74")!
