@@ -46,8 +46,7 @@ class ImageUploaderSpec: QuickSpec, UploaderSpec {
     }
     
     func stubAndVerifyRequest(request: NSURLRequest) -> Response {
-        let response = NSHTTPURLResponse(URL: request.URL, statusCode: 500, HTTPVersion: nil, headerFields: nil)!
-        return .Success(response, nil)
+        return .Failure(NSError(domain: "ReporterSpecDomain", code: 500, userInfo: nil))
     }
     
     var expectedURL: NSURL {

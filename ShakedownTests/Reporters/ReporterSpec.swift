@@ -18,4 +18,8 @@ class ReporterSpec: QuickSpec {
 
     }
     
+    func stubAndVerifyRequest(request: NSURLRequest) -> Response {
+        return .Failure(NSError(domain: "ReporterSpecDomain", code: 500, userInfo: nil))
+    }
+    
 }
