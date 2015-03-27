@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ShakedownSample
 
 struct TestData {
     
@@ -23,6 +23,13 @@ struct TestData {
         class TestBundleClass {}
         let path = NSBundle(forClass: TestBundleClass.self).pathForResource("TestImage", ofType: "png")
         return UIImage(contentsOfFile: path!)!
+    }
+    
+    static var report: BugReport {
+        let report = BugReport(screenshot: image, deviceConfiguration: deviceInfo, deviceLog: log)
+        report.title = "Some Test Issue"
+        report.description 
+        return report
     }
     
 }
