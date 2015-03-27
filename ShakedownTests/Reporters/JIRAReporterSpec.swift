@@ -18,7 +18,7 @@ class JIRAReporterSpec: ReporterSpec {
     }
     
     override var expectedMessage: String {
-        return "#9"
+        return "ST-19"
     }
     
     override func stubAndVerifyRequest(request: NSURLRequest) -> Response {
