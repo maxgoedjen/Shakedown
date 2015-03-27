@@ -38,10 +38,10 @@ public class GithubIssuesReporter: Reporter {
         request.HTTPBody = bodyData
         request.HTTPMethod = "POST"
         request.allHTTPHeaderFields = ["Authorization" : "token \(authenticationToken)"]
-        session.dataTaskWithRequest(request) { data, _, error in
+        session.dataTaskWithRequest(request) { data, response, error in
             let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
-            let urlString = data?["html_url"] as? String ?? ""
-            completion(completionText: urlString, error: error)
+            let number = data?["number"] as? Int ?? 0
+            completion(completionText: "#\(number)", error: error ?? response.httpError)
             }.resume()
 
     }

@@ -62,10 +62,10 @@ public class JIRAReporter: Reporter {
             "Authorization" : "Basic \(base64Auth!)",
             "Content-Type": "application/json"
         ]
-        session.dataTaskWithRequest(request) { data, _, error in
+        session.dataTaskWithRequest(request) { data, response, error in
             let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
             let id = data?["key"] as? String ?? ""
-            completion(completionText: id, error: error)
+            completion(completionText: id, error: error ?? response.httpError)
             }.resume()
         
     }
