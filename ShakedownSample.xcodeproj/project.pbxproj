@@ -45,6 +45,8 @@
 		5060F4BD1AC5276000719DF5 /* GithubIssuesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5060F4BC1AC5276000719DF5 /* GithubIssuesResponse.json */; };
 		5060F4BF1AC5317200719DF5 /* GithubIssuesRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5060F4BE1AC5317200719DF5 /* GithubIssuesRequest.json */; };
 		5060F4C11AC5339D00719DF5 /* JIRAReporterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060F4C01AC5339D00719DF5 /* JIRAReporterSpec.swift */; };
+		5060F4C31AC5355000719DF5 /* JIRAResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 5060F4C21AC5355000719DF5 /* JIRAResponse.json */; };
+		5060F4C51AC5361300719DF5 /* JIRARequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5060F4C41AC5361300719DF5 /* JIRARequest.json */; };
 		509461E71ABA6CD900D0E897 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E21ABA6CD900D0E897 /* LabelCell.swift */; };
 		509461E81ABA6CD900D0E897 /* ScreenshotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E31ABA6CD900D0E897 /* ScreenshotCell.swift */; };
 		509461E91ABA6CD900D0E897 /* ShakedownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E41ABA6CD900D0E897 /* ShakedownCell.swift */; };
@@ -110,6 +112,8 @@
 		5060F4BC1AC5276000719DF5 /* GithubIssuesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GithubIssuesResponse.json; sourceTree = "<group>"; };
 		5060F4BE1AC5317200719DF5 /* GithubIssuesRequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GithubIssuesRequest.json; sourceTree = "<group>"; };
 		5060F4C01AC5339D00719DF5 /* JIRAReporterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JIRAReporterSpec.swift; sourceTree = "<group>"; };
+		5060F4C21AC5355000719DF5 /* JIRAResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JIRAResponse.json; sourceTree = "<group>"; };
+		5060F4C41AC5361300719DF5 /* JIRARequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JIRARequest.json; sourceTree = "<group>"; };
 		509461E21ABA6CD900D0E897 /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		509461E31ABA6CD900D0E897 /* ScreenshotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotCell.swift; sourceTree = "<group>"; };
 		509461E41ABA6CD900D0E897 /* ShakedownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakedownCell.swift; sourceTree = "<group>"; };
@@ -327,6 +331,8 @@
 		5060F49E1AC2AA9B00719DF5 /* Stub Responses */ = {
 			isa = PBXGroup;
 			children = (
+				5060F4C21AC5355000719DF5 /* JIRAResponse.json */,
+				5060F4C41AC5361300719DF5 /* JIRARequest.json */,
 				5060F4BE1AC5317200719DF5 /* GithubIssuesRequest.json */,
 				5060F4BC1AC5276000719DF5 /* GithubIssuesResponse.json */,
 				5060F4AD1AC3F52200719DF5 /* GistResponse.json */,
@@ -476,10 +482,12 @@
 			files = (
 				5060F4A01AC2AA9B00719DF5 /* ImgurResponse.json in Resources */,
 				5060F4B01AC3F76200719DF5 /* GistRequest.json in Resources */,
+				5060F4C31AC5355000719DF5 /* JIRAResponse.json in Resources */,
 				5060F4A61AC3EB1C00719DF5 /* TestImage.png in Resources */,
 				5060F4BD1AC5276000719DF5 /* GithubIssuesResponse.json in Resources */,
 				5060F4BF1AC5317200719DF5 /* GithubIssuesRequest.json in Resources */,
 				5060F4AE1AC3F52200719DF5 /* GistResponse.json in Resources */,
+				5060F4C51AC5361300719DF5 /* JIRARequest.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
