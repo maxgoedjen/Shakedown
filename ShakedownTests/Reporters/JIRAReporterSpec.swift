@@ -24,6 +24,7 @@ class JIRAReporterSpec: ReporterSpec {
     override func stubAndVerifyRequest(request: NSURLRequest) -> Response {
         expect(request.URL.absoluteString) == "https://maxgoedjen-shakedown.atlassian.net/rest/api/2/issue/"
         expect(request.valueForHTTPHeaderField("Authorization")) == "Basic bWF4OnBhc3N3b3Jk"
+        expect(request.valueForHTTPHeaderField("Content-Type")) == "application/json"
         let data = request.HTTPBody ?? request.HTTPBodyStream?.synchronouslyRead()
         let parsedJSON: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil)!
         expect(parsedJSON.description) == jsonObject("JIRARequest").description
