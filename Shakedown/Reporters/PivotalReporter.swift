@@ -46,7 +46,6 @@ public class PivotalReporter: Reporter {
         ]
         session.dataTaskWithRequest(request) { data, _, error in
             let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
-            println(data)
             let id = data?["id"] as? Int
             let idString = id?.description ?? ""
             completion(completionText: idString, error: error)
