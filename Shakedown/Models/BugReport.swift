@@ -10,13 +10,13 @@ import UIKit
 
 @objc public class BugReport {
     
-    var title = ""
-    var description = ""
-    var reproducibility = ""
-    var reproductionSteps: [String] = []
-    var deviceLog: String
-    var screenshot: UIImage
-    var deviceConfiguration: [String : String]
+    public var title = ""
+    public var description = ""
+    public var reproducibility = ""
+    public var reproductionSteps: [String] = []
+    public let deviceLog: String
+    public let screenshot: UIImage
+    public let deviceConfiguration: [String : String]
     
     public init(screenshot: UIImage, deviceConfiguration: [String : String], deviceLog: String?) {
         self.screenshot = screenshot
