@@ -68,7 +68,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             }
             configuredCell = cell
         case .Screenshot:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ScreenshotCell.identifier, forIndexPath: indexPath) as ScreenshotCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ImageCell.identifier, forIndexPath: indexPath) as ImageCell
             cell.imageView.image = report.screenshot
             configuredCell = cell
         case .DeviceConfiguration:

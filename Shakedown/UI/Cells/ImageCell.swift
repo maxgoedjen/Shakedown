@@ -1,5 +1,5 @@
 //
-//  ScreenshotCell.swift
+//  ImageCell.swift
 //  ShakedownSample
 //
 //  Created by Max Goedjen on 3/18/15.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ScreenshotCell: ShakedownCell {
+class ImageCell: ShakedownCell {
     
     @IBOutlet var imageView: UIImageView!
     
     override class var identifier: String {
-        return "ScreenshotCell"
+        return "ImageCell"
     }
 
 }
