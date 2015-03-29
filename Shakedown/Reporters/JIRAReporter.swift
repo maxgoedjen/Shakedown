@@ -38,7 +38,7 @@ public class JIRAReporter: Reporter {
         super.init()
     }
     
-    override internal func fileBugReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
+    override internal func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
         var fields: [String : AnyObject] = [ // This is being cast to NSDictionary without explicit type annotation
             "project" : ["key" : self.projectKey],
@@ -70,7 +70,7 @@ public class JIRAReporter: Reporter {
         
     }
 
-    private func issueBody(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?) -> String {
+    private func issueBody(report: BugReport, screenshotURL: NSURL, logURL: NSURL) -> String {
         var strung = "\(report.description)\n\n"
         if reproducibilityField == nil {
             strung += "h4. Reproducibility\n \(report.reproducibility)\n\n"
@@ -80,12 +80,8 @@ public class JIRAReporter: Reporter {
             strung += "\n".join(report.reproductionSteps.map { "# \($0)" })
             strung += "\n\n"
         }
-        if let screenshotURLString = screenshotURL?.absoluteString {
-            strung += "h4. Screenshot\n !\(screenshotURLString)!\n\n"
-        }
-        if let logURLString = logURL?.absoluteString {
-            strung += "h4. Logs\n \(logURLString)\n\n"
-        }
+        strung += "h4. Screenshot\n !\(screenshotURL.absoluteString!)!\n\n"
+        strung += "h4. Logs\n \(logURL.absoluteString!)\n\n"
         return strung
     }
 

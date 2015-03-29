@@ -26,7 +26,7 @@ public class GithubIssuesReporter: Reporter {
         super.init()
     }
     
-    override internal func fileBugReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
+    override internal func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
         let body = [
             "title" : report.title,
@@ -46,7 +46,7 @@ public class GithubIssuesReporter: Reporter {
 
     }
     
-    private func issueBody(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?) -> String {
+    private func issueBody(report: BugReport, screenshotURL: NSURL, logURL: NSURL) -> String {
         var strung = "\n\n\(report.description)\n\n"
         strung += "#### Reproducibility\n\n\(report.reproducibility)\n\n"
         if report.reproductionSteps.count > 0 {
@@ -55,12 +55,8 @@ public class GithubIssuesReporter: Reporter {
                 strung += "\(index+1). \(step)\n\n"
             }
         }
-        if let screenshotURLString = screenshotURL?.absoluteString {
-            strung += "#### Screenshot\n\n![](\(screenshotURLString))\n\n"
-        }
-        if let logURLString = logURL?.absoluteString {
-            strung += "#### Logs\n\n\(logURLString)\n\n"
-        }
+        strung += "#### Screenshot\n\n![](\(screenshotURL.absoluteString!))\n\n"
+        strung += "#### Logs\n\n\(logURL.absoluteString!)\n\n"
         return strung
     }
     

@@ -24,7 +24,7 @@ public class Reporter {
     public func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
         uploadImagesAndLogs(report, imageUploader: imageUploader, logUploader: logUploader) { screenshotURL, logURL, error in
             if error == nil {
-                self.fileBugReport(report, screenshotURL: screenshotURL, logURL: logURL, completion: completion)
+                self.fileBugReport(report, screenshotURL: screenshotURL ?? NSURL(string: "")!, logURL: logURL ?? NSURL(string: "")!, completion: completion)
             } else {
                 completion(completionText: nil, error: error)
             }
@@ -39,7 +39,7 @@ public class Reporter {
     :param: logURL        URL to log attachment
     :param: completion    Completion handler to call when finished. Call with completion text (ticket ID, etc)
     */
-    internal func fileBugReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
+    internal func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
         
     }
 

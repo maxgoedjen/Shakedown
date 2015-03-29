@@ -27,7 +27,7 @@ public class PivotalReporter: Reporter {
     }
     
     
-    override internal func fileBugReport(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?, completion: ReportCompletion) {
+    override internal func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
         var fields = [
             "story_type": "bug",
@@ -53,7 +53,7 @@ public class PivotalReporter: Reporter {
         
     }
     
-    private func issueBody(report: BugReport, screenshotURL: NSURL?, logURL: NSURL?) -> String {
+    private func issueBody(report: BugReport, screenshotURL: NSURL, logURL: NSURL) -> String {
         var strung = "\(report.description)\n\n"
         strung += "**Reproducibility**:\n \(report.reproducibility)\n\n"
         if report.reproductionSteps.count > 0 {
@@ -63,12 +63,8 @@ public class PivotalReporter: Reporter {
             }
         }
         strung += "\n"
-        if let screenshotURLString = screenshotURL?.absoluteString {
-            strung += "**Screenshot:**\n ![](\(screenshotURLString))\n\n"
-        }
-        if let logURLString = logURL?.absoluteString {
-            strung += "**Logs:**\n \(logURLString)\n\n"
-        }
+        strung += "**Screenshot:**\n ![](\(screenshotURL.absoluteString!))\n\n"
+        strung += "**Logs:**\n \(logURL.absoluteString!)\n\n"
         return strung
     }
     
