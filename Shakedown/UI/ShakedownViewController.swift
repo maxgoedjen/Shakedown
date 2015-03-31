@@ -93,13 +93,13 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         let width = collectionView.frame.size.width
         switch typed {
         case .Title:
-            return CGSize(width: width, height: 30)
+            return CGSize(width: width, height: 50)
         case .Description:
             return CGSize(width: width, height: 100)
         case .Reproducibility:
-            return CGSize(width: width, height: 44)
+            return CGSize(width: width, height: 50)
         case .ReproductionSteps:
-            return CGSize(width: width, height: 30)
+            return CGSize(width: width, height: 40)
         case .Screenshot:
             return CGSize(width: width, height: 150)
         case .DeviceConfiguration:
