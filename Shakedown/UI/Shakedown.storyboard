@@ -105,9 +105,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="599.5" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXj-NE-PLl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="599.5" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Placeholder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXj-NE-PLl">
+                                                    <rect key="frame" x="8" y="39" width="583.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="valueChanged:" destination="aN4-Y9-qXD" eventType="editingChanged" id="BH5-Il-gR2"/>
@@ -118,9 +118,9 @@
                                         </view>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="FXj-NE-PLl" firstAttribute="leading" secondItem="aN4-Y9-qXD" secondAttribute="leading" id="aCr-8a-gTD"/>
-                                            <constraint firstAttribute="trailing" secondItem="FXj-NE-PLl" secondAttribute="trailing" id="s7m-vB-Xex"/>
-                                            <constraint firstItem="FXj-NE-PLl" firstAttribute="top" secondItem="aN4-Y9-qXD" secondAttribute="top" id="yDU-BY-Z5d"/>
+                                            <constraint firstAttribute="centerY" secondItem="FXj-NE-PLl" secondAttribute="centerY" id="9ka-zr-Q2t"/>
+                                            <constraint firstItem="FXj-NE-PLl" firstAttribute="leading" secondItem="aN4-Y9-qXD" secondAttribute="leading" constant="8" id="M4y-Lk-xzQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="FXj-NE-PLl" secondAttribute="trailing" constant="8" id="OgV-Vd-GnY"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="textField" destination="FXj-NE-PLl" id="pW7-iV-TCp"/>
