@@ -55,19 +55,19 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .Title:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
             cell.textField.text = report.title
-            cell.textField.placeholder = NSLocalizedString("What happened?", comment: "Report Title Placeholder")
-            cell.label.text = NSLocalizedString("Report Title", comment: "Report Title Label")
+            cell.textField.placeholder = NSLocalizedString("What happened?", comment: "Report title placeholder")
+            cell.label.text = NSLocalizedString("Report Title", comment: "Report title label")
             configuredCell = cell
         case .Description:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
             cell.textView.text = report.description
             cell.textView.userInteractionEnabled = true
             cell.placeholderLabel.text = NSLocalizedString("What are the details?", comment: "Report Description Placeholder")
-            cell.label.text = NSLocalizedString("Details", comment: "Report Description Label")
+            cell.label.text = NSLocalizedString("Details", comment: "Report description label")
             configuredCell = cell
         case .Reproducibility:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCell.identifier, forIndexPath: indexPath) as LabelCell
-            cell.titleLabel.text = NSLocalizedString("This Happens", comment: "Reproducibility Prefix")
+            cell.titleLabel.text = NSLocalizedString("This Happens", comment: "Reproducibility prefix")
             cell.valueLabel.text = report.reproducibility
             configuredCell = cell
         case .ReproductionSteps:
@@ -78,6 +78,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
                 cell.textField.text = report.reproductionSteps[indexPath.item]
                 cell.divider.hidden = true
             }
+            cell.label.text = NSLocalizedString("Step \(indexPath.item + 1)", comment: "Step number label")
             configuredCell = cell
         case .Screenshot:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ImageCell.identifier, forIndexPath: indexPath) as ImageCell
