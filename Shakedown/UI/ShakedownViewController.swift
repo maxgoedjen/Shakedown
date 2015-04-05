@@ -53,9 +53,9 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         var identifier: String!
         switch typed {
         case .Title:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
-            cell.textField.text = report.title
-            cell.textField.placeholder = NSLocalizedString("What happened?", comment: "Report title placeholder")
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
+            cell.textView.text = report.title
+            cell.placeholderLabel.text = NSLocalizedString("What happened?", comment: "Report title placeholder")
             cell.label.text = NSLocalizedString("Report Title", comment: "Report title label")
             configuredCell = cell
         case .Description:
@@ -71,18 +71,18 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             cell.valueLabel.text = report.reproducibility
             configuredCell = cell
         case .ReproductionSteps:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
-            if indexPath.row >= report.reproductionSteps.count {
-                cell.textField.text = nil
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
+            if indexPath.item >= report.reproductionSteps.count {
+                cell.textView.text = nil
             } else {
-                cell.textField.text = report.reproductionSteps[indexPath.item]
+                cell.textView.text = report.reproductionSteps[indexPath.item]
                 cell.divider.hidden = true
             }
             cell.label.text = NSLocalizedString("Step \(indexPath.item + 1)", comment: "Step number label")
             if report.reproductionSteps.count > 0 {
-                cell.textField.placeholder = NSLocalizedString("Step \(indexPath.item + 1)", comment: "Step number label")
+                cell.placeholderLabel.text = NSLocalizedString("Step \(indexPath.item + 1)", comment: "Step number label")
             } else {
-                cell.textField.placeholder = NSLocalizedString("Steps to Reproduce", comment: "Steps to reproduce placeholder")
+                cell.placeholderLabel.text = NSLocalizedString("Steps to Reproduce", comment: "Steps to reproduce placeholder")
             }
             cell.showLabel(animated: false)
             configuredCell = cell
@@ -116,13 +116,14 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         let width = collectionView.frame.size.width
         switch typed {
         case .Title:
-            return CGSize(width: width, height: 50)
+            return CGSize(width: width, height: TextViewCell.heightForText(report.title, width: collectionView.frame.width))
         case .Description:
             return CGSize(width: width, height: TextViewCell.heightForText(report.description, width: collectionView.frame.width))
         case .Reproducibility:
             return CGSize(width: width, height: 50)
         case .ReproductionSteps:
-            return CGSize(width: width, height: 50)
+            let text = indexPath.item >= report.reproductionSteps.count ? "" : report.reproductionSteps[indexPath.item]
+            return CGSize(width: width, height: TextViewCell.heightForText(text, width: collectionView.frame.width))
         case .Screenshot:
             return CGSize(width: width, height: 150)
         case .DeviceConfiguration:
@@ -164,7 +165,6 @@ extension ShakedownViewController: ShakedownCellDelegate {
                 report.title = newValue
             case .Description:
                 report.description = newValue
-                collectionView.collectionViewLayout.invalidateLayout()
             case .Reproducibility:
                 report.reproducibility = newValue
             case .ReproductionSteps:
@@ -179,7 +179,7 @@ extension ShakedownViewController: ShakedownCellDelegate {
                         collectionView.deleteItemsAtIndexPaths([NSIndexPath(forItem: self.report.reproductionSteps.count, inSection: typed.rawValue)])
                     }
                 }
-                let indexPaths = Array(0 ..< self.report.reproductionSteps.count).map { NSIndexPath(forItem: $0, inSection: typed.rawValue)}.filter { $0.item != indexPath.row }
+                let indexPaths = Array(0 ..< self.report.reproductionSteps.count).map { NSIndexPath(forItem: $0, inSection: typed.rawValue)}.filter { $0.item != indexPath.item }
                 println(indexPaths)
                 self.collectionView.reloadItemsAtIndexPaths(indexPaths)
             default:
@@ -187,8 +187,8 @@ extension ShakedownViewController: ShakedownCellDelegate {
                 break
             }
         }
+        collectionView.collectionViewLayout.invalidateLayout()
     }
-    
 }
 
 // MARK: Buttons
