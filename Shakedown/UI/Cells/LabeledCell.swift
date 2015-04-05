@@ -12,9 +12,11 @@ class LabeledCell: ShakedownCell {
     
     @IBOutlet var label: UILabel!
     @IBOutlet var labelTopConstraint: NSLayoutConstraint!
+    @IBOutlet var contentConstraint: NSLayoutConstraint!
     
     func showLabel() {
-        labelTopConstraint.constant = 20
+        labelTopConstraint.constant = 5
+        contentConstraint.constant = 5
         UIView.animateWithDuration(0.5) {
             self.label.alpha = 1
             self.layoutIfNeeded()
@@ -22,7 +24,8 @@ class LabeledCell: ShakedownCell {
     }
     
     func hideLabel() {
-        labelTopConstraint.constant = 40
+        labelTopConstraint.constant = 20
+        contentConstraint.constant = 0
         UIView.animateWithDuration(0.5) {
             self.label.alpha = 0
             self.layoutIfNeeded()

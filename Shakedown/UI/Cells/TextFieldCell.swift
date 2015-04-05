@@ -22,6 +22,11 @@ extension TextFieldCell {
     
     @IBAction func valueChanged(textField: UITextField) {
         delegate?.cell(self, valueChanged: textField.text)
+        if textField.text.isEmpty {
+            hideLabel()
+        } else {
+            showLabel()
+        }
     }
     
 }
