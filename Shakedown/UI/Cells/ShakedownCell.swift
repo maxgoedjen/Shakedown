@@ -22,7 +22,7 @@ class ShakedownCell : UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         let height = 1.0/UIScreen.mainScreen().scale
-        divider.addConstraint(NSLayoutConstraint(item: divider, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: height, constant: 1))
+        addConstraint(NSLayoutConstraint(item: divider, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: height))
     }
     
     class var identifier: String {
