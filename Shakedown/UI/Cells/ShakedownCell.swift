@@ -16,9 +16,22 @@ protocol ShakedownCellDelegate {
 
 class ShakedownCell : UICollectionViewCell {
     
+    @IBOutlet var divider: UIView!
     var delegate: ShakedownCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let height = 1.0/UIScreen.mainScreen().scale
+        divider.addConstraint(NSLayoutConstraint(item: divider, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: height, constant: 1))
+    }
+    
     class var identifier: String {
         return ""
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        divider.hidden = false
     }
     
 }
