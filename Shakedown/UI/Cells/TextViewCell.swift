@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextViewCell: ShakedownCell {
+class TextViewCell: LabeledCell {
     
     @IBOutlet var textView: UITextView!
 

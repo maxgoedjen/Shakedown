@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextFieldCell: ShakedownCell {
+class TextFieldCell: LabeledCell {
     
     @IBOutlet var textField: UITextField!
     
