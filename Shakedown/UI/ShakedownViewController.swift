@@ -73,6 +73,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
                 cell.textField.text = nil
             } else {
                 cell.textField.text = report.reproductionSteps[indexPath.item]
+                cell.divider.hidden = true
             }
             configuredCell = cell
         case .Screenshot:
@@ -84,11 +85,13 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             let title = sorted(report.deviceConfiguration.keys)[indexPath.item]
             cell.titleLabel.text = title
             cell.valueLabel.text = report.deviceConfiguration[title]
+            cell.divider.hidden = report.deviceConfiguration.count - 1 > indexPath.item
             configuredCell = cell
         case .DeviceLogs:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
             cell.textView.text = report.deviceLog
             cell.textView.userInteractionEnabled = false
+            cell.divider.hidden = true
             configuredCell = cell
         }
         configuredCell.delegate = self
