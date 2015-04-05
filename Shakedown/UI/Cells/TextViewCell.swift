@@ -19,7 +19,7 @@ class TextViewCell: LabeledCell {
    
     override func awakeFromNib() {
         super.awakeFromNib()
-        textView.contentInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        textView.textContainerInset = UIEdgeInsets(top: 14, left: 3, bottom: 14, right: 3)
     }
     
 }
