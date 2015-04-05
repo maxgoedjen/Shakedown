@@ -12,9 +12,15 @@ class ShakedownViewController: UIViewController {
 
     var report = BugReport(screenshot: currentScreenImage, deviceConfiguration: ShakedownViewController.deviceConfiguration, deviceLog: Shakedown.configuration.log)
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var backgroundImageView: UIImageView!
     
     enum Sections: Int {
         case Title, Description, Reproducibility, ReproductionSteps, Screenshot, DeviceConfiguration, DeviceLogs
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        backgroundImageView.image = report.screenshot
     }
     
 }

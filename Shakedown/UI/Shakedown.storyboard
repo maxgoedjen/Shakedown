@@ -33,8 +33,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T0H-l1-CeO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iyL-q0-buQ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="XnV-0P-CgS">
                                     <size key="itemSize" width="599.5" height="100"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
@@ -187,9 +191,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RtV-1a-9DI" firstAttribute="top" secondItem="iyL-q0-buQ" secondAttribute="bottom" id="2ce-Ka-pJf"/>
+                            <constraint firstItem="T0H-l1-CeO" firstAttribute="leading" secondItem="6of-V1-Qtz" secondAttribute="leading" id="Fyb-xp-1bB"/>
                             <constraint firstAttribute="trailing" secondItem="iyL-q0-buQ" secondAttribute="trailing" id="OTR-Xs-O3r"/>
                             <constraint firstItem="iyL-q0-buQ" firstAttribute="top" secondItem="6of-V1-Qtz" secondAttribute="top" id="P7k-5z-vEy"/>
                             <constraint firstItem="iyL-q0-buQ" firstAttribute="leading" secondItem="6of-V1-Qtz" secondAttribute="leading" id="W7v-i6-OWs"/>
+                            <constraint firstItem="T0H-l1-CeO" firstAttribute="top" secondItem="6of-V1-Qtz" secondAttribute="top" id="Xxl-Bc-8UY"/>
+                            <constraint firstItem="RtV-1a-9DI" firstAttribute="top" secondItem="T0H-l1-CeO" secondAttribute="bottom" id="h3n-zz-BTA"/>
+                            <constraint firstAttribute="trailing" secondItem="T0H-l1-CeO" secondAttribute="trailing" id="rgO-tj-YhE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Report Issue" id="1Ax-yI-50C">
@@ -205,6 +213,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backgroundImageView" destination="T0H-l1-CeO" id="YKm-nT-KqC"/>
                         <outlet property="collectionView" destination="iyL-q0-buQ" id="Fjm-oG-dRa"/>
                     </connections>
                 </viewController>
