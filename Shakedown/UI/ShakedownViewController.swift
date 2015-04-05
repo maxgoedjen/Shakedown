@@ -62,7 +62,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
             cell.textView.text = report.description
             cell.textView.userInteractionEnabled = true
-            cell.placeholderLabel.text = NSLocalizedString("What specifically?", comment: "Report Description Placeholder")
+            cell.placeholderLabel.text = NSLocalizedString("What are the details?", comment: "Report Description Placeholder")
             cell.label.text = NSLocalizedString("Details", comment: "Report Description Label")
             configuredCell = cell
         case .Reproducibility:
