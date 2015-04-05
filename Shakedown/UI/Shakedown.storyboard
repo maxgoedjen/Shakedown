@@ -56,7 +56,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="599.5" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="5iJ-cp-6y9">
                                                     <rect key="frame" x="0.0" y="0.0" width="599.5" height="100"/>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0q1-3r-ffU" userLabel="Divider">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0q1-3r-ffU" userLabel="Divider">
+                                                    <rect key="frame" x="0.0" y="99" width="600" height="1"/>
                                                     <color key="backgroundColor" red="0.75287437438964844" green="0.75298398733139038" blue="0.75285041332244873" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" placeholder="YES" id="0z6-9N-aez"/>
@@ -130,11 +131,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="599.5" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="599.5" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Placeholder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXj-NE-PLl">
-                                                    <rect key="frame" x="8" y="39.5" width="583.5" height="21"/>
+                                                    <rect key="frame" x="8" y="14" width="583.5" height="21"/>
                                                     <color key="textColor" red="0.35290741920471191" green="0.35296276211738586" blue="0.35289531946182251" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -142,8 +143,8 @@
                                                         <action selector="valueChanged:" destination="aN4-Y9-qXD" eventType="editingChanged" id="BH5-Il-gR2"/>
                                                     </connections>
                                                 </textField>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLn-Rv-Fa2" userLabel="Divider">
-                                                    <rect key="frame" x="-1" y="99" width="600" height="1"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLn-Rv-Fa2" userLabel="Divider">
+                                                    <rect key="frame" x="0.0" y="49" width="599" height="1"/>
                                                     <color key="backgroundColor" red="0.75287437438964844" green="0.75298398733139038" blue="0.75285041332244873" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" placeholder="YES" id="n2D-tX-Lde"/>
@@ -169,6 +170,7 @@
                                             <constraint firstAttribute="bottom" secondItem="HLn-Rv-Fa2" secondAttribute="bottom" id="SC5-18-PfF"/>
                                             <constraint firstItem="wKj-mX-gJ5" firstAttribute="leading" secondItem="aN4-Y9-qXD" secondAttribute="leading" constant="8" id="fdd-kS-ICl"/>
                                         </constraints>
+                                        <size key="customSize" width="599.5" height="50"/>
                                         <connections>
                                             <outlet property="contentConstraint" destination="9ka-zr-Q2t" id="bFf-kH-wbb"/>
                                             <outlet property="divider" destination="HLn-Rv-Fa2" id="g1d-cT-Sst"/>
@@ -196,7 +198,7 @@
                                                     </connections>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kej-It-Mla">
-                                                    <rect key="frame" x="9.5" y="10.5" width="42" height="20.5"/>
+                                                    <rect key="frame" x="8" y="14" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.70277777777777772" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -207,7 +209,8 @@
                                                     <color key="textColor" red="0.58426088094711304" green="0.58434760570526123" blue="0.58424192667007446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHZ-9w-btl" userLabel="Divider">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHZ-9w-btl" userLabel="Divider">
+                                                    <rect key="frame" x="0.0" y="99" width="599" height="1"/>
                                                     <color key="backgroundColor" red="0.75287437438964844" green="0.75298398733139038" blue="0.75285041332244873" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" placeholder="YES" id="kLT-mN-wdL"/>
@@ -221,10 +224,10 @@
                                             <constraint firstItem="6TK-AF-fcZ" firstAttribute="top" secondItem="Boe-f8-vD5" secondAttribute="top" constant="30" id="1P8-fy-LZL"/>
                                             <constraint firstAttribute="trailing" secondItem="A5Q-lt-foM" secondAttribute="trailing" id="Ar6-Gs-cVn"/>
                                             <constraint firstAttribute="trailing" secondItem="hHZ-9w-btl" secondAttribute="trailing" id="IK5-S9-Izd"/>
-                                            <constraint firstItem="kej-It-Mla" firstAttribute="top" secondItem="Boe-f8-vD5" secondAttribute="top" constant="10.5" id="Kna-fn-VWP"/>
+                                            <constraint firstItem="kej-It-Mla" firstAttribute="top" secondItem="Boe-f8-vD5" secondAttribute="top" constant="14" id="Kna-fn-VWP"/>
                                             <constraint firstAttribute="bottom" secondItem="A5Q-lt-foM" secondAttribute="bottom" id="aEc-Xf-PaO"/>
                                             <constraint firstItem="6TK-AF-fcZ" firstAttribute="leading" secondItem="Boe-f8-vD5" secondAttribute="leading" constant="9.5" id="bRi-L6-zLo"/>
-                                            <constraint firstItem="kej-It-Mla" firstAttribute="leading" secondItem="Boe-f8-vD5" secondAttribute="leading" constant="9.5" id="d69-0j-fHN"/>
+                                            <constraint firstItem="kej-It-Mla" firstAttribute="leading" secondItem="Boe-f8-vD5" secondAttribute="leading" constant="8" id="d69-0j-fHN"/>
                                             <constraint firstItem="A5Q-lt-foM" firstAttribute="top" secondItem="Boe-f8-vD5" secondAttribute="top" id="eEd-89-rVt"/>
                                             <constraint firstItem="hHZ-9w-btl" firstAttribute="leading" secondItem="Boe-f8-vD5" secondAttribute="leading" id="h4S-U8-u7o"/>
                                             <constraint firstAttribute="bottom" secondItem="hHZ-9w-btl" secondAttribute="bottom" id="mDk-cb-abf"/>
