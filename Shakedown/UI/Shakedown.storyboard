@@ -38,7 +38,7 @@
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iyL-q0-buQ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.90000000000000002" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="XnV-0P-CgS">
                                     <size key="itemSize" width="599.5" height="100"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
@@ -59,6 +59,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="5iJ-cp-6y9" firstAttribute="top" secondItem="USX-9q-EmZ" secondAttribute="top" id="3XY-xi-A2F"/>
                                             <constraint firstItem="5iJ-cp-6y9" firstAttribute="leading" secondItem="USX-9q-EmZ" secondAttribute="leading" id="dQC-r6-hdN"/>
@@ -90,6 +91,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerY" secondItem="A22-Rl-uHs" secondAttribute="centerY" id="0dT-z8-lW1"/>
                                             <constraint firstItem="A22-Rl-uHs" firstAttribute="leading" secondItem="0wr-wz-qbQ" secondAttribute="leadingMargin" id="GXi-Xb-aoT"/>
@@ -120,7 +122,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerY" secondItem="FXj-NE-PLl" secondAttribute="centerY" id="9ka-zr-Q2t"/>
                                             <constraint firstItem="FXj-NE-PLl" firstAttribute="leading" secondItem="aN4-Y9-qXD" secondAttribute="leading" constant="8" id="M4y-Lk-xzQ"/>
@@ -150,7 +152,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="A5Q-lt-foM" secondAttribute="trailing" id="Ar6-Gs-cVn"/>
                                             <constraint firstAttribute="bottom" secondItem="A5Q-lt-foM" secondAttribute="bottom" id="aEc-Xf-PaO"/>
@@ -173,7 +175,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="centerY" secondItem="NzO-7G-JuC" secondAttribute="centerY" constant="0.5" id="H07-oQ-gU9"/>
                                         <constraint firstItem="NzO-7G-JuC" firstAttribute="leading" secondItem="g7g-Xk-0rc" secondAttribute="leadingMargin" id="J99-8b-uQq"/>
@@ -219,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucY-Qn-all" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="555" y="664"/>
+            <point key="canvasLocation" x="550" y="674"/>
         </scene>
     </scenes>
 </document>

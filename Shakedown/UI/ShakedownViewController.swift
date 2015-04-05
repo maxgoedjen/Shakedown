@@ -18,9 +18,11 @@ class ShakedownViewController: UIViewController {
         case Title, Description, Reproducibility, ReproductionSteps, Screenshot, DeviceConfiguration, DeviceLogs
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         backgroundImageView.image = report.screenshot.blurred
+        collectionView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+        collectionView.scrollIndicatorInsets = collectionView.contentInset
     }
     
 }
@@ -89,7 +91,6 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             cell.textView.userInteractionEnabled = false
             configuredCell = cell
         }
-        configuredCell.backgroundColor = indexPath.section % 2 == 0 ? UIColor.grayColor() : UIColor.lightGrayColor()
         configuredCell.delegate = self
         return configuredCell
     }
