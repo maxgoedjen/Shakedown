@@ -127,6 +127,58 @@
                                             <outlet property="valueLabel" destination="hQg-4T-Hva" id="gSg-xc-dhY"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TextFieldCell" id="aN4-Y9-qXD" customClass="TextFieldCell" customModule="ShakedownSample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="599.5" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Placeholder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXj-NE-PLl">
+                                                    <rect key="frame" x="8" y="14" width="583.5" height="21"/>
+                                                    <color key="textColor" red="0.35290741920471191" green="0.35296276211738586" blue="0.35289531946182251" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="valueChanged:" destination="aN4-Y9-qXD" eventType="editingChanged" id="BH5-Il-gR2"/>
+                                                    </connections>
+                                                </textField>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLn-Rv-Fa2" userLabel="Divider">
+                                                    <rect key="frame" x="0.0" y="49" width="599" height="1"/>
+                                                    <color key="backgroundColor" red="0.75287437438964844" green="0.75298398733139038" blue="0.75285041332244873" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" placeholder="YES" id="n2D-tX-Lde"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKj-mX-gJ5">
+                                                    <rect key="frame" x="8" y="20" width="25.5" height="12"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                                                    <color key="textColor" red="0.58426088094711304" green="0.58434760570526123" blue="0.58424192667007446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="wKj-mX-gJ5" firstAttribute="top" secondItem="aN4-Y9-qXD" secondAttribute="top" constant="20" id="2lz-Yf-SPS"/>
+                                            <constraint firstItem="HLn-Rv-Fa2" firstAttribute="leading" secondItem="aN4-Y9-qXD" secondAttribute="leading" id="3tc-sA-CLY"/>
+                                            <constraint firstAttribute="trailing" secondItem="HLn-Rv-Fa2" secondAttribute="trailing" id="6UP-zS-ZGR"/>
+                                            <constraint firstItem="FXj-NE-PLl" firstAttribute="centerY" secondItem="aN4-Y9-qXD" secondAttribute="centerY" id="9ka-zr-Q2t"/>
+                                            <constraint firstItem="FXj-NE-PLl" firstAttribute="leading" secondItem="aN4-Y9-qXD" secondAttribute="leading" constant="8" id="M4y-Lk-xzQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="FXj-NE-PLl" secondAttribute="trailing" constant="8" id="OgV-Vd-GnY"/>
+                                            <constraint firstAttribute="bottom" secondItem="HLn-Rv-Fa2" secondAttribute="bottom" id="SC5-18-PfF"/>
+                                            <constraint firstItem="wKj-mX-gJ5" firstAttribute="leading" secondItem="aN4-Y9-qXD" secondAttribute="leading" constant="8" id="fdd-kS-ICl"/>
+                                        </constraints>
+                                        <size key="customSize" width="599.5" height="50"/>
+                                        <connections>
+                                            <outlet property="contentConstraint" destination="9ka-zr-Q2t" id="bFf-kH-wbb"/>
+                                            <outlet property="divider" destination="HLn-Rv-Fa2" id="g1d-cT-Sst"/>
+                                            <outlet property="label" destination="wKj-mX-gJ5" id="Hjt-og-JvV"/>
+                                            <outlet property="labelTopConstraint" destination="2lz-Yf-SPS" id="xH2-os-9h4"/>
+                                            <outlet property="textField" destination="FXj-NE-PLl" id="pW7-iV-TCp"/>
+                                        </connections>
+                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TextViewCell" id="Boe-f8-vD5" customClass="TextViewCell" customModule="ShakedownSample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>

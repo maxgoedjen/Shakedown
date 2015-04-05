@@ -8,13 +8,10 @@
 
 import UIKit
 
-class TextViewCell: ShakedownCell {
+class TextViewCell: LabeledCell {
     
     @IBOutlet var textView: UITextView!
     @IBOutlet var placeholderLabel: UILabel!
-    @IBOutlet var label: UILabel!
-    @IBOutlet var labelTopConstraint: NSLayoutConstraint!
-    @IBOutlet var contentConstraint: NSLayoutConstraint!
 
     override class var identifier: String {
         return "TextViewCell"
@@ -38,26 +35,6 @@ class TextViewCell: ShakedownCell {
             return attributed.boundingRectWithSize(bounds, options: options, context: nil).size.height + 30
         }
     }
-    
-    
-    func showLabel(animated: Bool = true) {
-        labelTopConstraint.constant = 5
-        contentConstraint.constant = 5
-        UIView.animateWithDuration(animated ? 0.5 : 0) {
-            self.label.alpha = 1
-            self.layoutIfNeeded()
-        }
-    }
-    
-    func hideLabel(animated: Bool = true) {
-        labelTopConstraint.constant = 20
-        contentConstraint.constant = 0
-        UIView.animateWithDuration(animated ? 0.5 : 0) {
-            self.label.alpha = 0
-            self.layoutIfNeeded()
-        }
-    }
-
     
 }
 
