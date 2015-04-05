@@ -79,6 +79,12 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
                 cell.divider.hidden = true
             }
             cell.label.text = NSLocalizedString("Step \(indexPath.item + 1)", comment: "Step number label")
+            if report.reproductionSteps.count > 0 {
+                cell.textField.placeholder = NSLocalizedString("Step \(indexPath.item + 1)", comment: "Step number label")
+            } else {
+                cell.textField.placeholder = NSLocalizedString("Steps to Reproduce", comment: "Steps to reproduce placeholder")
+            }
+            cell.showLabel(animated: false)
             configuredCell = cell
         case .Screenshot:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ImageCell.identifier, forIndexPath: indexPath) as ImageCell
@@ -96,6 +102,9 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             cell.textView.text = report.deviceLog
             cell.textView.userInteractionEnabled = false
             cell.divider.hidden = true
+            cell.placeholderLabel.text = nil
+            cell.label.text = "Log"
+            cell.showLabel(animated: false)
             configuredCell = cell
         }
         configuredCell.delegate = self
@@ -113,38 +122,16 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .Reproducibility:
             return CGSize(width: width, height: 50)
         case .ReproductionSteps:
-            return CGSize(width: width, height: 40)
+            return CGSize(width: width, height: 50)
         case .Screenshot:
             return CGSize(width: width, height: 150)
         case .DeviceConfiguration:
             return CGSize(width: width, height: 20)
         case .DeviceLogs:
-            return CGSize(width: width, height: 1000)
+            return CGSize(width: width, height: TextViewCell.heightForText(report.deviceLog, width: collectionView.frame.width))
         }
     }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let typed = Sections(rawValue: section)!
-        switch typed {
-        case .ReproductionSteps:
-            return CGSize(width: collectionView.frame.size.width, height: 20)
-        default:
-            return CGSizeZero
-        }
-    }
-    
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let typed = Sections(rawValue: indexPath.section)!
-        let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: HeaderView.identifier, forIndexPath: indexPath) as HeaderView
-        switch typed {
-        case .ReproductionSteps:
-            header.label.text = NSLocalizedString("Steps to Reproduce", comment: "Steps to Reproduce Section Header")
-        default:
-            break
-        }
-        return header
-    }
-    
+        
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let typed = Sections(rawValue: indexPath.section)!
         switch typed {
@@ -189,9 +176,12 @@ extension ShakedownViewController: ShakedownCellDelegate {
                         report.reproductionSteps[indexPath.item] = newValue
                     } else {
                         report.reproductionSteps.removeAtIndex(indexPath.item)
-                        collectionView.deleteItemsAtIndexPaths([NSIndexPath(forItem: report.reproductionSteps.count, inSection: typed.rawValue)])
+                        collectionView.deleteItemsAtIndexPaths([NSIndexPath(forItem: self.report.reproductionSteps.count, inSection: typed.rawValue)])
                     }
                 }
+                let indexPaths = Array(0 ..< self.report.reproductionSteps.count).map { NSIndexPath(forItem: $0, inSection: typed.rawValue)}.filter { $0.item != indexPath.row }
+                println(indexPaths)
+                self.collectionView.reloadItemsAtIndexPaths(indexPaths)
             default:
                 // No-op for logs, device config, screenshot
                 break

@@ -55,7 +55,6 @@
 		509461E91ABA6CD900D0E897 /* ShakedownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E41ABA6CD900D0E897 /* ShakedownCell.swift */; };
 		509461EA1ABA6CD900D0E897 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E51ABA6CD900D0E897 /* TextFieldCell.swift */; };
 		509461EB1ABA6CD900D0E897 /* TextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461E61ABA6CD900D0E897 /* TextViewCell.swift */; };
-		509461ED1ABAE01800D0E897 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509461EC1ABAE01800D0E897 /* HeaderView.swift */; };
 		50B2A2741ABECC6700C7A075 /* ObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B2A2731ABECC6700C7A075 /* ObjCViewController.m */; };
 		50BD7B8C1AD0FE09005292C1 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD7B8B1AD0FE09005292C1 /* UIImage+Blur.swift */; };
 		50BD7B8E1AD1062F005292C1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BD7B8D1AD1062F005292C1 /* MapKit.framework */; };
@@ -128,7 +127,6 @@
 		509461E41ABA6CD900D0E897 /* ShakedownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakedownCell.swift; sourceTree = "<group>"; };
 		509461E51ABA6CD900D0E897 /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		509461E61ABA6CD900D0E897 /* TextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewCell.swift; sourceTree = "<group>"; };
-		509461EC1ABAE01800D0E897 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		50B2A2721ABECC6700C7A075 /* ObjCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCViewController.h; sourceTree = "<group>"; };
 		50B2A2731ABECC6700C7A075 /* ObjCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCViewController.m; sourceTree = "<group>"; };
 		50BD7B8B1AD0FE09005292C1 /* UIImage+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Blur.swift"; sourceTree = "<group>"; };
@@ -386,7 +384,6 @@
 				509461E41ABA6CD900D0E897 /* ShakedownCell.swift */,
 				509461E51ABA6CD900D0E897 /* TextFieldCell.swift */,
 				509461E61ABA6CD900D0E897 /* TextViewCell.swift */,
-				509461EC1ABAE01800D0E897 /* HeaderView.swift */,
 				50BD7B911AD117B4005292C1 /* LabeledCell.swift */,
 			);
 			path = Cells;
@@ -619,7 +616,6 @@
 				50114B001ABD72F60077AA92 /* PivotalReporter.swift in Sources */,
 				509461E91ABA6CD900D0E897 /* ShakedownCell.swift in Sources */,
 				509461EB1ABA6CD900D0E897 /* TextViewCell.swift in Sources */,
-				509461ED1ABAE01800D0E897 /* HeaderView.swift in Sources */,
 				5004FB971AB94E9B0053A47A /* Shakedown.swift in Sources */,
 				50BD7B921AD117B4005292C1 /* LabeledCell.swift in Sources */,
 				50114B071ABE7FB30077AA92 /* Configuration.swift in Sources */,

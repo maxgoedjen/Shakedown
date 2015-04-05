@@ -41,7 +41,7 @@
                                 <color key="backgroundColor" white="0.90000000000000002" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="XnV-0P-CgS">
                                     <size key="itemSize" width="599.5" height="100"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
@@ -243,26 +243,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="g7g-Xk-0rc" customClass="HeaderView" customModule="ShakedownSample" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="64" width="600" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzO-7G-JuC">
-                                            <rect key="frame" x="8" y="14" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.35290741920471191" green="0.35296276211738586" blue="0.35289531946182251" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="NzO-7G-JuC" secondAttribute="centerY" constant="0.5" id="H07-oQ-gU9"/>
-                                        <constraint firstItem="NzO-7G-JuC" firstAttribute="leading" secondItem="g7g-Xk-0rc" secondAttribute="leadingMargin" id="J99-8b-uQq"/>
-                                    </constraints>
-                                    <connections>
-                                        <outlet property="label" destination="NzO-7G-JuC" id="4xF-4a-sQA"/>
-                                    </connections>
-                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="4wC-4A-NzZ" id="lqm-D8-Yer"/>
                                     <outlet property="delegate" destination="4wC-4A-NzZ" id="cv7-wB-Jgb"/>

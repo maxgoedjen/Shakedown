@@ -14,19 +14,19 @@ class LabeledCell: ShakedownCell {
     @IBOutlet var labelTopConstraint: NSLayoutConstraint!
     @IBOutlet var contentConstraint: NSLayoutConstraint!
     
-    func showLabel() {
+    func showLabel(animated: Bool = true) {
         labelTopConstraint.constant = 5
         contentConstraint.constant = 5
-        UIView.animateWithDuration(0.5) {
+        UIView.animateWithDuration(animated ? 0.5 : 0) {
             self.label.alpha = 1
             self.layoutIfNeeded()
         }
     }
     
-    func hideLabel() {
+    func hideLabel(animated: Bool = true) {
         labelTopConstraint.constant = 20
         contentConstraint.constant = 0
-        UIView.animateWithDuration(0.5) {
+        UIView.animateWithDuration(animated ? 0.5 : 0) {
             self.label.alpha = 0
             self.layoutIfNeeded()
         }
