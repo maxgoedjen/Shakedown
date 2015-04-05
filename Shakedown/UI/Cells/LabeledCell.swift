@@ -17,18 +17,28 @@ class LabeledCell: ShakedownCell {
     func showLabel(animated: Bool = true) {
         labelTopConstraint.constant = 5
         contentConstraint.constant = 5
-        UIView.animateWithDuration(animated ? 0.5 : 0) {
+        let action: (Void -> Void) = {
             self.label.alpha = 1
             self.layoutIfNeeded()
+        }
+        if animated {
+            UIView.animateWithDuration(0.5, action)
+        } else {
+            action()
         }
     }
     
     func hideLabel(animated: Bool = true) {
         labelTopConstraint.constant = 20
         contentConstraint.constant = 0
-        UIView.animateWithDuration(animated ? 0.5 : 0) {
+        let action: (Void -> Void) = {
             self.label.alpha = 0
             self.layoutIfNeeded()
+        }
+        if animated {
+            UIView.animateWithDuration(0.5, action)
+        } else {
+            action()
         }
     }
     
