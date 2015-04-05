@@ -20,7 +20,7 @@ class ShakedownViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        backgroundImageView.image = report.screenshot
+        backgroundImageView.image = report.screenshot.blurred
     }
     
 }
