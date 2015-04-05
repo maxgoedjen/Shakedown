@@ -67,7 +67,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             configuredCell = cell
         case .Reproducibility:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCell.identifier, forIndexPath: indexPath) as LabelCell
-            cell.titleLabel.text = NSLocalizedString("This Happens", comment: "Reproducibility prefix")
+            cell.titleLabel.text = NSLocalizedString("This Happens", comment: "Reproducibility placeholder")
             cell.valueLabel.text = report.reproducibility
             configuredCell = cell
         case .ReproductionSteps:
