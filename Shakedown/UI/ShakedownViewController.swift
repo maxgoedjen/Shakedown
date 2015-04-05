@@ -170,6 +170,7 @@ extension ShakedownViewController: ShakedownCellDelegate {
             case .ReproductionSteps:
                 if indexPath.item >= report.reproductionSteps.count {
                     report.reproductionSteps.append(newValue)
+                    cell.divider.hidden = true
                     collectionView.insertItemsAtIndexPaths([NSIndexPath(forItem: report.reproductionSteps.count, inSection: typed.rawValue)])
                 } else {
                     if !newValue.isEmpty {
@@ -180,7 +181,6 @@ extension ShakedownViewController: ShakedownCellDelegate {
                     }
                 }
                 let indexPaths = Array(0 ..< self.report.reproductionSteps.count).map { NSIndexPath(forItem: $0, inSection: typed.rawValue)}.filter { $0.item != indexPath.row }
-                println(indexPaths)
                 self.collectionView.reloadItemsAtIndexPaths(indexPaths)
             default:
                 // No-op for logs, device config, screenshot
