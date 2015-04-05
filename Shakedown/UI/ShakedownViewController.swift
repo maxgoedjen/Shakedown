@@ -109,7 +109,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .Title:
             return CGSize(width: width, height: 50)
         case .Description:
-            return CGSize(width: width, height: 100)
+            return CGSize(width: width, height: TextViewCell.heightForText(report.description, width: collectionView.frame.width))
         case .Reproducibility:
             return CGSize(width: width, height: 50)
         case .ReproductionSteps:
@@ -119,7 +119,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .DeviceConfiguration:
             return CGSize(width: width, height: 20)
         case .DeviceLogs:
-            return CGSize(width: width, height: 100)
+            return CGSize(width: width, height: 1000)
         }
     }
     
@@ -177,6 +177,7 @@ extension ShakedownViewController: ShakedownCellDelegate {
                 report.title = newValue
             case .Description:
                 report.description = newValue
+                collectionView.collectionViewLayout.invalidateLayout()
             case .Reproducibility:
                 report.reproducibility = newValue
             case .ReproductionSteps:
