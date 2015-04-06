@@ -182,7 +182,6 @@ extension ShakedownViewController: ShakedownCellDelegate {
                     }
                 }
                 let indexPaths = Array(0...self.report.reproductionSteps.count).map { NSIndexPath(forItem: $0, inSection: typed.rawValue)}.filter { $0.item != indexPath.row }
-                println(indexPaths)
                 self.collectionView.reloadItemsAtIndexPaths(indexPaths)
             default:
                 // No-op for logs, device config, screenshot
