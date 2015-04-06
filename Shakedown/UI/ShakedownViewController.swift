@@ -15,7 +15,7 @@ class ShakedownViewController: UIViewController {
     @IBOutlet var backgroundImageView: UIImageView!
     
     enum Sections: Int {
-        case Title, Description, Reproducibility, ReproductionSteps, Screenshot, DeviceConfiguration, DeviceLogs
+        case Title, Description, Reproducibility, ReproductionSteps, Screenshot, DeviceLogs, DeviceConfiguration
     }
     
     override func viewDidLoad() {
@@ -77,6 +77,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             } else {
                 cell.textField.text = report.reproductionSteps[indexPath.item]
                 cell.divider.hidden = true
+                cell.showLabel(animated: false)
             }
             cell.label.text = NSLocalizedString("Step \(indexPath.item + 1)", comment: "Step number label")
             if report.reproductionSteps.count > 0 {
@@ -84,27 +85,27 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             } else {
                 cell.textField.placeholder = NSLocalizedString("Steps to Reproduce", comment: "Steps to reproduce placeholder")
             }
-            cell.showLabel(animated: false)
             configuredCell = cell
         case .Screenshot:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ImageCell.identifier, forIndexPath: indexPath) as ImageCell
             cell.imageView.image = report.screenshot
             configuredCell = cell
-        case .DeviceConfiguration:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCell.identifier, forIndexPath: indexPath) as LabelCell
-            let title = sorted(report.deviceConfiguration.keys)[indexPath.item]
-            cell.titleLabel.text = title
-            cell.valueLabel.text = report.deviceConfiguration[title]
-            cell.divider.hidden = report.deviceConfiguration.count - 1 > indexPath.item
-            configuredCell = cell
         case .DeviceLogs:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
             cell.textView.text = report.deviceLog
             cell.textView.userInteractionEnabled = false
-            cell.divider.hidden = true
             cell.placeholderLabel.text = nil
             cell.label.text = "Log"
             cell.showLabel(animated: false)
+            configuredCell = cell
+        case .DeviceConfiguration:
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
+            let title = sorted(report.deviceConfiguration.keys)[indexPath.item]
+            cell.label.text = title
+            cell.textField.text = report.deviceConfiguration[title]
+            cell.textField.enabled = false
+            cell.showLabel(animated: false)
+            cell.divider.hidden = true
             configuredCell = cell
         }
         configuredCell.delegate = self
@@ -125,10 +126,10 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             return CGSize(width: width, height: 50)
         case .Screenshot:
             return CGSize(width: width, height: 150)
-        case .DeviceConfiguration:
-            return CGSize(width: width, height: 20)
         case .DeviceLogs:
             return CGSize(width: width, height: TextViewCell.heightForText(report.deviceLog, width: collectionView.frame.width))
+        case .DeviceConfiguration:
+            return CGSize(width: width, height: 40)
         }
     }
         
@@ -141,9 +142,9 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             break
         case .Screenshot:
             break
-        case .DeviceConfiguration:
-            break
         case .DeviceLogs:
+            break
+        case .DeviceConfiguration:
             break
         default:
             break
@@ -180,7 +181,8 @@ extension ShakedownViewController: ShakedownCellDelegate {
                         collectionView.deleteItemsAtIndexPaths([NSIndexPath(forItem: self.report.reproductionSteps.count, inSection: typed.rawValue)])
                     }
                 }
-                let indexPaths = Array(0 ..< self.report.reproductionSteps.count).map { NSIndexPath(forItem: $0, inSection: typed.rawValue)}.filter { $0.item != indexPath.row }
+                let indexPaths = Array(0...self.report.reproductionSteps.count).map { NSIndexPath(forItem: $0, inSection: typed.rawValue)}.filter { $0.item != indexPath.row }
+                println(indexPaths)
                 self.collectionView.reloadItemsAtIndexPaths(indexPaths)
             default:
                 // No-op for logs, device config, screenshot
