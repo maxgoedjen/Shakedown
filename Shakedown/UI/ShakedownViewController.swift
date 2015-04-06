@@ -92,7 +92,8 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             configuredCell = cell
         case .DeviceLogs:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
-            cell.textView.text = report.deviceLog
+            let log = report.deviceLog
+            cell.textView.text = log.substringToIndex(advance(log.startIndex, min(1000, countElements(log))))
             cell.textView.userInteractionEnabled = false
             cell.placeholderLabel.text = nil
             cell.label.text = "Log"
