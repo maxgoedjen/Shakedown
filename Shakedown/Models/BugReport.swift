@@ -21,7 +21,7 @@ import UIKit
     public init(screenshot: UIImage, deviceConfiguration: [String : String], deviceLog: String?) {
         self.screenshot = screenshot
         self.deviceConfiguration = deviceConfiguration
-        self.deviceLog = deviceLog ?? ""
+        self.deviceLog = deviceLog?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) ?? ""
         self.reproducibility = Shakedown.configuration.reproducibilityOptions.first!
     }
     
