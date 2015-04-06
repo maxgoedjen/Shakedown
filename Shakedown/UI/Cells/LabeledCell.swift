@@ -16,7 +16,7 @@ class LabeledCell: ShakedownCell {
     
     func showLabel(animated: Bool = true) {
         labelTopConstraint.constant = 5
-        contentConstraint.constant = 5
+        contentConstraint.constant = shownContentConstraint
         let action: (Void -> Void) = {
             self.label.alpha = 1
             self.layoutIfNeeded()
@@ -30,7 +30,7 @@ class LabeledCell: ShakedownCell {
     
     func hideLabel(animated: Bool = true) {
         labelTopConstraint.constant = 20
-        contentConstraint.constant = 0
+        contentConstraint.constant = hiddenContentConstraint
         let action: (Void -> Void) = {
             self.label.alpha = 0
             self.layoutIfNeeded()
@@ -40,6 +40,14 @@ class LabeledCell: ShakedownCell {
         } else {
             action()
         }
+    }
+    
+    var shownContentConstraint: CGFloat {
+        return 5
+    }
+    
+    var hiddenContentConstraint: CGFloat {
+        return 0
     }
     
 }

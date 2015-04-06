@@ -164,15 +164,15 @@
                                             <constraint firstItem="wKj-mX-gJ5" firstAttribute="top" secondItem="aN4-Y9-qXD" secondAttribute="top" constant="20" id="2lz-Yf-SPS"/>
                                             <constraint firstItem="HLn-Rv-Fa2" firstAttribute="leading" secondItem="aN4-Y9-qXD" secondAttribute="leading" id="3tc-sA-CLY"/>
                                             <constraint firstAttribute="trailing" secondItem="HLn-Rv-Fa2" secondAttribute="trailing" id="6UP-zS-ZGR"/>
-                                            <constraint firstItem="FXj-NE-PLl" firstAttribute="centerY" secondItem="aN4-Y9-qXD" secondAttribute="centerY" id="9ka-zr-Q2t"/>
                                             <constraint firstItem="FXj-NE-PLl" firstAttribute="leading" secondItem="aN4-Y9-qXD" secondAttribute="leading" constant="8" id="M4y-Lk-xzQ"/>
                                             <constraint firstAttribute="trailing" secondItem="FXj-NE-PLl" secondAttribute="trailing" constant="8" id="OgV-Vd-GnY"/>
                                             <constraint firstAttribute="bottom" secondItem="HLn-Rv-Fa2" secondAttribute="bottom" id="SC5-18-PfF"/>
                                             <constraint firstItem="wKj-mX-gJ5" firstAttribute="leading" secondItem="aN4-Y9-qXD" secondAttribute="leading" constant="8" id="fdd-kS-ICl"/>
+                                            <constraint firstItem="FXj-NE-PLl" firstAttribute="top" secondItem="aN4-Y9-qXD" secondAttribute="top" constant="14" id="g4b-g1-kdS"/>
                                         </constraints>
                                         <size key="customSize" width="599.5" height="50"/>
                                         <connections>
-                                            <outlet property="contentConstraint" destination="9ka-zr-Q2t" id="bFf-kH-wbb"/>
+                                            <outlet property="contentConstraint" destination="g4b-g1-kdS" id="MaV-e2-JxP"/>
                                             <outlet property="divider" destination="HLn-Rv-Fa2" id="g1d-cT-Sst"/>
                                             <outlet property="label" destination="wKj-mX-gJ5" id="Hjt-og-JvV"/>
                                             <outlet property="labelTopConstraint" destination="2lz-Yf-SPS" id="xH2-os-9h4"/>

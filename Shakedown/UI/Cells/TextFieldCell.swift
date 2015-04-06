@@ -16,6 +16,20 @@ class TextFieldCell: LabeledCell {
         return "TextFieldCell"
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        hideLabel(animated: false)
+        textField.enabled = true
+    }
+    
+    override var shownContentConstraint: CGFloat {
+        return 19
+    }
+    
+    override var hiddenContentConstraint: CGFloat {
+        return 14
+    }
+
 }
 
 extension TextFieldCell {
