@@ -11,28 +11,17 @@ PODS:
     - Mockingjay/Core
   - Nimble (0.4.2)
   - Quick (0.3.1)
-  - URITemplate (1.1.0)
+  - URITemplate (1.1.1)
 
 DEPENDENCIES:
   - Mockingjay
   - Nimble
   - Quick
-  - URITemplate (from `https://github.com/kylef/URITemplate.swift.git`, commit `8ccba2306a`)
-
-EXTERNAL SOURCES:
-  URITemplate:
-    :commit: 8ccba2306a
-    :git: https://github.com/kylef/URITemplate.swift.git
-
-CHECKOUT OPTIONS:
-  URITemplate:
-    :commit: 8ccba2306a
-    :git: https://github.com/kylef/URITemplate.swift.git
 
 SPEC CHECKSUMS:
   Mockingjay: a0b7a5ca0fcb2a6253ab28da07a8766f05ac6182
   Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
-  URITemplate: 4eca238bb7afa9a3626e471a5766351cef7069d3
+  URITemplate: 702714d5d0120400fc22a4271e066c123e75d01a
 
 COCOAPODS: 0.36.3
