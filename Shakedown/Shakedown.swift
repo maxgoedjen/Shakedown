@@ -47,6 +47,9 @@ import UIKit
         root?.view.addGestureRecognizer(gestureRecognizer)
     }
     
+    /**
+    Append a message to Shakedown's log. Shakedown will take care of newlines/etc for you.
+    */
     public class func logMessage(message: String) {
         configuration.log += (message + "\n")
     }
