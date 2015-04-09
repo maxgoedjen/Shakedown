@@ -10,6 +10,8 @@ import UIKit
 
 @objc public class Shakedown {
     
+    static let configuration = Configuration()
+    
     /**
     Show Shakedown programatically from a specific view controller
     
@@ -54,20 +56,6 @@ import UIKit
         configuration.log += (message + "\n")
     }
     
-}
-
-// MARK: Configuration
-
-extension Shakedown {
-
-    private struct ConfigurationStorage {
-        static let ConfigurationInstance = Configuration()
-    }
-
-    public class var configuration: Configuration {
-        return ConfigurationStorage.ConfigurationInstance
-    }
-
 }
 
 // MARK: Triggers
