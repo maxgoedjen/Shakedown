@@ -29,7 +29,7 @@ class ImageUploaderSpec: QuickSpec, UploaderSpec {
             it("should upload successfully") {
                 var url: NSURL?
                 var error: NSError?
-                self.stub(everything, self.stubAndVerifyRequest)
+                self.stub(everything, builder: self.stubAndVerifyRequest)
                 instance.uploadImage(sourceImage) { (url, error) = ($0, $1) }
                 expect(url).toEventually(equal(self.expectedURL), timeout: 3)
                 expect(error).toEventually(beNil(), timeout: 3)

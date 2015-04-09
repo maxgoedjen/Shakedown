@@ -26,7 +26,7 @@ class ReporterSpec: QuickSpec {
                 expect(instance).toNot(beNil())
             }
             it("should report issue succesfully") {
-                self.stub(everything, self.stubAndVerifyRequest)
+                self.stub(everything, builder: self.stubAndVerifyRequest)
                 var error: NSError?
                 var text: String?
                 instance.fileBugReport(TestData.report, imageUploader: NoOpSuccessImageUploader(), logUploader: NoOpSuccessLogUploader(), completion: { (text, error) = ($0, $1) })
@@ -34,7 +34,7 @@ class ReporterSpec: QuickSpec {
                 expect(error).toEventually(beNil(), timeout: 3)
             }
             it("should fail to upload if image upload fails") {
-                self.stub(everything, self.stubAndVerifyRequest)
+                self.stub(everything, builder: self.stubAndVerifyRequest)
                 var error: NSError?
                 var text: String?
                 instance.fileBugReport(TestData.report, imageUploader: NoOpFailureImageUploader(), logUploader: NoOpSuccessLogUploader(), completion: { (text, error) = ($0, $1) })
@@ -42,7 +42,7 @@ class ReporterSpec: QuickSpec {
                 expect(error).toEventuallyNot(beNil(), timeout: 3)
             }
             it("should fail to upload if log upload fails") {
-                self.stub(everything, self.stubAndVerifyRequest)
+                self.stub(everything, builder: self.stubAndVerifyRequest)
                 var error: NSError?
                 var text: String?
                 instance.fileBugReport(TestData.report, imageUploader: NoOpSuccessImageUploader(), logUploader: NoOpFailureLogUploader(), completion: { (text, error) = ($0, $1) })
@@ -50,7 +50,7 @@ class ReporterSpec: QuickSpec {
                 expect(error).toEventuallyNot(beNil(), timeout: 3)
             }
             it("should fail to upload if server returns an error") {
-                self.stub(everything, http(status: 500))
+                self.stub(everything, builder: http(status: 500))
                 var error: NSError?
                 var text: String?
                 instance.fileBugReport(TestData.report, imageUploader: NoOpSuccessImageUploader(), logUploader: NoOpSuccessLogUploader(), completion: { (text, error) = ($0, $1) })

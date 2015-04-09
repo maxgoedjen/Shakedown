@@ -23,7 +23,7 @@ class ShakeTriggerViewController: UIViewController {
     
     required init(coder aDecoder: NSCoder) {
         self.trigger = {}
-        super.init()
+        super.init(coder: aDecoder)
     }
     
     override func canBecomeFirstResponder() -> Bool {

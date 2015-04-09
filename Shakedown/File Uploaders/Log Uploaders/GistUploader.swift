@@ -10,7 +10,7 @@ import Foundation
 
 public struct GistUploader: LogUploader {
     
-    let authenticationToken: String? = nil
+    let authenticationToken: String?
     
     public init(authenticationToken: String? = nil) {
         self.authenticationToken = authenticationToken

@@ -18,7 +18,7 @@ import UIKit
     public class func displayFrom(viewController: UIViewController? = nil) {
         // Explicitly specify bundle for CocoaPods 0.35/0.36 packaging differences
         let storyboard = UIStoryboard(name: "Shakedown", bundle: NSBundle(forClass: ShakedownViewController.self))
-        let navController = storyboard.instantiateInitialViewController() as UINavigationController
+        let navController = storyboard.instantiateInitialViewController() as! UINavigationController
         let presenter = viewController ?? frontViewController
         presenter.presentViewController(navController, animated: true, completion: nil)
     }

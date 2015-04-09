@@ -22,7 +22,7 @@ class LabeledCell: ShakedownCell {
             self.layoutIfNeeded()
         }
         if animated {
-            UIView.animateWithDuration(0.5, action)
+            UIView.animateWithDuration(0.5, animations: action)
         } else {
             action()
         }
@@ -36,7 +36,7 @@ class LabeledCell: ShakedownCell {
             self.layoutIfNeeded()
         }
         if animated {
-            UIView.animateWithDuration(0.5, action)
+            UIView.animateWithDuration(0.5, animations: action)
         } else {
             action()
         }

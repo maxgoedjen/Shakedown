@@ -53,25 +53,25 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         var identifier: String!
         switch typed {
         case .Title:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as! TextFieldCell
             cell.textField.text = report.title
             cell.textField.placeholder = NSLocalizedString("What happened?", comment: "Report title placeholder")
             cell.label.text = NSLocalizedString("Report Title", comment: "Report title label")
             configuredCell = cell
         case .Description:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as! TextViewCell
             cell.textView.text = report.description
             cell.textView.userInteractionEnabled = true
             cell.placeholderLabel.text = NSLocalizedString("What are the details?", comment: "Report Description Placeholder")
             cell.label.text = NSLocalizedString("Details", comment: "Report description label")
             configuredCell = cell
         case .Reproducibility:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCell.identifier, forIndexPath: indexPath) as LabelCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCell.identifier, forIndexPath: indexPath) as! LabelCell
             cell.titleLabel.text = NSLocalizedString("This Happens", comment: "Reproducibility placeholder")
             cell.valueLabel.text = report.reproducibility
             configuredCell = cell
         case .ReproductionSteps:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as! TextFieldCell
             if indexPath.row >= report.reproductionSteps.count {
                 cell.textField.text = nil
             } else {
@@ -87,20 +87,20 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             }
             configuredCell = cell
         case .Screenshot:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ImageCell.identifier, forIndexPath: indexPath) as ImageCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ImageCell.identifier, forIndexPath: indexPath) as! ImageCell
             cell.imageView.image = report.screenshot
             configuredCell = cell
         case .DeviceLogs:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as TextViewCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as! TextViewCell
             let log = report.deviceLog
-            cell.textView.text = log.substringToIndex(advance(log.startIndex, min(1000, countElements(log))))
+            cell.textView.text = log.substringToIndex(advance(log.startIndex, min(1000, count(log))))
             cell.textView.userInteractionEnabled = false
             cell.placeholderLabel.text = nil
             cell.label.text = "Log"
             cell.showLabel(animated: false)
             configuredCell = cell
         case .DeviceConfiguration:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as TextFieldCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as! TextFieldCell
             let title = sorted(report.deviceConfiguration.keys)[indexPath.item]
             cell.label.text = title
             cell.textField.text = report.deviceConfiguration[title]
