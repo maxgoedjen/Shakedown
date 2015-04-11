@@ -54,6 +54,7 @@ import UIKit
     */
     public class func logMessage(message: String) {
         configuration.log += (message + "\n")
+        NSNotificationCenter.defaultCenter().postNotificationName(Notifications.LogUpdated, object: nil)
     }
     
 }
@@ -81,4 +82,14 @@ extension Shakedown {
         return foremost
     }
         
+}
+
+// MARK: Notifications
+
+extension Shakedown {
+    
+    struct Notifications {
+        static let LogUpdated = "ShakedownLogUpdated"
+    }
+    
 }
