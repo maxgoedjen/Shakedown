@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3vr-Py-6l6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3vr-Py-6l6">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -281,6 +281,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucY-Qn-all" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="550" y="674"/>
+        </scene>
+        <!--Log View Controller-->
+        <scene sceneID="tkT-Ve-vYE">
+            <objects>
+                <viewController id="Blx-NJ-cwL" customClass="LogViewController" customModule="ShakedownSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UIg-Nn-W3r"/>
+                        <viewControllerLayoutGuide type="bottom" id="bmJ-wk-Ybb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pS5-fg-oP4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JjG-l5-8e1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JjG-l5-8e1" firstAttribute="top" secondItem="pS5-fg-oP4" secondAttribute="top" id="WNm-yM-sFK"/>
+                            <constraint firstItem="bmJ-wk-Ybb" firstAttribute="top" secondItem="JjG-l5-8e1" secondAttribute="bottom" id="an8-ui-aoJ"/>
+                            <constraint firstAttribute="trailing" secondItem="JjG-l5-8e1" secondAttribute="trailing" id="rSq-t4-Btg"/>
+                            <constraint firstItem="JjG-l5-8e1" firstAttribute="leading" secondItem="pS5-fg-oP4" secondAttribute="leading" id="x9v-hL-uZ3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="JjG-l5-8e1" id="VLY-A5-riI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RFZ-An-vIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1204" y="674"/>
         </scene>
     </scenes>
 </document>
