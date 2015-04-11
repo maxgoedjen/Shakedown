@@ -19,7 +19,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWB-OH-0Y4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-116" y="664"/>
+            <point key="canvasLocation" x="-123" y="674"/>
         </scene>
         <!--Report Issue-->
         <scene sceneID="e62-ZJ-Ioi">
@@ -276,6 +276,7 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="T0H-l1-CeO" id="YKm-nT-KqC"/>
                         <outlet property="collectionView" destination="iyL-q0-buQ" id="Fjm-oG-dRa"/>
+                        <segue destination="Blx-NJ-cwL" kind="show" identifier="ShowLogSegue" id="9UI-OI-tQr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucY-Qn-all" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -294,9 +295,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZAO-Ta-UM6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JjG-l5-8e1">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.90000000000000002" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -304,13 +308,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZAO-Ta-UM6" secondAttribute="trailing" id="0o8-B3-vKG"/>
+                            <constraint firstItem="ZAO-Ta-UM6" firstAttribute="leading" secondItem="pS5-fg-oP4" secondAttribute="leading" id="3Qs-1T-S5q"/>
+                            <constraint firstItem="bmJ-wk-Ybb" firstAttribute="top" secondItem="ZAO-Ta-UM6" secondAttribute="bottom" id="G8b-J8-dUN"/>
                             <constraint firstItem="JjG-l5-8e1" firstAttribute="top" secondItem="pS5-fg-oP4" secondAttribute="top" id="WNm-yM-sFK"/>
                             <constraint firstItem="bmJ-wk-Ybb" firstAttribute="top" secondItem="JjG-l5-8e1" secondAttribute="bottom" id="an8-ui-aoJ"/>
+                            <constraint firstItem="ZAO-Ta-UM6" firstAttribute="top" secondItem="pS5-fg-oP4" secondAttribute="top" id="esH-8B-gw0"/>
                             <constraint firstAttribute="trailing" secondItem="JjG-l5-8e1" secondAttribute="trailing" id="rSq-t4-Btg"/>
                             <constraint firstItem="JjG-l5-8e1" firstAttribute="leading" secondItem="pS5-fg-oP4" secondAttribute="leading" id="x9v-hL-uZ3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImageView" destination="ZAO-Ta-UM6" id="wu0-wg-XCF"/>
                         <outlet property="textView" destination="JjG-l5-8e1" id="VLY-A5-riI"/>
                     </connections>
                 </viewController>

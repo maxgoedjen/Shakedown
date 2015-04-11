@@ -18,6 +18,10 @@ class ShakedownViewController: UIViewController {
         case Title, Description, Reproducibility, ReproductionSteps, Screenshot, DeviceLogs, DeviceConfiguration
     }
     
+    struct Segues {
+        static let ShowLog = "ShowLogSegue"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundImageView.image = report.screenshot.blurred
@@ -25,6 +29,11 @@ class ShakedownViewController: UIViewController {
         collectionView.scrollIndicatorInsets = collectionView.contentInset
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let logViewController = segue.destinationViewController as? LogViewController {
+            logViewController.report = report
+        }
+    }
 }
 
 // MARK: Collection View
@@ -144,7 +153,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .Screenshot:
             break
         case .DeviceLogs:
-            break
+            performSegueWithIdentifier(Segues.ShowLog, sender: nil)
         case .DeviceConfiguration:
             break
         default:
