@@ -21,6 +21,7 @@ import UIKit
         // Explicitly specify bundle for CocoaPods 0.35/0.36 packaging differences
         let storyboard = UIStoryboard(name: "Shakedown", bundle: NSBundle(forClass: ShakedownViewController.self))
         let navController = storyboard.instantiateInitialViewController() as! UINavigationController
+        navController.modalPresentationStyle = .FormSheet
         let presenter = viewController ?? frontViewController
         presenter.presentViewController(navController, animated: true, completion: nil)
     }
