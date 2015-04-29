@@ -499,7 +499,7 @@
 						CreatedOnToolsVersion = 6.2;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
