@@ -187,13 +187,14 @@ extension ShakedownViewController: ShakedownCellDelegate {
                 } else {
                     if !newValue.isEmpty {
                         report.reproductionSteps[indexPath.item] = newValue
+                        let indexPaths = Array(0...self.report.reproductionSteps.count).map { NSIndexPath(forItem: $0, inSection: typed.rawValue)}.filter { $0.item != indexPath.row }
+                        collectionView.reloadItemsAtIndexPaths(indexPaths)
                     } else {
                         report.reproductionSteps.removeAtIndex(indexPath.item)
                         collectionView.deleteItemsAtIndexPaths([NSIndexPath(forItem: self.report.reproductionSteps.count, inSection: typed.rawValue)])
+                        collectionView.reloadSections(NSIndexSet(index: indexPath.section))
                     }
                 }
-                let indexPaths = Array(0...self.report.reproductionSteps.count).map { NSIndexPath(forItem: $0, inSection: typed.rawValue)}.filter { $0.item != indexPath.row }
-                self.collectionView.reloadItemsAtIndexPaths(indexPaths)
             default:
                 // No-op for logs, device config, screenshot
                 break
