@@ -19,6 +19,8 @@ class LogViewController: UIViewController {
         super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateFromNotification:", name: Shakedown.Notifications.LogUpdated, object: nil)
         updateLog()
+        let top = navigationController!.navigationBar.frame.height + (UIDevice.currentDevice().userInterfaceIdiom == .Phone ? UIApplication.sharedApplication().statusBarFrame.height : 0)
+        textView.contentInset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
     }
     
     override func viewWillDisappear(animated: Bool) {
