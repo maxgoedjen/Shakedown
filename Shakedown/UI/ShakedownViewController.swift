@@ -13,6 +13,7 @@ class ShakedownViewController: UIViewController {
     var report = BugReport(screenshot: currentScreenImage, deviceConfiguration: ShakedownViewController.deviceConfiguration, deviceLog: Shakedown.configuration.log)
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var backgroundImageView: UIImageView!
+    @IBOutlet var selectorView: SelectorView!
     
     enum Sections: Int {
         case Title, Description, Reproducibility, ReproductionSteps, Screenshot, DeviceLogs, DeviceConfiguration
@@ -28,6 +29,7 @@ class ShakedownViewController: UIViewController {
         let top = navigationController!.navigationBar.frame.height + (UIDevice.currentDevice().userInterfaceIdiom == .Phone ? UIApplication.sharedApplication().statusBarFrame.height : 0)
         collectionView.contentInset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = collectionView.contentInset
+        selectorView.options = Shakedown.configuration.reproducibilityOptions
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateLog:", name: Shakedown.Notifications.LogUpdated, object: nil)
     }
     
@@ -158,7 +160,8 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         let typed = Sections(rawValue: indexPath.section)!
         switch typed {
         case .Reproducibility:
-            break
+            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! LabelCell
+            selectorView.displayFromButton(cell.valueLabel)
         case .ReproductionSteps:
             break
         case .Screenshot:

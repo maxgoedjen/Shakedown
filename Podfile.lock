@@ -11,17 +11,20 @@ PODS:
     - Mockingjay/Core
   - Nimble (0.4.2)
   - Quick (0.3.1)
+  - Reveal-iOS-SDK (1.5.1)
   - URITemplate (1.2.0)
 
 DEPENDENCIES:
   - Mockingjay
   - Nimble
   - Quick
+  - Reveal-iOS-SDK
 
 SPEC CHECKSUMS:
   Mockingjay: 8635bddf88b7c93833db67e1dc54b8ffe7efe921
   Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
+  Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
   URITemplate: 0dbf40f0e378eb9c6d04cc08e6101fb82d126dc3
 
 COCOAPODS: 0.37.1

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3vr-Py-6l6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3vr-Py-6l6">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -97,7 +97,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQg-4T-Hva">
                                                     <rect key="frame" x="58" y="39" width="43.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.11223650723695755" green="0.51751148700714111" blue="0.89125305414199829" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.074673481285572052" green="0.50305026769638062" blue="0.90372771024703979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0sq-8W-wow" userLabel="Divider">
@@ -248,17 +248,25 @@
                                     <outlet property="delegate" destination="4wC-4A-NzZ" id="cv7-wB-Jgb"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6T2-dm-qU9" customClass="SelectorView" customModule="ShakedownSample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RtV-1a-9DI" firstAttribute="top" secondItem="iyL-q0-buQ" secondAttribute="bottom" id="2ce-Ka-pJf"/>
                             <constraint firstItem="T0H-l1-CeO" firstAttribute="leading" secondItem="6of-V1-Qtz" secondAttribute="leading" id="Fyb-xp-1bB"/>
+                            <constraint firstAttribute="trailing" secondItem="6T2-dm-qU9" secondAttribute="trailing" id="HCp-Dh-pzi"/>
+                            <constraint firstItem="RtV-1a-9DI" firstAttribute="top" secondItem="6T2-dm-qU9" secondAttribute="bottom" id="K8P-1F-ZFK"/>
                             <constraint firstAttribute="trailing" secondItem="iyL-q0-buQ" secondAttribute="trailing" id="OTR-Xs-O3r"/>
                             <constraint firstItem="iyL-q0-buQ" firstAttribute="top" secondItem="6of-V1-Qtz" secondAttribute="top" id="P7k-5z-vEy"/>
+                            <constraint firstItem="6T2-dm-qU9" firstAttribute="top" secondItem="6of-V1-Qtz" secondAttribute="top" id="Vb3-7b-uo4"/>
                             <constraint firstItem="iyL-q0-buQ" firstAttribute="leading" secondItem="6of-V1-Qtz" secondAttribute="leading" id="W7v-i6-OWs"/>
                             <constraint firstItem="T0H-l1-CeO" firstAttribute="top" secondItem="6of-V1-Qtz" secondAttribute="top" id="Xxl-Bc-8UY"/>
                             <constraint firstItem="RtV-1a-9DI" firstAttribute="top" secondItem="T0H-l1-CeO" secondAttribute="bottom" id="h3n-zz-BTA"/>
                             <constraint firstAttribute="trailing" secondItem="T0H-l1-CeO" secondAttribute="trailing" id="rgO-tj-YhE"/>
+                            <constraint firstItem="6T2-dm-qU9" firstAttribute="leading" secondItem="6of-V1-Qtz" secondAttribute="leading" id="sFk-Xx-cJv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Report Issue" id="1Ax-yI-50C">
@@ -276,6 +284,7 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="T0H-l1-CeO" id="YKm-nT-KqC"/>
                         <outlet property="collectionView" destination="iyL-q0-buQ" id="Fjm-oG-dRa"/>
+                        <outlet property="selectorView" destination="6T2-dm-qU9" id="VAd-9c-Rgd"/>
                         <segue destination="Blx-NJ-cwL" kind="show" identifier="ShowLogSegue" id="9UI-OI-tQr"/>
                     </connections>
                 </viewController>
