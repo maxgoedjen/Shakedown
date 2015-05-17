@@ -60,6 +60,7 @@
 		50BD7B8C1AD0FE09005292C1 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD7B8B1AD0FE09005292C1 /* UIImage+Blur.swift */; };
 		50BD7B8E1AD1062F005292C1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BD7B8D1AD1062F005292C1 /* MapKit.framework */; };
 		50BD7B921AD117B4005292C1 /* LabeledCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD7B911AD117B4005292C1 /* LabeledCell.swift */; };
+		50FCD29D1B08754100107F8E /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FCD29C1B08754100107F8E /* SelectorView.swift */; };
 		50FD43E81ABC1355008B6E71 /* JIRAReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */; };
 		74FBF69B2EE504865794A130 /* Pods_ShakedownSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB555E2A7BDBBFB1B2C21C4 /* Pods_ShakedownSampleTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -134,6 +135,7 @@
 		50BD7B8B1AD0FE09005292C1 /* UIImage+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Blur.swift"; sourceTree = "<group>"; };
 		50BD7B8D1AD1062F005292C1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		50BD7B911AD117B4005292C1 /* LabeledCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabeledCell.swift; sourceTree = "<group>"; };
+		50FCD29C1B08754100107F8E /* SelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectorView.swift; path = Views/SelectorView.swift; sourceTree = "<group>"; };
 		50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JIRAReporter.swift; sourceTree = "<group>"; };
 		7DB555E2A7BDBBFB1B2C21C4 /* Pods_ShakedownSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShakedownSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AA48FEA7020C322D210F6D /* Pods-ShakedownSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakedownSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShakedownSampleTests/Pods-ShakedownSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			children = (
 				5004FB8E1AB93C530053A47A /* ShakedownViewController.swift */,
 				5098D4281AD8EC38001D50D8 /* LogViewController.swift */,
+				50FCD29C1B08754100107F8E /* SelectorView.swift */,
 				509461E11ABA6CD900D0E897 /* Cells */,
 				5004FB921AB9485E0053A47A /* Shakedown.storyboard */,
 				50114B041ABD7E460077AA92 /* ShakeTriggerViewController.swift */,
@@ -619,6 +622,7 @@
 				50114B001ABD72F60077AA92 /* PivotalReporter.swift in Sources */,
 				509461E91ABA6CD900D0E897 /* ShakedownCell.swift in Sources */,
 				509461EB1ABA6CD900D0E897 /* TextViewCell.swift in Sources */,
+				50FCD29D1B08754100107F8E /* SelectorView.swift in Sources */,
 				5004FB971AB94E9B0053A47A /* Shakedown.swift in Sources */,
 				50BD7B921AD117B4005292C1 /* LabeledCell.swift in Sources */,
 				50114B071ABE7FB30077AA92 /* Configuration.swift in Sources */,
