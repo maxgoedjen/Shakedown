@@ -39,9 +39,6 @@ class LogViewController: UIViewController {
         textView.text = report?.deviceLog
         if textView.contentOffset.y + textView.frame.height == oldSize.height {
             // At the bottom already, stay pinned to bottom as new logs come in
-            let y =  textView.contentSize.height - textView.frame.height
-            let bottomRect = CGRect(x: 0, y: y, width: textView.frame.width, height: textView.frame.height)
-            textView.scrollRectToVisible(bottomRect, animated: true)
         }
     }
 }
