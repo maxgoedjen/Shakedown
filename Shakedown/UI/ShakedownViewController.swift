@@ -28,12 +28,17 @@ class ShakedownViewController: UIViewController {
         let top = navigationController!.navigationBar.frame.height + (UIDevice.currentDevice().userInterfaceIdiom == .Phone ? UIApplication.sharedApplication().statusBarFrame.height : 0)
         collectionView.contentInset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = collectionView.contentInset
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateLog:", name: Shakedown.Notifications.LogUpdated, object: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let logViewController = segue.destinationViewController as? LogViewController {
             logViewController.report = report
         }
+    }
+    
+    func updateLog(notification: NSNotification) {
+        collectionView.reloadSections(NSIndexSet(index: Sections.DeviceLogs.rawValue))
     }
 }
 
