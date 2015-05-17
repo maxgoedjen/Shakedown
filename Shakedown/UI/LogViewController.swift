@@ -41,4 +41,5 @@ class LogViewController: UIViewController {
             // At the bottom already, stay pinned to bottom as new logs come in
         }
     }
+    
 }
