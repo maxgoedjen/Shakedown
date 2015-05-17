@@ -14,7 +14,7 @@ import UIKit
     public var description = ""
     public var reproducibility = ""
     public var reproductionSteps: [String] = []
-    public let deviceLog: String
+    public var deviceLog: String
     public let screenshot: UIImage
     public let deviceConfiguration: [String : String]
     

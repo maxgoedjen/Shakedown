@@ -38,6 +38,7 @@ class ShakedownViewController: UIViewController {
     }
     
     func updateLog(notification: NSNotification) {
+        report.deviceLog = Shakedown.configuration.log
         collectionView.reloadSections(NSIndexSet(index: Sections.DeviceLogs.rawValue))
     }
 }
