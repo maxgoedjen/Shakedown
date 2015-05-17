@@ -231,7 +231,9 @@ extension ShakedownViewController {
             "iOS Version": device.systemVersion,
             "Model": device.model,
             "Name": device.name,
-            "System Name": device.systemName
+            "System Name": device.systemName,
+            "App Build": NSBundle.mainBundle().infoDictionary?[kCFBundleVersionKey] as? String ?? "None",
+            "App Version": NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String ?? "None"
         ]
         for (key, value) in Shakedown.configuration.additionalMetadata {
             full[key] = value
