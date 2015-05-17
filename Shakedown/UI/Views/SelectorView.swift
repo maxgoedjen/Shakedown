@@ -47,25 +47,29 @@ public class SelectorView: UIControl {
         for button in buttons {
             button.removeFromSuperview()
         }
-        buttons = options.map {
+        for _ in 0...count(options) {
             let button = UIButton.buttonWithType(.System) as! UIButton
-            button.setTitle($0, forState: .Normal)
             button.titleLabel?.font = UIFont.boldSystemFontOfSize(17)
             button.setTitleColor(UIColor.shakedownBlueColor, forState: .Normal)
             button.setTranslatesAutoresizingMaskIntoConstraints(false)
             button.addTarget(self, action: "selectedButton:", forControlEvents: .TouchUpInside)
-            return button
-        }
-        for button in buttons {
+            buttons.append(button)
             addSubview(button)
         }
     }
     
     public func displayFromButton(sourceButton: UIButton) {
+        var reorderedOptions = options
+        let currentValue = sourceButton.currentTitle!
+        reorderedOptions.removeAtIndex(find(options, currentValue)!)
+        reorderedOptions.insert(currentValue, atIndex: 0)
         alpha = 1
         self.sourceButton = sourceButton
         let translated = convertRect(sourceButton.frame, fromView: sourceButton.superview)
         resetButtons()
+        for (button, option) in zip(buttons, reorderedOptions) {
+            button.setTitle(option, forState: .Normal)
+        }
         self.layoutIfNeeded()
         removeConstraints(verticalConstraints)
         verticalConstraints = []
