@@ -108,8 +108,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             configuredCell = cell
         case .DeviceLogs:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as! TextViewCell
-            let log = report.deviceLog
-            cell.textView.text = log.substringToIndex(advance(log.startIndex, min(1000, count(log))))
+            cell.textView.text = abbreviatedLog
             cell.textView.userInteractionEnabled = false
             cell.placeholderLabel.text = nil
             cell.label.text = "Log"
@@ -144,7 +143,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .Screenshot:
             return CGSize(width: width, height: 150)
         case .DeviceLogs:
-            return CGSize(width: width, height: TextViewCell.heightForText(report.deviceLog, width: collectionView.frame.width))
+            return CGSize(width: width, height: TextViewCell.heightForText(abbreviatedLog, width: collectionView.frame.width))
         case .DeviceConfiguration:
             return CGSize(width: width, height: 40)
         }
@@ -229,6 +228,11 @@ extension ShakedownViewController {
 // MARK: Configuration
 
 extension ShakedownViewController {
+    
+    var abbreviatedLog: String {
+        let log = report.deviceLog
+        return log.substringToIndex(advance(log.startIndex, min(250, count(log))))
+    }
     
     class var deviceConfiguration: [String : String] {
         let device = UIDevice.currentDevice()
