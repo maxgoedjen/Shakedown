@@ -231,7 +231,10 @@ extension ShakedownViewController {
     
     var abbreviatedLog: String {
         let log = report.deviceLog
-        return log.substringToIndex(advance(log.startIndex, min(250, count(log))))
+        if count(log) > 250 {
+            return log.substringToIndex(advance(log.startIndex, 250)) + "..."
+        }
+        return log
     }
     
     class var deviceConfiguration: [String : String] {
