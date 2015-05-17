@@ -1,11 +1,3 @@
-//
-//  ButtonCell.swift
-//  ShakedownSample
-//
-//  Created by Max Goedjen on 3/18/15.
-//  Copyright (c) 2015 Max Goedjen. All rights reserved.
-//
-
 import UIKit
 
 class ButtonCell: ShakedownCell {
@@ -15,6 +7,10 @@ class ButtonCell: ShakedownCell {
     
     override class var identifier: String {
         return "ButtonCell"
+    }
+    
+    override func prepareForReuse() {
+        button.removeTarget(self, action: nil, forControlEvents: .AllEvents)
     }
 
 }

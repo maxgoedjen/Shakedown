@@ -1,11 +1,3 @@
-//
-//  ShakedownViewController.swift
-//  ShakedownSample
-//
-//  Created by Max Goedjen on 3/17/15.
-//  Copyright (c) 2015 Max Goedjen. All rights reserved.
-//
-
 import UIKit
 
 class ShakedownViewController: UIViewController {
@@ -48,6 +40,11 @@ class ShakedownViewController: UIViewController {
         report.deviceLog = Shakedown.configuration.log
         collectionView.reloadSections(NSIndexSet(index: Sections.DeviceLogs.rawValue))
     }
+    
+    func showReproducability(sender: UIButton) {
+        selectorView.displayFromButton(sender)
+    }
+    
 }
 
 // MARK: Collection View
@@ -93,6 +90,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ButtonCell.identifier, forIndexPath: indexPath) as! ButtonCell
             cell.titleLabel.text = NSLocalizedString("This Happens", comment: "Reproducibility placeholder")
             cell.button.setTitle(report.reproducibility, forState: .Normal)
+            cell.button.addTarget(self, action: "showReproducability: ", forControlEvents: .TouchDown)
             configuredCell = cell
         case .ReproductionSteps:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as! TextFieldCell
@@ -175,7 +173,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             break
         }
     }
-    
+
 }
 
 // Mark: Cell Delegate
