@@ -31,6 +31,10 @@ class ShakedownViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateLog:", name: Shakedown.Notifications.LogUpdated, object: nil)
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let logViewController = segue.destinationViewController as? LogViewController {
             logViewController.report = report
