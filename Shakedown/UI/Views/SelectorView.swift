@@ -15,7 +15,7 @@ public class SelectorView: UIControl {
     
     private var buttons: [UIButton] = []
     private var verticalConstraints: [NSLayoutConstraint] = []
-    private var sourceButton: UILabel?
+    private var sourceButton: UIButton?
     private var backing: UIView
 
     override init(frame: CGRect) {
@@ -61,7 +61,7 @@ public class SelectorView: UIControl {
         }
     }
     
-    public func displayFromButton(sourceButton: UILabel) {
+    public func displayFromButton(sourceButton: UIButton) {
         alpha = 1
         self.sourceButton = sourceButton
         let translated = convertRect(sourceButton.frame, fromView: sourceButton.superview)
@@ -76,7 +76,7 @@ public class SelectorView: UIControl {
             if let last = lastButton {
                 vertical = NSLayoutConstraint(item: button, attribute: .Top, relatedBy: .Equal, toItem: last, attribute: .Bottom, multiplier: 1, constant: 8)
             } else {
-                vertical = NSLayoutConstraint(item: button, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: translated.origin.y-6)
+                vertical = NSLayoutConstraint(item: button, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: translated.origin.y)
             }
             addConstraint(vertical)
             verticalConstraints.append(vertical)
@@ -114,7 +114,7 @@ public class SelectorView: UIControl {
     private func resetButtons() {
         let translated = convertRect(sourceButton!.frame, fromView: sourceButton!.superview)
         for button in buttons {
-            let constraint = NSLayoutConstraint(item: button, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: translated.origin.y-6)
+            let constraint = NSLayoutConstraint(item: button, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: translated.origin.y)
             verticalConstraints.append(constraint)
             addConstraint(constraint)
             addConstraint(NSLayoutConstraint(item: button, attribute: .Left, relatedBy: .Equal, toItem: self, attribute: .Left, multiplier: 1, constant: translated.origin.x))

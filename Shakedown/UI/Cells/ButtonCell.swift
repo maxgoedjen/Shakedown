@@ -1,5 +1,5 @@
 //
-//  LabelCell.swift
+//  ButtonCell.swift
 //  ShakedownSample
 //
 //  Created by Max Goedjen on 3/18/15.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class LabelCell: ShakedownCell {
+class ButtonCell: ShakedownCell {
     
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var valueLabel: UILabel!
+    @IBOutlet var button: UIButton!
     
     override class var identifier: String {
-        return "LabelCell"
+        return "ButtonCell"
     }
 
 }

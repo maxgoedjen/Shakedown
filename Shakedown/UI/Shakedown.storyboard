@@ -81,7 +81,7 @@
                                             <outlet property="imageView" destination="5iJ-cp-6y9" id="ofK-Gq-hRq"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LabelCell" id="0wr-wz-qbQ" customClass="LabelCell" customModule="ShakedownSample" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ButtonCell" id="0wr-wz-qbQ" customClass="ButtonCell" customModule="ShakedownSample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -89,17 +89,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A22-Rl-uHs">
-                                                    <rect key="frame" x="8" y="39" width="42" height="20.5"/>
+                                                    <rect key="frame" x="8" y="39" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.35290741920471191" green="0.35296276211738586" blue="0.35289531946182251" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQg-4T-Hva">
-                                                    <rect key="frame" x="58" y="39" width="43.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.074673481285572052" green="0.50305026769638062" blue="0.90372771024703979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a88-Hr-pjK">
+                                                    <rect key="frame" x="58" y="32" width="55" height="33"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0sq-8W-wow" userLabel="Divider">
                                                     <rect key="frame" x="0.0" y="99" width="600" height="1"/>
                                                     <color key="backgroundColor" red="0.75287437438964844" green="0.75298398733139038" blue="0.75285041332244873" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -113,18 +114,18 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerY" secondItem="A22-Rl-uHs" secondAttribute="centerY" id="0dT-z8-lW1"/>
+                                            <constraint firstItem="a88-Hr-pjK" firstAttribute="baseline" secondItem="A22-Rl-uHs" secondAttribute="baseline" id="BtC-eY-qvR"/>
                                             <constraint firstItem="A22-Rl-uHs" firstAttribute="leading" secondItem="0wr-wz-qbQ" secondAttribute="leadingMargin" id="GXi-Xb-aoT"/>
-                                            <constraint firstAttribute="centerY" secondItem="hQg-4T-Hva" secondAttribute="centerY" constant="0.5" id="Nmr-oM-f8x"/>
                                             <constraint firstAttribute="bottom" secondItem="0sq-8W-wow" secondAttribute="bottom" id="PwD-Al-RbS"/>
                                             <constraint firstAttribute="trailing" secondItem="0sq-8W-wow" secondAttribute="trailing" id="Tjj-BL-5sK"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hQg-4T-Hva" secondAttribute="trailing" constant="8" id="dMb-is-kVK"/>
-                                            <constraint firstItem="hQg-4T-Hva" firstAttribute="leading" secondItem="A22-Rl-uHs" secondAttribute="trailing" constant="8" id="ijJ-zB-6L8"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a88-Hr-pjK" secondAttribute="trailing" constant="8" id="k9N-eH-3Qz"/>
                                             <constraint firstItem="0sq-8W-wow" firstAttribute="leading" secondItem="0wr-wz-qbQ" secondAttribute="leading" id="lTn-p2-L9a"/>
+                                            <constraint firstItem="a88-Hr-pjK" firstAttribute="leading" secondItem="A22-Rl-uHs" secondAttribute="trailing" constant="8" id="rgX-W7-2ME"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="button" destination="a88-Hr-pjK" id="ONZ-YC-mhA"/>
                                             <outlet property="divider" destination="0sq-8W-wow" id="JRd-O7-EVe"/>
                                             <outlet property="titleLabel" destination="A22-Rl-uHs" id="zJ1-B2-GnO"/>
-                                            <outlet property="valueLabel" destination="hQg-4T-Hva" id="gSg-xc-dhY"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TextFieldCell" id="aN4-Y9-qXD" customClass="TextFieldCell" customModule="ShakedownSample" customModuleProvider="target">

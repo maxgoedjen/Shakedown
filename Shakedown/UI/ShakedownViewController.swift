@@ -89,9 +89,9 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             cell.textViewDidChange(cell.textView)
             configuredCell = cell
         case .Reproducibility:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCell.identifier, forIndexPath: indexPath) as! LabelCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ButtonCell.identifier, forIndexPath: indexPath) as! ButtonCell
             cell.titleLabel.text = NSLocalizedString("This Happens", comment: "Reproducibility placeholder")
-            cell.valueLabel.text = report.reproducibility
+            cell.button.setTitle(report.reproducibility, forState: .Normal)
             configuredCell = cell
         case .ReproductionSteps:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as! TextFieldCell
@@ -160,8 +160,8 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         let typed = Sections(rawValue: indexPath.section)!
         switch typed {
         case .Reproducibility:
-            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! LabelCell
-            selectorView.displayFromButton(cell.valueLabel)
+            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! ButtonCell
+            selectorView.displayFromButton(cell.button)
         case .ReproductionSteps:
             break
         case .Screenshot:
