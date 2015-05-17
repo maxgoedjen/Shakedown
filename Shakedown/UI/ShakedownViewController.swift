@@ -30,6 +30,7 @@ class ShakedownViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = collectionView.contentInset
         selectorView.options = Shakedown.configuration.reproducibilityOptions
+        selectorView.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateLog:", name: Shakedown.Notifications.LogUpdated, object: nil)
     }
     
@@ -229,6 +230,17 @@ extension ShakedownViewController {
         Shakedown.configuration.reporter?.fileBugReport(report, imageUploader: Shakedown.configuration.imageUploader, logUploader: Shakedown.configuration.logUploader) { message in
             println(message)
         }
+    }
+    
+}
+
+// MARK: Selector View
+
+extension ShakedownViewController: SelectorViewDelegate {
+    
+    func selectorChoseItem(selector: SelectorView, item: String) {
+        report.reproducibility = item
+        collectionView.reloadSections(NSIndexSet(index: Sections.Reproducibility.rawValue))
     }
     
 }
