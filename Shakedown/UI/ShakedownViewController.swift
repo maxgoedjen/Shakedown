@@ -90,7 +90,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ButtonCell.identifier, forIndexPath: indexPath) as! ButtonCell
             cell.titleLabel.text = NSLocalizedString("This Happens", comment: "Reproducibility placeholder")
             cell.button.setTitle(report.reproducibility, forState: .Normal)
-            cell.button.addTarget(self, action: "showReproducability: ", forControlEvents: .TouchDown)
+            cell.button.addTarget(self, action: "showReproducability:", forControlEvents: .TouchDown)
             configuredCell = cell
         case .ReproductionSteps:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as! TextFieldCell
