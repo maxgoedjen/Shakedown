@@ -15,6 +15,7 @@ class LogViewController: UIViewController {
         let inset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
         textView.scrollIndicatorInsets = inset
         textView.contentInset = inset
+        title = NSLocalizedString("Log", comment: "Log")
     }
     
     override func viewWillDisappear(animated: Bool) {
