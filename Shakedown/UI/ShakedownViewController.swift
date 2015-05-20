@@ -1,11 +1,3 @@
-//
-//  ShakedownViewController.swift
-//  ShakedownSample
-//
-//  Created by Max Goedjen on 3/17/15.
-//  Copyright (c) 2015 Max Goedjen. All rights reserved.
-//
-
 import UIKit
 
 class ShakedownViewController: UIViewController {
@@ -13,6 +5,7 @@ class ShakedownViewController: UIViewController {
     var report = BugReport(screenshot: currentScreenImage, deviceConfiguration: ShakedownViewController.deviceConfiguration, deviceLog: Shakedown.configuration.log)
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var backgroundImageView: UIImageView!
+    @IBOutlet var selectorView: SelectorView!
     
     enum Sections: Int {
         case Title, Description, Reproducibility, ReproductionSteps, Screenshot, DeviceLogs, DeviceConfiguration
@@ -28,6 +21,8 @@ class ShakedownViewController: UIViewController {
         let top = navigationController!.navigationBar.frame.height + (UIDevice.currentDevice().userInterfaceIdiom == .Phone ? UIApplication.sharedApplication().statusBarFrame.height : 0)
         collectionView.contentInset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = collectionView.contentInset
+        selectorView.options = Shakedown.configuration.reproducibilityOptions
+        selectorView.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateLog:", name: Shakedown.Notifications.LogUpdated, object: nil)
     }
     
@@ -45,6 +40,11 @@ class ShakedownViewController: UIViewController {
         report.deviceLog = Shakedown.configuration.log
         collectionView.reloadSections(NSIndexSet(index: Sections.DeviceLogs.rawValue))
     }
+    
+    func showReproducability(sender: UIButton) {
+        selectorView.displayFromButton(sender)
+    }
+    
 }
 
 // MARK: Collection View
@@ -87,9 +87,10 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             cell.textViewDidChange(cell.textView)
             configuredCell = cell
         case .Reproducibility:
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCell.identifier, forIndexPath: indexPath) as! LabelCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ButtonCell.identifier, forIndexPath: indexPath) as! ButtonCell
             cell.titleLabel.text = NSLocalizedString("This Happens", comment: "Reproducibility placeholder")
-            cell.valueLabel.text = report.reproducibility
+            cell.button.setTitle(report.reproducibility, forState: .Normal)
+            cell.button.addTarget(self, action: "showReproducability:", forControlEvents: .TouchDown)
             configuredCell = cell
         case .ReproductionSteps:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as! TextFieldCell
@@ -158,7 +159,8 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         let typed = Sections(rawValue: indexPath.section)!
         switch typed {
         case .Reproducibility:
-            break
+            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! ButtonCell
+            selectorView.displayFromButton(cell.button)
         case .ReproductionSteps:
             break
         case .Screenshot:
@@ -171,7 +173,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             break
         }
     }
-    
+
 }
 
 // Mark: Cell Delegate
@@ -226,6 +228,17 @@ extension ShakedownViewController {
         Shakedown.configuration.reporter?.fileBugReport(report, imageUploader: Shakedown.configuration.imageUploader, logUploader: Shakedown.configuration.logUploader) { message in
             println(message)
         }
+    }
+    
+}
+
+// MARK: Selector View
+
+extension ShakedownViewController: SelectorViewDelegate {
+    
+    func selectorChoseItem(selector: SelectorView, item: String) {
+        report.reproducibility = item
+        collectionView.reloadSections(NSIndexSet(index: Sections.Reproducibility.rawValue))
     }
     
 }

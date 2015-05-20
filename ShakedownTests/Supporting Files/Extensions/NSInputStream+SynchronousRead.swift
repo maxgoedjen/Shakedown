@@ -1,11 +1,3 @@
-//
-//  NSInputStream+SynchronousRead.swift
-//  ShakedownSample
-//
-//  Created by Max Goedjen on 3/25/15.
-//  Copyright (c) 2015 Max Goedjen. All rights reserved.
-//
-
 import Foundation
 
 extension NSInputStream {
