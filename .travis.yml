@@ -8,5 +8,3 @@ cache:
 - cocoapods
 before_install:
 - gem install cocoapods --prerelease
-notifications:
-	email: false
