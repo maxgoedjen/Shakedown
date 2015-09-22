@@ -258,12 +258,12 @@ extension ShakedownViewController {
     class var deviceConfiguration: [String : String] {
         let device = UIDevice.currentDevice()
         var full = [
-            "Identifier For Vendor" : device.identifierForVendor.UUIDString,
+            "Identifier For Vendor" : device.identifierForVendor?.UUIDString ?? "None",
             "iOS Version": device.systemVersion,
             "Model": device.model,
             "Name": device.name,
             "System Name": device.systemName,
-            "App Build": NSBundle.mainBundle().infoDictionary?[kCFBundleVersionKey] as? String ?? "None",
+            "App Build": NSBundle.mainBundle().infoDictionary?[kCFBundleVersionKey as String] as? String ?? "None",
             "App Version": NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String ?? "None"
         ]
         for (key, value) in Shakedown.configuration.additionalMetadata {

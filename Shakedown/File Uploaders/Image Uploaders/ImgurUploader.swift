@@ -16,9 +16,7 @@ public struct ImgurUploader: ImageUploader {
         request.allHTTPHeaderFields = ["Authorization" : "Client-ID \(clientID)"]
         request.HTTPMethod = "POST"
         let imageData = UIImagePNGRepresentation(image)
-        session.uploadTaskWithRequest(request, fromData: imageData) { resposneData, response, error in
-            guard let data = responseData else {
-}
+        session.uploadTaskWithRequest(request, fromData: imageData) { data, response, error in
             let data = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? [String : AnyObject]
             let imgurData = data?["data"] as? [String : AnyObject]
             let urlString = imgurData?["link"] as? String ?? ""

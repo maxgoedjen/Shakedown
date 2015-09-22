@@ -5,10 +5,10 @@ extension UIImage {
     
     var blurred: UIImage? {
         let ciimage = CoreImage.CIImage(CGImage: CGImage!)
-        let filter = CIFilter(name: "CIGaussianBlur")
+        guard let filter = CIFilter(name: "CIGaussianBlur") else { return self }
         filter.setValue(ciimage, forKey: kCIInputImageKey)
         filter.setValue(10, forKey: "inputRadius")
-        let image = filter.outputImage
+        guard let image = filter.outputImage else { return self }
         return UIImage(CIImage: image)
     }
     
