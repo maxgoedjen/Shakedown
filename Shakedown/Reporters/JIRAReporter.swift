@@ -43,7 +43,7 @@ public class JIRAReporter: Reporter {
         var fields: [String : AnyObject] = [ // This is being cast to NSDictionary without explicit type annotation
             "project" : ["key" : self.projectKey],
             "summary": report.title,
-            "description": self.issueBody(report, screenshotURL: screenshotURL, logURL: logURL),
+            "description": description,
             "issuetype": ["name" : self.issueType]
         ]
         if let reproField = self.reproducibilityField {
@@ -63,9 +63,9 @@ public class JIRAReporter: Reporter {
             "Content-Type": "application/json"
         ]
         session.dataTaskWithRequest(request) { data, response, error in
-            let data = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? [String : AnyObject]
+            let data = try? NSJSONSerialization.JSONObjectWithOptionalData(data)
             let id = data?["key"] as? String ?? ""
-            completion(completionText: id, error: error ?? response.httpError)
+            completion(completionText: id, error: error ?? response?.httpError)
             }.resume()
         
     }

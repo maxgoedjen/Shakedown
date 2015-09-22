@@ -1,6 +1,6 @@
 import Foundation
 
-public class Configuration {
+public class Configuration: NSObject {
     
     public var reporter: Reporter?
     public var imageUploader: ImageUploader = ImgurUploader()
@@ -10,7 +10,8 @@ public class Configuration {
     
     var log: String = ""
     
-    init() {
+    override init() {
+        super.init()
     }
 
 }

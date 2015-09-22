@@ -61,6 +61,7 @@
 		50BD7B8C1AD0FE09005292C1 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD7B8B1AD0FE09005292C1 /* UIImage+Blur.swift */; };
 		50BD7B8E1AD1062F005292C1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BD7B8D1AD1062F005292C1 /* MapKit.framework */; };
 		50BD7B921AD117B4005292C1 /* LabeledCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD7B911AD117B4005292C1 /* LabeledCell.swift */; };
+		50F901301BB15D8000864FE2 /* NSJSONSerialization+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9012F1BB15D8000864FE2 /* NSJSONSerialization+Swift.swift */; settings = {ASSET_TAGS = (); }; };
 		50FCD29D1B08754100107F8E /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FCD29C1B08754100107F8E /* SelectorView.swift */; };
 		50FD43E81ABC1355008B6E71 /* JIRAReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */; };
 		57DB0DCCE241C6AC6DC0F435 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CB1C6B850401AE2EB11901 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -139,6 +140,7 @@
 		50BD7B8D1AD1062F005292C1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		50BD7B911AD117B4005292C1 /* LabeledCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabeledCell.swift; sourceTree = "<group>"; };
 		50CB1C6B850401AE2EB11901 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50F9012F1BB15D8000864FE2 /* NSJSONSerialization+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSJSONSerialization+Swift.swift"; sourceTree = "<group>"; };
 		50FCD29C1B08754100107F8E /* SelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectorView.swift; path = Views/SelectorView.swift; sourceTree = "<group>"; };
 		50FD43E71ABC1355008B6E71 /* JIRAReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JIRAReporter.swift; sourceTree = "<group>"; };
 		7DB555E2A7BDBBFB1B2C21C4 /* Pods_ShakedownSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShakedownSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -350,6 +352,7 @@
 				5060F49C1AC2AA8600719DF5 /* NSURLResponse+Error.swift */,
 				50BD7B8B1AD0FE09005292C1 /* UIImage+Blur.swift */,
 				5045FAED1B088D41007934A6 /* UIColor+ShakedownColors.swift */,
+				50F9012F1BB15D8000864FE2 /* NSJSONSerialization+Swift.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				503756261AB91B1900F3419B /* AppDelegate.swift in Sources */,
 				50302A901AB926F2006A2C1E /* GistUploader.swift in Sources */,
 				50302A941AB92C94006A2C1E /* Reporter.swift in Sources */,
+				50F901301BB15D8000864FE2 /* NSJSONSerialization+Swift.swift in Sources */,
 				50B2A2741ABECC6700C7A075 /* ObjCViewController.m in Sources */,
 				50302A921AB92C77006A2C1E /* GithubIssuesReporter.swift in Sources */,
 				5098D4291AD8EC38001D50D8 /* LogViewController.swift in Sources */,

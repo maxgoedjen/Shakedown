@@ -22,9 +22,9 @@ public struct GistUploader: LogUploader {
             request.allHTTPHeaderFields = ["Authorization" : "token \(token)"]
         }
         session.dataTaskWithRequest(request) { data, response, error in
-            let json = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? [String : AnyObject]
+            let json = try? NSJSONSerialization.JSONObjectWithOptionalData(data)
             let urlString = json?["html_url"] as? String ?? ""
-            completion(url: NSURL(string: urlString), error: error ?? response.httpError)
+            completion(url: NSURL(string: urlString), error: error ?? response?.httpError)
             }.resume()
     }
     

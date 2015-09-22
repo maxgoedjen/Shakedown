@@ -17,10 +17,10 @@ public struct ImgurUploader: ImageUploader {
         request.HTTPMethod = "POST"
         let imageData = UIImagePNGRepresentation(image)
         session.uploadTaskWithRequest(request, fromData: imageData) { data, response, error in
-            let data = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? [String : AnyObject]
+            let data = try? NSJSONSerialization.JSONObjectWithOptionalData(data)
             let imgurData = data?["data"] as? [String : AnyObject]
             let urlString = imgurData?["link"] as? String ?? ""
-            completion(url: NSURL(string: urlString), error: error ?? response.httpError)
+            completion(url: NSURL(string: urlString), error: error ?? response?.httpError)
         }.resume()
     }
 

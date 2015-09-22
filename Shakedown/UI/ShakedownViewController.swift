@@ -70,7 +70,6 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let typed = Sections(rawValue: indexPath.section)!
         var configuredCell: ShakedownCell!
-        var identifier: String!
         switch typed {
         case .Title:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as! TextFieldCell

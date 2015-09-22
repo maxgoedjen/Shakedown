@@ -13,7 +13,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [Shakedown displayFromViewController:nil];
+    [Shakedown displayFrom:nil];
     [Shakedown logMessage:@"Test"];
     Shakedown.configuration.additionalMetadata = @{@"A" : @"B"};
 }

@@ -39,9 +39,9 @@ public class GithubIssuesReporter: Reporter {
         request.HTTPMethod = "POST"
         request.allHTTPHeaderFields = ["Authorization" : "token \(authenticationToken)"]
         session.dataTaskWithRequest(request) { data, response, error in
-            let data = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? [String : AnyObject]
+            let data = try? NSJSONSerialization.JSONObjectWithOptionalData(data)
             let number = data?["number"] as? Int ?? 0
-            completion(completionText: "#\(number)", error: error ?? response.httpError)
+            completion(completionText: "#\(number)", error: error ?? response?.httpError)
             }.resume()
 
     }

@@ -29,7 +29,7 @@ public class PivotalReporter: Reporter {
     
     override internal func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
-        var fields = [
+        let fields = [
             "story_type": "bug",
             "name": report.title,
             "description": description
@@ -45,10 +45,10 @@ public class PivotalReporter: Reporter {
             "Content-Type": "application/json"
         ]
         session.dataTaskWithRequest(request) { data, response, error in
-            let data = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? [String : AnyObject]
+            let data = try? NSJSONSerialization.JSONObjectWithOptionalData(data, options: [])
             let id = data?["id"] as? Int
             let idString = id?.description ?? ""
-            completion(completionText: idString, error: error ?? response.httpError)
+            completion(completionText: idString, error: error ?? response?.httpError)
             }.resume()
         
     }

@@ -1,6 +1,6 @@
 import UIKit
 
-public class Shakedown {
+public class Shakedown: NSObject {
     
     static let configuration = Configuration()
     
