@@ -15,14 +15,14 @@ public struct GistUploader: LogUploader {
             "Configuration.md" : ["content" : formattedConfiguration(deviceConfiguration)],
             "Log.txt" : ["content" : log]
         ]]
-        let logData = NSJSONSerialization.dataWithJSONObject(requestBody, options: nil, error: nil)
+        let logData = try? NSJSONSerialization.dataWithJSONObject(requestBody, options: [])
         request.HTTPBody = logData
         request.HTTPMethod = "POST"
         if let token = authenticationToken {
             request.allHTTPHeaderFields = ["Authorization" : "token \(token)"]
         }
         session.dataTaskWithRequest(request) { data, response, error in
-            let json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
+            let json = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? [String : AnyObject]
             let urlString = json?["html_url"] as? String ?? ""
             completion(url: NSURL(string: urlString), error: error ?? response.httpError)
             }.resume()

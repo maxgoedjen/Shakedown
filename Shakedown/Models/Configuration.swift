@@ -1,6 +1,6 @@
 import Foundation
 
-@objc public class Configuration {
+public class Configuration {
     
     public var reporter: Reporter?
     public var imageUploader: ImageUploader = ImgurUploader()

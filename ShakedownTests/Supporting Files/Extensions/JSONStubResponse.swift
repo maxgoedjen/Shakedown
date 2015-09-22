@@ -1,7 +1,7 @@
 import Foundation
 
 func jsonObject(name: String) -> AnyObject {
-    return NSJSONSerialization.JSONObjectWithData(jsonData(name), options: nil, error: nil)!
+    return try! NSJSONSerialization.JSONObjectWithData(jsonData(name), options: [])
 }
 
 func jsonData(name: String) -> NSData {

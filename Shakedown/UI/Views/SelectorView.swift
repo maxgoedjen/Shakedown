@@ -24,7 +24,7 @@ public class SelectorView: UIControl {
         configureView()
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         backing = UIView(frame: CGRectZero)
         super.init(coder: aDecoder)
         configureView()
@@ -35,7 +35,7 @@ public class SelectorView: UIControl {
         backgroundColor = UIColor.clearColor()
         backing.backgroundColor = UIColor(white: 0, alpha: 0.75)
         backing.alpha = 0
-        backing.setTranslatesAutoresizingMaskIntoConstraints(false)
+        backing.translatesAutoresizingMaskIntoConstraints = false
         addSubview(backing)
         addConstraint(NSLayoutConstraint(item: self, attribute: .Leading, relatedBy: .Equal, toItem: backing, attribute: .Leading, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: self, attribute: .Trailing, relatedBy: .Equal, toItem: backing, attribute: .Trailing, multiplier: 1, constant: 0))
@@ -47,11 +47,11 @@ public class SelectorView: UIControl {
         for button in buttons {
             button.removeFromSuperview()
         }
-        for _ in 0...count(options) {
-            let button = UIButton.buttonWithType(.System) as! UIButton
+        for _ in 0...options.count {
+            let button = UIButton(type: .System)
             button.titleLabel?.font = UIFont.boldSystemFontOfSize(17)
             button.setTitleColor(UIColor.shakedownBlueColor, forState: .Normal)
-            button.setTranslatesAutoresizingMaskIntoConstraints(false)
+            button.translatesAutoresizingMaskIntoConstraints = false
             button.addTarget(self, action: "selectedButton:", forControlEvents: .TouchUpInside)
             buttons.append(button)
             addSubview(button)
@@ -61,7 +61,7 @@ public class SelectorView: UIControl {
     public func displayFromButton(sourceButton: UIButton) {
         var reorderedOptions = options
         let currentValue = sourceButton.currentTitle!
-        reorderedOptions.removeAtIndex(find(options, currentValue)!)
+        reorderedOptions.removeAtIndex(options.indexOf(currentValue)!)
         reorderedOptions.insert(currentValue, atIndex: 0)
         alpha = 1
         self.sourceButton = sourceButton
@@ -86,7 +86,7 @@ public class SelectorView: UIControl {
             verticalConstraints.append(vertical)
             lastButton = button
         }
-        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: nil, animations: {
+        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             for button in self.buttons {
                 button.alpha = 1
             }
@@ -102,7 +102,7 @@ public class SelectorView: UIControl {
         removeConstraints(verticalConstraints)
         verticalConstraints = []
         resetButtons()
-        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: nil, animations: {
+        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             self.layoutIfNeeded()
             for button in self.buttons {
                 button.alpha = 0

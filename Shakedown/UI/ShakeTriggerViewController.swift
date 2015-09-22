@@ -13,7 +13,7 @@ class ShakeTriggerViewController: UIViewController {
         self.view.frame = CGRectZero
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.trigger = {}
         super.init(coder: aDecoder)
     }
@@ -26,7 +26,7 @@ class ShakeTriggerViewController: UIViewController {
         becomeFirstResponder()
     }
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake {
             trigger()
         }

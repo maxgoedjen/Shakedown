@@ -16,10 +16,10 @@ public class Reporter {
     /**
     File the bug report with the tracker
     
-    :param: report        Report to file
-    :param: imageUploader ImageUploader subclass, which will be provided as configured in Shakedown.swift
-    :param: logUploader   LogUploader subclass, which will be provided as configured in Shakedown.swift
-    :param: completion    Completion handler to call when finished. Call with completion text (ticket ID, etc)
+    - parameter report:        Report to file
+    - parameter imageUploader: ImageUploader subclass, which will be provided as configured in Shakedown.swift
+    - parameter logUploader:   LogUploader subclass, which will be provided as configured in Shakedown.swift
+    - parameter completion:    Completion handler to call when finished. Call with completion text (ticket ID, etc)
     */
     public func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
         uploadImagesAndLogs(report, imageUploader: imageUploader, logUploader: logUploader) { screenshotURL, logURL, error in
@@ -34,10 +34,10 @@ public class Reporter {
     /**
     File the bug report with the tracker. Subclasses need only override this method.
     
-    :param: report        Report to file
-    :param: screenshotURL URL to screenshot attachment
-    :param: logURL        URL to log attachment
-    :param: completion    Completion handler to call when finished. Call with completion text (ticket ID, etc)
+    - parameter report:        Report to file
+    - parameter screenshotURL: URL to screenshot attachment
+    - parameter logURL:        URL to log attachment
+    - parameter completion:    Completion handler to call when finished. Call with completion text (ticket ID, etc)
     */
     internal func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
         
@@ -46,10 +46,10 @@ public class Reporter {
     /**
     Convenience function to allow subclasses to upload images and logs in one shot
     
-    :param: report        Report to upload images/logs from
-    :param: imageUploader ImageUploader subclass
-    :param: logUploader   LogUploader subclass
-    :param: completion    Completion handler. If either logs or screenshot upload fails, error will be non-nil
+    - parameter report:        Report to upload images/logs from
+    - parameter imageUploader: ImageUploader subclass
+    - parameter logUploader:   LogUploader subclass
+    - parameter completion:    Completion handler. If either logs or screenshot upload fails, error will be non-nil
     */
     private func uploadImagesAndLogs(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ImageAndLogCompletion) {
         imageUploader.uploadImage(report.screenshot) {

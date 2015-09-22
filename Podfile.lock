@@ -1,27 +1,36 @@
 PODS:
-  - Mockingjay (0.2.0):
-    - Mockingjay/Core (= 0.2.0)
-    - Mockingjay/Session (= 0.2.0)
-    - Mockingjay/XCTest (= 0.2.0)
-  - Mockingjay/Core (0.2.0):
-    - URITemplate (~> 1.2)
-  - Mockingjay/Session (0.2.0):
+  - Mockingjay (1.0.0):
+    - Mockingjay/Core (= 1.0.0)
+    - Mockingjay/Session (= 1.0.0)
+    - Mockingjay/XCTest (= 1.0.0)
+  - Mockingjay/Core (1.0.0):
+    - URITemplate (~> 1.3)
+  - Mockingjay/Session (1.0.0):
     - Mockingjay/Core
-  - Mockingjay/XCTest (0.2.0):
+  - Mockingjay/XCTest (1.0.0):
     - Mockingjay/Core
-  - Nimble (0.4.2)
-  - Quick (0.3.1)
-  - URITemplate (1.2.0)
+  - Nimble (2.0.0-rc.3)
+  - Quick (0.6.0)
+  - URITemplate (1.3.0)
 
 DEPENDENCIES:
-  - Mockingjay
-  - Nimble
-  - Quick
+  - Mockingjay (from `https://github.com/kylef/Mockingjay.git`)
+  - Nimble (= 2.0.0-rc.3)
+  - Quick (= 0.6.0)
+
+EXTERNAL SOURCES:
+  Mockingjay:
+    :git: https://github.com/kylef/Mockingjay.git
+
+CHECKOUT OPTIONS:
+  Mockingjay:
+    :commit: 316d701a842f55fb1bada7a2926390924521298a
+    :git: https://github.com/kylef/Mockingjay.git
 
 SPEC CHECKSUMS:
-  Mockingjay: 8635bddf88b7c93833db67e1dc54b8ffe7efe921
-  Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
-  Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
-  URITemplate: 0dbf40f0e378eb9c6d04cc08e6101fb82d126dc3
+  Mockingjay: 6aae9ba836a873caba2e1e2b5eaeb155f6a4514f
+  Nimble: 9dff98ee195ffe7351d3b2fb01d3a1420fd97948
+  Quick: 563686dbcf0ae0f9f7401ac9cd2d786ee1b7f3d7
+  URITemplate: 0ebbec80d1eb59a89e29db9b14c99d5908d3e574
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0.beta.4

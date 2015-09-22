@@ -15,10 +15,10 @@ public class GithubIssuesReporter: Reporter {
     
     /**
     
-    :param: authenticationToken Generate this token at https://github.com/settings/tokens/new (repo or public_repo scope required). Issues will show as being created by the creator of the token, so you may wish to create an "API User" account to generate the token. If you submit a build to the App Store with this token included, people may be able to extract it, so _MAKE SURE_ the account is limited. People stealing your GitHub token and getting access to your repos is no fun. 🔥
-    :param: projectPath         Path to project, in the form of "owner/reponame". This project's path would be "maxgoedjen/shakedown"
+    - parameter authenticationToken: Generate this token at https://github.com/settings/tokens/new (repo or public_repo scope required). Issues will show as being created by the creator of the token, so you may wish to create an "API User" account to generate the token. If you submit a build to the App Store with this token included, people may be able to extract it, so _MAKE SURE_ the account is limited. People stealing your GitHub token and getting access to your repos is no fun. 🔥
+    - parameter projectPath:         Path to project, in the form of "owner/reponame". This project's path would be "maxgoedjen/shakedown"
     
-    :returns: Github Issues Reporter
+    - returns: Github Issues Reporter
     */
     public init(authenticationToken: String, projectPath: String) {
         self.authenticationToken = authenticationToken
@@ -34,12 +34,12 @@ public class GithubIssuesReporter: Reporter {
         ]
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "https://api.github.com/repos/\(projectPath)/issues")!)
-        let bodyData = NSJSONSerialization.dataWithJSONObject(body, options: nil, error: nil)
+        let bodyData = try? NSJSONSerialization.dataWithJSONObject(body, options: [])
         request.HTTPBody = bodyData
         request.HTTPMethod = "POST"
         request.allHTTPHeaderFields = ["Authorization" : "token \(authenticationToken)"]
         session.dataTaskWithRequest(request) { data, response, error in
-            let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
+            let data = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? [String : AnyObject]
             let number = data?["number"] as? Int ?? 0
             completion(completionText: "#\(number)", error: error ?? response.httpError)
             }.resume()
@@ -51,12 +51,12 @@ public class GithubIssuesReporter: Reporter {
         strung += "#### Reproducibility\n\n\(report.reproducibility)\n\n"
         if report.reproductionSteps.count > 0 {
             strung += "#### Steps to Reproduce\n\n"
-            for (index, step) in enumerate(report.reproductionSteps) {
+            for (index, step) in report.reproductionSteps.enumerate() {
                 strung += "\(index+1). \(step)\n\n"
             }
         }
-        strung += "#### Screenshot\n\n![](\(screenshotURL.absoluteString!))\n\n"
-        strung += "#### Logs\n\n\(logURL.absoluteString!)\n\n"
+        strung += "#### Screenshot\n\n![](\(screenshotURL.absoluteString))\n\n"
+        strung += "#### Logs\n\n\(logURL.absoluteString)\n\n"
         return strung
     }
     

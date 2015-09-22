@@ -19,14 +19,14 @@ public class JIRAReporter: Reporter {
     
     /**
     
-    :param: instanceURL          JIRA instance URL. This will be something like https://yourcompany.atlassian.net
-    :param: username             JIRA Username. Issues will show as being created by this user, so you may wish to create an "API User" account to use
-    :param: password             JIRA Password. If you submit a build to the App Store with this token included, people may be able to extract it, so _MAKE SURE_ the account is limited
-    :param: projectKey           JIRA Project key. This is the prefix before the ticket number, i.e. if had ticket MG-300, your project key would be MG
-    :param: issueType            Issue type to create. If you don't track bugs as "Bug," (like, if everything is a "Task" or something dumb like that) you probably want to change this
-    :param: reproducibilityField If your project has a specific field for reproducibility, specify it here, otherwise reproducibility will be appended to the description in JIRA
+    - parameter instanceURL:          JIRA instance URL. This will be something like https://yourcompany.atlassian.net
+    - parameter username:             JIRA Username. Issues will show as being created by this user, so you may wish to create an "API User" account to use
+    - parameter password:             JIRA Password. If you submit a build to the App Store with this token included, people may be able to extract it, so _MAKE SURE_ the account is limited
+    - parameter projectKey:           JIRA Project key. This is the prefix before the ticket number, i.e. if had ticket MG-300, your project key would be MG
+    - parameter issueType:            Issue type to create. If you don't track bugs as "Bug," (like, if everything is a "Task" or something dumb like that) you probably want to change this
+    - parameter reproducibilityField: If your project has a specific field for reproducibility, specify it here, otherwise reproducibility will be appended to the description in JIRA
     
-    :returns: JIRA Reporter
+    - returns: JIRA Reporter
     */
     public init(instanceURL: String, username: String, password: String, projectKey: String, issueType: String = "Bug", reproducibilityField: String? = nil) {
         self.instanceURL = instanceURL
@@ -53,17 +53,17 @@ public class JIRAReporter: Reporter {
         
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: "\(instanceURL)/rest/api/2/issue/")!)
-        let bodyData = NSJSONSerialization.dataWithJSONObject(body, options: nil, error: nil)
+        let bodyData = try? NSJSONSerialization.dataWithJSONObject(body, options: [])
         request.HTTPBody = bodyData
         request.HTTPMethod = "POST"
         let authString = "\(username):\(password)"
-        let base64Auth = authString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)?.base64EncodedStringWithOptions(nil)
+        let base64Auth = authString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)?.base64EncodedStringWithOptions([])
         request.allHTTPHeaderFields = [
             "Authorization" : "Basic \(base64Auth!)",
             "Content-Type": "application/json"
         ]
         session.dataTaskWithRequest(request) { data, response, error in
-            let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String : AnyObject]
+            let data = (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? [String : AnyObject]
             let id = data?["key"] as? String ?? ""
             completion(completionText: id, error: error ?? response.httpError)
             }.resume()
@@ -77,11 +77,11 @@ public class JIRAReporter: Reporter {
         }
         if report.reproductionSteps.count > 0 {
             strung += "h4. Steps to Reproduce\n"
-            strung += "\n".join(report.reproductionSteps.map { "# \($0)" })
+            strung += report.reproductionSteps.map { "# \($0)" }.joinWithSeparator("\n")
             strung += "\n\n"
         }
-        strung += "h4. Screenshot\n !\(screenshotURL.absoluteString!)!\n\n"
-        strung += "h4. Logs\n \(logURL.absoluteString!)\n\n"
+        strung += "h4. Screenshot\n !\(screenshotURL.absoluteString)!\n\n"
+        strung += "h4. Logs\n \(logURL.absoluteString)\n\n"
         return strung
     }
 

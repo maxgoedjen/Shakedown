@@ -1,13 +1,13 @@
 import UIKit
 
-@objc public class Shakedown {
+public class Shakedown {
     
     static let configuration = Configuration()
     
     /**
     Show Shakedown programatically from a specific view controller
     
-    :param: viewController View controller to present from. If nil, Shakedown shows from front-most view controller.
+    - parameter viewController: View controller to present from. If nil, Shakedown shows from front-most view controller.
     */
     public class func displayFrom(viewController: UIViewController? = nil) {
         // Explicitly specify bundle for CocoaPods 0.35/0.36 packaging differences
@@ -63,7 +63,7 @@ extension Shakedown {
     }
     
     private class func displayFromFrontViewController() {
-        displayFrom(viewController: frontViewController)
+        displayFrom(frontViewController)
     }
     
     private class var frontViewController: UIViewController {

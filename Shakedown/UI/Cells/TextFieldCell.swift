@@ -10,7 +10,7 @@ class TextFieldCell: LabeledCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        hideLabel(animated: false)
+        hideLabel(false)
         textField.enabled = true
     }
     

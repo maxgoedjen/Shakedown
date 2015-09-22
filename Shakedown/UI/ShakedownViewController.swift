@@ -99,7 +99,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             } else {
                 cell.textField.text = report.reproductionSteps[indexPath.item]
                 cell.divider.hidden = true
-                cell.showLabel(animated: false)
+                cell.showLabel(false)
             }
             cell.label.text = NSLocalizedString("Step \(indexPath.item + 1)", comment: "Step number label")
             if report.reproductionSteps.count > 0 {
@@ -118,15 +118,15 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             cell.textView.userInteractionEnabled = false
             cell.placeholderLabel.text = nil
             cell.label.text = "Log"
-            cell.showLabel(animated: false)
+            cell.showLabel(false)
             configuredCell = cell
         case .DeviceConfiguration:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextFieldCell.identifier, forIndexPath: indexPath) as! TextFieldCell
-            let title = sorted(report.deviceConfiguration.keys)[indexPath.item]
+            let title = report.deviceConfiguration.keys.sort()[indexPath.item]
             cell.label.text = title
             cell.textField.text = report.deviceConfiguration[title]
             cell.textField.enabled = false
-            cell.showLabel(animated: false)
+            cell.showLabel(false)
             cell.divider.hidden = true
             configuredCell = cell
         }
@@ -226,7 +226,7 @@ extension ShakedownViewController {
     
     @IBAction func submitReport(sender: UIBarButtonItem) {
         Shakedown.configuration.reporter?.fileBugReport(report, imageUploader: Shakedown.configuration.imageUploader, logUploader: Shakedown.configuration.logUploader) { message in
-            println(message)
+            print(message)
         }
     }
     
@@ -249,8 +249,8 @@ extension ShakedownViewController {
     
     var abbreviatedLog: String {
         let log = report.deviceLog
-        if count(log) > 250 {
-            return log.substringToIndex(advance(log.startIndex, 250)) + "..."
+        if log.characters.count > 250 {
+            return log.substringToIndex(log.startIndex.advancedBy(250)) + "..."
         }
         return log
     }

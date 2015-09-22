@@ -1,6 +1,6 @@
 import UIKit
 
-@objc public class BugReport {
+public class BugReport {
     
     public var title = ""
     public var description = ""
