@@ -9,6 +9,8 @@
 #import "ObjCViewController.h"
 #import "ShakedownSample-Swift.h"
 
+@import Shakedown;
+
 @implementation ObjCViewController
 
 - (void)viewDidLoad {

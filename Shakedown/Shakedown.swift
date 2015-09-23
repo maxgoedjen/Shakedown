@@ -2,7 +2,7 @@ import UIKit
 
 public class Shakedown: NSObject {
     
-    static let configuration = Configuration()
+    public static let configuration = Configuration()
     
     /**
     Show Shakedown programatically from a specific view controller

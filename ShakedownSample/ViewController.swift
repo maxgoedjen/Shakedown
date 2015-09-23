@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Shakedown
 
 class ViewController: UIViewController {
 
