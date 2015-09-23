@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		50F9013F1BB2656C00864FE2 /* Shakedown.h in Headers */ = {isa = PBXBuildFile; fileRef = 50F9013E1BB2656C00864FE2 /* Shakedown.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50F901461BB2656C00864FE2 /* Shakedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F9013B1BB2656C00864FE2 /* Shakedown.framework */; settings = {ASSET_TAGS = (); }; };
-		50F9014B1BB2656C00864FE2 /* ShakedownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9014A1BB2656C00864FE2 /* ShakedownTests.swift */; };
 		50F901781BB265AE00864FE2 /* NSJSONSerialization+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F901561BB265AE00864FE2 /* NSJSONSerialization+Swift.swift */; settings = {ASSET_TAGS = (); }; };
 		50F901791BB265AE00864FE2 /* NSURLResponse+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F901571BB265AE00864FE2 /* NSURLResponse+Error.swift */; settings = {ASSET_TAGS = (); }; };
 		50F9017A1BB265AE00864FE2 /* UIColor+ShakedownColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F901581BB265AE00864FE2 /* UIColor+ShakedownColors.swift */; settings = {ASSET_TAGS = (); }; };
@@ -78,7 +77,6 @@
 		50F9013E1BB2656C00864FE2 /* Shakedown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shakedown.h; sourceTree = "<group>"; };
 		50F901401BB2656C00864FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50F901451BB2656C00864FE2 /* ShakedownTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShakedownTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		50F9014A1BB2656C00864FE2 /* ShakedownTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakedownTests.swift; sourceTree = "<group>"; };
 		50F9014C1BB2656C00864FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50F901561BB265AE00864FE2 /* NSJSONSerialization+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSJSONSerialization+Swift.swift"; sourceTree = "<group>"; };
 		50F901571BB265AE00864FE2 /* NSURLResponse+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLResponse+Error.swift"; sourceTree = "<group>"; };
@@ -191,7 +189,6 @@
 				50F901921BB265CE00864FE2 /* File Uploaders */,
 				50F9019A1BB265CE00864FE2 /* Reporters */,
 				50F9019F1BB265CE00864FE2 /* Supporting Files */,
-				50F9014A1BB2656C00864FE2 /* ShakedownTests.swift */,
 				50F9014C1BB2656C00864FE2 /* Info.plist */,
 			);
 			path = ShakedownTests;
@@ -572,7 +569,6 @@
 				50F901B71BB265CE00864FE2 /* FileUploaderSpec.swift in Sources */,
 				50F901B91BB265CE00864FE2 /* ImgurUploaderSpec.swift in Sources */,
 				50F901BD1BB265CE00864FE2 /* JIRAReporterSpec.swift in Sources */,
-				50F9014B1BB2656C00864FE2 /* ShakedownTests.swift in Sources */,
 				50F901B81BB265CE00864FE2 /* ImageUploaderSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
