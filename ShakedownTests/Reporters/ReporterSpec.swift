@@ -2,7 +2,7 @@ import XCTest
 import Quick
 import Nimble
 import Mockingjay
-import ShakedownSample
+@testable import Shakedown
 
 class ReporterSpec: QuickSpec {
     
@@ -42,7 +42,7 @@ class ReporterSpec: QuickSpec {
                 expect(error).toEventuallyNot(beNil(), timeout: 3)
             }
             it("should fail to upload if server returns an error") {
-                self.stub(everything, builder: http(status: 500))
+                self.stub(everything, builder: http(500))
                 var error: NSError?
                 var text: String?
                 instance.fileBugReport(TestData.report, imageUploader: NoOpSuccessImageUploader(), logUploader: NoOpSuccessLogUploader(), completion: { (text, error) = ($0, $1) })

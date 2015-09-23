@@ -2,7 +2,7 @@ import XCTest
 import Quick
 import Nimble
 import Mockingjay
-import ShakedownSample
+@testable import Shakedown
 
 class GistUploaderSpec: LogUploaderSpec {
     

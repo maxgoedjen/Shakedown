@@ -2,7 +2,7 @@ import XCTest
 import Quick
 import Nimble
 import Mockingjay
-import ShakedownSample
+@testable import Shakedown
 
 class ImageUploaderSpec: QuickSpec, UploaderSpec {
     
@@ -29,7 +29,7 @@ class ImageUploaderSpec: QuickSpec, UploaderSpec {
             it("should report an error if server returns an error") {
                 var url: NSURL?
                 var error: NSError?
-                self.stub(everything, builder: http(status: 500))
+                self.stub(everything, builder: http(500))
                 instance.uploadImage(sourceImage) { (url, error) = ($0, $1) }
                 expect(url).toEventually(beNil(), timeout: 3)
                 expect(error).toEventuallyNot(beNil(), timeout: 3)

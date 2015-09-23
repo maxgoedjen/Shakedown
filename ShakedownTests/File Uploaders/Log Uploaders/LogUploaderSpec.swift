@@ -3,7 +3,7 @@ import CoreGraphics
 import Quick
 import Nimble
 import Mockingjay
-import ShakedownSample
+@testable import Shakedown
 
 class LogUploaderSpec: QuickSpec, UploaderSpec {
     
@@ -30,7 +30,7 @@ class LogUploaderSpec: QuickSpec, UploaderSpec {
             it("should report an error if server returns an error") {
                 var url: NSURL?
                 var error: NSError?
-                self.stub(everything, builder: http(status: 500))
+                self.stub(everything, builder: http(500))
                 instance.uploadLog(log, deviceConfiguration: metadata) { (url, error) = ($0, $1) }
                 expect(url).toEventually(beNil(), timeout: 3)
                 expect(error).toEventuallyNot(beNil(), timeout: 3)

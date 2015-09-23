@@ -1,5 +1,5 @@
 import UIKit
-import ShakedownSample
+@testable import Shakedown
 
 struct TestData {
     

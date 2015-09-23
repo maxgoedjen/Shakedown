@@ -1,6 +1,6 @@
 import Foundation
 import Nimble
-import ShakedownSample
+@testable import Shakedown
 import Mockingjay
 
 class PivotalReporterSpec: ReporterSpec {

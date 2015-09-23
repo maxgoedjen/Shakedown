@@ -1,5 +1,5 @@
 import Foundation
-import ShakedownSample
+@testable import Shakedown
 
 class NoOpSuccessLogUploader: LogUploader {
     func uploadLog(log: String, deviceConfiguration: [String : String], completion: LogUploadCompletion) {

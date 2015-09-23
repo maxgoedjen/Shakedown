@@ -60,6 +60,7 @@
 		50F901CD1BB265CE00864FE2 /* PivotalRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 50F901B41BB265CE00864FE2 /* PivotalRequest.json */; settings = {ASSET_TAGS = (); }; };
 		50F901CE1BB265CE00864FE2 /* PivotalResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 50F901B51BB265CE00864FE2 /* PivotalResponse.json */; settings = {ASSET_TAGS = (); }; };
 		50F901CF1BB265CE00864FE2 /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F901B61BB265CE00864FE2 /* TestImage.png */; settings = {ASSET_TAGS = (); }; };
+		EA8BA4053A1D5B7DF9155442 /* Pods_ShakedownTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E4BAB9068B5A9630E5D9A /* Pods_ShakedownTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		074162CB88B321BC10DF47E7 /* Pods-ShakedownTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakedownTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShakedownTests/Pods-ShakedownTests.debug.xcconfig"; sourceTree = "<group>"; };
 		50F9013B1BB2656C00864FE2 /* Shakedown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shakedown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F9013E1BB2656C00864FE2 /* Shakedown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shakedown.h; sourceTree = "<group>"; };
 		50F901401BB2656C00864FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,6 +131,8 @@
 		50F901B41BB265CE00864FE2 /* PivotalRequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PivotalRequest.json; sourceTree = "<group>"; };
 		50F901B51BB265CE00864FE2 /* PivotalResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PivotalResponse.json; sourceTree = "<group>"; };
 		50F901B61BB265CE00864FE2 /* TestImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestImage.png; sourceTree = "<group>"; };
+		AC1E4BAB9068B5A9630E5D9A /* Pods_ShakedownTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShakedownTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1C3E1D5660644D712DCE4A7 /* Pods-ShakedownTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakedownTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShakedownTests/Pods-ShakedownTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50F901461BB2656C00864FE2 /* Shakedown.framework in Frameworks */,
+				EA8BA4053A1D5B7DF9155442 /* Pods_ShakedownTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +161,8 @@
 				50F9013D1BB2656C00864FE2 /* Shakedown */,
 				50F901491BB2656C00864FE2 /* ShakedownTests */,
 				50F9013C1BB2656C00864FE2 /* Products */,
+				F0678F3F0CD059E19E2945F3 /* Pods */,
+				6375F185E8B5D5EF64270810 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -404,6 +411,23 @@
 			path = Pivotal;
 			sourceTree = "<group>";
 		};
+		6375F185E8B5D5EF64270810 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E4BAB9068B5A9630E5D9A /* Pods_ShakedownTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0678F3F0CD059E19E2945F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				074162CB88B321BC10DF47E7 /* Pods-ShakedownTests.debug.xcconfig */,
+				F1C3E1D5660644D712DCE4A7 /* Pods-ShakedownTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -440,9 +464,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50F901521BB2656C00864FE2 /* Build configuration list for PBXNativeTarget "ShakedownTests" */;
 			buildPhases = (
+				BD07ED3D0C8C962A0AC2DDE7 /* Check Pods Manifest.lock */,
 				50F901411BB2656C00864FE2 /* Sources */,
 				50F901421BB2656C00864FE2 /* Frameworks */,
 				50F901431BB2656C00864FE2 /* Resources */,
+				0800F32000DE5C04B09EDE83 /* Embed Pods Frameworks */,
+				559AE110BDDD72228D89E77A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -518,6 +545,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0800F32000DE5C04B09EDE83 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShakedownTests/Pods-ShakedownTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		559AE110BDDD72228D89E77A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShakedownTests/Pods-ShakedownTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD07ED3D0C8C962A0AC2DDE7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		50F901361BB2656C00864FE2 /* Sources */ = {
@@ -712,6 +787,7 @@
 		};
 		50F901531BB2656C00864FE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 074162CB88B321BC10DF47E7 /* Pods-ShakedownTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ShakedownTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -722,6 +798,7 @@
 		};
 		50F901541BB2656C00864FE2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1C3E1D5660644D712DCE4A7 /* Pods-ShakedownTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ShakedownTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

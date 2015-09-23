@@ -1,5 +1,5 @@
 import UIKit
-import ShakedownSample
+@testable import Shakedown
 
 class NoOpSuccessImageUploader: ImageUploader {
     func uploadImage(image: UIImage, completion: ImageUploadCompletion) {

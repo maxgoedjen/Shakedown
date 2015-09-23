@@ -3,7 +3,7 @@ import CoreGraphics
 import Quick
 import Nimble
 import Mockingjay
-import ShakedownSample
+@testable import Shakedown
 
 class ImgurUploaderSpec: ImageUploaderSpec {
 
@@ -17,7 +17,7 @@ class ImgurUploaderSpec: ImageUploaderSpec {
     
     override func stubAndVerifyRequest(request: NSURLRequest) -> Response {
         let image = UIImage(data: request.HTTPBodyStream!.synchronouslyRead())
-        expect(UIImagePNGRepresentation(image)) == UIImagePNGRepresentation(TestData.image)
+        expect(UIImagePNGRepresentation(image!)) == UIImagePNGRepresentation(TestData.image)
         expect(request.URL!.absoluteString) == "https://api.imgur.com/3/image"
         expect(request.valueForHTTPHeaderField("Authorization")) == "Client-ID TestClientID"
         expect(request.HTTPMethod) == "POST"
