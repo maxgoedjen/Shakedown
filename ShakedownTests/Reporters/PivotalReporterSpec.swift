@@ -18,7 +18,7 @@ class PivotalReporterSpec: ReporterSpec {
         expect(request.valueForHTTPHeaderField("X-TrackerToken")) == "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         expect(request.valueForHTTPHeaderField("Content-Type")) == "application/json"
         let data = request.HTTPBody ?? request.HTTPBodyStream?.synchronouslyRead()
-        let parsedJSON: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil)!
+        let parsedJSON: AnyObject = try! NSJSONSerialization.JSONObjectWithData(data!, options: [])
         expect(parsedJSON.description) == jsonObject("PivotalRequest").description
         expect(request.HTTPMethod) == "POST"
         let response = NSHTTPURLResponse(URL: request.URL!, statusCode: 200, HTTPVersion: nil, headerFields: nil)!

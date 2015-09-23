@@ -18,7 +18,7 @@ class JIRAReporterSpec: ReporterSpec {
         expect(request.valueForHTTPHeaderField("Authorization")) == "Basic bWF4OnBhc3N3b3Jk"
         expect(request.valueForHTTPHeaderField("Content-Type")) == "application/json"
         let data = request.HTTPBody ?? request.HTTPBodyStream?.synchronouslyRead()
-        let parsedJSON: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil)!
+        let parsedJSON: AnyObject = try! NSJSONSerialization.JSONObjectWithData(data!, options: [])
         expect(parsedJSON.description) == jsonObject("JIRARequest").description
         expect(request.HTTPMethod) == "POST"
         let response = NSHTTPURLResponse(URL: request.URL!, statusCode: 201, HTTPVersion: nil, headerFields: nil)!
