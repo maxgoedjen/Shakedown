@@ -4,5 +4,5 @@ language: objective-c
 xcode_workspace: Shakedown.xcworkspace
 xcode_scheme: Shakedown
 xcode_sdk: iphonesimulator
-before_install:
+before_script:
 - sudo gem update cocoapods --pre
