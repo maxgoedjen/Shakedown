@@ -1,8 +1,7 @@
 osx_image: xcode7
 sudo: false
 language: objective-c
-xcode_workspace: Shakedown.xcworkspace
-xcode_scheme: Shakedown
-xcode_sdk: iphonesimulator
 before_script:
 - sudo gem update cocoapods --pre
+script:
+- xcodebuild -workspace Shakedown.xcworkspace -scheme Shakedown -sdk iphonesimulator build test | xcpretty
