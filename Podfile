@@ -1,5 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, 9.0
+xcodeproj 'Shakedown.xcodeproj'
 use_frameworks!
 
 target :ShakedownTests, :exclusive => true do
