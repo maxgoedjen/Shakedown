@@ -81,6 +81,7 @@ extension Shakedown {
 
 extension Shakedown {
     
+    // Ideally this would be an enum, but Obj-C compatibility :/
     struct Notifications {
         static let LogUpdated = "ShakedownLogUpdated"
     }
