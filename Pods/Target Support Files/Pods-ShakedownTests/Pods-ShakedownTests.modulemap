@@ -1,0 +1,6 @@
+framework module Pods_ShakedownTests {
+  umbrella header "Pods-ShakedownTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
