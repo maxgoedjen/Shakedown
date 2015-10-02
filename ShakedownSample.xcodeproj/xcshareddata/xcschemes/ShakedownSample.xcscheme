@@ -52,6 +52,16 @@
                ReferencedContainer = "container:ShakedownSample.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "50F902011BB4F41300864FE2"
+               BuildableName = "ShakedownUITests.xctest"
+               BlueprintName = "ShakedownUITests"
+               ReferencedContainer = "container:ShakedownSample.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

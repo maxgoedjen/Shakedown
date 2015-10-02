@@ -15,7 +15,30 @@
 		50B2A2741ABECC6700C7A075 /* ObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B2A2731ABECC6700C7A075 /* ObjCViewController.m */; };
 		50BD7B8E1AD1062F005292C1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BD7B8D1AD1062F005292C1 /* MapKit.framework */; };
 		50F901D11BB266F200864FE2 /* Shakedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F901D01BB266F200864FE2 /* Shakedown.framework */; };
+		50F902051BB4F41300864FE2 /* ShakedownUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F902041BB4F41300864FE2 /* ShakedownUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50F902071BB4F41300864FE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 503756181AB91B1900F3419B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5037561F1AB91B1900F3419B;
+			remoteInfo = ShakedownSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		50F9020E1BB4F46900864FE2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		50114B081ABECB950077AA92 /* ShakedownSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShakedownSample-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -30,6 +53,9 @@
 		50B2A2731ABECC6700C7A075 /* ObjCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCViewController.m; sourceTree = "<group>"; };
 		50BD7B8D1AD1062F005292C1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		50F901D01BB266F200864FE2 /* Shakedown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Shakedown.framework; path = "build/Debug-iphoneos/Shakedown.framework"; sourceTree = "<group>"; };
+		50F902021BB4F41300864FE2 /* ShakedownUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShakedownUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50F902041BB4F41300864FE2 /* ShakedownUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakedownUITests.swift; sourceTree = "<group>"; };
+		50F902061BB4F41300864FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1AA48FEA7020C322D210F6D /* Pods-ShakedownSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakedownSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShakedownSampleTests/Pods-ShakedownSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7122C9A71F3161C27E4F821 /* Pods-ShakedownSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakedownSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShakedownSampleTests/Pods-ShakedownSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +67,13 @@
 			files = (
 				50F901D11BB266F200864FE2 /* Shakedown.framework in Frameworks */,
 				50BD7B8E1AD1062F005292C1 /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50F901FF1BB4F41300864FE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				503756221AB91B1900F3419B /* ShakedownSample */,
+				50F902031BB4F41300864FE2 /* ShakedownUITests */,
 				503756211AB91B1900F3419B /* Products */,
 				818079BAD8B4B9FCCA9F6A70 /* Pods */,
 				0AD7D0031BD60A3E38BDD117 /* Frameworks */,
@@ -70,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				503756201AB91B1900F3419B /* ShakedownSample.app */,
+				50F902021BB4F41300864FE2 /* ShakedownUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,6 +133,15 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		50F902031BB4F41300864FE2 /* ShakedownUITests */ = {
+			isa = PBXGroup;
+			children = (
+				50F902041BB4F41300864FE2 /* ShakedownUITests.swift */,
+				50F902061BB4F41300864FE2 /* Info.plist */,
+			);
+			path = ShakedownUITests;
+			sourceTree = "<group>";
+		};
 		818079BAD8B4B9FCCA9F6A70 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +161,7 @@
 				5037561C1AB91B1900F3419B /* Sources */,
 				5037561D1AB91B1900F3419B /* Frameworks */,
 				5037561E1AB91B1900F3419B /* Resources */,
+				50F9020E1BB4F46900864FE2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -126,6 +171,24 @@
 			productName = ShakedownSample;
 			productReference = 503756201AB91B1900F3419B /* ShakedownSample.app */;
 			productType = "com.apple.product-type.application";
+		};
+		50F902011BB4F41300864FE2 /* ShakedownUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50F9020B1BB4F41300864FE2 /* Build configuration list for PBXNativeTarget "ShakedownUITests" */;
+			buildPhases = (
+				50F901FE1BB4F41300864FE2 /* Sources */,
+				50F901FF1BB4F41300864FE2 /* Frameworks */,
+				50F902001BB4F41300864FE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50F902081BB4F41300864FE2 /* PBXTargetDependency */,
+			);
+			name = ShakedownUITests;
+			productName = ShakedownUITests;
+			productReference = 50F902021BB4F41300864FE2 /* ShakedownUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -146,6 +209,10 @@
 							};
 						};
 					};
+					50F902011BB4F41300864FE2 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 5037561F1AB91B1900F3419B;
+					};
 				};
 			};
 			buildConfigurationList = 5037561B1AB91B1900F3419B /* Build configuration list for PBXProject "ShakedownSample" */;
@@ -162,6 +229,7 @@
 			projectRoot = "";
 			targets = (
 				5037561F1AB91B1900F3419B /* ShakedownSample */,
+				50F902011BB4F41300864FE2 /* ShakedownUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -174,6 +242,13 @@
 				5037562B1AB91B1900F3419B /* Main.storyboard in Resources */,
 				503756301AB91B1900F3419B /* LaunchScreen.xib in Resources */,
 				5037562D1AB91B1900F3419B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50F902001BB4F41300864FE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +265,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		50F901FE1BB4F41300864FE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50F902051BB4F41300864FE2 /* ShakedownUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50F902081BB4F41300864FE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5037561F1AB91B1900F3419B /* ShakedownSample */;
+			targetProxy = 50F902071BB4F41300864FE2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		503756291AB91B1900F3419B /* Main.storyboard */ = {
@@ -313,7 +404,6 @@
 		};
 		503756411AB91B1900F3419B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7122C9A71F3161C27E4F821 /* Pods-ShakedownSampleTests.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -327,6 +417,36 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.goedjen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShakedownSample/ShakedownSample-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		50F902091BB4F41300864FE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = ShakedownUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foundry63.ShakedownUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ShakedownSample;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		50F9020A1BB4F41300864FE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = ShakedownUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.foundry63.ShakedownUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ShakedownSample;
+				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -347,6 +467,15 @@
 			buildConfigurations = (
 				503756401AB91B1900F3419B /* Debug */,
 				503756411AB91B1900F3419B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50F9020B1BB4F41300864FE2 /* Build configuration list for PBXNativeTarget "ShakedownUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50F902091BB4F41300864FE2 /* Debug */,
+				50F9020A1BB4F41300864FE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
