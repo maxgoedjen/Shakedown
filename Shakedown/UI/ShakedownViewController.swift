@@ -111,10 +111,11 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
             configuredCell = cell
         case .DeviceLogs:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(TextViewCell.identifier, forIndexPath: indexPath) as! TextViewCell
-            cell.textView.text = abbreviatedLog
+            let log = abbreviatedLog
+            cell.textView.text = log.log
             cell.textView.userInteractionEnabled = false
             cell.placeholderLabel.text = nil
-            cell.label.text = "Log"
+            cell.label.text = log.truncated ? "Log (Truncated)" : "Log"
             cell.showLabel(false)
             configuredCell = cell
         case .DeviceConfiguration:
@@ -146,7 +147,7 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
         case .Screenshot:
             return CGSize(width: width, height: 150)
         case .DeviceLogs:
-            return CGSize(width: width, height: TextViewCell.heightForText(abbreviatedLog, width: collectionView.frame.width))
+            return CGSize(width: width, height: TextViewCell.heightForText(abbreviatedLog.log, width: collectionView.frame.width))
         case .DeviceConfiguration:
             return CGSize(width: width, height: 40)
         }
@@ -244,12 +245,12 @@ extension ShakedownViewController: SelectorViewDelegate {
 
 extension ShakedownViewController {
     
-    var abbreviatedLog: String {
+    var abbreviatedLog: (log: String, truncated: Bool) {
         let log = report.deviceLog
-        if log.characters.count > 250 {
-            return log.substringToIndex(log.startIndex.advancedBy(250)) + "..."
+        if log.characters.count > 50 {
+            return (log: "..." + log.substringFromIndex(log.endIndex.advancedBy(-50)), truncated: true)
         }
-        return log
+        return (log: log, truncated: false)
     }
     
     class var deviceConfiguration: [String : String] {
