@@ -1,5 +1,25 @@
 import UIKit
 
+/*
+    Application Transport Security Note:
+    Imgur does not currently support forward secrecy, so your app will need to configure an exemption for that domain. 
+
+    <key>NSAppTransportSecurity</key>
+    <dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+    <key>imgur.com</key>
+    <dict>
+    <key>NSExceptionRequiresForwardSecrecy</key>
+    <false/>
+    <key>NSIncludesSubdomains</key>
+    <true/>
+    </dict>
+    </dict>
+    </dict>
+
+*/
+
 public struct ImgurUploader: ImageUploader {
     
     // Shared Client ID for all of Shakedown for out of the box support.
