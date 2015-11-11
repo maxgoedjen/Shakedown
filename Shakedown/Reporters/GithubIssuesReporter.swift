@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class GithubIssuesReporter: Reporter {
+public struct GithubIssuesReporter: Reporter {
 
     let authenticationToken: String
     let projectPath: String
@@ -23,10 +23,9 @@ public class GithubIssuesReporter: Reporter {
     public init(authenticationToken: String, projectPath: String) {
         self.authenticationToken = authenticationToken
         self.projectPath = projectPath
-        super.init()
     }
     
-    override internal func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
+    public func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
         let body = [
             "title" : report.title,

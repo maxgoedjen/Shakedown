@@ -11,16 +11,31 @@ import Foundation
 public typealias ImageAndLogCompletion = ((imageURL: NSURL?, logURL: NSURL?, error: NSError?) -> Void)
 public typealias ReportCompletion = ((completionText: String?, error: NSError?) -> Void)
 
-public class Reporter {
+public protocol Reporter {
+    
     
     /**
-    File the bug report with the tracker
+    File the bug report with the tracker. Subclasses need only override this method.
     
     - parameter report:        Report to file
-    - parameter imageUploader: ImageUploader subclass, which will be provided as configured in Shakedown.swift
-    - parameter logUploader:   LogUploader subclass, which will be provided as configured in Shakedown.swift
+    - parameter screenshotURL: URL to screenshot attachment
+    - parameter logURL:        URL to log attachment
     - parameter completion:    Completion handler to call when finished. Call with completion text (ticket ID, etc)
     */
+    func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion)
+
+}
+
+extension Reporter {
+    
+    /**
+     File the bug report with the tracker
+     
+     - parameter report:        Report to file
+     - parameter imageUploader: ImageUploader subclass, which will be provided as configured in Shakedown.swift
+     - parameter logUploader:   LogUploader subclass, which will be provided as configured in Shakedown.swift
+     - parameter completion:    Completion handler to call when finished. Call with completion text (ticket ID, etc)
+     */
     public func fileBugReport(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ReportCompletion) {
         uploadImagesAndLogs(report, imageUploader: imageUploader, logUploader: logUploader) { screenshotURL, logURL, error in
             if error == nil {
@@ -32,25 +47,13 @@ public class Reporter {
     }
     
     /**
-    File the bug report with the tracker. Subclasses need only override this method.
-    
-    - parameter report:        Report to file
-    - parameter screenshotURL: URL to screenshot attachment
-    - parameter logURL:        URL to log attachment
-    - parameter completion:    Completion handler to call when finished. Call with completion text (ticket ID, etc)
-    */
-    internal func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
-        
-    }
-
-    /**
-    Convenience function to allow subclasses to upload images and logs in one shot
-    
-    - parameter report:        Report to upload images/logs from
-    - parameter imageUploader: ImageUploader subclass
-    - parameter logUploader:   LogUploader subclass
-    - parameter completion:    Completion handler. If either logs or screenshot upload fails, error will be non-nil
-    */
+     Convenience function to allow subclasses to upload images and logs in one shot
+     
+     - parameter report:        Report to upload images/logs from
+     - parameter imageUploader: ImageUploader subclass
+     - parameter logUploader:   LogUploader subclass
+     - parameter completion:    Completion handler. If either logs or screenshot upload fails, error will be non-nil
+     */
     private func uploadImagesAndLogs(report: BugReport, imageUploader: ImageUploader, logUploader: LogUploader, completion: ImageAndLogCompletion) {
         imageUploader.uploadImage(report.screenshot) {
             screenshotURL, screenshotError in
@@ -65,5 +68,6 @@ public class Reporter {
             }
         }
     }
+    
 
 }

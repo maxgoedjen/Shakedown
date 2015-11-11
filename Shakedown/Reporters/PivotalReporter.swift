@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class PivotalReporter: Reporter {
+public struct PivotalReporter: Reporter {
     
     let authenticationToken: String
     let projectID: String
@@ -23,11 +23,10 @@ public class PivotalReporter: Reporter {
     public init(authenticationToken: String, projectID: String) {
         self.authenticationToken = authenticationToken
         self.projectID = projectID
-        super.init()
     }
     
     
-    override internal func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
+    public func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
         let fields = [
             "story_type": "bug",

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class JIRAReporter: Reporter {
+public struct JIRAReporter: Reporter {
 
     let instanceURL: String
     let username: String
@@ -35,10 +35,9 @@ public class JIRAReporter: Reporter {
         self.projectKey = projectKey
         self.issueType = issueType
         self.reproducibilityField = reproducibilityField
-        super.init()
     }
     
-    override internal func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
+    public func fileBugReport(report: BugReport, screenshotURL: NSURL, logURL: NSURL, completion: ReportCompletion) {
         let description = issueBody(report, screenshotURL: screenshotURL, logURL: logURL)
         var fields: [String : AnyObject] = [ // This is being cast to NSDictionary without explicit type annotation
             "project" : ["key" : self.projectKey],
