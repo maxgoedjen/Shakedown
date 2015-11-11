@@ -33,7 +33,7 @@ class LogViewController: UIViewController {
         if textView.contentOffset.y + textView.frame.height == oldSize.height {
             // At the bottom already, stay pinned to bottom as new logs come in
             let bottom = CGRect(x: 0, y: textView.contentSize.height-textView.frame.height, width: textView.frame.width, height: textView.frame.height)
-            textView.scrollRectToVisible(bottom, animated: true)
+            textView.scrollRectToVisible(bottom, animated: false)
         }
     }
     
