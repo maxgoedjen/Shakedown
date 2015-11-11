@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50063C4C1BF34527004AF98A /* SlackReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50063C4B1BF34527004AF98A /* SlackReporter.swift */; };
 		50F9013F1BB2656C00864FE2 /* Shakedown.h in Headers */ = {isa = PBXBuildFile; fileRef = 50F9013E1BB2656C00864FE2 /* Shakedown.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50F901461BB2656C00864FE2 /* Shakedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F9013B1BB2656C00864FE2 /* Shakedown.framework */; };
 		50F901781BB265AE00864FE2 /* NSJSONSerialization+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F901561BB265AE00864FE2 /* NSJSONSerialization+Swift.swift */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		074162CB88B321BC10DF47E7 /* Pods-ShakedownTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakedownTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShakedownTests/Pods-ShakedownTests.debug.xcconfig"; sourceTree = "<group>"; };
+		50063C4B1BF34527004AF98A /* SlackReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackReporter.swift; sourceTree = "<group>"; };
 		50F9013B1BB2656C00864FE2 /* Shakedown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shakedown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F9013E1BB2656C00864FE2 /* Shakedown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shakedown.h; sourceTree = "<group>"; };
 		50F901401BB2656C00864FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				50F901651BB265AE00864FE2 /* GithubIssuesReporter.swift */,
 				50F901661BB265AE00864FE2 /* JIRAReporter.swift */,
 				50F901671BB265AE00864FE2 /* PivotalReporter.swift */,
+				50063C4B1BF34527004AF98A /* SlackReporter.swift */,
 				50F901681BB265AE00864FE2 /* Reporter.swift */,
 			);
 			path = Reporters;
@@ -597,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50F9017D1BB265AE00864FE2 /* ImgurUploader.swift in Sources */,
+				50063C4C1BF34527004AF98A /* SlackReporter.swift in Sources */,
 				50F901791BB265AE00864FE2 /* NSURLResponse+Error.swift in Sources */,
 				50F901831BB265AE00864FE2 /* JIRAReporter.swift in Sources */,
 				50F9018D1BB265AE00864FE2 /* LogViewController.swift in Sources */,
