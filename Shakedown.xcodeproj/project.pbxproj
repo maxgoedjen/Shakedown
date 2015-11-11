@@ -12,7 +12,6 @@
 		50F901781BB265AE00864FE2 /* NSJSONSerialization+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F901561BB265AE00864FE2 /* NSJSONSerialization+Swift.swift */; };
 		50F901791BB265AE00864FE2 /* NSURLResponse+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F901571BB265AE00864FE2 /* NSURLResponse+Error.swift */; };
 		50F9017A1BB265AE00864FE2 /* UIColor+ShakedownColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F901581BB265AE00864FE2 /* UIColor+ShakedownColors.swift */; };
-		50F9017B1BB265AE00864FE2 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F901591BB265AE00864FE2 /* UIImage+Blur.swift */; };
 		50F9017C1BB265AE00864FE2 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9015C1BB265AE00864FE2 /* ImageUploader.swift */; };
 		50F9017D1BB265AE00864FE2 /* ImgurUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9015D1BB265AE00864FE2 /* ImgurUploader.swift */; };
 		50F9017E1BB265AE00864FE2 /* GistUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F9015F1BB265AE00864FE2 /* GistUploader.swift */; };
@@ -83,7 +82,6 @@
 		50F901561BB265AE00864FE2 /* NSJSONSerialization+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSJSONSerialization+Swift.swift"; sourceTree = "<group>"; };
 		50F901571BB265AE00864FE2 /* NSURLResponse+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLResponse+Error.swift"; sourceTree = "<group>"; };
 		50F901581BB265AE00864FE2 /* UIColor+ShakedownColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ShakedownColors.swift"; sourceTree = "<group>"; };
-		50F901591BB265AE00864FE2 /* UIImage+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Blur.swift"; sourceTree = "<group>"; };
 		50F9015C1BB265AE00864FE2 /* ImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		50F9015D1BB265AE00864FE2 /* ImgurUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurUploader.swift; sourceTree = "<group>"; };
 		50F9015F1BB265AE00864FE2 /* GistUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GistUploader.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 				50F901561BB265AE00864FE2 /* NSJSONSerialization+Swift.swift */,
 				50F901571BB265AE00864FE2 /* NSURLResponse+Error.swift */,
 				50F901581BB265AE00864FE2 /* UIColor+ShakedownColors.swift */,
-				50F901591BB265AE00864FE2 /* UIImage+Blur.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -617,7 +614,6 @@
 				50F901841BB265AE00864FE2 /* PivotalReporter.swift in Sources */,
 				50F901821BB265AE00864FE2 /* GithubIssuesReporter.swift in Sources */,
 				50F9017C1BB265AE00864FE2 /* ImageUploader.swift in Sources */,
-				50F9017B1BB265AE00864FE2 /* UIImage+Blur.swift in Sources */,
 				50F901891BB265AE00864FE2 /* LabeledCell.swift in Sources */,
 				50F901811BB265AE00864FE2 /* Configuration.swift in Sources */,
 				50F901801BB265AE00864FE2 /* BugReport.swift in Sources */,

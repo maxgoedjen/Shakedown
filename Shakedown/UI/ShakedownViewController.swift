@@ -4,7 +4,6 @@ class ShakedownViewController: UIViewController {
 
     var report = BugReport(screenshot: currentScreenImage, deviceConfiguration: ShakedownViewController.deviceConfiguration, deviceLog: Shakedown.configuration.log)
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var selectorView: SelectorView!
     
     enum Sections: Int {
@@ -17,7 +16,6 @@ class ShakedownViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundImageView.image = report.screenshot.blurred
         let top = navigationController!.navigationBar.frame.height + (UIDevice.currentDevice().userInterfaceIdiom == .Phone ? UIApplication.sharedApplication().statusBarFrame.height : 0)
         collectionView.contentInset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = collectionView.contentInset

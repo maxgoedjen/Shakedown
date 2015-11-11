@@ -15,6 +15,7 @@ public class Shakedown: NSObject {
         let navController = storyboard.instantiateInitialViewController() as! UINavigationController
         navController.modalPresentationStyle = .FormSheet
         let presenter = viewController ?? frontViewController
+        navController.modalPresentationStyle = .OverCurrentContext
         presenter.presentViewController(navController, animated: true, completion: nil)
     }
     
