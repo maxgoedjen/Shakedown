@@ -3,6 +3,7 @@ import UIKit
 protocol ShakedownCellDelegate {
     
     func cell(cell: ShakedownCell, valueChanged newValue: String)
+    func cellCompletedEditing(cell: ShakedownCell)
     
 }
 

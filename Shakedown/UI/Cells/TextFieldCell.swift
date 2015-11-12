@@ -8,6 +8,7 @@ class TextFieldCell: LabeledCell {
         return "TextFieldCell"
     }
     
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         hideLabel(false)
@@ -28,11 +29,20 @@ extension TextFieldCell {
     
     @IBAction func valueChanged(textField: UITextField) {
         delegate?.cell(self, valueChanged: textField.text ?? "")
-        if let _ = textField.text {
+        if let _ = textField.text?.isEmpty {
             hideLabel()
         } else {
             showLabel()
         }
+    }
+    
+}
+
+extension TextFieldCell: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        delegate?.cellCompletedEditing(self)
+        return true
     }
     
 }

@@ -212,6 +212,13 @@ extension ShakedownViewController: ShakedownCellDelegate {
         }
     }
     
+    func cellCompletedEditing(cell: ShakedownCell) {
+        guard let indexPath = collectionView.indexPathForCell(cell) else { return }
+        let next = NSIndexPath(forItem: indexPath.item+1, inSection: indexPath.section)
+        guard let cell = collectionView.cellForItemAtIndexPath(next) as? TextFieldCell else { return }
+        cell.textField.becomeFirstResponder()
+    }
+    
 }
 
 // MARK: Buttons
