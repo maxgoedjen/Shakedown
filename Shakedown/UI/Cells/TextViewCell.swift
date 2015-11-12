@@ -20,7 +20,7 @@ class TextViewCell: LabeledCell {
         } else {
             let attributed = NSAttributedString(string: text, attributes: [NSFontAttributeName : UIFont.systemFontOfSize(17)])
             let bounds = CGSize(width: width - 6, height: 0)
-            return attributed.boundingRectWithSize(bounds, options: [.UsesLineFragmentOrigin, .UsesFontLeading], context: nil).size.height + 10
+            return attributed.boundingRectWithSize(bounds, options: [.UsesLineFragmentOrigin, .UsesFontLeading], context: nil).size.height + 30
         }
     }
     
