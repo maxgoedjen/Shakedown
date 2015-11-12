@@ -30,9 +30,9 @@ extension TextFieldCell {
     @IBAction func valueChanged(textField: UITextField) {
         delegate?.cell(self, valueChanged: textField.text ?? "")
         if let _ = textField.text {
-            hideLabel()
-        } else {
             showLabel()
+        } else {
+            hideLabel()
         }
     }
     
