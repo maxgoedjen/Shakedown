@@ -29,9 +29,8 @@ class ShakedownViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let logViewController = segue.destinationViewController as? LogViewController {
-            logViewController.report = report
-        }
+        guard let logViewController = segue.destinationViewController as? LogViewController else { return }
+        logViewController.report = report
     }
     
     func updateLog(notification: NSNotification) {
@@ -179,36 +178,35 @@ extension ShakedownViewController: UICollectionViewDataSource, UICollectionViewD
 extension ShakedownViewController: ShakedownCellDelegate {
     
     func cell(cell: ShakedownCell, valueChanged newValue: String) {
-        if let indexPath = collectionView.indexPathForCell(cell) {
-            let typed = Sections(rawValue: indexPath.section)!
-            switch typed {
-            case .Title:
-                report.title = newValue
-            case .Description:
-                report.description = newValue
-                collectionView.collectionViewLayout.invalidateLayout()
-            case .Reproducibility:
-                report.reproducibility = newValue
-            case .ReproductionSteps:
-                if indexPath.item >= report.reproductionSteps.count {
-                    report.reproductionSteps.append(newValue)
-                    cell.divider.hidden = true
-                    collectionView.insertItemsAtIndexPaths([NSIndexPath(forItem: report.reproductionSteps.count, inSection: typed.rawValue)])
+        guard let indexPath = collectionView.indexPathForCell(cell) else { return }
+        guard let typed = Sections(rawValue: indexPath.section) else { return}
+        switch typed {
+        case .Title:
+            report.title = newValue
+        case .Description:
+            report.description = newValue
+            collectionView.collectionViewLayout.invalidateLayout()
+        case .Reproducibility:
+            report.reproducibility = newValue
+        case .ReproductionSteps:
+            if indexPath.item >= report.reproductionSteps.count {
+                report.reproductionSteps.append(newValue)
+                cell.divider.hidden = true
+                collectionView.insertItemsAtIndexPaths([NSIndexPath(forItem: report.reproductionSteps.count, inSection: typed.rawValue)])
+            } else {
+                if !newValue.isEmpty {
+                    report.reproductionSteps[indexPath.item] = newValue
+                    let indexPaths = Array(0...report.reproductionSteps.count).map { NSIndexPath(forItem: $0, inSection: typed.rawValue)}.filter { $0.item != indexPath.row }
+                    collectionView.reloadItemsAtIndexPaths(indexPaths)
                 } else {
-                    if !newValue.isEmpty {
-                        report.reproductionSteps[indexPath.item] = newValue
-                        let indexPaths = Array(0...report.reproductionSteps.count).map { NSIndexPath(forItem: $0, inSection: typed.rawValue)}.filter { $0.item != indexPath.row }
-                        collectionView.reloadItemsAtIndexPaths(indexPaths)
-                    } else {
-                        report.reproductionSteps.removeAtIndex(indexPath.item)
-                        collectionView.deleteItemsAtIndexPaths([NSIndexPath(forItem: report.reproductionSteps.count, inSection: typed.rawValue)])
-                        collectionView.reloadSections(NSIndexSet(index: indexPath.section))
-                    }
+                    report.reproductionSteps.removeAtIndex(indexPath.item)
+                    collectionView.deleteItemsAtIndexPaths([NSIndexPath(forItem: report.reproductionSteps.count, inSection: typed.rawValue)])
+                    collectionView.reloadSections(NSIndexSet(index: indexPath.section))
                 }
-            default:
-                // No-op for logs, device config, screenshot
-                break
             }
+        default:
+            // No-op for logs, device config, screenshot
+            break
         }
     }
     
