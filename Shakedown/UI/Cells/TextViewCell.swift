@@ -20,11 +20,7 @@ class TextViewCell: LabeledCell {
         } else {
             let attributed = NSAttributedString(string: text, attributes: [NSFontAttributeName : UIFont.systemFontOfSize(17)])
             let bounds = CGSize(width: width - 6, height: 0)
-            // Workaround for incorrect Swift 1.1 port of NSStringDrawingOptions to Int instead of RawOptionSetType. Fixed in 1.2
-            let options = unsafeBitCast(NSStringDrawingOptions.UsesLineFragmentOrigin.rawValue |
-                NSStringDrawingOptions.UsesFontLeading.rawValue,
-                NSStringDrawingOptions.self)
-            return attributed.boundingRectWithSize(bounds, options: options, context: nil).size.height + 30
+            return attributed.boundingRectWithSize(bounds, options: [.UsesLineFragmentOrigin, .UsesFontLeading], context: nil).size.height + 10
         }
     }
     
