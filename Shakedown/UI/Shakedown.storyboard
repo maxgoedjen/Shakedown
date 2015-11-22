@@ -285,21 +285,30 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5Q-uC-d9Q" customClass="SubmittingView" customModule="Shakedown" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="h5Q-uC-d9Q" firstAttribute="leading" secondItem="6of-V1-Qtz" secondAttribute="leading" id="2ac-Rp-WhE"/>
                             <constraint firstItem="RtV-1a-9DI" firstAttribute="top" secondItem="iyL-q0-buQ" secondAttribute="bottom" id="2ce-Ka-pJf"/>
                             <constraint firstItem="CbH-Vs-DeZ" firstAttribute="top" secondItem="SWS-FX-PtX" secondAttribute="bottom" id="At9-wl-iHB"/>
                             <constraint firstAttribute="trailing" secondItem="6T2-dm-qU9" secondAttribute="trailing" id="HCp-Dh-pzi"/>
                             <constraint firstItem="RtV-1a-9DI" firstAttribute="top" secondItem="6T2-dm-qU9" secondAttribute="bottom" id="K8P-1F-ZFK"/>
                             <constraint firstItem="CbH-Vs-DeZ" firstAttribute="leading" secondItem="6of-V1-Qtz" secondAttribute="leading" id="LMQ-Kv-ed2"/>
+                            <constraint firstItem="h5Q-uC-d9Q" firstAttribute="top" secondItem="SWS-FX-PtX" secondAttribute="bottom" id="NRX-kl-xnk"/>
                             <constraint firstAttribute="trailing" secondItem="iyL-q0-buQ" secondAttribute="trailing" id="OTR-Xs-O3r"/>
                             <constraint firstItem="iyL-q0-buQ" firstAttribute="top" secondItem="6of-V1-Qtz" secondAttribute="top" id="P7k-5z-vEy"/>
                             <constraint firstItem="6T2-dm-qU9" firstAttribute="top" secondItem="6of-V1-Qtz" secondAttribute="top" id="Vb3-7b-uo4"/>
                             <constraint firstAttribute="trailing" secondItem="CbH-Vs-DeZ" secondAttribute="trailing" id="VuY-7e-CaW"/>
                             <constraint firstItem="iyL-q0-buQ" firstAttribute="leading" secondItem="6of-V1-Qtz" secondAttribute="leading" id="W7v-i6-OWs"/>
                             <constraint firstItem="RtV-1a-9DI" firstAttribute="top" secondItem="CbH-Vs-DeZ" secondAttribute="bottom" id="Zs2-9v-ktF"/>
+                            <constraint firstItem="RtV-1a-9DI" firstAttribute="top" secondItem="h5Q-uC-d9Q" secondAttribute="bottom" id="dRb-MW-37n"/>
+                            <constraint firstAttribute="trailing" secondItem="h5Q-uC-d9Q" secondAttribute="trailing" id="nh5-O4-Fxk"/>
                             <constraint firstItem="6T2-dm-qU9" firstAttribute="leading" secondItem="6of-V1-Qtz" secondAttribute="leading" id="sFk-Xx-cJv"/>
                         </constraints>
                     </view>
