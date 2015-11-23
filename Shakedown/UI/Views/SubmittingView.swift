@@ -10,10 +10,15 @@ import UIKit
 
 class SubmittingView: UIView {
     
+    let shapeLayer = CAShapeLayer()
     let iPhonePath: UIBezierPath = {
         let path = UIBezierPath()
-        path.moveToPoint(CGPoint(x: 90, y: 10))
-        path.addArcWithCenter(<#T##center: CGPoint##CGPoint#>, radius: <#T##CGFloat#>, startAngle: <#T##CGFloat#>, endAngle: <#T##CGFloat#>, clockwise: <#T##Bool#>)
+        path.moveToPoint(CGPoint(x: 10, y: 10))
+        path.addLineToPoint(CGPoint(x: 90, y: 10))
+        path.moveToPoint(CGPoint(x: 10, y: 20))
+        path.addLineToPoint(CGPoint(x: 90, y: 20))
+        path.moveToPoint(CGPoint(x: 10, y: 30))
+        path.addLineToPoint(CGPoint(x: 90, y: 30))
         return path
     }()
     
@@ -36,17 +41,25 @@ class SubmittingView: UIView {
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[v]|", options: [], metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[v]|", options: [], metrics: nil, views: views))
         
-        let shapeLayer = CAShapeLayer()
         shapeLayer.strokeColor = UIColor.whiteColor().CGColor
         shapeLayer.lineWidth = 1
         shapeLayer.path = iPhonePath.CGPath
         layer.addSublayer(shapeLayer)
-        layer.bounds.size = CGSize(width: 100, height: 100)
-        layer.position = center
+        shapeLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
     }
     
     func animate() {
-        
+        shapeLayer.strokeEnd = 0
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = 10
+        shapeLayer.addAnimation(animation, forKey: "stroke")
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        animate()
     }
     
 }
