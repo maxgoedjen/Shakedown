@@ -10,7 +10,6 @@ import UIKit
 
 class SubmittingView: UIView {
     
-    
     let backing = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
     static let paths: [UIBezierPath] = {
         return [UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 100, height: 206), cornerRadius: 10),
@@ -39,12 +38,13 @@ class SubmittingView: UIView {
             shapeLayer.lineWidth = 1
             shapeLayer.path = path.CGPath
             shapeLayer.position = CGPoint(x: 137, y: 200)
+            shapeLayer.strokeEnd = 0
             return shapeLayer
         }
     }()
     
     func setupView() {
-        backgroundColor = UIColor.blackColor()
+        alpha = 0
         let views = ["v": backing]
         addSubview(backing)
         backing.translatesAutoresizingMaskIntoConstraints = false
@@ -57,20 +57,17 @@ class SubmittingView: UIView {
     }
     
     func animate() {
-        for shapeLayer in shapeLayers {
-            shapeLayer.strokeEnd = 1
-            let animation = CABasicAnimation(keyPath: "strokeEnd")
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            animation.fromValue = 0
-            animation.toValue = 1
-            animation.duration = 3
-            shapeLayer.addAnimation(animation, forKey: "stroke")
+        UIView.animateWithDuration(1, animations: { self.alpha = 1 }) { _ in
+            for shapeLayer in self.shapeLayers {
+                shapeLayer.strokeEnd = 1
+                let animation = CABasicAnimation(keyPath: "strokeEnd")
+                animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                animation.fromValue = 0
+                animation.toValue = 1
+                animation.duration = 3
+                shapeLayer.addAnimation(animation, forKey: "stroke")
+            }
         }
-    }
-    
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        animate()
     }
     
 }

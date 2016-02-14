@@ -5,6 +5,7 @@ class ShakedownViewController: UIViewController {
     var report = BugReport(screenshot: currentScreenImage, deviceConfiguration: ShakedownViewController.deviceConfiguration, deviceLog: Shakedown.configuration.log)
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var selectorView: SelectorView!
+    @IBOutlet var submittingView: SubmittingView!
     
     enum Sections: Int {
         case Title, Description, Reproducibility, ReproductionSteps, Screenshot, DeviceLogs, DeviceConfiguration
@@ -228,6 +229,9 @@ extension ShakedownViewController {
     }
     
     @IBAction func submitReport(sender: UIBarButtonItem) {
+        navigationItem.leftBarButtonItem?.enabled = false
+        navigationItem.rightBarButtonItem?.enabled = false
+        submittingView.animate()
         Shakedown.configuration.reporter?.fileBugReport(report, imageUploader: Shakedown.configuration.imageUploader, logUploader: Shakedown.configuration.logUploader) { message in
             print(message)
         }
